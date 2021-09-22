@@ -1,0 +1,164 @@
+@mixin for-size($size) {
+	@if $size == phone-only {
+		@media (max-width: 599px) {
+			@content;
+		}
+	} @else if $size == tablet-portrait-up {
+		@media (min-width: 600px) {
+			@content;
+		}
+	} @else if $size == tablet-landscape-up {
+		@media (min-width: 900px) {
+			@content;
+		}
+	} @else if $size == desktop-up {
+		@media (min-width: 1200px) {
+			@content;
+		}
+	} @else if $size == big-desktop-up {
+		@media (min-width: 1800px) {
+			@content;
+		}
+	}
+}
+@mixin selection {
+	::-moz-selection {
+		@content;
+	}
+	::selection {
+		@content;
+	}
+}
+@mixin full-width {
+	.full-width {
+		width: clamp(0%, calc(100% - 0.3rem), 100vw);
+	}
+}
+@mixin dir {
+	.ltr {
+		direction: ltr;
+	}
+	.rtl {
+		direction: rtl;
+	}
+}
+@mixin palette-generator-variables {
+	:root {
+		--white: #{$white};
+		--black: #{$black};
+		@each $localPaletteName, $paletteValue in $theme-variants {
+			--#{$localPaletteName}-light: #{map.get($theme-variants, $localPaletteName, 'light')};
+			--#{$localPaletteName}-light-font: #{map.get(
+					$theme-variants,
+					$localPaletteName,
+					'light-font'
+				)};
+			--#{$localPaletteName}-base: #{map.get($theme-variants, $localPaletteName, 'base')};
+			--#{$localPaletteName}-base-font: #{map.get($theme-variants, $localPaletteName, 'base-font')};
+			--#{$localPaletteName}-dark: #{map.get($theme-variants, $localPaletteName, 'dark')};
+			--#{$localPaletteName}-dark-font: #{map.get($theme-variants, $localPaletteName, 'dark-font')};
+			--#{$localPaletteName}-darker: #{map.get($theme-variants, $localPaletteName, 'darker')};
+			--#{$localPaletteName}-darker-font: #{map.get(
+					$theme-variants,
+					$localPaletteName,
+					'darker-font'
+				)};
+			--#{$localPaletteName}-natural: #{map.get($theme-variants, $localPaletteName, 'natural')};
+			--#{$localPaletteName}-natural-font: #{map.get(
+					$theme-variants,
+					$localPaletteName,
+					'natural-font'
+				)};
+			--#{$localPaletteName}-font: #{map.get($theme-variants, $localPaletteName, 'font')};
+		}
+	}
+}
+@mixin palette-class-variables($localPaletteName) {
+	// :global {
+	.#{$localPaletteName} {
+		--light: #{map.get($theme-variants, $localPaletteName, 'light')};
+		--light-font: #{map.get($theme-variants, $localPaletteName, 'light-font')};
+		--base: #{map.get($theme-variants, $localPaletteName, 'base')};
+		--base-font: #{map.get($theme-variants, $localPaletteName, 'base-font')};
+		--dark: #{map.get($theme-variants, $localPaletteName, 'dark')};
+		--dark-font: #{map.get($theme-variants, $localPaletteName, 'dark-font')};
+		--darker: #{map.get($theme-variants, $localPaletteName, 'darker')};
+		--darker-font: #{map.get($theme-variants, $localPaletteName, 'darker-font')};
+		--natural: #{map.get($theme-variants, $localPaletteName, 'natural')};
+		--natural-font: #{map.get($theme-variants, $localPaletteName, 'natural-font')};
+		--font: #{map.get($theme-variants, $localPaletteName, 'font')};
+	}
+	// }
+}
+@mixin palette-class-generator-loop {
+	@each $localPaletteName, $paletteValue in $theme-variants {
+		@include palette-class-variables($localPaletteName);
+	}
+}
+@mixin palette-generator-polyfill {
+	@each $localPaletteName, $paletteValue in $theme-variants {
+		$color: $paletteValue !global;
+		$light: map.get($theme-variants, $localPaletteName, 'light') !global;
+		$light-font: map.get($theme-variants, $localPaletteName, 'light-font') !global;
+		$base: map.get($theme-variants, $localPaletteName, 'base') !global;
+		$base-font: map.get($theme-variants, $localPaletteName, 'base-font') !global;
+		$dark: map.get($theme-variants, $localPaletteName, 'dark') !global;
+		$dark-font: map.get($theme-variants, $localPaletteName, 'dark-font') !global;
+		$darker: map.get($theme-variants, $localPaletteName, 'darker') !global;
+		$darker-font: map.get($theme-variants, $localPaletteName, 'darker-font') !global;
+		$natural: map.get($theme-variants, $localPaletteName, 'natural') !global;
+		$natural-font: map.get($theme-variants, $localPaletteName, 'natural-font') !global;
+		$font: map.get($theme-variants, $localPaletteName, 'font') !global;
+		@at-root .#{$localPaletteName} {
+			@content;
+		}
+	}
+}
+
+@mixin action-hover {
+	&:not([disabled]):hover {
+		@content;
+	}
+}
+
+@mixin action-active {
+	&:not([disabled]):active {
+		@content;
+	}
+}
+
+@mixin action-focus {
+	&:not([disabled]):focus {
+		@content;
+	}
+}
+
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+	content: $content;
+	display: $display;
+	position: $pos;
+}
+@mixin input-placeholder {
+	&.placeholder {
+		@content;
+	}
+	&:-moz-placeholder {
+		@content;
+	}
+	&::-moz-placeholder {
+		@content;
+	}
+	&:-ms-input-placeholder {
+		@content;
+	}
+	&::-webkit-input-placeholder {
+		@content;
+	}
+}
+
+@mixin truncate($truncation-boundary) {
+	max-width: $truncation-boundary;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

@@ -1,0 +1,12 @@
+@import 'modules/default.scss';
+:export {
+	white: $white;
+	black: $black;
+	primary: $color-primary;
+	secondary: $color-secondary;
+
+	danger: $color-danger;
+	warning: $color-warning;
+	info: $color-info;
+	success: $color-success;
+}

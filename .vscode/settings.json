@@ -1,0 +1,7 @@
+{
+	"[svelte]": {
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "svelte.svelte-vscode"
+	},
+	"cSpell.words": ["GITHUBTOKEN", "pinterest", "poppanator", "Vuesax", "zindex"]
+}
