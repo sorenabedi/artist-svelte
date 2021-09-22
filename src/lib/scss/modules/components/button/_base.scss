@@ -1,0 +1,56 @@
+@use 'sass:math';
+$base-borderRadius: $borderRadius;
+$base-borderWidth: $borderWidth;
+$base-marginX: $marginX;
+$base-marginY: $marginY;
+$base-paddingX: $paddingX;
+$base-paddingY: math.div($paddingY, 2);
+$base-fontSize: 0.9rem;
+$text-marginX: 0.25rem;
+$icon-size: 0.8rem;
+$icon-marginX: 0.125rem;
+
+& {
+	padding: $base-paddingY $base-paddingX;
+	background-color: transparent;
+	margin: $base-marginY $base-marginX;
+	border-color: transparent;
+	border-radius: $base-borderRadius;
+	border-width: $base-borderWidth;
+	display: inline-flex;
+	align-items: center;
+	border-style: solid;
+	font-size: $base-fontSize;
+	justify-content: center;
+	cursor: pointer;
+	transition: background 0.25s, color 0.25s, border 0.25s;
+	// @include truncate(100%);
+
+	span {
+		display: inline-block;
+		margin: auto $text-marginX;
+	}
+	span.icon {
+		display: flex;
+		align-items: center;
+		width: $icon-size;
+		height: $icon-size;
+		margin: auto $icon-marginX;
+		:global {
+			path {
+				transition: fill 0.25s;
+			}
+		}
+	}
+	&.circle {
+		border-radius: $base-borderRadius * 2;
+		padding: $paddingX;
+	}
+
+	@include action-focus {
+		outline-color: transparent;
+		outline-width: 0;
+		outline-style: auto;
+		outline-offset: 0;
+	}
+}

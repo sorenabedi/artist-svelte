@@ -1,0 +1,45 @@
+&.outline {
+	position: relative;
+}
+@mixin button-outline {
+	&.outline {
+		border-color: var(--natural);
+		color: var(--base);
+		:global {
+			path {
+				fill: var(--base);
+			}
+		}
+		@include action-focus {
+			border-color: var(--base);
+			background-color: var(--natural);
+			color: var(--natural-font);
+			:global {
+				path {
+					fill: var(--natural-font);
+				}
+			}
+		}
+
+		@include action-hover {
+			background-color: var(--base);
+			color: var(--base-font);
+			:global {
+				path {
+					fill: var(--base-font);
+				}
+			}
+		}
+		@include action-active {
+			border-color: var(--base);
+
+			background-color: var(--dark);
+			color: var(--dark-font);
+			:global {
+				path {
+					fill: var(--dark-font);
+				}
+			}
+		}
+	}
+}
