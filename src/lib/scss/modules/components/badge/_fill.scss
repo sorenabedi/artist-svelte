@@ -1,0 +1,20 @@
+@mixin badge-fill {
+	&.fill {
+		background-color: var(--base);
+		color: var(--base-font);
+		:global {
+			path {
+				fill: var(--base-font);
+			}
+		}
+		@include action-hover {
+			background-color: var(--dark);
+			color: var(--dark-font);
+			:global {
+				path {
+					fill: var(--dark-font);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,24 @@
+&.outline {
+	position: relative;
+}
+@mixin badge-outline {
+	&.outline {
+		border-color: var(--base);
+		color: var(--base);
+		$fgColor: a11y-color($base, $white, 'AAA');
+		:global {
+			path {
+				fill: var(--base);
+			}
+		}
+		@include action-hover {
+			background-color: var(--base);
+			color: var(--base-font);
+			:global {
+				path {
+					fill: var(--base-font);
+				}
+			}
+		}
+	}
+}
