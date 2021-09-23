@@ -1,6 +1,6 @@
 <script>
 	import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
-	import Button from './Button.svelte';
+	import Button from '$lib/components/button';
 </script>
 
 <Meta
