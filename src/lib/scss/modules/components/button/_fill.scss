@@ -1,0 +1,39 @@
+@mixin button-fill {
+	&.fill {
+		background-color: var(--base);
+		color: var(--base-font);
+		:global {
+			path {
+				fill: var(--base-font);
+			}
+		}
+		@include action-focus {
+			background-color: var(--natural);
+			color: var(--natural-font);
+			:global {
+				path {
+					fill: var(--natural-font);
+				}
+			}
+		}
+		@include action-hover {
+			background-color: var(--dark);
+			color: var(--dark-font);
+			:global {
+				path {
+					fill: var(--dark-font);
+				}
+			}
+		}
+		@include action-active {
+			border-color: var(--base);
+			background-color: var(--darker);
+			color: var(--darker-font);
+			:global {
+				path {
+					fill: var(--darker-font);
+				}
+			}
+		}
+	}
+}

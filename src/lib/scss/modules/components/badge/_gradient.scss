@@ -1,0 +1,66 @@
+&.outline-gradient {
+	position: relative;
+	&:before {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		top: -$base-borderWidth;
+		left: -$base-borderWidth;
+		right: -$base-borderWidth;
+		bottom: -$base-borderWidth;
+		padding: $base-borderWidth;
+		border-radius: $base-borderRadius;
+	}
+}
+// background: linear-gradient(-90deg, #24d2fe, #4facfe);
+@mixin badge-gradient {
+	$gradient: linear-gradient(-90deg, var(--light), var(--dark), var(--light));
+	$gradient-focus: linear-gradient(-90deg, var(--darker), var(--base), var(--darker));
+	&.outline-gradient {
+		background: $gradient;
+		background-size: 100% 100%;
+		-webkit-background-clip: text;
+		-moz-background-clip: text;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+
+		&:before {
+			background: $gradient;
+			background-size: 100% 100%;
+			-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+			mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+			-webkit-mask-composite: destination-out;
+			mask-composite: exclude;
+		}
+
+		@include action-hover {
+			background: $gradient;
+			-webkit-background-clip: text;
+			-moz-background-clip: text;
+			background-clip: text;
+			-webkit-text-fill-color: transparent;
+			animation: backgroundGradient 5s ease infinite;
+			&:before {
+				background: $gradient;
+				// background: linear-gradient(-90deg, #24d2fe, #4facfe);
+				-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+				mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+				-webkit-mask-composite: destination-out;
+				mask-composite: exclude;
+				animation: backgroundGradient 5s ease infinite;
+			}
+		}
+	}
+}
+
+@keyframes backgroundGradient {
+	0% {
+		background-position: 0;
+	}
+	50% {
+		background-position: 100px;
+	}
+	100% {
+		background-position: 0%;
+	}
+}

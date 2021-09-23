@@ -3,5 +3,6 @@
 		"editor.formatOnSave": true,
 		"editor.defaultFormatter": "svelte.svelte-vscode"
 	},
-	"cSpell.words": ["GITHUBTOKEN", "pinterest", "poppanator", "Vuesax", "zindex"]
+	"cSpell.words": ["GITHUBTOKEN", "pinterest", "poppanator", "zindex"],
+	"conventionalCommits.scopes": ["pre-release", "beta", "alpha", "patch", "BREAKING CHANGE", "dev"]
 }

@@ -2,7 +2,13 @@ const sveltePreprocess = require('svelte-preprocess');
 const resolve = require('path').resolve;
 module.exports = {
 	stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx|svelte)'],
-	addons: ['@storybook/addon-links', '@storybook/addon-essentials', '@storybook/addon-svelte-csf'],
+	addons: [
+		'@storybook/addon-actions',
+		'@storybook/addon-links',
+		'@storybook/addon-essentials',
+		'@storybook/addon-a11y',
+		'@storybook/addon-svelte-csf'
+	],
 	svelteOptions: {
 		// preprocess: require('../svelte.config.js').preprocess
 	},
@@ -38,7 +44,7 @@ module.exports = {
 		});
 		svelteLoader.options = {
 			...svelteLoader.options,
-			preprocess: require('svelte-preprocess')({
+			preprocess: sveltePreprocess({
 				scss: {
 					includePaths: ['./src/lib/scss'],
 					prependData: "@import 'modules/default';"
