@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Card from '$lib/components/card';
 	import Btn from '$lib/components/button';
+	import { Card } from '$lib';
 	export let name: string;
 </script>
 
