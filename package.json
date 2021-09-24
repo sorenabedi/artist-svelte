@@ -1,6 +1,6 @@
 {
 	"name": "@sorens/artist-svelte",
-	"version": "0.0.0-dev",
+	"version": "0.0.1-dev",
 	"type": "module",
 	"author": {
 		"email": "soren.abedi@gmail.com",
@@ -25,7 +25,10 @@
 		"registry": "https://registry.npmjs.org/",
 		"access": "public"
 	},
-	"files": ["**/*.d.ts","**"],
+	"files": [
+		"**/*.d.ts",
+		"**"
+	],
 	"scripts": {
 		"svelte:dev": "svelte-kit dev --open --host",
 		"svelte:build": "svelte-kit build",
