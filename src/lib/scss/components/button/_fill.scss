@@ -1,37 +1,37 @@
 @mixin button-fill {
 	&.fill {
-		background-color: var(--base);
-		color: var(--base-font);
+		background-color: hsl(var(--base));
+		color: hsl(var(--base-font));
 		:global {
 			path {
-				fill: var(--base-font);
+				fill: hsl(var(--base-font));
 			}
 		}
 		@include action-focus {
-			background-color: var(--natural);
-			color: var(--natural-font);
+			background-color: hsl(var(--natural));
+			color: hsl(var(--natural-font));
 			:global {
 				path {
-					fill: var(--natural-font);
+					fill: hsl(var(--natural-font));
 				}
 			}
 		}
 		@include action-hover {
-			background-color: var(--dark);
-			color: var(--dark-font);
+			background-color: hsl(var(--dark));
+			color: hsl(var(--dark-font));
 			:global {
 				path {
-					fill: var(--dark-font);
+					fill: hsl(var(--dark-font));
 				}
 			}
 		}
 		@include action-active {
-			border-color: var(--base);
-			background-color: var(--darker);
-			color: var(--darker-font);
+			border-color: hsl(var(--base));
+			background-color: hsl(var(--darker));
+			color: hsl(var(--darker-font));
 			:global {
 				path {
-					fill: var(--darker-font);
+					fill: hsl(var(--darker-font));
 				}
 			}
 		}

@@ -1,18 +1,18 @@
 @mixin badge-fill {
 	&.fill {
-		background-color: var(--base);
-		color: var(--base-font);
+		background-color: hsl(var(--base));
+		color: hsl(var(--base-font));
 		:global {
 			path {
-				fill: var(--base-font);
+				fill: hsl(var(--base-font));
 			}
 		}
 		@include action-hover {
-			background-color: var(--dark);
-			color: var(--dark-font);
+			background-color: hsl(var(--dark));
+			color: hsl(var(--dark-font));
 			:global {
 				path {
-					fill: var(--dark-font);
+					fill: hsl(var(--dark-font));
 				}
 			}
 		}

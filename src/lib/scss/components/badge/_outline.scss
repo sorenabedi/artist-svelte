@@ -3,20 +3,19 @@
 }
 @mixin badge-outline {
 	&.outline {
-		border-color: var(--base);
-		color: var(--base);
-		$fgColor: a11y-color($base, $white, 'AAA');
+		border-color: hsl(var(--base));
+		color: hsl(var(--base));
 		:global {
 			path {
-				fill: var(--base);
+				fill: hsl(var(--base));
 			}
 		}
 		@include action-hover {
-			background-color: var(--base);
-			color: var(--base-font);
+			background-color: hsl(var(--base));
+			color: hsl(var(--base-font));
 			:global {
 				path {
-					fill: var(--base-font);
+					fill: hsl(var(--base-font));
 				}
 			}
 		}

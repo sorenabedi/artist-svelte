@@ -14,8 +14,13 @@
 }
 // background: linear-gradient(-90deg, #24d2fe, #4facfe);
 @mixin button-gradient {
-	$gradient: linear-gradient(-90deg, var(--light), var(--dark), var(--light));
-	$gradient-focus: linear-gradient(-90deg, var(--darker), var(--base), var(--darker));
+	$gradient: linear-gradient(-90deg, hsl(var(--light)), hsl(var(--dark)), hsl(var(--light)));
+	$gradient-focus: linear-gradient(
+		-90deg,
+		hsl(var(--darker)),
+		hsl(var(--base)),
+		hsl(var(--darker))
+	);
 	&.outline-gradient {
 		background: $gradient;
 		background-size: 100% 100%;
@@ -75,7 +80,7 @@
 		}
 		@include action-active {
 			background: $gradient;
-			-webkit-text-fill-color: var(--font);
+			-webkit-text-fill-color: hsl(var(--font));
 			animation: backgroundGradient 5s ease infinite;
 			&:before {
 				background: $gradient;
@@ -88,7 +93,7 @@
 
 			:global {
 				path {
-					fill: var(--font);
+					fill: hsl(var(--font));
 				}
 			}
 		}

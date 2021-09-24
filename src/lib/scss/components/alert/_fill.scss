@@ -1,0 +1,16 @@
+@mixin alert-fill {
+	&.fill {
+		background-color: hsl(var(--base));
+		border-left-color: hsl(var(--light));
+		color: hsl(var(--base-font));
+		:global {
+			path {
+				fill: hsl(var(--dark));
+			}
+		}
+		&.rtl {
+			border-left-color: transparent;
+			border-right-color: hsl(var(--light));
+		}
+	}
+}
