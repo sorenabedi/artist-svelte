@@ -25,6 +25,7 @@
 		"registry": "https://registry.npmjs.org/",
 		"access": "public"
 	},
+	"files": ["**/*.d.ts","**"],
 	"scripts": {
 		"svelte:dev": "svelte-kit dev --open --host",
 		"svelte:build": "svelte-kit build",

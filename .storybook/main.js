@@ -16,7 +16,7 @@ module.exports = {
 	webpackFinal: async (config) => {
 		config.resolve.alias = {
 			...config.resolve.alias,
-			$types: resolve('src/types'),
+			$types: resolve('src/lib/types'),
 			$lib: resolve('src/lib'),
 			'$sb.scss': resolve('.storybook/storybook.scss'),
 			$sb: resolve('src/stories'),

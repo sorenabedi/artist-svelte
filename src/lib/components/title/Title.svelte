@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ColorProp, VariantProp } from '$types/components/props';
+	import type { ColorProp, VariantProp } from '../../types/components';
 	import clsx from 'clsx';
 
 	export let color: ColorProp = 'default';
@@ -10,6 +10,6 @@
 
 <style lang="scss">
 	.title {
-		@import 'modules/components/title';
+		@import 'components/title';
 	}
 </style>

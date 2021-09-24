@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { ColorProp, VariantProp } from '../../types/components/props';
 	import clsx from 'clsx';
+	import type { ColorProp, VariantProp } from '../../types/components/props';
 	import Badge from '../badge';
 	import Title from '../title';
 
@@ -24,7 +24,7 @@
 		</div>
 
 		{#if $$slots.actions}
-			<div class={clsx('cardActions', 'unBalanced')}>
+			<div class={clsx('cardActions')}>
 				<slot name="actions" />
 			</div>
 		{/if}

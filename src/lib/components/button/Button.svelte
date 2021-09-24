@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { OnClickFunc } from '$types/global';
-	import type { ColorProp, VariantProp } from '$types/components/props';
+	import type { OnClickFunc } from '../../types/global';
+	import type { ColorProp, VariantProp } from '../../types/components/props';
 	import clsx from 'clsx';
 	import { createEventDispatcher } from 'svelte';
-	import Icon from '$lib/utilities/svg-icon.svelte';
+	import Icon from '../../utilities/svg-icon.svelte';
 
 	export let rtl = false;
 	export let circle = false;
@@ -34,7 +34,7 @@
 
 <style lang="scss">
 	button {
-		@import 'modules/components/button';
+		@import 'components/button';
 		@include button-outline;
 		@include button-fill;
 		@include button-gradient;

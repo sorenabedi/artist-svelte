@@ -15,19 +15,25 @@ const config = {
 			dir: 'package',
 			emitTypes: true,
 			exports: {
-				include: ['**'],
+				include: ['**/*.js', '**/*.ts', '**/*.svelte', 'src/lib/scss/modules/default'],
 				exclude: ['**/_*', '**/*.stories.svelte']
 			},
 			files: {
-				include: ['**'],
-				exclude: ['**/_*', '**/*.stories.svelte']
+				include: ['**', 'src/lib/scss/modules/**'],
+				exclude: [
+					'**/_*.svelte',
+					'**/_*.js',
+					'**/_*.ts',
+					'**/scss/components/**',
+					'**/*.stories.svelte'
+				]
 			}
 		},
 		vite: {
 			resolve: {
 				alias: {
 					$lib: resolve('src/lib'),
-					$types: resolve('src/types'),
+					$types: resolve('src/lib/types'),
 					$assets: resolve('src/assets'),
 					'$scss/vars': resolve('src/lib/scss/variables.module.scss'),
 					$scss: resolve('src/lib/scss'),
