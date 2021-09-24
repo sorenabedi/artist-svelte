@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ColorProp, VariantProp } from '$types/components/props';
+	import type { ColorProp, VariantProp } from '../../types/components/props';
 	import clsx from 'clsx';
 
 	export let color: ColorProp = 'default';
@@ -11,7 +11,7 @@
 
 <style lang="scss">
 	span {
-		@import 'modules/components/badge';
+		@import 'components/badge';
 		@include badge-outline;
 		@include badge-fill;
 		@include badge-gradient;

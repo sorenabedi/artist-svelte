@@ -16,13 +16,13 @@ module.exports = {
 	webpackFinal: async (config) => {
 		config.resolve.alias = {
 			...config.resolve.alias,
-			$types: resolve('src/types'),
+			$types: resolve('src/lib/types'),
 			$lib: resolve('src/lib'),
 			'$sb.scss': resolve('.storybook/storybook.scss'),
 			$sb: resolve('src/stories'),
 			$assets: resolve('src/assets'),
-			'$scss/vars': resolve('src/scss/variables.module.scss'),
-			$scss: resolve('src/scss'),
+			'$scss/vars': resolve('src/lib/scss/variables.module.scss'),
+			$scss: resolve('src/lib/scss'),
 			$routes: resolve('src/routes')
 		};
 		const svelteLoader = config.module.rules.find(
@@ -46,7 +46,7 @@ module.exports = {
 			...svelteLoader.options,
 			preprocess: sveltePreprocess({
 				scss: {
-					includePaths: ['./src/scss'],
+					includePaths: ['./src/lib/scss'],
 					prependData: "@import 'modules/default';"
 				}
 			})

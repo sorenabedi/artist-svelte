@@ -5,7 +5,7 @@ import preprocess from 'svelte-preprocess';
 const config = {
 	preprocess: preprocess({
 		scss: {
-			includePaths: ['./src/scss'],
+			includePaths: ['./src/lib/scss'],
 			prependData: "@import 'modules/default';"
 		}
 	}),
@@ -15,22 +15,28 @@ const config = {
 			dir: 'package',
 			emitTypes: true,
 			exports: {
-				include: ['**/*.js', '**/*.ts', '**/*.svelte'],
+				include: ['**/*.js', '**/*.ts', '**/*.svelte', 'src/lib/scss/modules/default'],
 				exclude: ['**/_*', '**/*.stories.svelte']
 			},
 			files: {
-				include: ['**'],
-				exclude: ['**/_*', '**/*.stories.svelte']
+				include: ['**', 'src/lib/scss/modules/**'],
+				exclude: [
+					'**/_*.svelte',
+					'**/_*.js',
+					'**/_*.ts',
+					'**/scss/components/**',
+					'**/*.stories.svelte'
+				]
 			}
 		},
 		vite: {
 			resolve: {
 				alias: {
 					$lib: resolve('src/lib'),
-					$types: resolve('src/types'),
+					$types: resolve('src/lib/types'),
 					$assets: resolve('src/assets'),
-					'$scss/vars': resolve('src/scss/variables.module.scss'),
-					$scss: resolve('src/scss'),
+					'$scss/vars': resolve('src/lib/scss/variables.module.scss'),
+					$scss: resolve('src/lib/scss'),
 					$routes: resolve('src/routes')
 				}
 			},
