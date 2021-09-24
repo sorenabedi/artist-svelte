@@ -21,8 +21,8 @@ module.exports = {
 			'$sb.scss': resolve('.storybook/storybook.scss'),
 			$sb: resolve('src/stories'),
 			$assets: resolve('src/assets'),
-			'$scss/vars': resolve('src/lib/scss/variables.module.scss'),
-			$scss: resolve('src/lib/scss'),
+			'$scss/vars': resolve('src/scss/variables.module.scss'),
+			$scss: resolve('src/scss'),
 			$routes: resolve('src/routes')
 		};
 		const svelteLoader = config.module.rules.find(
@@ -46,7 +46,7 @@ module.exports = {
 			...svelteLoader.options,
 			preprocess: sveltePreprocess({
 				scss: {
-					includePaths: ['./src/lib/scss'],
+					includePaths: ['./src/scss'],
 					prependData: "@import 'modules/default';"
 				}
 			})

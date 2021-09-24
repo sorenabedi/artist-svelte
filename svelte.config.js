@@ -5,7 +5,7 @@ import preprocess from 'svelte-preprocess';
 const config = {
 	preprocess: preprocess({
 		scss: {
-			includePaths: ['./src/lib/scss'],
+			includePaths: ['./src/scss'],
 			prependData: "@import 'modules/default';"
 		}
 	}),
@@ -15,7 +15,7 @@ const config = {
 			dir: 'package',
 			emitTypes: true,
 			exports: {
-				include: ['**'],
+				include: ['**/*.js', '**/*.ts', '**/*.svelte'],
 				exclude: ['**/_*', '**/*.stories.svelte']
 			},
 			files: {
@@ -29,8 +29,8 @@ const config = {
 					$lib: resolve('src/lib'),
 					$types: resolve('src/types'),
 					$assets: resolve('src/assets'),
-					'$scss/vars': resolve('src/lib/scss/variables.module.scss'),
-					$scss: resolve('src/lib/scss'),
+					'$scss/vars': resolve('src/scss/variables.module.scss'),
+					$scss: resolve('src/scss'),
 					$routes: resolve('src/routes')
 				}
 			},
