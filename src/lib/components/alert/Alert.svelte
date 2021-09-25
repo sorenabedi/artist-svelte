@@ -4,10 +4,10 @@
 	import { SVGIcon } from '../../utilities';
 
 	export let color: ColorProp = 'primary';
-	export let rtl = true;
+	export let rtl = false;
 	export let shadow = false;
 	export let SvgIcon: string | false = false;
-	export let variant: VariantProp = 'outline-gradient';
+	export let variant: VariantProp = 'fill';
 </script>
 
 <div class={clsx('alertContainer', color, variant)} class:rtl class:shadow>

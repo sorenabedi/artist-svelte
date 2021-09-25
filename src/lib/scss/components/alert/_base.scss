@@ -7,7 +7,7 @@ $base-verticalLineWidth: $borderWidth * 1.9;
 $base-marginX: $marginX * 5;
 $base-marginY: $marginY * 0.5;
 $base-paddingX: $paddingX * 3.5;
-$base-paddingY: $paddingY * 1.5;
+$base-paddingY: $paddingY * 2.5;
 $base-fontSize: 0.9rem;
 $text-marginX: 0.25rem;
 $icon-size: 0.8rem;
@@ -41,6 +41,6 @@ $icon-marginX: 0.125rem;
 	}
 	.title {
 		font-size: $base-fontSize * 1.2;
-		margin: $base-marginY * 4 $base-marginX;
+		margin: $base-marginY * 3 $base-marginX;
 	}
 }
