@@ -1,38 +1,34 @@
 <script lang="ts">
 	import clsx from 'clsx';
 	import type { ColorProp, VariantProp } from '../../types/components/props';
-	import Badge from '../badge';
-	import Title from '../title';
+	import { SVGIcon } from '../../utilities';
 
 	export let color: ColorProp = 'primary';
 	export let rtl = false;
-	export let variant: VariantProp = 'outline';
+	export let shadow = false;
+	export let SvgIcon: string | false = false;
+	export let variant: VariantProp = 'fill';
 </script>
 
-<div class={clsx('cardContainer')}>
-	{#if $$slots.title}
-		<div class={clsx(rtl && 'rtl', 'cardHeader')}>
-			<Title {color} {variant}><slot name="title" /></Title>
-			{#if $$slots.notification}
-				<Badge {color} {variant}><slot name="notification" /></Badge>
-			{/if}
-		</div>
+<div class={clsx('alertContainer', color, variant)} class:rtl class:shadow>
+	{#if SvgIcon}
+		<SVGIcon {color} {variant} data={SvgIcon} />
 	{/if}
-	<div class="card">
-		<div class="cardContent">
-			<slot />
-		</div>
-
-		{#if $$slots.actions}
-			<div class={clsx('cardActions')}>
-				<slot name="actions" />
-			</div>
+	<div>
+		{#if $$slots.title}
+			<h6 class="title">
+				<slot name="title" />
+			</h6>
 		{/if}
+		<slot />
 	</div>
 </div>
 
 <style lang="scss">
-	.cardContainer {
-		@import 'components/card';
+	.alertContainer {
+		@import 'components/alert';
+		@include alert-outline;
+		@include alert-fill;
+		@include alert-gradient;
 	}
 </style>

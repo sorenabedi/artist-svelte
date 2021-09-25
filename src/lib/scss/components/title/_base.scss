@@ -7,10 +7,10 @@ $base-fontSize: 0.9rem;
 
 & {
 	padding: $base-paddingY $base-paddingX;
-	color: var(--natural-font);
+	color: hsl(var(--natural-font));
 	text-transform: uppercase;
-	margin: $marginY $marginX;
-	margin-bottom: math.div($marginY, 3);
+	margin: $base-marginY $base-marginX;
+	margin-bottom: math.div($base-marginY, 3);
 	font-size: $base-fontSize;
 	@include truncate(calc(100% - 2rem));
 }

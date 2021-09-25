@@ -1,4 +1,5 @@
 @use 'sass:math';
+@use 'sass:color';
 
 @function strip-unit($value) {
 	@return ($value / ($value * 0 + 1));
@@ -268,7 +269,8 @@ $linear-channel-values: 0 0.0003035269835488375 0.000607053967097675 0.000910580
 
 	@if $original-contrast >= $ratio {
 		// If we pass the ratio already, return the original color
-		@return $fg;
+		// @return $fg;
+		@return color-hsl-args($fg);
 	} @else {
 		// Doesn't pass. Time to get to work
 		// Should the color be lightened or darkened?
@@ -302,10 +304,17 @@ $linear-channel-values: 0 0.0003035269835488375 0.000607053967097675 0.000910580
 		@while color-contrast($fg, $bg) < $ratio {
 			$fg: scale-color($fg, $lightness: $step, $saturation: math.div($step, 2));
 		}
-		@return $fg;
+		// @return $fg;
+		@return color-hsl-args($fg);
 	}
 }
 
 @function rgba-to-rgb($rgba, $background: #fff) {
 	@return mix(rgb(red($rgba), green($rgba), blue($rgba)), $background, alpha($rgba) * 100%);
+}
+@function color-hsl-args($color) {
+	$hue: color.hue($color);
+	$saturation: color.saturation($color);
+	$lightness: color.lightness($color);
+	@return $hue $saturation $lightness;
 }

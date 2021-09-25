@@ -1,0 +1,24 @@
+&.outline {
+	position: relative;
+}
+@mixin alert-outline {
+	&.outline {
+		border-top-width: $base-borderWidth;
+		border-right-width: $base-borderWidth;
+		border-bottom-width: $base-borderWidth;
+		border-left-width: $base-verticalLineWidth;
+		border-color: hsl(var(--base));
+		color: hsl(var(--dark));
+		:global {
+			path {
+				fill: hsl(var(--base));
+			}
+		}
+		&.rtl {
+			border-top-width: $base-borderWidth;
+			border-left-width: $base-borderWidth;
+			border-bottom-width: $base-borderWidth;
+			border-right-width: $base-verticalLineWidth;
+		}
+	}
+}

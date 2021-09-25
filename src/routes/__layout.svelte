@@ -1,3 +1,9 @@
+<nav>
+	<a href="/">Home</a>
+	<a href="/alert">alert</a>
+	<a href="/card">card</a>
+	<a href="/checkbox">checkbox</a>
+</nav>
 <slot />
 
 <style lang="scss" global>
@@ -7,9 +13,13 @@
 	body {
 		margin: 0;
 		padding: 0;
-		background: $white;
+		background: $white-bg;
 		font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
 			Arial, 'Noto Sans', 'Liberation Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
 			'Segoe UI Symbol', 'Noto Color Emoji', Vazir;
+		// direction: rtl;
+		* {
+			box-sizing: border-box;
+		}
 	}
 </style>

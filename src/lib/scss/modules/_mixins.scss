@@ -44,49 +44,61 @@
 }
 @mixin palette-generator-variables {
 	:root {
-		--white: #{$white};
-		--black: #{$black};
+		--white: #{color-hsl-args($white)};
+		--black: #{color-hsl-args($black)};
 		@each $localPaletteName, $paletteValue in $theme-variants {
-			--#{$localPaletteName}-light: #{map.get($theme-variants, $localPaletteName, 'light')};
+			--#{$localPaletteName}-light: #{color-hsl-args(
+					map.get($theme-variants, $localPaletteName, 'light')
+				)};
 			--#{$localPaletteName}-light-font: #{map.get(
 					$theme-variants,
 					$localPaletteName,
 					'light-font'
 				)};
-			--#{$localPaletteName}-base: #{map.get($theme-variants, $localPaletteName, 'base')};
+			--#{$localPaletteName}-base: #{color-hsl-args(
+					map.get($theme-variants, $localPaletteName, 'base')
+				)};
 			--#{$localPaletteName}-base-font: #{map.get($theme-variants, $localPaletteName, 'base-font')};
-			--#{$localPaletteName}-dark: #{map.get($theme-variants, $localPaletteName, 'dark')};
+			--#{$localPaletteName}-dark: #{color-hsl-args(
+					map.get($theme-variants, $localPaletteName, 'dark')
+				)};
 			--#{$localPaletteName}-dark-font: #{map.get($theme-variants, $localPaletteName, 'dark-font')};
-			--#{$localPaletteName}-darker: #{map.get($theme-variants, $localPaletteName, 'darker')};
+			--#{$localPaletteName}-darker: #{color-hsl-args(
+					map.get($theme-variants, $localPaletteName, 'darker')
+				)};
 			--#{$localPaletteName}-darker-font: #{map.get(
 					$theme-variants,
 					$localPaletteName,
 					'darker-font'
 				)};
-			--#{$localPaletteName}-natural: #{map.get($theme-variants, $localPaletteName, 'natural')};
+			--#{$localPaletteName}-natural: #{color-hsl-args(
+					map.get($theme-variants, $localPaletteName, 'natural')
+				)};
 			--#{$localPaletteName}-natural-font: #{map.get(
 					$theme-variants,
 					$localPaletteName,
 					'natural-font'
 				)};
-			--#{$localPaletteName}-font: #{map.get($theme-variants, $localPaletteName, 'font')};
+			--#{$localPaletteName}-font: #{color-hsl-args(
+					map.get($theme-variants, $localPaletteName, 'font')
+				)};
 		}
 	}
 }
 @mixin palette-class-variables($localPaletteName) {
 	// :global {
 	.#{$localPaletteName} {
-		--light: #{map.get($theme-variants, $localPaletteName, 'light')};
+		--light: #{color-hsl-args(map.get($theme-variants, $localPaletteName, 'light'))};
 		--light-font: #{map.get($theme-variants, $localPaletteName, 'light-font')};
-		--base: #{map.get($theme-variants, $localPaletteName, 'base')};
+		--base: #{color-hsl-args(map.get($theme-variants, $localPaletteName, 'base'))};
 		--base-font: #{map.get($theme-variants, $localPaletteName, 'base-font')};
-		--dark: #{map.get($theme-variants, $localPaletteName, 'dark')};
+		--dark: #{color-hsl-args(map.get($theme-variants, $localPaletteName, 'dark'))};
 		--dark-font: #{map.get($theme-variants, $localPaletteName, 'dark-font')};
-		--darker: #{map.get($theme-variants, $localPaletteName, 'darker')};
+		--darker: #{color-hsl-args(map.get($theme-variants, $localPaletteName, 'darker'))};
 		--darker-font: #{map.get($theme-variants, $localPaletteName, 'darker-font')};
-		--natural: #{map.get($theme-variants, $localPaletteName, 'natural')};
+		--natural: #{color-hsl-args(map.get($theme-variants, $localPaletteName, 'natural'))};
 		--natural-font: #{map.get($theme-variants, $localPaletteName, 'natural-font')};
-		--font: #{map.get($theme-variants, $localPaletteName, 'font')};
+		--font: #{color-hsl-args(map.get($theme-variants, $localPaletteName, 'font'))};
 	}
 	// }
 }
