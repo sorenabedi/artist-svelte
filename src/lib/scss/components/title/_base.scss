@@ -7,7 +7,7 @@ $base-fontSize: 0.9rem;
 
 & {
 	padding: $base-paddingY $base-paddingX;
-	color: var(--natural-font);
+	color: hsl(var(--natural-font));
 	text-transform: uppercase;
 	margin: $marginY $marginX;
 	margin-bottom: math.div($marginY, 3);
