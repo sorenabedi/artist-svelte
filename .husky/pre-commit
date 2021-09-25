@@ -1,2 +1,6 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
+
+pnpm run format
+pnpm run check
+pnpm run lint
