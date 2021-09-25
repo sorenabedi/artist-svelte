@@ -2,6 +2,7 @@
 	<a href="/">Home</a>
 	<a href="/alert">alert</a>
 	<a href="/card">card</a>
+	<a href="/checkbox">checkbox</a>
 </nav>
 <slot />
 
