@@ -7,7 +7,7 @@
 	export let variant: VariantProp = 'outline';
 </script>
 
-<span class={clsx(color, variant, fullWidth && 'full-width')}><slot /></span>
+<span class={clsx(color, variant)} class:fullWidth><slot /></span>
 
 <style lang="scss">
 	span {

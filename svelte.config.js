@@ -1,6 +1,26 @@
 import { resolve, basename } from 'path';
 import preprocess from 'svelte-preprocess';
 
+/**
+ *  @type {boolean}
+ *  @param {string} filename
+ */
+const packageFilesFilter = (filename) => {
+	switch (true) {
+		case /\.(stories|test|spec)\./.test(filename):
+		case /scss\/components\//.test(filename):
+			return false;
+		case /scss\/modules\//.test(filename):
+			return true;
+		case /^_/.test(basename(filename)):
+			return false;
+		case /\.(s?css|svelte|ts|js|json)/.test(filename):
+			return true;
+		default:
+			return false;
+	}
+};
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	preprocess: preprocess({
@@ -14,38 +34,8 @@ const config = {
 		package: {
 			dir: 'package',
 			emitTypes: true,
-			exports: (filename) => {
-				switch (true) {
-					case /\.(stories|test|spec)\./.test(filename):
-					case /scss\/components\//.test(filename):
-						return false;
-					case /scss\/modules\//.test(filename):
-						return true;
-					case /^_/.test(basename(filename)):
-						return false;
-					case /\.(s?css|svelte|ts|js|json)/.test(filename):
-						console.log(`expo: ${filename}`);
-						return true;
-					default:
-						return false;
-				}
-			},
-			files: (filename) => {
-				switch (true) {
-					case /\.(stories|test|spec)\./.test(filename):
-					case /scss\/components\//.test(filename):
-						return false;
-					case /scss\/modules\//.test(filename):
-						return true;
-					case /^_/.test(basename(filename)):
-						return false;
-					case /\.(s?css|svelte|ts|js|json)/.test(filename):
-						console.log(`file: ${filename}`);
-						return true;
-					default:
-						return false;
-				}
-			}
+			exports: packageFilesFilter,
+			files: packageFilesFilter
 		},
 		vite: {
 			resolve: {

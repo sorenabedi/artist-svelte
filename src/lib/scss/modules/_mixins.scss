@@ -30,7 +30,7 @@
 	}
 }
 @mixin full-width {
-	.full-width {
+	.fullWidth {
 		width: clamp(0%, calc(100% - 0.3rem), 100vw);
 	}
 }

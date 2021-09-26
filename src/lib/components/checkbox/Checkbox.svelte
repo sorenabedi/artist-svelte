@@ -1,11 +1,11 @@
 <script lang="ts">
-	import type { ColorProp, VariantProp } from '../../types/components';
+	import type { ColorProp } from '../../types/components';
 	import clsx from 'clsx';
 
 	export let color: ColorProp = 'default';
-	export let checked: boolean = false;
-	export let shadow: boolean = false;
-	export let required: boolean = false;
+	export let checked = false;
+	export let shadow = false;
+	export let required = false;
 	export let value: string | undefined = undefined;
 	let label: HTMLSpanElement;
 </script>
