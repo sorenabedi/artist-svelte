@@ -2,6 +2,7 @@
 	import clsx from 'clsx';
 	import type { ColorProp, VariantProp } from '../../types/components/props';
 	import { SVGIcon } from '../../utilities';
+	const testID = process.env.NODE_ENV === 'test' ? 'Alert' : undefined;
 
 	export let color: ColorProp = 'default';
 	export let rtl = false;
@@ -10,12 +11,7 @@
 	export let variant: VariantProp = 'fill';
 </script>
 
-<div
-	data-testid={process.env.NODE_ENV === 'test' ? 'Alert' : undefined}
-	class={clsx('alertContainer', color, variant)}
-	class:rtl
-	class:shadow
->
+<div data-testid={testID} class={clsx('alertContainer', color, variant)} class:rtl class:shadow>
 	{#if SvgIcon}
 		<SVGIcon {color} {variant} data={SvgIcon} />
 	{/if}

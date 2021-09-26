@@ -1,10 +1,9 @@
 <script lang="ts">
+	const testID = process.env.NODE_ENV === 'test' ? 'SVGIcon' : undefined;
 	export let data = '';
-
 	export let size: string | undefined = undefined;
 	export let width = '20px';
 	export let height = '20px';
-
 	export let color: string | undefined = undefined;
 	export let stroke = 'currentColor';
 	export let fill = 'currentColor';
@@ -32,7 +31,7 @@
 </script>
 
 <svg
-	data-testid={process.env.NODE_ENV === 'test' ? 'SVGIcon' : undefined}
+	data-testid={testID}
 	xmlns="http://www.w3.org/2000/svg"
 	{width}
 	{height}

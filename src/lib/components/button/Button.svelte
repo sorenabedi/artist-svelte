@@ -2,6 +2,7 @@
 	import type { ColorProp, VariantProp } from '../../types/components/props';
 	import clsx from 'clsx';
 	import Icon from '../../utilities/svg-icon.svelte';
+	const testID = process.env.NODE_ENV === 'test' ? 'Button' : undefined;
 
 	export let rtl = false;
 	export let circle = false;
@@ -18,7 +19,7 @@
 	class:circle
 	on:click
 	on:dblclick
-	data-testid={process.env.NODE_ENV === 'test' ? 'button' : undefined}
+	data-testid={testID}
 >
 	{#if SVGIcon}
 		<span class="icon"><Icon data={SVGIcon} /></span>
