@@ -12,7 +12,7 @@
 
 <div class="cardContainer">
 	{#if $$slots.title}
-		<div class:rtl class={clsx('cardHeader')}>o
+		<div class:rtl class={clsx('cardHeader')}>
 			<Title {color} {variant}><slot name="title" /></Title>
 			{#if $$slots.notification}
 				<Badge {color} {variant}><slot name="notification" /></Badge>

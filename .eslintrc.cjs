@@ -17,5 +17,15 @@ module.exports = {
 		browser: true,
 		es2017: true,
 		node: true
-	}
+	},
+	rules: {},
+	overrides: [
+		{
+			// enable the rule specifically for TypeScript files
+			files: ['*.js'],
+			rules: {
+				'@typescript-eslint/explicit-module-boundary-types': 'off'
+			}
+		}
+	]
 };
