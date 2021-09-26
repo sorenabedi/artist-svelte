@@ -3,15 +3,12 @@
 	import clsx from 'clsx';
 
 	export let color: ColorProp = 'default';
-	export let checked = false;
 	export let shadow = false;
-	export let required = false;
-	export let value: string | undefined = undefined;
 	let label: HTMLSpanElement;
 </script>
 
 <div
-	data-testid={process.env.NODE_ENV === 'test' ? 'Alert' : undefined}
+	data-testid={process.env.NODE_ENV === 'test' ? 'Checkbox' : undefined}
 	class={clsx(color, 'checkbox')}
 	class:shadow
 >
@@ -22,9 +19,7 @@
 		on:click
 		on:dblclick
 		on:input
-		{checked}
-		{value}
-		{required}
+		{...$$restProps}
 	/>
 	<div class="inputMask">
 		<span />

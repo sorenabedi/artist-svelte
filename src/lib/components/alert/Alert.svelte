@@ -6,7 +6,7 @@
 	export let color: ColorProp = 'default';
 	export let rtl = false;
 	export let shadow = false;
-	export let SvgIcon: string | false = false;
+	export let SvgIcon: string | undefined = undefined;
 	export let variant: VariantProp = 'fill';
 </script>
 
