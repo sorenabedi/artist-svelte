@@ -18,10 +18,7 @@
 	};
 </script>
 
-<button
-	class={clsx(color, rtl && 'rtl', variant, fullWidth && 'full-width', circle && 'circle')}
-	on:click={onClick}
->
+<button class={clsx(color, variant)} class:fullWidth class:rtl class:circle on:click={onClick}>
 	{#if SVGIcon}
 		<span class="icon"><Icon data={SVGIcon} /></span>
 		<span><slot /></span>

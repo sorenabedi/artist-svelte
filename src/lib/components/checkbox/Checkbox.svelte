@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ColorProp, VariantProp } from '../../types/components';
+	import type { ColorProp } from '../../types/components';
 	import clsx from 'clsx';
 
 	export let color: ColorProp = 'default';

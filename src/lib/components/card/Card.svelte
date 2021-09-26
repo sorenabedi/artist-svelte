@@ -1,6 +1,7 @@
 <script lang="ts">
-	import type { ColorProp, VariantProp } from '../../types/components/props';
 	import clsx from 'clsx';
+
+	import type { ColorProp, VariantProp } from '../../types/components/props';
 	import Badge from '../badge';
 	import Title from '../title';
 
@@ -9,9 +10,9 @@
 	export let variant: VariantProp = 'outline';
 </script>
 
-<div class={clsx('cardContainer')}>
+<div class="cardContainer">
 	{#if $$slots.title}
-		<div class={clsx(rtl && 'rtl', 'cardHeader')}>
+		<div class:rtl class={clsx('cardHeader')}>o
 			<Title {color} {variant}><slot name="title" /></Title>
 			{#if $$slots.notification}
 				<Badge {color} {variant}><slot name="notification" /></Badge>
@@ -24,7 +25,7 @@
 		</div>
 
 		{#if $$slots.actions}
-			<div class={clsx('cardActions', 'unBalanced')}>
+			<div class={clsx('cardActions', ' unBalanced')}>
 				<slot name="actions" />
 			</div>
 		{/if}
