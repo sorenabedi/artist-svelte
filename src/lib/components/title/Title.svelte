@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { ColorProp, VariantProp } from '../../types/components';
 	import clsx from 'clsx';
-	const testID = process.env.NODE_ENV === 'test' ? 'title' : undefined;
+	const testID = process.env.NODE_ENV === 'test' ? 'Title' : undefined;
 
 	export let color: ColorProp = 'default';
 	export let variant: VariantProp = 'outline';
