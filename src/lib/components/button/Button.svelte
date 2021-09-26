@@ -1,9 +1,8 @@
 <script lang="ts">
-	import type { OnClickFunc } from '../../types/global';
 	import type { ColorProp, VariantProp } from '../../types/components/props';
 	import clsx from 'clsx';
-	import { createEventDispatcher } from 'svelte';
 	import Icon from '../../utilities/svg-icon.svelte';
+	const testID = process.env.NODE_ENV === 'test' ? 'Button' : undefined;
 
 	export let rtl = false;
 	export let circle = false;
@@ -11,14 +10,17 @@
 	export let fullWidth = false;
 	export let color: ColorProp = 'default';
 	export let variant: VariantProp = 'outline';
-
-	const dispatch = createEventDispatcher();
-	const onClick: OnClickFunc = (event) => {
-		dispatch('click', event);
-	};
 </script>
 
-<button class={clsx(color, variant)} class:fullWidth class:rtl class:circle on:click={onClick}>
+<button
+	class={clsx(color, variant)}
+	class:fullWidth
+	class:rtl
+	class:circle
+	on:click
+	on:dblclick
+	data-testid={testID}
+>
 	{#if SVGIcon}
 		<span class="icon"><Icon data={SVGIcon} /></span>
 		<span><slot /></span>

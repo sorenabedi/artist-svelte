@@ -1,16 +1,26 @@
 <script lang="ts">
+	const testID = process.env.NODE_ENV === 'test' ? 'SVGIcon' : undefined;
 	export let data = '';
+	export let size: string | undefined = undefined;
+	export let width = '20px';
+	export let height = '20px';
+	export let color: string | undefined = undefined;
+	export let stroke = 'currentColor';
+	export let fill = 'currentColor';
 	export let viewBox = extractViewBox(data);
-
-	export let size = '20px';
-	export let width = size;
-	export let height = size;
-
-	export let color = 'currentColor';
-	export let stroke = color;
-	export let fill = color;
-
-	$: elements = data.replace(/<svg ([^>]*)>/, '').replace('</svg>', '');
+	let elements: string;
+	$: {
+		if (size) {
+			width = size;
+			height = size;
+		}
+		if (color) {
+			stroke = color;
+			fill = color;
+		}
+		elements = data.replace(/<svg ([^>]*)>/, '').replace('</svg>', '');
+		viewBox = extractViewBox(data);
+	}
 
 	function extractViewBox(svg: string) {
 		const regex = /viewBox="([\d ]+)"/;
@@ -20,6 +30,15 @@
 	}
 </script>
 
-<svg xmlns="http://www.w3.org/2000/svg" {width} {height} {viewBox} {stroke} {fill} {...$$restProps}>
+<svg
+	data-testid={testID}
+	xmlns="http://www.w3.org/2000/svg"
+	{width}
+	{height}
+	{viewBox}
+	{stroke}
+	{fill}
+	{...$$restProps}
+>
 	{@html elements}
 </svg>

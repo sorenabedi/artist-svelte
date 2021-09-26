@@ -1,16 +1,14 @@
 <script lang="ts">
 	import type { ColorProp } from '../../types/components';
 	import clsx from 'clsx';
+	const testID = process.env.NODE_ENV === 'test' ? 'Checkbox' : undefined;
 
 	export let color: ColorProp = 'default';
-	export let checked = false;
 	export let shadow = false;
-	export let required = false;
-	export let value: string | undefined = undefined;
 	let label: HTMLSpanElement;
 </script>
 
-<div class={clsx(color, 'checkbox')} class:shadow>
+<div data-testid={testID} class={clsx(color, 'checkbox')} class:shadow>
 	<input
 		type="checkbox"
 		aria-label={label && label.textContent}
@@ -18,9 +16,7 @@
 		on:click
 		on:dblclick
 		on:input
-		{checked}
-		{value}
-		{required}
+		{...$$restProps}
 	/>
 	<div class="inputMask">
 		<span />

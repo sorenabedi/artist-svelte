@@ -20,6 +20,10 @@ module.exports = {
 		...pathsToModuleNameMapper(paths, { prefix: '<rootDir>/' }),
 		'^\\$scss/vars$': 'identity-obj-proxy',
 		'^\\$lib(.*)$': '<rootDir>/src/lib$1',
+		'^\\$types(.*)$': '<rootDir>/src/lib/types$1',
+		'^\\$assets(.*)$': '<rootDir>/src/assets$1',
+		'^\\$scss(.*)$': '<rootDir>/src/lib/scss$1',
+		'^\\$routes(.*)$': '<rootDir>/src/routes$1',
 		'^\\$app(.*)$': [
 			'<rootDir>/.svelte-kit/dev/runtime/app$1',
 			'<rootDir>/.svelte-kit/build/runtime/app$1'

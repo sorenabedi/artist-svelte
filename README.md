@@ -11,6 +11,6 @@ An SSR optimized UI framework for **Svelte** and **SvelteKit**
 [![Code Inspector Code Quality](https://www.code-inspector.com/project/29172/score/svg)](https://frontend.code-inspector.com/public/project/29172/artist-svelte/dashboard)
 [![Code Inspector Code Grade](https://www.code-inspector.com/project/29172/status/svg)](https://frontend.code-inspector.com/public/project/29172/artist-svelte/dashboard)
 [![Maintainability](https://api.codeclimate.com/v1/badges/7f211dc31ea8b17c4168/maintainability)](https://codeclimate.com/github/sorenabedi/artist-svelte/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/7f211dc31ea8b17c4168/test_coverage)](https://codeclimate.com/github/sorenabedi/artist-svelte/test_coverage)
+[![codecov](https://codecov.io/gh/sorenabedi/artist-svelte/branch/master/graph/badge.svg?token=R3V5FlaqWs)](https://codecov.io/gh/sorenabedi/artist-svelte)
 [![Testing code structures](https://github.com/sorenabedi/artist-svelte/actions/workflows/CI.yml/badge.svg?branch=master)](https://github.com/sorenabedi/artist-svelte/actions/workflows/CI.yml)
 [![publishing to NPM](https://github.com/sorenabedi/artist-svelte/actions/workflows/publish.yml/badge.svg)](https://github.com/sorenabedi/artist-svelte/actions/workflows/publish.yml)
