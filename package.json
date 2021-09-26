@@ -1,6 +1,6 @@
 {
 	"name": "@sorens/artist-svelte",
-	"version": "0.0.0-dev",
+	"version": "0.0.1-dev",
 	"type": "module",
 	"author": {
 		"email": "soren.abedi@gmail.com",
@@ -36,6 +36,7 @@
 		"svelte:preview": "svelte-kit preview",
 		"test": "NODE_NO_WARNINGS=1 NODE_OPTIONS=--experimental-vm-modules jest src --config jest.config.cjs --passWithNoTests",
 		"test:watch": "npm run test -- --watch",
+		"test:coverage": "npm run test -- --watch --coverage",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "eslint --ignore-path .gitignore . --fix",
@@ -63,6 +64,7 @@
 	"devDependencies": {
 		"@babel/core": "^7.15.5",
 		"@babel/preset-env": "^7.15.6",
+		"@jest/globals": "^27.2.2",
 		"@storybook/addon-a11y": "^6.3.8",
 		"@storybook/addon-actions": "^6.3.8",
 		"@storybook/addon-essentials": "^6.3.8",

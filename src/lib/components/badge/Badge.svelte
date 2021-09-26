@@ -7,7 +7,13 @@
 	export let variant: VariantProp = 'outline';
 </script>
 
-<span class={clsx(color, variant)} class:fullWidth><slot /></span>
+<span
+	class={clsx(color, variant)}
+	class:fullWidth
+	data-testid={process.env.NODE_ENV === 'test' ? 'badge' : undefined}
+>
+	<slot />
+</span>
 
 <style lang="scss">
 	span {

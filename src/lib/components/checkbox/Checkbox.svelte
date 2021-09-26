@@ -10,7 +10,11 @@
 	let label: HTMLSpanElement;
 </script>
 
-<div class={clsx(color, 'checkbox')} class:shadow>
+<div
+	data-testid={process.env.NODE_ENV === 'test' ? 'Alert' : undefined}
+	class={clsx(color, 'checkbox')}
+	class:shadow
+>
 	<input
 		type="checkbox"
 		aria-label={label && label.textContent}

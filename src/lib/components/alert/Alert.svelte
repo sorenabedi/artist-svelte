@@ -3,14 +3,19 @@
 	import type { ColorProp, VariantProp } from '../../types/components/props';
 	import { SVGIcon } from '../../utilities';
 
-	export let color: ColorProp = 'primary';
+	export let color: ColorProp = 'default';
 	export let rtl = false;
 	export let shadow = false;
 	export let SvgIcon: string | false = false;
 	export let variant: VariantProp = 'fill';
 </script>
 
-<div class={clsx('alertContainer', color, variant)} class:rtl class:shadow>
+<div
+	data-testid={process.env.NODE_ENV === 'test' ? 'Alert' : undefined}
+	class={clsx('alertContainer', color, variant)}
+	class:rtl
+	class:shadow
+>
 	{#if SvgIcon}
 		<SVGIcon {color} {variant} data={SvgIcon} />
 	{/if}

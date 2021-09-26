@@ -6,7 +6,12 @@
 	export let variant: VariantProp = 'outline';
 </script>
 
-<h4 class={clsx(color, variant, 'title')}><slot /></h4>
+<h4
+	class={clsx(color, variant, 'title')}
+	data-testid={process.env.NODE_ENV === 'test' ? 'title' : undefined}
+>
+	<slot />
+</h4>
 
 <style lang="scss">
 	.title {
