@@ -59,6 +59,9 @@
 	},
 	"dependencies": {
 		"clsx": "^1.1.1",
+		"sass": "^1.42.1",
+		"sass-loader": "^12.1.0",
+		"style-loader": "^3.3.0",
 		"svelte": "^3.42.6"
 	},
 	"devDependencies": {
@@ -89,9 +92,6 @@
 		"lint-staged": "^11.1.2",
 		"prettier": "^2.4.1",
 		"prettier-plugin-svelte": "^2.4.0",
-		"sass": "^1.42.0",
-		"sass-loader": "10.1.1",
-		"style-loader": "2.0.0",
 		"svelte-check": "^2.2.6",
 		"svelte-jester": "^2.1.4",
 		"svelte-loader": "^3.1.2",
