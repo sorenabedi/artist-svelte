@@ -32,6 +32,7 @@
 	"scripts": {
 		"svelte:dev": "svelte-kit dev --open --host",
 		"svelte:build": "svelte-kit build",
+		"svelte:static": "NODE_ENV=static svelte-kit build",
 		"svelte:pkg": "svelte-kit package",
 		"svelte:preview": "svelte-kit preview",
 		"test": "NODE_NO_WARNINGS=1 NODE_OPTIONS=--experimental-vm-modules jest src --config jest.config.cjs --passWithNoTests",
@@ -60,8 +61,6 @@
 	"dependencies": {
 		"clsx": "^1.1.1",
 		"sass": "^1.42.1",
-		"sass-loader": "^12.1.0",
-		"style-loader": "^3.3.0",
 		"svelte": "^3.42.6"
 	},
 	"devDependencies": {
@@ -75,6 +74,7 @@
 		"@storybook/addon-svelte-csf": "^1.1.0",
 		"@storybook/preset-scss": "^1.0.3",
 		"@storybook/svelte": "^6.3.8",
+		"@sveltejs/adapter-static": "^1.0.0-next.20",
 		"@sveltejs/kit": "next",
 		"@testing-library/jest-dom": "^5.14.1",
 		"@testing-library/svelte": "^3.0.3",
@@ -92,6 +92,8 @@
 		"lint-staged": "^11.1.2",
 		"prettier": "^2.4.1",
 		"prettier-plugin-svelte": "^2.4.0",
+		"sass-loader": "^10",
+		"style-loader": "^2",
 		"svelte-check": "^2.2.6",
 		"svelte-jester": "^2.1.4",
 		"svelte-loader": "^3.1.2",

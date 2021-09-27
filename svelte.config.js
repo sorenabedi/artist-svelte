@@ -1,5 +1,6 @@
 import { resolve, basename } from 'path';
 import preprocess from 'svelte-preprocess';
+import staticAdapter from '@sveltejs/adapter-static';
 
 /**
  *  @type {boolean}
@@ -31,6 +32,8 @@ const config = {
 		replace: [['process.env.NODE_ENV', JSON.stringify(process.env.NODE_ENV)]]
 	}),
 	kit: {
+		...(process.env.NODE_ENV === 'static' ? { adapter: staticAdapter() } : {}),
+		appDir: 'internals',
 		target: '#app',
 		package: {
 			dir: 'package',
