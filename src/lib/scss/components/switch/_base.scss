@@ -1,0 +1,147 @@
+@use 'sass:math';
+$base-borderRadius: $borderRadius * 50;
+$base-marginX: $marginX;
+$base-marginY: $marginY;
+$base-height: 1rem;
+$base-width: $base-height * 1.7;
+$base-paddingY: $paddingY * 0.7;
+$base-paddingX: $paddingX * 2;
+$base-fontSize: 0.7rem;
+$mask-margin: 4px;
+$mask-borderRadius: $borderRadius * 50;
+$base-backgroundColor: 0deg 0% 91%;
+$thumb-backgroundColor: 0deg 0% 95%;
+$thumb-disabled-backgroundColor: 0deg 0% 85%;
+$thumb-width: $base-height * 1.4;
+$thumb-height: $base-height * 1.2;
+
+& {
+	position: relative;
+	display: inline-flex;
+	border-width: unset;
+	margin: $base-marginY $base-marginX;
+	border-radius: $base-borderRadius;
+	.inputMask {
+		position: relative;
+		margin: auto;
+		background-color: hsl($base-backgroundColor);
+		border-radius: $base-borderRadius;
+		transition: all 0.3s ease;
+		overflow: hidden;
+		display: inline-flex;
+		justify-content: center;
+		min-width: $base-height * 3;
+		height: $base-width;
+		align-items: center;
+		font-size: $base-fontSize;
+		@include truncate(calc(100% - 1rem));
+		.text {
+			height: $base-width;
+			display: inline-flex;
+			border-radius: $base-borderRadius;
+			transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease,
+				background-color 0.3s ease;
+			padding: $base-paddingY $base-paddingX;
+			padding-right: $base-paddingX * 2.7;
+		}
+		.off {
+			-webkit-transform: translate(100%);
+			transform: translate(100%);
+			position: absolute;
+			opacity: 0;
+		}
+		.on {
+			-webkit-transform: translate(0%);
+			transform: translate(0%);
+			position: relative;
+			opacity: 1;
+			background-color: hsl(var(--base));
+			color: hsl(var(--base-font));
+		}
+		.thumb {
+			background-color: hsl($thumb-backgroundColor);
+			margin: $mask-margin $mask-margin;
+			position: absolute;
+			top: 0%;
+			right: 0%;
+			border-radius: $mask-borderRadius;
+			width: $thumb-width;
+			height: $thumb-height;
+			transition: background-color 0.3s ease, right 0.3s ease, width 0.3s ease;
+		}
+	}
+	input {
+		cursor: pointer;
+		margin: auto;
+		opacity: 0;
+		top: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: 1;
+		transition: all 0.3s ease;
+		&:not(:checked) ~ .inputMask {
+			.text {
+				padding-right: $base-paddingX;
+				padding-left: $base-paddingX * 2.7;
+			}
+			.off {
+				-webkit-transform: translate(0%);
+				transform: translate(0%);
+				position: relative;
+				opacity: 1;
+			}
+			.on {
+				-webkit-transform: translate(-100%);
+				transform: translate(-100%);
+				position: absolute;
+				opacity: 0;
+			}
+			.thumb {
+				right: calc(100% - $thumb-width - $mask-margin * 2);
+			}
+		}
+
+		&:disabled ~ .inputMask {
+			border-color: hsl(var(--light));
+			.thumb {
+				background-color: hsl($thumb-disabled-backgroundColor);
+			}
+		}
+		@include action-hover {
+			&:not(:checked) ~ .inputMask {
+				border-color: hsl(var(--natural));
+				background-color: hsl(var(--natural));
+				color: hsl(var(--natural-font));
+				.thumb {
+					width: $thumb-width * 1.1;
+					right: calc(100% - $thumb-width * 1.1 - $mask-margin * 2);
+				}
+			}
+			&:checked ~ .inputMask {
+				border-color: hsl(var(--natural));
+				.thumb {
+					width: $thumb-width * 1.1;
+					right: 0;
+				}
+			}
+		}
+	}
+
+	@include action-hover {
+		input:checked:not(:disabled) ~ .inputMask {
+			border-color: hsl(var(--natural));
+			background-color: hsl(var(--natural));
+			.on {
+				background-color: hsl(var(--dark));
+				color: hsl(var(--dark-font));
+			}
+		}
+	}
+	@include action-active {
+		input:not(:disabled) ~ .inputMask {
+			transform: scale(0.95);
+		}
+	}
+}

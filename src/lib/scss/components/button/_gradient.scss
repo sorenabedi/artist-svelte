@@ -28,14 +28,16 @@
 		-moz-background-clip: text;
 		background-clip: text;
 		-webkit-text-fill-color: transparent;
+		-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+		mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
 
 		&:before {
 			background: $gradient;
 			background-size: 100% 100%;
-			-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-			mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
 			-webkit-mask-composite: destination-out;
 			mask-composite: exclude;
+			-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+			mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
 		}
 
 		@include action-focus {
@@ -47,11 +49,11 @@
 			animation: backgroundGradient 5s ease infinite;
 			&:before {
 				background: $gradient-focus;
-				-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-				mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
 				-webkit-mask-composite: destination-out;
 				mask-composite: exclude;
 				animation: backgroundGradient 5s ease infinite;
+				-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+				mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
 			}
 
 			:global {
@@ -71,11 +73,11 @@
 			&:before {
 				background: $gradient;
 				// background: linear-gradient(-90deg, #24d2fe, #4facfe);
-				-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-				mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
 				-webkit-mask-composite: destination-out;
 				mask-composite: exclude;
 				animation: backgroundGradient 5s ease infinite;
+				-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+				mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
 			}
 		}
 		@include action-active {
@@ -84,11 +86,11 @@
 			animation: backgroundGradient 5s ease infinite;
 			&:before {
 				background: $gradient;
-				-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-				mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
 				-webkit-mask-composite: destination-out;
 				mask-composite: exclude;
 				animation: backgroundGradient 5s ease infinite;
+				-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+				mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
 			}
 
 			:global {

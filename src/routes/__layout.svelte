@@ -1,8 +1,10 @@
 <nav>
 	<a href="/">Home</a>
+	<a href="/button">button</a>
 	<a href="/alert">alert</a>
 	<a href="/card">card</a>
 	<a href="/checkbox">checkbox</a>
+	<a href="/switch">switch</a>
 </nav>
 <slot />
 
