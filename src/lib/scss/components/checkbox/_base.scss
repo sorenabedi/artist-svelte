@@ -13,7 +13,7 @@ $mask-borderRadius: $borderRadius * 0.45;
 & {
 	// padding: $base-paddingY $base-paddingX;
 	position: relative;
-	border-width: none;
+	border-width: unset;
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;

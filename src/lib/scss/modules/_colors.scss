@@ -47,7 +47,7 @@ $theme-variants: (
 		'font': $white
 	),
 	'default': (
-		'light': hsl(235, 6%, 38%),
+		'light': hsl(0, 0%, 67%),
 		'light-font': #{a11y-color($white, hsl(235, 6%, 38%), 'AA')},
 		'base': hsl(223, 4%, 31%),
 		'base-font': #{a11y-color($white, hsl(223, 4%, 31%), 'AA')},
