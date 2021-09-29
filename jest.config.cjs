@@ -7,14 +7,14 @@ module.exports = {
 	transform: {
 		'.+\\.(css|styl|less|sass|scss)$': 'jest-css-modules-transform',
 
-		'^.+\\.js$': 'babel-jest',
+		'^.+\\.(js|jsx)$': 'babel-jest',
 		'^.+\\.svelte$': [
 			'./node_modules/svelte-jester/dist/transformer.mjs',
 			{
 				preprocess: true
 			}
 		],
-		'^.+\\.ts$': 'ts-jest'
+		'^.+\\.(ts|jsx)$': 'ts-jest'
 	},
 	moduleNameMapper: {
 		...pathsToModuleNameMapper(paths, { prefix: '<rootDir>/' }),
@@ -30,9 +30,10 @@ module.exports = {
 		]
 	},
 	transformIgnorePatterns: ['/node_modules/'],
-	extensionsToTreatAsEsm: ['.svelte', '.ts', '.scss'],
-	moduleFileExtensions: ['js', 'svelte', 'ts'],
+	extensionsToTreatAsEsm: ['.svelte', '.ts', '.tsx', '.scss', '.jsx'],
+	moduleFileExtensions: ['js', 'jsx', 'svelte', 'ts', 'tsx'],
 	setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
+	setupFiles: ['./jest.setup.ts'],
 	globals: {
 		'ts-jest': {
 			tsconfig: 'tsconfig.spec.json',

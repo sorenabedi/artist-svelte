@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"types": ["node", "jest", "@testing-library/jest-dom"],
+		"types": ["node", "jest", "@testing-library/jest-dom", "svelte"],
 		"moduleResolution": "node",
 		"module": "es2020",
 		"lib": ["es2020", "DOM"],
@@ -29,6 +29,6 @@
 			"$routes/*": ["src/routes/*"]
 		}
 	},
-	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"],
-	"exclude": ["src/**/*.spec.ts"]
+	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.svelte"],
+	"exclude": ["src/**/*.spec.ts", "src/**/*.jsx"]
 }

@@ -14,26 +14,32 @@ describe('Badge component test suite', () => {
 		const { getByTestId, component } = render(Badge);
 		expect(getByTestId('Badge')).toHaveClass('default');
 		expect(getByTestId('Badge')).not.toHaveClass('primary');
-		await component.$$set({ color: 'primary' });
+		component.$$set({ color: 'primary' });
+		await tick();
 		expect(getByTestId('Badge')).toHaveClass('primary');
-		await component.$$set({ color: 'danger' });
+		component.$$set({ color: 'danger' });
+		await tick();
 		expect(getByTestId('Badge')).toHaveClass('danger');
 	});
 	it('testing interactive variant prop change', async () => {
 		const { getByTestId, component } = render(Badge);
 		expect(getByTestId('Badge')).toHaveClass('outline');
 		expect(getByTestId('Badge')).not.toHaveClass('fill');
-		await component.$$set({ variant: 'fill' });
+		component.$$set({ variant: 'fill' });
+		await tick();
 		expect(getByTestId('Badge')).toHaveClass('fill');
-		await component.$$set({ variant: 'outline-gradient' });
+		component.$$set({ variant: 'outline-gradient' });
+		await tick();
 		expect(getByTestId('Badge')).toHaveClass('outline-gradient');
 	});
 	it('testing interactive width prop change', async () => {
 		const { getByTestId, component } = render(Badge);
 		expect(getByTestId('Badge')).not.toHaveClass('fullWidth');
-		await component.$$set({ fullWidth: true });
+		component.$$set({ fullWidth: true });
+		await tick();
 		expect(getByTestId('Badge')).toHaveClass('fullWidth');
-		await component.$$set({ fullWidth: false });
+		component.$$set({ fullWidth: false });
+		await tick();
 		expect(getByTestId('Badge')).not.toHaveClass('fullWidth');
 	});
 });

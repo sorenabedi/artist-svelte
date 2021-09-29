@@ -1,7 +1,6 @@
 import Button from '../../lib/components/button';
 import SVG from '../mocks/svg';
 import { render, fireEvent } from '@testing-library/svelte';
-import { jest } from '@jest/globals';
 
 describe('Button component test suite', () => {
 	it('it works', async () => {
@@ -16,58 +15,72 @@ describe('Button component test suite', () => {
 		const { getByTestId, component } = render(Button);
 		expect(getByTestId('Button')).toHaveClass('default');
 		expect(getByTestId('Button')).not.toHaveClass('primary');
-		await component.$$set({ color: 'primary' });
+		component.$$set({ color: 'primary' });
+		await tick();
 		expect(getByTestId('Button')).toHaveClass('primary');
-		await component.$$set({ color: 'danger' });
+		component.$$set({ color: 'danger' });
+		await tick();
 		expect(getByTestId('Button')).toHaveClass('danger');
 	});
 	it('testing interactive variant prop change', async () => {
 		const { getByTestId, component } = render(Button);
 		expect(getByTestId('Button')).toHaveClass('outline');
 		expect(getByTestId('Button')).not.toHaveClass('fill');
-		await component.$$set({ variant: 'fill' });
+		component.$$set({ variant: 'fill' });
+		await tick();
 		expect(getByTestId('Button')).toHaveClass('fill');
-		await component.$$set({ variant: 'outline-gradient' });
+		component.$$set({ variant: 'outline-gradient' });
+		await tick();
 		expect(getByTestId('Button')).toHaveClass('outline-gradient');
 	});
 	it('testing interactive width prop change', async () => {
 		const { getByTestId, component } = render(Button);
 		expect(getByTestId('Button')).not.toHaveClass('fullWidth');
-		await component.$$set({ fullWidth: true });
+		component.$$set({ fullWidth: true });
+		await tick();
 		expect(getByTestId('Button')).toHaveClass('fullWidth');
-		await component.$$set({ fullWidth: false });
+		component.$$set({ fullWidth: false });
+		await tick();
 		expect(getByTestId('Button')).not.toHaveClass('fullWidth');
 	});
 	it('testing interactive circle prop change', async () => {
 		const { getByTestId, component } = render(Button);
 		expect(getByTestId('Button')).not.toHaveClass('circle');
-		await component.$$set({ circle: true });
+		component.$$set({ circle: true });
+		await tick();
 		expect(getByTestId('Button')).toHaveClass('circle');
-		await component.$$set({ circle: false });
+		component.$$set({ circle: false });
+		await tick();
 		expect(getByTestId('Button')).not.toHaveClass('circle');
 	});
 	it('testing interactive rtl prop change', async () => {
 		const { getByTestId, component } = render(Button);
 		expect(getByTestId('Button')).not.toHaveClass('rtl');
-		await component.$$set({ rtl: true });
+		component.$$set({ rtl: true });
+		await tick();
 		expect(getByTestId('Button')).toHaveClass('rtl');
-		await component.$$set({ rtl: false });
+		component.$$set({ rtl: false });
+		await tick();
 		expect(getByTestId('Button')).not.toHaveClass('rtl');
 	});
 	it('testing interactive SVGIcon prop change', async () => {
 		const { getByTestId, component } = render(Button);
 		expect(getByTestId('Button').innerHTML.includes('</svg>')).toEqual(false);
-		await component.$$set({ SVGIcon: SVG });
+		component.$$set({ SVGIcon: SVG });
+		await tick();
 		expect(getByTestId('Button').innerHTML.includes('</svg>')).toEqual(true);
-		await component.$$set({ SVGIcon: undefined });
+		component.$$set({ SVGIcon: undefined });
+		await tick();
 		expect(getByTestId('Button').innerHTML.includes('</svg>')).not.toEqual(true);
 	});
 	it('testing interactive click prop change', async () => {
 		const { getByTestId, component } = render(Button);
-		const mock = jest.fn();
-		await component.$on('click', mock);
+		const mock = Jest.fn();
+		component.$on('click', mock);
+		await tick();
 		expect(mock).not.toHaveBeenCalled();
-		await fireEvent.click(getByTestId('Button'));
+		fireEvent.click(getByTestId('Button'));
+		await tick();
 		expect(mock).toHaveBeenCalled();
 	});
 });

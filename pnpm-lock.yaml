@@ -3,6 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   '@babel/core': ^7.15.5
   '@babel/preset-env': ^7.15.6
+  '@babel/preset-react': ^7.14.5
   '@jest/globals': ^27.2.2
   '@storybook/addon-a11y': ^6.3.8
   '@storybook/addon-actions': ^6.3.8
@@ -13,6 +14,7 @@ specifiers:
   '@storybook/svelte': ^6.3.8
   '@sveltejs/adapter-static': ^1.0.0-next.20
   '@sveltejs/kit': next
+  '@testing-library/dom': ^8.6.0
   '@testing-library/jest-dom': ^5.14.1
   '@testing-library/svelte': ^3.0.3
   '@types/jest': ^27.0.2
@@ -35,7 +37,9 @@ specifiers:
   style-loader: ^2
   svelte: ^3.42.6
   svelte-check: ^2.2.6
+  svelte-fragment-component: ^1.2.0
   svelte-jester: ^2.1.4
+  svelte-jsx: ^2.0.0
   svelte-loader: ^3.1.2
   svelte-preprocess: ^4.9.4
   svelte2tsx: ^0.4.6
@@ -51,6 +55,7 @@ dependencies:
 devDependencies:
   '@babel/core': 7.15.5
   '@babel/preset-env': 7.15.6_@babel+core@7.15.5
+  '@babel/preset-react': 7.14.5_@babel+core@7.15.5
   '@jest/globals': 27.2.2
   '@storybook/addon-a11y': 6.3.8
   '@storybook/addon-actions': 6.3.8
@@ -60,7 +65,8 @@ devDependencies:
   '@storybook/preset-scss': 1.0.3_33e0fd4ad3f68d9a5e0ea845f4f82b3e
   '@storybook/svelte': 6.3.8_01ebc26347fcc4cafddd2789ebef4e64
   '@sveltejs/adapter-static': 1.0.0-next.20
-  '@sveltejs/kit': 1.0.0-next.174_svelte@3.42.6
+  '@sveltejs/kit': 1.0.0-next.176_svelte@3.42.6
+  '@testing-library/dom': 8.6.0
   '@testing-library/jest-dom': 5.14.1
   '@testing-library/svelte': 3.0.3_svelte@3.42.6
   '@types/jest': 27.0.2
@@ -80,7 +86,9 @@ devDependencies:
   sass-loader: 10.2.0_sass@1.42.1
   style-loader: 2.0.0
   svelte-check: 2.2.6_690a5ab0577b53af25a933bce9d392a4
+  svelte-fragment-component: 1.2.0_svelte@3.42.6
   svelte-jester: 2.1.4_jest@27.2.1+svelte@3.42.6
+  svelte-jsx: 2.0.0_svelte@3.42.6
   svelte-loader: 3.1.2_svelte@3.42.6
   svelte-preprocess: 4.9.5_1d9f4fb48353ae51fb5902001c469dfb
   svelte2tsx: 0.4.6_svelte@3.42.6+typescript@4.4.3
@@ -4459,10 +4467,10 @@ packages:
       }
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.174_svelte@3.42.6:
+  /@sveltejs/kit/1.0.0-next.176_svelte@3.42.6:
     resolution:
       {
-        integrity: sha512-Kgtz5kZTyPnpPb8pjMMOo+uTDRBkiObRLnFaBDnYFd2ahUuhAPHHPlbcIDwO5psN4t6UbPdpdkoLNCAyDgBLdw==
+        integrity: sha512-aFwZ1PjOcxOSAX93Py3jfJBgZgWmANO5Vt2fb8abvNGLTA/d6VVArdPXSccaSxLYCGmgzvx+CAr8P+P8FcJ+Ng==
       }
     engines: { node: ^12.20 || >=14.13 }
     hasBin: true
@@ -4520,6 +4528,23 @@ packages:
       dom-accessibility-api: 0.5.7
       lz-string: 1.4.4
       pretty-format: 26.6.2
+    dev: true
+
+  /@testing-library/dom/8.6.0:
+    resolution:
+      {
+        integrity: sha512-EDBMEWK8IVpNF7B7C1knb0lLB4Si9RWte/YTEi6CqmqUK5CYCoecwOOG9pEijU/H6s3u0drUxH5sKT07FCgFIg==
+      }
+    engines: { node: '>=12' }
+    dependencies:
+      '@babel/code-frame': 7.14.5
+      '@babel/runtime': 7.15.4
+      '@types/aria-query': 4.2.2
+      aria-query: 4.2.2
+      chalk: 4.1.2
+      dom-accessibility-api: 0.5.7
+      lz-string: 1.4.4
+      pretty-format: 27.2.2
     dev: true
 
   /@testing-library/jest-dom/5.14.1:
@@ -15732,6 +15757,18 @@ packages:
     resolution: { integrity: sha1-fRh9tcbNu9ZNdaMvkbiZi94yc8M= }
     dev: true
 
+  /svelte-fragment-component/1.2.0_svelte@3.42.6:
+    resolution:
+      {
+        integrity: sha512-rRstmz2oAy2Y/7X57tRaIAJdMYsa2K/MOx/YJN/ETb7Bj9U3vjgioz27dMG1hl2vAKFTtQpxDhC31ur7ECwpog==
+      }
+    engines: { node: '>=10' }
+    peerDependencies:
+      svelte: 3.x
+    dependencies:
+      svelte: 3.42.6
+    dev: true
+
   /svelte-hmr/0.14.7_svelte@3.42.6:
     resolution:
       {
@@ -15740,6 +15777,20 @@ packages:
     peerDependencies:
       svelte: '>=3.19.0'
     dependencies:
+      svelte: 3.42.6
+    dev: true
+
+  /svelte-hyperscript/1.2.1_svelte@3.42.6:
+    resolution:
+      {
+        integrity: sha512-IVk91VDSOrhOUe0KI+Jfu7yCruUTOXgr4WysrK7hBNbFMDjeBOcPhk+LMYjUjdWxJx3+QSt3bUXj09YrUfRkjg==
+      }
+    engines: { node: '>=10' }
+    peerDependencies:
+      svelte: 3.x
+    dependencies:
+      '@babel/runtime-corejs3': 7.15.4
+      core-js: 3.18.0
       svelte: 3.42.6
     dev: true
 
@@ -15755,6 +15806,22 @@ packages:
     dependencies:
       jest: 27.2.1
       svelte: 3.42.6
+    dev: true
+
+  /svelte-jsx/2.0.0_svelte@3.42.6:
+    resolution:
+      {
+        integrity: sha512-8UX3g2+oQpZJcEu1iozM3DRLEDXhtqCAxgeqsDZ0z0HNUDJtYeTuLVROV+qtkvdiAR08Ur9baBxQlGEf6SlKkA==
+      }
+    engines: { node: '>=10' }
+    peerDependencies:
+      svelte: 3.x
+    dependencies:
+      '@babel/runtime-corejs3': 7.15.4
+      core-js: 3.18.0
+      svelte: 3.42.6
+      svelte-fragment-component: 1.2.0_svelte@3.42.6
+      svelte-hyperscript: 1.2.1_svelte@3.42.6
     dev: true
 
   /svelte-loader/3.1.2_svelte@3.42.6:

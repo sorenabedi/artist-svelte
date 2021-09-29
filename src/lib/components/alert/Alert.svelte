@@ -13,7 +13,7 @@
 
 <div data-testid={testID} class={clsx('alertContainer', color, variant)} class:rtl class:shadow>
 	{#if SvgIcon}
-		<SVGIcon {color} {variant} data={SvgIcon} />
+		<SVGIcon data={SvgIcon} />
 	{/if}
 	<div>
 		{#if $$slots.title}

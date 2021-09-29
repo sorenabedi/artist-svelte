@@ -14,17 +14,21 @@ describe('Checkbox component test suite', () => {
 		const { getByTestId, component } = render(Checkbox);
 		expect(getByTestId('Checkbox')).toHaveClass('default');
 		expect(getByTestId('Checkbox')).not.toHaveClass('primary');
-		await component.$$set({ color: 'primary' });
+		component.$$set({ color: 'primary' });
+		await tick();
 		expect(getByTestId('Checkbox')).toHaveClass('primary');
-		await component.$$set({ color: 'danger' });
+		component.$$set({ color: 'danger' });
+		await tick();
 		expect(getByTestId('Checkbox')).toHaveClass('danger');
 	});
 	it('testing interactive shadow prop change', async () => {
 		const { getByTestId, component } = render(Checkbox);
 		expect(getByTestId('Checkbox')).not.toHaveClass('shadow');
-		await component.$$set({ shadow: true });
+		component.$$set({ shadow: true });
+		await tick();
 		expect(getByTestId('Checkbox')).toHaveClass('shadow');
-		await component.$$set({ shadow: false });
+		component.$$set({ shadow: false });
+		await tick();
 		expect(getByTestId('Checkbox')).not.toHaveClass('shadow');
 	});
 });
