@@ -4,5 +4,5 @@
 		"isolatedModules": false
 	},
 	"exclude": ["src/**"],
-	"include": ["src/**/*.spec.ts"]
+	"include": ["src/**/*.spec.ts", "src/**.*.spec.jsx"]
 }

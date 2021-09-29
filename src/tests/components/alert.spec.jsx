@@ -4,9 +4,10 @@ import SVG from '../mocks/svg';
 
 describe('Alert component test suite', () => {
 	it('it works', async () => {
-		const component = render(Alert);
+		const component = render(<Alert />);
 		expect(() => component.getAllByTestId('Alert')).not.toThrow();
 	});
+
 	it('testing default classes', async () => {
 		const { getByTestId } = render(Alert);
 		expect(getByTestId('Alert')).toHaveClass('fill', 'default');
@@ -15,42 +16,50 @@ describe('Alert component test suite', () => {
 		const { getByTestId, component } = render(Alert);
 		expect(getByTestId('Alert')).toHaveClass('default');
 		expect(getByTestId('Alert')).not.toHaveClass('primary');
-		await component.$$set({ color: 'primary' });
+		component.$$set({ color: 'primary' });
+		await tick();
 		expect(getByTestId('Alert')).toHaveClass('primary');
-		await component.$$set({ color: 'danger' });
+		component.$$set({ color: 'danger' });
+		await tick();
 		expect(getByTestId('Alert')).toHaveClass('danger');
 	});
 	it('testing interactive variant prop change', async () => {
 		const { getByTestId, component } = render(Alert);
 		expect(getByTestId('Alert')).toHaveClass('fill');
 		expect(getByTestId('Alert')).not.toHaveClass('outline');
-		await component.$$set({ variant: 'outline' });
+		component.$$set({ variant: 'outline' });
+		await tick();
 		expect(getByTestId('Alert')).toHaveClass('outline');
-		await component.$$set({ variant: 'outline-gradient' });
+		component.$$set({ variant: 'outline-gradient' });
+		await tick();
 		expect(getByTestId('Alert')).toHaveClass('outline-gradient');
 	});
 	it('testing interactive shadow prop change', async () => {
 		const { getByTestId, component } = render(Alert);
 		expect(getByTestId('Alert')).not.toHaveClass('shadow');
-		await component.$$set({ shadow: true });
+		component.$$set({ shadow: true });
+		await tick();
 		expect(getByTestId('Alert')).toHaveClass('shadow');
-		await component.$$set({ shadow: false });
+		component.$$set({ shadow: false });
+		await tick();
 		expect(getByTestId('Alert')).not.toHaveClass('shadow');
 	});
 	it('testing interactive rtl prop change', async () => {
 		const { getByTestId, component } = render(Alert);
 		expect(getByTestId('Alert')).not.toHaveClass('rtl');
-		await component.$$set({ rtl: true });
+		component.$$set({ rtl: true });
+		await tick();
 		expect(getByTestId('Alert')).toHaveClass('rtl');
-		await component.$$set({ rtl: false });
+		component.$$set({ rtl: false });
+		await tick();
 		expect(getByTestId('Alert')).not.toHaveClass('rtl');
 	});
-	// it('testing interactive SVGIcon prop change', async () => {
-	// 	const { getByTestId, component, container } = render(Alert, { props: { SVGIcon: SVG } });
-	// 	expect(getByTestId('Alert').innerHTML.includes('</svg>')).toEqual(false);
-	// 	await component.$$set({ SVGIcon: SVG });
-	// 	expect(getByTestId('Alert').innerHTML.includes('</svg>')).toEqual(true);
-	// 	await component.$$set({ SVGIcon: undefined });
-	// 	expect(getByTestId('Alert').innerHTML.includes('</svg>')).toEqual(false);
-	// });
+	it('testing interactive title slot change', async () => {
+		const { getByTestId } = render(
+			<Alert>
+				<Fragment slot="title">some title</Fragment>
+			</Alert>
+		);
+		expect(getByTestId('Alert').querySelector('h6')).toHaveTextContent('some title');
+	});
 });

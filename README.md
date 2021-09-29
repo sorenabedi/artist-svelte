@@ -110,7 +110,7 @@ npm install @sorens/artist-svelte --save-dev
      		scss: {}
      	}),
      	kit: {
-     		adapter: static_adapter()
+     		adapter: staticAdapter()
      		// Other kit config params
      	}
      	// Other config params
