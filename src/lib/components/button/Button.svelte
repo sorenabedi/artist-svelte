@@ -1,12 +1,10 @@
 <script lang="ts">
 	import type { ColorProp, VariantProp } from '../../types/components/props';
 	import clsx from 'clsx';
-	import Icon from '../../utilities/svg-icon.svelte';
-	const testID = process.env.NODE_ENV === 'test' ? 'Button' : undefined;
+	const testID = process.env.NODE_ENV === 'test' ? 'Button' : /* istanbul ignore next */ undefined;
 
 	export let rtl = false;
 	export let circle = false;
-	export let SVGIcon = undefined;
 	export let fullWidth = false;
 	export let color: ColorProp = 'default';
 	export let variant: VariantProp = 'outline';
@@ -21,8 +19,10 @@
 	on:dblclick
 	data-testid={testID}
 >
-	{#if SVGIcon}
-		<span class="icon"><Icon data={SVGIcon} /></span>
+	{#if $$slots.SvgIcon}
+		<span class="icon">
+			<slot name="SvgIcon" />
+		</span>
 		<span><slot /></span>
 	{:else}
 		<span>

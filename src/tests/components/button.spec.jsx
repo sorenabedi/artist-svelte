@@ -1,6 +1,8 @@
 import Button from '../../lib/components/button';
+import { SVGIcon } from '../../lib/utilities';
 import SVG from '../mocks/svg';
 import { render, fireEvent } from '@testing-library/svelte';
+import fragment from 'svelte-fragment-component';
 
 describe('Button component test suite', () => {
 	it('it works', async () => {
@@ -63,15 +65,19 @@ describe('Button component test suite', () => {
 		await tick();
 		expect(getByTestId('Button')).not.toHaveClass('rtl');
 	});
-	it('testing interactive SVGIcon prop change', async () => {
-		const { getByTestId, component } = render(Button);
-		expect(getByTestId('Button').innerHTML.includes('</svg>')).toEqual(false);
-		component.$$set({ SVGIcon: SVG });
-		await tick();
+	it('test setting SVGIcon slot', async () => {
+		const { getByTestId } = render(
+			<Button>
+				<fragment slot="SvgIcon">
+					<SVGIcon data={SVG} />
+				</fragment>
+			</Button>
+		);
 		expect(getByTestId('Button').innerHTML.includes('</svg>')).toEqual(true);
-		component.$$set({ SVGIcon: undefined });
-		await tick();
-		expect(getByTestId('Button').innerHTML.includes('</svg>')).not.toEqual(true);
+	});
+	it('testing no SVGIcon slot', async () => {
+		const { getByTestId } = render(<Button />);
+		expect(getByTestId('Button').innerHTML.includes('</svg>')).toEqual(false);
 	});
 	it('testing interactive click prop change', async () => {
 		const { getByTestId, component } = render(Button);

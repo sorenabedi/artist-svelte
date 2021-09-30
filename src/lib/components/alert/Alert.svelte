@@ -1,19 +1,19 @@
 <script lang="ts">
 	import clsx from 'clsx';
 	import type { ColorProp, VariantProp } from '../../types/components/props';
-	import { SVGIcon } from '../../utilities';
-	const testID = process.env.NODE_ENV === 'test' ? 'Alert' : undefined;
+	const testID = process.env.NODE_ENV === 'test' ? 'Alert' : /* istanbul ignore next */ undefined;
 
 	export let color: ColorProp = 'default';
 	export let rtl = false;
 	export let shadow = false;
-	export let SvgIcon: string | undefined = undefined;
 	export let variant: VariantProp = 'fill';
 </script>
 
 <div data-testid={testID} class={clsx('alertContainer', color, variant)} class:rtl class:shadow>
-	{#if SvgIcon}
-		<SVGIcon data={SvgIcon} />
+	{#if $$slots.SvgIcon}
+		<span class="icon">
+			<slot name="SvgIcon" />
+		</span>
 	{/if}
 	<div>
 		{#if $$slots.title}

@@ -40,7 +40,23 @@ $icon-marginX: 0.125rem;
 		border-left-width: $base-borderWidth;
 	}
 	.title {
+		// display: flex;
+		// align-items: center;
 		font-size: $base-fontSize * 1.2;
-		margin: $base-marginY * 3 $base-marginX;
+		margin: $base-marginY * 3 auto;
+	}
+	span.icon {
+		display: inline-flex;
+		align-self: center;
+		margin: auto $icon-marginX * 3;
+		padding: 0 $icon-marginX * 3;
+		font-size: inherit;
+		:global {
+			svg {
+				path {
+					transition: fill 0.25s;
+				}
+			}
+		}
 	}
 }

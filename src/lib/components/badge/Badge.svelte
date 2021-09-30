@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { ColorProp, VariantProp } from '../../types/components/props';
 	import clsx from 'clsx';
-	const testID = process.env.NODE_ENV === 'test' ? 'Badge' : undefined;
+	const testID = process.env.NODE_ENV === 'test' ? 'Badge' : /* istanbul ignore next */ undefined;
 
 	export let color: ColorProp = 'default';
 	export let fullWidth = false;
