@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { ColorProp } from '../../types/components';
 	import clsx from 'clsx';
-	const testID = process.env.NODE_ENV === 'test' ? 'Switch' : undefined;
+	const testID = process.env.NODE_ENV === 'test' ? 'Switch' : /* istanbul ignore next */ undefined;
 
 	export let color: ColorProp = 'default';
 	let label: HTMLSpanElement;

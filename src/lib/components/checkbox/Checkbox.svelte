@@ -1,7 +1,8 @@
 <script lang="ts">
 	import type { ColorProp } from '../../types/components';
 	import clsx from 'clsx';
-	const testID = process.env.NODE_ENV === 'test' ? 'Checkbox' : undefined;
+	const testID =
+		process.env.NODE_ENV === 'test' ? 'Checkbox' : /* istanbul ignore next */ undefined;
 
 	export let color: ColorProp = 'default';
 	export let shadow = false;

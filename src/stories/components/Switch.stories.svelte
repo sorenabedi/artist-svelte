@@ -33,17 +33,20 @@
 />
 
 <Template let:args>
-	<Switch
-		{...args}
-		on:click={args.onClick}
-		on:change={args.onChange}
-		on:dblclick={args.onDblClick}
-		on:input={args.onInput}
-	>
-		<svelte:fragment slot="on">{args.slotOn}</svelte:fragment>
-		<svelte:fragment slot="off">{args.slotOff}</svelte:fragment>
-		{args.slot}
-	</Switch>
+	<p>
+		some test
+		<Switch
+			{...args}
+			on:click={args.onClick}
+			on:change={args.onChange}
+			on:dblclick={args.onDblClick}
+			on:input={args.onInput}
+		>
+			<svelte:fragment slot="on">{args.slotOn}</svelte:fragment>
+			<svelte:fragment slot="off">{args.slotOff}</svelte:fragment>
+			{args.slot}
+		</Switch>
+	</p>
 </Template>
 
 <Story

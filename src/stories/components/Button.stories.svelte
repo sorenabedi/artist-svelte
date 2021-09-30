@@ -1,6 +1,7 @@
 <script>
 	import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
 	import Button from '$lib/components/button';
+	import { SVGIcon } from '$lib/utilities';
 </script>
 
 <Meta
@@ -8,7 +9,7 @@
 	component={Button}
 	argTypes={{
 		slot: { control: 'text', defaultValue: 'custom button' },
-		SVGIcon: { control: 'text' },
+		SvgIcon: { control: 'text' },
 		color: {
 			control: {
 				type: 'select',
@@ -36,9 +37,36 @@
 />
 
 <Template let:args>
-	<Button variant={'fill'} {...args} on:click={args.onClick}>{args.slot}</Button>
-	<Button variant={'outline'} {...args} on:click={args.onClick}>{args.slot}</Button>
-	<Button variant={'outline-gradient'} {...args} on:click={args.onClick}>{args.slot}</Button>
+	{#if args.SvgIcon}
+		<Button variant={'fill'} {...args} on:click={args.onClick}>
+			<svelte:fragment slot="SvgIcon"><SVGIcon data={args.SvgIcon} /></svelte:fragment>
+			{args.slot}
+		</Button>
+	{:else}
+		<Button variant={'fill'} {...args} on:click={args.onClick}>
+			{args.slot}
+		</Button>
+	{/if}
+	{#if args.SvgIcon}
+		<Button variant={'outline'} {...args} on:click={args.onClick}>
+			<svelte:fragment slot="SvgIcon"><SVGIcon data={args.SvgIcon} /></svelte:fragment>
+			{args.slot}
+		</Button>
+	{:else}
+		<Button variant={'outline'} {...args} on:click={args.onClick}>
+			{args.slot}
+		</Button>
+	{/if}
+	{#if args.SvgIcon}
+		<Button variant={'outline-gradient'} {...args} on:click={args.onClick}>
+			<svelte:fragment slot="SvgIcon"><SVGIcon data={args.SvgIcon} /></svelte:fragment>
+			{args.slot}
+		</Button>
+	{:else}
+		<Button variant={'outline-gradient'} {...args} on:click={args.onClick}>
+			{args.slot}
+		</Button>
+	{/if}
 </Template>
 
 <Story

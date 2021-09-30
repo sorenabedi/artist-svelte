@@ -35,7 +35,7 @@ yarn add -D @sorens/artist-svelte
 npm install @sorens/artist-svelte --save-dev
 ```
 
-2. **SASS/SCSS** preprocessor setup
+2. **SASS/SCSS** preprocessor setup<br/>
    artist framework leverages the power of `scss` for building lightweight and robust styles, auto generating font colors from theme colors with sufficient contrast and lightness for better a11y-accessability.
 
    - create [svelte.config.js](https://kit.svelte.dev/docs#configuration) file in root directory of your project, if not already exists.
@@ -57,7 +57,7 @@ npm install @sorens/artist-svelte --save-dev
    - for using default artist theme palette, you have to import `@sorens/artist-svelte/scss/GlobalStyles.scss` in layouts of your project. e.g:
 
      ```html
-     // example with default layout along with other global styles // src/routes/__layout.svelte
+     // example with default layout along with other global styles in `src/routes/__layout.svelte`
 
      <style lang="scss" global>
      	@import '@sorens/artist-svelte/scss/GlobalStyles.scss';

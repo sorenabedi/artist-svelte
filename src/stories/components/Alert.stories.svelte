@@ -1,6 +1,7 @@
 <script>
 	import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
 	import Alert from '$lib/components/alert';
+	import { SVGIcon } from '$lib/utilities';
 </script>
 
 <Meta
@@ -16,7 +17,7 @@
 			control: 'text',
 			defaultValue: 'Alert Title'
 		},
-		SVGIcon: {
+		SvgIcon: {
 			control: 'text'
 		},
 		color: {
@@ -41,17 +42,38 @@
 />
 
 <Template let:args>
-	<Alert variant={'fill'} {...args}>
-		<svelte:fragment slot="title">{args.title}</svelte:fragment>{args.slot}
-	</Alert>
+	{#if args.SvgIcon}
+		<Alert variant={'fill'} {...args}>
+			<svelte:fragment slot="title">{args.title}</svelte:fragment>{args.slot}
+			<svelte:fragment slot="SvgIcon"><SVGIcon data={args.SvgIcon} /></svelte:fragment>
+		</Alert>
+	{:else}
+		<Alert variant={'fill'} {...args}>
+			<svelte:fragment slot="title">{args.title}</svelte:fragment>{args.slot}
+		</Alert>
+	{/if}
 	<br />
-	<Alert variant={'outline'} {...args}>
-		<svelte:fragment slot="title">{args.title}</svelte:fragment>{args.slot}
-	</Alert>
+	{#if args.SvgIcon}
+		<Alert variant={'outline'} {...args}>
+			<svelte:fragment slot="title">{args.title}</svelte:fragment>{args.slot}
+			<svelte:fragment slot="SvgIcon"><SVGIcon data={args.SvgIcon} /></svelte:fragment>
+		</Alert>
+	{:else}
+		<Alert variant={'outline'} {...args}>
+			<svelte:fragment slot="title">{args.title}</svelte:fragment>{args.slot}
+		</Alert>
+	{/if}
 	<br />
-	<Alert variant={'outline-gradient'} {...args}>
-		<svelte:fragment slot="title">{args.title}</svelte:fragment>{args.slot}
-	</Alert>
+	{#if args.SvgIcon}
+		<Alert variant={'outline-gradient'} {...args}>
+			<svelte:fragment slot="title">{args.title}</svelte:fragment>{args.slot}
+			<svelte:fragment slot="SvgIcon"><SVGIcon data={args.SvgIcon} /></svelte:fragment>
+		</Alert>
+	{:else}
+		<Alert variant={'outline-gradient'} {...args}>
+			<svelte:fragment slot="title">{args.title}</svelte:fragment>{args.slot}
+		</Alert>
+	{/if}
 </Template>
 
 <Story

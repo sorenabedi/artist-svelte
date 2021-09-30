@@ -19,6 +19,7 @@ $thumb-height: $base-height * 1.2;
 	position: relative;
 	display: inline-flex;
 	border-width: unset;
+	align-self: center;
 	margin: $base-marginY $base-marginX;
 	border-radius: $base-borderRadius;
 	.inputMask {

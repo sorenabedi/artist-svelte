@@ -1,4 +1,5 @@
 import Alert from '../../lib/components/alert';
+import { SVGIcon } from '../../lib/utilities';
 import { render } from '@testing-library/svelte';
 import SVG from '../mocks/svg';
 
@@ -61,5 +62,20 @@ describe('Alert component test suite', () => {
 			</Alert>
 		);
 		expect(getByTestId('Alert').querySelector('h6')).toHaveTextContent('some title');
+	});
+	it('test setting SVGIcon slot', async () => {
+		const { getByTestId } = render(
+			<Alert>
+				<Fragment slot="SvgIcon">
+					<SVGIcon data={SVG} />
+				</Fragment>
+			</Alert>
+		);
+		console.log(getByTestId('Alert').innerHTML);
+		expect(getByTestId('Alert').innerHTML.includes('</svg>')).toEqual(true);
+	});
+	it('testing no SVGIcon slot', async () => {
+		const { getByTestId } = render(<Alert />);
+		expect(getByTestId('Alert').innerHTML.includes('</svg>')).toEqual(false);
 	});
 });
