@@ -1,0 +1,38 @@
+@use 'sass:math';
+$base-borderRadius: $borderRadius * 1.2;
+$base-margin: $marginX;
+$base-margin: $marginX;
+$base-size: 2.5rem;
+$base-padding-left: calc(var(--size, $base-size) * 0.6);
+$base-padding-right: calc(var(--size, $base-size) * 0.6);
+
+& {
+	display: inline-flex;
+	padding: 0.1rem $base-padding-left 0.1rem $base-padding-right;
+	margin: $base-margin;
+
+	:global(.avatarContainer) {
+		&:not(:only-child) {
+			margin-left: calc(var(--size, $base-size) * -0.6);
+			transform: translate(calc(var(--size, $base-size) * 0.25));
+		}
+		&:not(:last-of-type) {
+			@include action-hover {
+				transform: translate(0);
+			}
+		}
+	}
+
+	:global(.avatarContainer.rtl) {
+		&:not(:only-child) {
+			margin-left: unset;
+			margin-right: calc(var(--size, $base-size) * -0.6);
+			transform: translate(calc(var(--size, $base-size) * -0.25));
+		}
+		&:not(:last-of-type) {
+			@include action-hover {
+				transform: translate(0);
+			}
+		}
+	}
+}

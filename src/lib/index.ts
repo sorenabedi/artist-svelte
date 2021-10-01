@@ -1,4 +1,5 @@
 export { default as Alert } from './components/alert';
+export { default as Avatar, AvatarStack } from './components/avatar';
 export { default as Badge } from './components/badge';
 export { default as Button } from './components/button';
 export { default as Card } from './components/card';

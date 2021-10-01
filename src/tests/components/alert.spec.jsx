@@ -71,7 +71,6 @@ describe('Alert component test suite', () => {
 				</Fragment>
 			</Alert>
 		);
-		console.log(getByTestId('Alert').innerHTML);
 		expect(getByTestId('Alert').innerHTML.includes('</svg>')).toEqual(true);
 	});
 	it('testing no SVGIcon slot', async () => {
