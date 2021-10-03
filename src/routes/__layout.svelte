@@ -6,6 +6,7 @@
 	<a href="/checkbox">checkbox</a>
 	<a href="/switch">switch</a>
 	<a href="/avatar">avatar</a>
+	<a href="/radio">radio</a>
 </nav>
 <slot />
 
