@@ -99,6 +99,15 @@ $mask-borderRadius: $borderRadius * 0.45;
 				}
 			}
 		}
+		&:disabled ~ .inputMask {
+			border-color: hsl(var(--base) / 50%);
+			span {
+				background-color: hsl(var(--base) / 50%);
+			}
+		}
+		&:disabled ~ span {
+			opacity: 0.5;
+		}
 		@include action-hover {
 			&:not(:checked) ~ .inputMask {
 				border-color: hsl(var(--natural));
@@ -107,11 +116,11 @@ $mask-borderRadius: $borderRadius * 0.45;
 	}
 	&.shadow {
 		@include action-hover {
-			.inputMask {
+			input:not(:disabled) ~ .inputMask {
 				background-color: hsl(var(--natural));
 				box-shadow: 0 3px 60px 0 hsla(var(--base) / 100%);
 			}
-			input:checked ~ .inputMask {
+			input:checked:not(:disabled) ~ .inputMask {
 				box-shadow: 0 3px 8px 0 hsla(var(--base) / 35%);
 			}
 		}
