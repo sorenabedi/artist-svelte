@@ -7,6 +7,7 @@
 	<a href="/switch">switch</a>
 	<a href="/avatar">avatar</a>
 	<a href="/radio">radio</a>
+	<a href="/input">input</a>
 </nav>
 <slot />
 

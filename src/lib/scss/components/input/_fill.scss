@@ -1,0 +1,43 @@
+@mixin button-fill {
+	&.fill {
+		label {
+			color: hsl(var(--natural-font));
+		}
+		input {
+			border-color: transparent;
+			color: hsl(var(--base));
+			
+		}
+		@include action-hover {
+			label {
+				color: hsla(var(--darker) / 35%);
+			}
+			input {
+				&:not(:disabled) {
+					background-color: hsla(var(--light) / 15%);
+				}
+			}
+		}
+		&:focus-within {
+			label {
+				color: hsl(var(--natural-font));
+			}
+			input {
+				background-color: hsl(var(--natural) / 50%);
+				border-color: hsl(var(--dark));
+				color: hsl(var(--natural-font));
+			}
+		}
+
+	&.shadow {
+		@include action-hover {
+			input {
+				&:not(:disabled) {
+					box-shadow: 0 3px 8px 0 hsla(var(--light) / 35%);
+				}
+			}
+		}
+	}
+	}
+	
+}
