@@ -25,7 +25,8 @@ $base-fontSize: 0.8rem;
 		font-size: $base-fontSize;
 		padding: $base-paddingY $base-paddingX;
 		@include truncate(100%);
-		transition: padding 0.3s ease, top 0.3s ease, right 0.3s ease, left 0.3s ease, opacity 0.3s ease, color 0.3s ease;
+		transition: padding 0.3s ease, top 0.3s ease, right 0.3s ease, left 0.3s ease, opacity 0.3s ease,
+			color 0.3s ease;
 	}
 	input {
 		border-radius: inherit;
@@ -86,5 +87,4 @@ $base-fontSize: 0.8rem;
 			}
 		}
 	}
-
 }

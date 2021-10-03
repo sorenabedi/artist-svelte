@@ -6,7 +6,6 @@
 		input {
 			border-color: transparent;
 			color: hsl(var(--base));
-			
 		}
 		@include action-hover {
 			label {
@@ -29,15 +28,14 @@
 			}
 		}
 
-	&.shadow {
-		@include action-hover {
-			input {
-				&:not(:disabled) {
-					box-shadow: 0 3px 8px 0 hsla(var(--light) / 35%);
+		&.shadow {
+			@include action-hover {
+				input {
+					&:not(:disabled) {
+						box-shadow: 0 3px 8px 0 hsla(var(--light) / 35%);
+					}
 				}
 			}
 		}
 	}
-	}
-	
 }
