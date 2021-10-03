@@ -1,0 +1,90 @@
+@use 'sass:math';
+$base-borderRadius: $borderRadius * 1.3;
+$base-borderWidth: $borderWidth * 1.5;
+$base-marginX: $marginX;
+$base-marginY: $marginY;
+$base-paddingX: $paddingX;
+$base-paddingY: $paddingY;
+$base-fontSize: 0.8rem;
+
+& {
+	position: relative;
+	border-width: unset;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	align-self: center;
+	flex-direction: column;
+	margin: $base-marginY $base-marginX;
+	border-radius: $base-borderRadius;
+	label {
+		position: absolute;
+		top: 0;
+		left: 0;
+		cursor: text;
+		font-size: $base-fontSize;
+		padding: $base-paddingY $base-paddingX;
+		@include truncate(100%);
+		transition: padding 0.3s ease, top 0.3s ease, right 0.3s ease, left 0.3s ease, opacity 0.3s ease,
+			color 0.3s ease;
+	}
+	input {
+		border-radius: inherit;
+		border-width: $base-borderWidth;
+		border-style: solid;
+		padding: $base-paddingY $base-paddingX;
+		width: 100%;
+		outline: none;
+		min-width: 100px;
+		font-size: $base-fontSize * 0.8;
+		font-family: inherit;
+		background-color: hsl(var(--font));
+		transition: padding 0.3s ease, color 0.3s ease, background-color 0.3s ease,
+			border-color 0.3s ease, box-shadow 0.3s ease;
+		&[type='number']::-webkit-inner-spin-button,
+		&[type='number']::-webkit-outer-spin-button {
+			visibility: hidden;
+		}
+		//   &[type="date"]::-webkit-calendar-picker-indicator {
+		// }
+		&[type='search']::-webkit-search-cancel-button {
+			-webkit-appearance: none;
+			height: 15px;
+			width: 15px;
+			margin-left: 0.4em;
+			background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23c00'><path d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/></svg>");
+			cursor: pointer;
+		}
+		&:not(:placeholder-shown) ~ label {
+			opacity: 0;
+		}
+	}
+
+	&:focus-within {
+		label {
+			padding-left: $base-paddingX * 2.5;
+			opacity: 0;
+		}
+		input {
+			padding-left: $base-paddingX * 1.7;
+		}
+	}
+	&.rtl {
+		label {
+			top: 0;
+			left: unset;
+			right: 0;
+		}
+		&:focus-within {
+			label {
+				padding-left: $base-paddingX;
+				padding-right: $base-paddingX * 2.5;
+				visibility: hidden;
+			}
+			input {
+				padding-left: $base-paddingX;
+				padding-right: $base-paddingX * 1.7;
+			}
+		}
+	}
+}

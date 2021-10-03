@@ -7,4 +7,5 @@ export { default as Title } from './components/title';
 export { default as Checkbox } from './components/checkbox';
 export { default as Radio } from './components/radio';
 export { default as Switch } from './components/switch';
+export { default as Input } from './components/input';
 export { SVGIcon } from './utilities';
