@@ -18,6 +18,7 @@
 	on:click
 	on:dblclick
 	data-testid={testID}
+	{...$$restProps}
 >
 	{#if $$slots.SvgIcon}
 		<span class="icon">

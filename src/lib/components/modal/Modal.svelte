@@ -27,7 +27,13 @@
 
 <slot name="trigger" {open} />
 {#if $isOpen}
-	<div class={clsx('modal', color)} use:modalAction tabindex="0" data-testid={testID}>
+	<div
+		class={clsx('modal', color)}
+		use:modalAction
+		tabindex="0"
+		data-testid={testID}
+		{...$$restProps}
+	>
 		<div
 			class="backdrop"
 			class:overlayBlur
