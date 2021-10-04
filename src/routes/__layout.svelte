@@ -8,6 +8,7 @@
 	<a href="/avatar">avatar</a>
 	<a href="/radio">radio</a>
 	<a href="/input">input</a>
+	<a href="/modal">modal</a>
 </nav>
 <slot />
 
