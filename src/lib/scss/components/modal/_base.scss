@@ -1,0 +1,83 @@
+@use 'sass:math';
+$base-borderRadius: $borderRadius;
+$base-paddingX: $paddingX * 2;
+$base-paddingY: $paddingY;
+& {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+
+	> .backdrop {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: hsl(var(--darker) / 50%);
+		z-index: -1;
+		&.overlayBlur {
+			background-color: hsl(var(--dark) / 30%);
+			backdrop-filter: blur(10px);
+		}
+	}
+	> .content-wrapper {
+		position: relative;
+		z-index: 1;
+		max-width: 90vw;
+		border-radius: 0.3rem;
+		background-color: hsl(var(--white));
+		// overflow: hidden;
+		padding: $base-paddingY $base-paddingX * 2;
+		border-radius: $base-borderRadius;
+
+		background-clip: padding-box;
+		border: 0;
+		box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d;
+		pointer-events: auto;
+		> .close {
+			position: absolute;
+			top: 0;
+			right: 0;
+			:global {
+				button {
+					display: flex;
+					padding: $base-paddingY * 2 $base-paddingX;
+					margin: 0;
+					border: 1px solid hsl(var(--black) / 10%);
+					border-radius: $base-borderRadius;
+					outline: 0;
+					background-color: hsl(var(--white));
+					cursor: pointer;
+					color: hsl(var(--base));
+					font-size: 1rem;
+					transform: translate($base-paddingY, $base-paddingX);
+					transition: border 0.3s cubic-bezier(0.39, 0.575, 0.565, 1),
+						background-color 0.3s cubic-bezier(0.39, 0.575, 0.565, 1),
+						box-shadow 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+					position: relative;
+					@include action-hover {
+						// transform: translate($base-paddingY , $base-paddingX);
+						border: 1px solid hsl(var(--base) / 100%);
+						background-color: hsl(var(--natural));
+						box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d;
+					}
+				}
+			}
+			& ~ .header {
+				padding-right: $base-paddingX * 2;
+			}
+		}
+		> .header {
+			max-height: 50vh;
+			overflow: auto;
+		}
+		> .content {
+			max-height: 50vh;
+			overflow: auto;
+		}
+	}
+}

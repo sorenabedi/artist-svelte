@@ -2,8 +2,8 @@
 	const testID = process.env.NODE_ENV === 'test' ? 'SVGIcon' : /* istanbul ignore next */ undefined;
 	export let data = '';
 	export let size: string | undefined = undefined;
-	export let width = '20px';
-	export let height = '20px';
+	export let width = '1em';
+	export let height = '1em';
 	export let color: string | undefined = undefined;
 	export let stroke = 'currentColor';
 	export let fill = 'currentColor';
