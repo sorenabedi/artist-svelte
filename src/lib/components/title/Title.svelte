@@ -7,7 +7,7 @@
 	export let variant: VariantProp = 'outline';
 </script>
 
-<h4 class={clsx(color, variant, 'title')} data-testid={testID}>
+<h4 class={clsx(color, variant, 'title')} data-testid={testID} {...$$restProps}>
 	<slot />
 </h4>
 

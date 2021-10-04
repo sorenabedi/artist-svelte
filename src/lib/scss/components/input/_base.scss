@@ -36,7 +36,7 @@ $base-fontSize: 0.8rem;
 		width: 100%;
 		outline: none;
 		min-width: 100px;
-		font-size: $base-fontSize * 0.8;
+		font-size: $base-fontSize;
 		font-family: inherit;
 		background-color: hsl(var(--font));
 		transition: padding 0.3s ease, color 0.3s ease, background-color 0.3s ease,
