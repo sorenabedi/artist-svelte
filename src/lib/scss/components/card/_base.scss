@@ -20,12 +20,12 @@ $icon-marginX: 0.125rem;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		width: 100%;
+
 		white-space: nowrap;
 	}
 	.card {
 		padding: $base-paddingY $base-paddingX;
-		width: 100%;
+
 		line-height: 1.5;
 		background-color: white;
 		border-color: transparent;
@@ -38,10 +38,8 @@ $icon-marginX: 0.125rem;
 	}
 	.cardContent {
 		padding: math.div($base-paddingY, 4) $base-paddingX * 0.6;
-		width: 100%;
 	}
 	.cardActions {
-		width: 100%;
 		display: flex;
 		justify-content: space-around;
 		flex-wrap: wrap;

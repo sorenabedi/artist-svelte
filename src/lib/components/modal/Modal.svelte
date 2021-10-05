@@ -17,6 +17,7 @@
 
 	export let overlayClose = true;
 	export let overlayBlur = false;
+	export let fullScreen = false;
 	export let noCloseBtn = false;
 	export let color: ColorProp = 'default';
 
@@ -40,9 +41,9 @@
 			on:click={() => overlayClose && close()}
 			transition:fade={{ duration: 300 }}
 		/>
-
 		<div
-			class="content-wrapper"
+			class="modalContainer"
+			class:fullScreen
 			in:scale={{ duration: 300, easing: (time) => cubicOut(time * 1) }}
 			out:fly={{ y: 100, duration: 300 }}
 		>
@@ -53,15 +54,18 @@
 					</button>
 				</div>
 			{/if}
-			<div class="header">
-				<slot name="header" {store} />
-			</div>
+			<div class="contentWrapper">
+				<div class="header">
+					<slot name="header" {store} />
+				</div>
 
-			<div class="content">
-				<slot name="content" {store} />
+				<div class="content">
+					<slot name="content" {store} />
+				</div>
+				<div class="footer">
+					<slot name="footer" {store} />
+				</div>
 			</div>
-
-			<slot name="footer" {store} />
 		</div>
 	</div>
 {/if}

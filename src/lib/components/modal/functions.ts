@@ -2,6 +2,7 @@ export const keydown =
 	(close: () => void) =>
 	(e: KeyboardEvent): void => {
 		e.stopPropagation();
+		/* istanbul ignore else */
 		if (e.key === 'Escape') {
 			close();
 		}
@@ -14,6 +15,7 @@ export const useAction =
 		destroy: () => void;
 	} => {
 		const returnFn = [];
+		/* istanbul ignore else */
 		if (document.body.style.overflow !== 'hidden') {
 			const original = document.body.style.overflow;
 			document.body.style.overflow = 'hidden';

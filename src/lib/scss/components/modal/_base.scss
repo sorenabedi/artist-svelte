@@ -12,6 +12,8 @@ $base-paddingY: $paddingY;
 	justify-content: center;
 	align-items: center;
 	z-index: 1000;
+	box-sizing: border-box;
+	padding: $base-paddingY $base-paddingX;
 
 	> .backdrop {
 		position: absolute;
@@ -24,13 +26,13 @@ $base-paddingY: $paddingY;
 			backdrop-filter: blur(10px);
 		}
 	}
-	> .content-wrapper {
+	> .modalContainer {
 		position: relative;
 		z-index: 1;
 		max-width: 90vw;
+		max-height: 90vh;
 		border-radius: 0.3rem;
 		background-color: hsl(var(--white));
-		// overflow: hidden;
 		padding: $base-paddingY $base-paddingX * 2;
 		border-radius: $base-borderRadius;
 
@@ -67,17 +69,41 @@ $base-paddingY: $paddingY;
 					}
 				}
 			}
-			& ~ .header {
+			& ~ .contentWrapper .header {
 				padding-right: $base-paddingX * 2;
 			}
 		}
-		> .header {
-			max-height: 50vh;
-			overflow: auto;
+		> .contentWrapper {
+			> .header {
+				max-height: 20vh;
+				overflow: auto;
+			}
+			> .content {
+				max-height: 50vh;
+				overflow: auto;
+			}
+			> .footer {
+				max-height: 20vh;
+				overflow: auto;
+			}
 		}
-		> .content {
-			max-height: 50vh;
-			overflow: auto;
+		&.fullScreen {
+			height: 100%;
+			width: 100%;
+			> .contentWrapper {
+				> .header {
+					height: 20vh;
+					overflow: auto;
+				}
+				> .content {
+					height: 50vh;
+					overflow: auto;
+				}
+				> .footer {
+					height: 20vh;
+					overflow: auto;
+				}
+			}
 		}
 	}
 }

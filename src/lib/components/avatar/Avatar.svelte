@@ -27,12 +27,14 @@
 		{#if image}
 			<img src={image} alt={alt && `avatar - ${alt}`} />
 		{/if}
-		{#if !bordered && indicator}
+		{#if indicator}
 			<span class="indicator" />
 		{/if}
 		{#if text}
 			<div class="textContainer">
-				<span>{text}</span>
+				<span class="textBackdrop">
+					<span>{text}</span>
+				</span>
 			</div>
 		{/if}
 	</div>
