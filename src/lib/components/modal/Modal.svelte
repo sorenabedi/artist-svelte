@@ -8,7 +8,7 @@
 	import clsx from 'clsx';
 	import { fly, fade, scale } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
-	import booleanStore from '../../store/booleanStore';
+	import booleanStore from '../../store/boolean';
 	import { useAction } from './functions';
 	import SVGIcon from '../../utilities/svg-icon.svelte';
 	import CloseSVG from '../../svg/icons/close';
@@ -20,9 +20,9 @@
 	export let noCloseBtn = false;
 	export let color: ColorProp = 'default';
 
-	const modalAction = useAction(modalList);
-	const store = booleanStore(false);
-	const { isOpen, open, close } = store;
+	const { isEnabled: isOpen, enable: open, disable: close } = booleanStore(false);
+	const store = { isOpen, open, close };
+	const modalAction = useAction(modalList, close);
 </script>
 
 <slot name="trigger" {open} />
