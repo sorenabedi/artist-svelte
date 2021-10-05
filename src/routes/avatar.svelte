@@ -19,6 +19,32 @@
 <Avatar color="warning" alt="Some Text" text="DE" />
 <Avatar color="danger" alt="Some Text" text="AQ" />
 <Avatar color="info" alt="Some Text" text="MR" />
+
+<Avatar color="default" alt="Some Text" image={'/images/avatar-1.png'} bordered />
+<Avatar color="primary" alt="Some Text" image={'/images/avatar-2.png'} bordered />
+<Avatar color="secondary" alt="Some Text" image={'/images/avatar-3.png'} bordered />
+<Avatar color="success" alt="Some Text" image={'/images/avatar-4.png'} bordered />
+<Avatar color="warning" alt="Some Text" image={'/images/avatar-5.png'} bordered />
+<Avatar color="danger" alt="Some Text" image={'/images/avatar-6.png'} bordered />
+<Avatar color="info" alt="Some Text" image={'/images/avatar-7.png'} bordered />
+<Avatar color="default" alt="Some Text" image={'/images/avatar-1.png'} bordered text="3+" />
+
+<Avatar color="default" alt="Some Text" image={'/images/avatar-1.png'} bordered indicator />
+<Avatar color="primary" alt="Some Text" image={'/images/avatar-2.png'} bordered indicator />
+<Avatar color="secondary" alt="Some Text" image={'/images/avatar-3.png'} bordered indicator />
+<Avatar color="success" alt="Some Text" image={'/images/avatar-4.png'} bordered indicator />
+<Avatar color="warning" alt="Some Text" image={'/images/avatar-5.png'} bordered indicator />
+<Avatar color="danger" alt="Some Text" image={'/images/avatar-6.png'} bordered indicator />
+<Avatar color="info" alt="Some Text" image={'/images/avatar-7.png'} bordered indicator />
+<Avatar
+	color="default"
+	alt="Some Text"
+	image={'/images/avatar-1.png'}
+	bordered
+	text="3+"
+	indicator
+/>
+
 <AvatarStack>
 	<Avatar color="default" alt="Some Text" image={'/images/avatar-1.png'} bordered />
 	<Avatar color="primary" alt="Some Text" image={'/images/avatar-2.png'} bordered />
