@@ -34,6 +34,16 @@ describe('Modal component test suite', () => {
 		await tick();
 		expect(container.querySelectorAll('.modal .backdrop.overlayBlur').length).toBe(1);
 	});
+	it('modal interactive fullScreen prop change', async () => {
+		const { component, container, getByText } = render(Modal);
+		const openBtn = getByText('Open Modal');
+		await fireEvent.click(openBtn);
+		expect(container.querySelectorAll('.modal').length).toBe(1);
+		expect(container.querySelectorAll('.modal .modalContainer.fullScreen').length).toBe(0);
+		component.$$set({ fullScreen: true });
+		await tick();
+		expect(container.querySelectorAll('.modal .modalContainer.fullScreen').length).toBe(1);
+	});
 	it('modal closes on clicking default close button', async () => {
 		const { component, container, getByText } = render(Modal);
 		const openBtn = getByText('Open Modal');
