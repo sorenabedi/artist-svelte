@@ -1,12 +1,13 @@
 <script lang="ts">
 	import type { ColorProp, InputTypeProp, VariantProp } from '../../types/components';
 	import clsx from 'clsx';
+	import { nanoid } from 'nanoid';
 	const testID = process.env.NODE_ENV === 'test' ? 'Input' : /* istanbul ignore next */ undefined;
 
 	export let color: ColorProp = 'default';
 	export let variant: Exclude<VariantProp, 'outline-gradient'> = 'fill';
 	export let shadow = false;
-	export let id: string;
+	export let id: string = `i-${nanoid(5)}`;
 	export let type: InputTypeProp = 'text';
 	export let rtl = false;
 	export let fullWidth = false;

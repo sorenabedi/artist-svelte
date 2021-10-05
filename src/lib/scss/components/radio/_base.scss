@@ -88,7 +88,7 @@ $mask-marginY: $marginY * 0.8;
 				}
 			}
 		}
-		&:disabled ~ span {
+		&:disabled ~ label {
 			opacity: 0.5;
 		}
 		@include action-hover {
