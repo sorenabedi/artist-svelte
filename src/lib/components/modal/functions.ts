@@ -1,11 +1,13 @@
-export const keydown = (e: KeyboardEvent): void => {
-	e.stopPropagation();
-	if (e.key === 'Escape') {
-		close();
-	}
-};
+export const keydown =
+	(close: () => void) =>
+	(e: KeyboardEvent): void => {
+		e.stopPropagation();
+		if (e.key === 'Escape') {
+			close();
+		}
+	};
 export const useAction =
-	(modalList: HTMLElement[]) =>
+	(modalList: HTMLElement[], close: () => void) =>
 	(
 		node: HTMLElement
 	): {
@@ -19,10 +21,10 @@ export const useAction =
 				document.body.style.overflow = original;
 			});
 		}
-		node.addEventListener('keydown', keydown);
+		document.body.addEventListener('keydown', keydown(close));
 		modalList.push(node);
 		returnFn.push(() => {
-			node.removeEventListener('keydown', keydown);
+			node.removeEventListener('keydown', keydown(close));
 		});
 		return {
 			destroy: () => returnFn.forEach((fn) => fn())
