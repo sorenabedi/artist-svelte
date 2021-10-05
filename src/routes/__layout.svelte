@@ -24,8 +24,5 @@
 			Arial, 'Noto Sans', 'Liberation Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
 			'Segoe UI Symbol', 'Noto Color Emoji', Vazir;
 		// direction: rtl;
-		* {
-			box-sizing: border-box;
-		}
 	}
 </style>

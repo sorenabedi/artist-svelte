@@ -44,6 +44,7 @@ $thumb-height: $base-height * 1.2;
 				background-color 0.3s ease;
 			padding: $base-paddingY $base-paddingX;
 			padding-right: $base-paddingX * 2.7;
+			box-sizing: border-box;
 		}
 		.off {
 			-webkit-transform: translate(100%);
