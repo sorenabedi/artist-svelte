@@ -30,6 +30,7 @@ specifiers:
   jest: ^27.2.4
   jest-css-modules-transform: ^4.3.0
   lint-staged: ^11.1.2
+  nanoid: ^3.1.28
   prettier: ^2.4.1
   prettier-plugin-svelte: ^2.4.0
   sass: ^1.42.1
@@ -49,6 +50,7 @@ specifiers:
 
 dependencies:
   clsx: 1.1.1
+  nanoid: 3.1.28
   sass: 1.42.1
   svelte: 3.43.1
 
@@ -12974,6 +12976,15 @@ packages:
     engines: { node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1 }
     hasBin: true
     dev: true
+
+  /nanoid/3.1.28:
+    resolution:
+      {
+        integrity: sha512-gSu9VZ2HtmoKYe/lmyPFES5nknFrHa+/DT9muUFWFMi6Jh9E1I7bkvlQ8xxf1Kos9pi9o8lBnIOkatMhKX/YUw==
+      }
+    engines: { node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1 }
+    hasBin: true
+    dev: false
 
   /nanomatch/1.2.13:
     resolution:

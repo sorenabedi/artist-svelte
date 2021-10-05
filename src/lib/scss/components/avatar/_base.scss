@@ -1,11 +1,12 @@
 @use 'sass:math';
 $base-size: 3rem;
 $base-borderRadius: $borderRadius * 1.2;
-$base-borderRadius: calc(var(--size, $base-size) * 0.2);
+$base-borderRadius: calc(var(--size, $base-size) * 0.29);
 $base-margin: $marginX;
-$base-padding: $marginX * 0.2;
+$base-padding: $marginX * 1;
 $avatar-borderRadius: $borderRadius;
-$avatar-borderRadius: calc(var(--size, $base-size) * 0.16);
+$avatar-borderRadius: calc(var(--size, $base-size) * 0.24);
+$txt-borderRadius: calc(var(--size, $base-size) * 0.22);
 
 & {
 	position: relative;
@@ -17,7 +18,6 @@ $avatar-borderRadius: calc(var(--size, $base-size) * 0.16);
 	height: var(--size, $base-size);
 	width: var(--size, $base-size);
 	transition: margin 0.3s ease, transform 0.3s ease;
-	background-color: hsl(var(--natural));
 	border-color: transparent;
 
 	&.bordered {
@@ -28,7 +28,7 @@ $avatar-borderRadius: calc(var(--size, $base-size) * 0.16);
 		border-width: calc(var(--size, $base-size) * 0.04);
 
 		.textContainer {
-			border-radius: $avatar-borderRadius;
+			border-radius: $txt-borderRadius;
 		}
 		.avatar {
 			border-radius: $avatar-borderRadius;

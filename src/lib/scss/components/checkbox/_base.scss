@@ -105,7 +105,7 @@ $mask-borderRadius: $borderRadius * 0.45;
 				background-color: hsl(var(--base) / 50%);
 			}
 		}
-		&:disabled ~ span {
+		&:disabled ~ label {
 			opacity: 0.5;
 		}
 		@include action-hover {

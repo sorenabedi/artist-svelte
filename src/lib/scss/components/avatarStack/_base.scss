@@ -12,6 +12,7 @@ $base-padding-right: calc(var(--size, $base-size) * 0.6);
 	margin: $base-margin;
 
 	:global(.avatarContainer) {
+		background-color: hsl(var(--white));
 		&:not(:only-child) {
 			margin-left: calc(var(--size, $base-size) * -0.6);
 			transform: translate(calc(var(--size, $base-size) * 0.25));
