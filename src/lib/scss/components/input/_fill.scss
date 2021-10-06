@@ -22,11 +22,11 @@
 						color: hsla(var(--dark-font) / 100%);
 					}
 				}
-				input {
-					&:not(:disabled) {
-						// background-color: hsla(var(--natural) / 5%);
-					}
-				}
+				// input {
+				// 	&:not(:disabled) {
+				// 		background-color: hsla(var(--natural) / 5%);
+				// 	}
+				// }
 			}
 		}
 		&:focus-within {
