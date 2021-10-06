@@ -23,7 +23,7 @@ $icon-marginX: 0.125rem;
 	font-size: $base-fontSize;
 	justify-content: center;
 	cursor: pointer;
-	transition: background 0.25s, color 0.25s, border 0.25s;
+	transition: background 0.25s, color 0.25s, border 0.25s, border-radius 0.25s;
 	font-family: inherit;
 	// @include truncate(100%);
 
