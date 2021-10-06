@@ -7,7 +7,8 @@
 	title="Components/Input"
 	component={Input}
 	argTypes={{
-		id: { control: 'text', defaultValue: 'iput-id-1' },
+		id: { control: 'text' },
+		icon: { control: 'text' },
 		slot: { control: 'text', defaultValue: 'custom Input' },
 		color: {
 			control: {
@@ -56,8 +57,8 @@
 />
 
 <Template let:args>
-	<Input variant={'fill'} {...args}>{args.slot}</Input>
-	<Input variant={'outline'} {...args}>{args.slot}</Input>
+	<Input variant={'fill'} icon={args.icon} {...args}>{args.slot}</Input>
+	<Input variant={'outline'} icon={args.icon} {...args}>{args.slot}</Input>
 </Template>
 
 <Story
