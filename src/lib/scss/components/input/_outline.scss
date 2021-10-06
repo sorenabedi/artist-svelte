@@ -1,38 +1,68 @@
 @mixin button-outline {
 	&.outline {
-		label {
-			color: hsl(var(--natural-font));
-		}
-		input {
-			border-color: transparent;
-			color: hsl(var(--base));
-		}
-		@include action-hover {
+		.inputContainer {
 			label {
-				color: hsla(var(--darker) / 35%);
+				color: hsl(var(--natural-font));
+				.icon {
+					color: hsla(var(--dark) / 100%);
+					border-color: transparent;
+					border-width: 1px;
+					border-bottom-width: 0;
+					border-top-width: 0;
+					border-left-width: 0;
+					border-radius: 0;
+				}
 			}
 			input {
-				&:not(:disabled) {
-					border-color: hsla(var(--light) / 15%);
+				border-color: transparent;
+				color: hsl(var(--base));
+			}
+		}
+		&.rtl {
+			.inputContainer {
+				label {
+					.icon {
+						border-right-width: 0;
+						border-left-width: 1px;
+					}
+				}
+			}
+		}
+		@include action-hover {
+			.inputContainer {
+				label {
+					color: hsla(var(--darker) / 35%);
+				}
+				input {
+					&:not(:disabled) {
+						border-color: hsla(var(--light) / 15%);
+					}
 				}
 			}
 		}
 
 		&:focus-within {
-			label {
-				color: hsl(var(--natural-font));
-			}
-			input {
-				border-color: hsl(var(--natural) / 50%);
-				border-bottom-color: hsl(var(--base)) !important;
+			.inputContainer {
+				label {
+					color: hsl(var(--natural-font));
+					.icon {
+						border-color: hsla(var(--base) / 20%);
+					}
+				}
+				input {
+					border-color: hsl(var(--natural) / 50%);
+					border-bottom-color: hsl(var(--base)) !important;
+				}
 			}
 		}
 
 		&.shadow {
 			@include action-hover {
-				input {
-					&:not(:disabled) {
-						box-shadow: 0 3px 8px 0 hsla(var(--light) / 35%);
+				.inputContainer {
+					input {
+						&:not(:disabled) {
+							box-shadow: 0 3px 8px 0 hsla(var(--light) / 35%);
+						}
 					}
 				}
 			}
