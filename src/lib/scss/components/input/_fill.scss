@@ -15,21 +15,23 @@
 		}
 		@include action-hover {
 			.inputContainer {
+				// background-color: hsl(var(--font) / 80%);
 				label {
 					color: hsla(var(--darker) / 35%);
 					.icon {
 						color: hsla(var(--dark-font) / 100%);
 					}
 				}
-				input {
-					&:not(:disabled) {
-						background-color: hsla(var(--light) / 15%);
-					}
-				}
+				// input {
+				// 	&:not(:disabled) {
+				// 		background-color: hsla(var(--natural) / 5%);
+				// 	}
+				// }
 			}
 		}
 		&:focus-within {
 			.inputContainer {
+				background-color: hsl(var(--font) / 100%);
 				label {
 					color: hsl(var(--natural-font));
 					.icon {

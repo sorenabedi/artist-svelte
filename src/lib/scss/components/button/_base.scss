@@ -46,6 +46,9 @@ $icon-marginX: 0.125rem;
 	&.circle {
 		border-radius: $base-borderRadius * 2;
 		padding: $paddingX;
+		&:before {
+			border-radius: $base-borderRadius * 2 !important;
+		}
 	}
 
 	@include action-focus {
