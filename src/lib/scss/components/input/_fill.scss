@@ -1,37 +1,63 @@
 @mixin button-fill {
 	&.fill {
-		label {
-			color: hsl(var(--natural-font));
-		}
-		input {
-			border-color: transparent;
-			color: hsl(var(--base));
-		}
-		@include action-hover {
+		.inputContainer {
 			label {
-				color: hsla(var(--darker) / 35%);
+				color: hsl(var(--natural-font));
+				.icon {
+					background-color: hsla(var(--base) / 15%);
+					border-color: transparent;
+				}
 			}
 			input {
-				&:not(:disabled) {
-					background-color: hsla(var(--light) / 15%);
+				border-color: transparent;
+				color: hsl(var(--base));
+			}
+		}
+		@include action-hover {
+			.inputContainer {
+				label {
+					color: hsla(var(--darker) / 35%);
+					.icon {
+						color: hsla(var(--dark-font) / 100%);
+					}
+				}
+				input {
+					&:not(:disabled) {
+						background-color: hsla(var(--light) / 15%);
+					}
 				}
 			}
 		}
 		&:focus-within {
-			label {
-				color: hsl(var(--natural-font));
-			}
-			input {
-				background-color: hsl(var(--natural) / 50%);
-				border-color: hsl(var(--dark));
-				color: hsl(var(--natural-font));
+			.inputContainer {
+				label {
+					color: hsl(var(--natural-font));
+					.icon {
+						background-color: hsla(var(--dark) / 35%);
+						color: hsla(var(--dark-font) / 85%);
+					}
+				}
+				input {
+					background-color: hsl(var(--natural) / 50%);
+					border-color: hsl(var(--dark));
+					color: hsl(var(--natural-font));
+				}
 			}
 		}
 
 		&.shadow {
 			@include action-hover {
-				input {
-					&:not(:disabled) {
+				.inputContainer {
+					input {
+						&:not(:disabled) {
+							box-shadow: 0 3px 8px 0 hsla(var(--light) / 35%);
+						}
+					}
+				}
+			}
+			&:focus-within {
+				label {
+					.icon {
 						box-shadow: 0 3px 8px 0 hsla(var(--light) / 35%);
 					}
 				}
