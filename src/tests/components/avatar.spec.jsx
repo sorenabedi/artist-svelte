@@ -52,6 +52,13 @@ describe('Avatar component test suite', () => {
 			'alt',
 			'avatar - testing [alt]'
 		);
+		component.$$set({ image: '/some/url/2' });
+		await tick();
+		expect(getByTestId('Avatar').querySelector('img')).toHaveAttribute(
+			'alt',
+			'avatar - testing [alt]'
+		);
+		expect(getByTestId('Avatar').querySelector('img')).toHaveAttribute('src', '/some/url/2');
 	});
 });
 describe('AvatarStack component test suite', () => {

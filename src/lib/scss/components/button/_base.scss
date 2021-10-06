@@ -28,7 +28,7 @@ $icon-marginX: 0.125rem;
 	// @include truncate(100%);
 
 	span {
-		display: inline-block;
+		display: inline-flex;
 		margin: auto $text-marginX;
 	}
 	span.icon {

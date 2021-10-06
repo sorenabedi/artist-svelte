@@ -1,5 +1,6 @@
 import Input from '../../lib/components/input';
 import { render } from '@testing-library/svelte';
+import SVG, { SVGNoViewBox } from '../mocks/svg';
 
 describe('Input component test suite', () => {
 	it('it works', async () => {
@@ -26,6 +27,19 @@ describe('Input component test suite', () => {
 		component.$$set({ type: 'search' });
 		await tick();
 		expect(getByTestId('Input').querySelector('input')).toHaveAttribute('type', 'search');
+	});
+	it('testing input icon change', async () => {
+		const { getByTestId, component } = render(Input);
+		expect(getByTestId('Input')).not.toHaveClass('input', 'icon');
+		expect(getByTestId('Input').querySelectorAll('svg').length).toBe(0);
+		expect(getByTestId('Input').querySelectorAll('label .icon').length).toBe(0);
+		component.$$set({ icon: SVG });
+		await tick();
+		expect(getByTestId('Input')).toHaveClass('input', 'icon');
+		expect(getByTestId('Input').querySelectorAll('svg').length).toBe(1);
+		expect(getByTestId('Input').querySelectorAll('label .icon').length).toBe(1);
+		component.$$set({ icon: SVGNoViewBox });
+		await tick();
 	});
 	it('testing interactive color prop change', async () => {
 		const { getByTestId, component } = render(Input);
