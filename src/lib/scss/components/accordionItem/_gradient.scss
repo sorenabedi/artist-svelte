@@ -1,0 +1,111 @@
+@use 'sass:math';
+$base-borderRadius: $borderRadius * 0.7;
+$base-paddingX: $paddingX;
+$base-paddingY: $paddingY;
+$base-marginX: $marginX * 2;
+$base-marginY: $marginY * 0.5;
+$base-borderWidth: $borderWidth * 1.5;
+$content-borderWidth: $borderWidth * 2;
+$base-fontSize: 1rem;
+$description-fontSize: 0.8rem;
+
+@mixin accordion-outline-gradient {
+	&.outline-gradient {
+		border-color: transparent;
+		background-color: transparent;
+		// background-image: linear-gradient(-30deg, hsl(var(--base) / 5%) 33%, hsl(var(--darker) / 15%));
+		border-width: 0;
+		@include action-hover {
+			background-color: hsl(var(--natural) / 40%);
+		}
+		> .toggler {
+			border: none;
+			background-color: transparent;
+			background: transparent;
+			.labelContainer {
+				.icon {
+					color: hsl(var(--dark) / 100%);
+				}
+				.label {
+					.description {
+						color: hsl(var(--dark) / 100%);
+					}
+				}
+			}
+			.chevron {
+				background-color: hsl(var(--base) / 100%);
+			}
+		}
+		&:focus-within {
+			background-color: hsl(var(--natural) / 60%);
+			> .toggler {
+				.labelContainer {
+					.icon {
+						color: hsl(var(--natural-font) / 100%);
+					}
+					.label {
+						.title {
+							color: hsl(var(--natural-font) / 100%);
+						}
+						.description {
+							color: hsl(var(--natural-font) / 100%);
+						}
+					}
+				}
+				.chevron {
+					background-color: hsl(var(--base) / 100%);
+				}
+			}
+		}
+		&.expanded {
+			background-color: hsl(var(--base) / 100%);
+			background-image: linear-gradient(
+				-30deg,
+				hsl(var(--base) / 100%) 33%,
+				hsl(var(--darker) / 100%)
+			);
+			@include action-hover {
+				background-image: linear-gradient(
+					-30deg,
+					hsl(var(--base) / 80%) 33%,
+					hsl(var(--darker) / 80%)
+				);
+				background-color: hsl(var(--base) / 80%);
+			}
+			> .toggler {
+				border: none;
+				background-color: transparent;
+				background: transparent;
+				.labelContainer {
+					.icon {
+						color: hsl(var(--dark-font) / 100%);
+					}
+					.label {
+						.title {
+							color: hsl(var(--dark-font) / 100%);
+						}
+						.description {
+							color: hsl(var(--dark-font) / 100%);
+						}
+					}
+				}
+				.chevron {
+					background-color: hsl(var(--dark-font) / 100%);
+				}
+			}
+
+			> .content {
+				color: hsl(var(--dark-font) / 100%);
+			}
+		}
+		&.rtl {
+			&.expanded {
+				background-image: linear-gradient(
+					30deg,
+					hsl(var(--base) / 90%) 33%,
+					hsl(var(--darker) / 90%)
+				);
+			}
+		}
+	}
+}

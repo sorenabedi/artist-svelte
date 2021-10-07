@@ -1,0 +1,91 @@
+@use 'sass:math';
+$base-borderRadius: $borderRadius * 0.7;
+$base-paddingX: $paddingX;
+$base-paddingY: $paddingY;
+$base-marginX: $marginX * 2;
+$base-marginY: $marginY * 0.5;
+$base-borderWidth: $borderWidth * 1.5;
+$content-borderWidth: $borderWidth * 2;
+$base-fontSize: 1rem;
+$description-fontSize: 0.8rem;
+
+& {
+	overflow: hidden;
+	will-change: height;
+	transition: color 0.3s, background-color 0.3s, border-radius 0.3s, border 0.3s;
+	border-radius: $base-borderRadius;
+	border-width: $base-borderWidth;
+	border-style: solid;
+	border-color: transparent;
+	&:not(:last-of-type) {
+		margin-bottom: $base-marginY;
+	}
+	&.expanded {
+		> .toggler {
+			> .chevron {
+				transform: rotate(180deg);
+			}
+		}
+	}
+	> .toggler {
+		border-radius: $base-borderRadius;
+		padding: $base-paddingY $base-paddingX;
+		border: none;
+		display: flex;
+		width: 100%;
+		background-color: transparent;
+		font-size: 1rem;
+		justify-content: space-between;
+		align-items: center;
+		background: transparent;
+		outline: none;
+		cursor: pointer;
+		.labelContainer {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0 $base-paddingX;
+			.icon {
+				margin: $base-marginY $base-marginX * 2;
+				transition: color 0.3s;
+			}
+			.label {
+				display: flex;
+				flex-direction: column;
+				text-align: start;
+				.title {
+					font-size: $base-fontSize;
+					transition: color 0.3s;
+					// font-weight: 600;
+				}
+				.description {
+					font-size: $description-fontSize;
+					transition: color 0.3s;
+					// font-weight: 500;
+				}
+			}
+		}
+		> .chevron {
+			margin: $base-marginY $base-marginX * 2;
+			// padding: $base-paddingY $base-paddingX;
+			display: inline-block;
+			width: 1rem;
+			height: 1rem;
+			position: relative;
+			transition: transform 0.3s, background-color 0.3s;
+			-webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 184l144 144l144-144"></path></svg>');
+			mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 184l144 144l144-144"></path></svg>');
+			-webkit-mask-position: center;
+			mask-position: center;
+			-webkit-mask-size: contain;
+			mask-size: contain;
+		}
+	}
+	> .content {
+		box-sizing: border-box;
+		padding: $base-paddingY $base-paddingX;
+		position: relative;
+		margin: $base-marginY $base-marginX;
+		transition: color 0.3s;
+	}
+}
