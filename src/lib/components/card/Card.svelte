@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { useAction } from '../../types/global';
 	import clsx from 'clsx';
 
 	import type { ColorProp, VariantProp } from '../../types/components/props';
@@ -6,11 +7,14 @@
 	import Title from '../title';
 
 	export let color: ColorProp = 'primary';
-	export let rtl = false;
 	export let variant: VariantProp = 'outline';
+	export let rtl = false;
+	export let useAction: useAction = () => ({});
+	let className: string | undefined = undefined;
+	export { className as class };
 </script>
 
-<div class="cardContainer">
+<div class={clsx('cardContainer', className)} use:useAction>
 	{#if $$slots.title}
 		<div class:rtl class={clsx('cardHeader')}>
 			<Title {color} {variant}><slot name="title" /></Title>

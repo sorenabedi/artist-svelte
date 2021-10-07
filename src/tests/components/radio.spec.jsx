@@ -21,6 +21,10 @@ describe('Radio component test suite', () => {
 		await tick();
 		expect(getByTestId('Radio')).toHaveClass('danger');
 	});
+	it('testing custom classes', async () => {
+		const { getByTestId } = render(Radio, { props: { class: 'testClass23 testing58' } });
+		expect(getByTestId('Radio')).toHaveClass('radio', 'testClass23', 'testing58');
+	});
 	it('testing interactive shadow prop change', async () => {
 		const { getByTestId, component } = render(Radio);
 		expect(getByTestId('Radio')).not.toHaveClass('shadow');

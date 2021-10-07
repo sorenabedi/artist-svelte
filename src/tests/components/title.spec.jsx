@@ -32,6 +32,11 @@ describe('Title component test suite', () => {
 		await tick();
 		expect(getByTestId('Title')).toHaveClass('outline-gradient');
 	});
+
+	it('testing custom classes', async () => {
+		const { getByTestId } = render(Title, { props: { class: 'testClass23 testing58' } });
+		expect(getByTestId('Title')).toHaveClass('title', 'testClass23', 'testing58');
+	});
 	it('testing interactive variant change', async () => {
 		const { getByTestId, component } = render(Title);
 		expect(getByTestId('Title')).toHaveClass('outline');

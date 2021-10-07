@@ -21,6 +21,10 @@ describe('Checkbox component test suite', () => {
 		await tick();
 		expect(getByTestId('Checkbox')).toHaveClass('danger');
 	});
+	it('testing custom classes', async () => {
+		const { getByTestId } = render(Checkbox, { props: { class: 'testClass23 testing58' } });
+		expect(getByTestId('Checkbox')).toHaveClass('checkbox', 'testClass23', 'testing58');
+	});
 	it('testing interactive shadow prop change', async () => {
 		const { getByTestId, component } = render(Checkbox);
 		expect(getByTestId('Checkbox')).not.toHaveClass('shadow');

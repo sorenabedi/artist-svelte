@@ -1,13 +1,17 @@
 <script lang="ts">
 	import type { ColorProp } from '../../types/components';
+	import type { useAction } from '../../types/global';
 	import clsx from 'clsx';
 	const testID = process.env.NODE_ENV === 'test' ? 'Switch' : /* istanbul ignore next */ undefined;
 
 	export let color: ColorProp = 'default';
+	export let useAction: useAction = () => ({});
+	let className: string | undefined = undefined;
+	export { className as class };
 	let label: HTMLSpanElement;
 </script>
 
-<div data-testid={testID} class={clsx(color, 'switch')}>
+<div data-testid={testID} class={clsx(color, 'switch', className)}>
 	<input
 		type="checkbox"
 		aria-label={label && label.textContent}
@@ -16,6 +20,7 @@
 		on:click
 		on:dblclick
 		on:input
+		use:useAction
 	/>
 	<div class="inputMask">
 		<span bind:this={label} class="text off">

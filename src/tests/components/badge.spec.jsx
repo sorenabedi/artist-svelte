@@ -32,6 +32,11 @@ describe('Badge component test suite', () => {
 		await tick();
 		expect(getByTestId('Badge')).toHaveClass('outline-gradient');
 	});
+
+	it('testing custom classes', async () => {
+		const { getByTestId } = render(Badge, { props: { class: 'testClass23 testing58' } });
+		expect(getByTestId('Badge')).toHaveClass('testClass23', 'testing58');
+	});
 	it('testing interactive width prop change', async () => {
 		const { getByTestId, component } = render(Badge);
 		expect(getByTestId('Badge')).not.toHaveClass('fullWidth');

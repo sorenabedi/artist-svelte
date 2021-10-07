@@ -28,6 +28,10 @@ describe('Input component test suite', () => {
 		await tick();
 		expect(getByTestId('Input').querySelector('input')).toHaveAttribute('type', 'search');
 	});
+	it('testing custom classes', async () => {
+		const { getByTestId } = render(Input, { props: { class: 'testClass23 testing58' } });
+		expect(getByTestId('Input')).toHaveClass('input', 'testClass23', 'testing58');
+	});
 	it('testing input icon change', async () => {
 		const { getByTestId, component } = render(Input);
 		expect(getByTestId('Input')).not.toHaveClass('input', 'icon');

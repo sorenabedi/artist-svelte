@@ -111,6 +111,10 @@ describe('Button component test suite', () => {
 		await tick();
 		expect(getByTestId('Button')).not.toHaveClass('rtl');
 	});
+	it('testing custom classes', async () => {
+		const { getByTestId } = render(Button, { props: { class: 'testClass23 testing58' } });
+		expect(getByTestId('Button')).toHaveClass('testClass23', 'testing58');
+	});
 	it('test setting SVGIcon slot', async () => {
 		const { getByTestId } = render(
 			<Button>

@@ -1,15 +1,25 @@
 <script lang="ts">
 	import clsx from 'clsx';
+	import type { useAction } from '../../types/global';
 	import type { ColorProp, VariantProp } from '../../types/components/props';
 	const testID = process.env.NODE_ENV === 'test' ? 'Alert' : /* istanbul ignore next */ undefined;
 
 	export let color: ColorProp = 'default';
+	export let variant: VariantProp = 'fill';
 	export let rtl = false;
 	export let shadow = false;
-	export let variant: VariantProp = 'fill';
+	export let useAction: useAction = () => ({});
+	let className: string | undefined = undefined;
+	export { className as class };
 </script>
 
-<div data-testid={testID} class={clsx('alertContainer', color, variant)} class:rtl class:shadow>
+<div
+	data-testid={testID}
+	class={clsx('alertContainer', color, variant, className)}
+	class:rtl
+	class:shadow
+	use:useAction
+>
 	{#if $$slots.SvgIcon}
 		<span class="icon">
 			<slot name="SvgIcon" />

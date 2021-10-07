@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { useAction } from '../../types/global';
 	import type { ColorProp, InputTypeProp, VariantProp } from '../../types/components';
 	import clsx from 'clsx';
 	import { nanoid } from 'nanoid';
@@ -14,11 +15,14 @@
 	export let rtl = false;
 	export let fullWidth = false;
 	let label: HTMLSpanElement;
+	export let useAction: useAction = () => ({});
+	let className: string | undefined = undefined;
+	export { className as class };
 </script>
 
 <div
 	data-testid={testID}
-	class={clsx(color, variant, 'input')}
+	class={clsx(color, variant, 'input', className)}
 	class:shadow
 	class:icon
 	class:fullWidth
@@ -33,6 +37,7 @@
 			on:click
 			on:dblclick
 			on:input
+			use:useAction
 			placeholder=" "
 			{...$$restProps}
 		/>
