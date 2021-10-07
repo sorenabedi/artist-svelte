@@ -9,4 +9,5 @@ export { default as Radio } from './components/radio';
 export { default as Switch } from './components/switch';
 export { default as Input } from './components/input';
 export { default as Modal } from './components/modal';
+export { default as Accordion, AccordionItem } from './components/accordion';
 export { SVGIcon } from './utilities';
