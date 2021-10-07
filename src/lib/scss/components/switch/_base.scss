@@ -39,6 +39,7 @@ $thumb-height: $base-height * 1.2;
 		.text {
 			height: $base-width;
 			display: inline-flex;
+			align-items: center;
 			border-radius: $base-borderRadius;
 			transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease,
 				background-color 0.3s ease;

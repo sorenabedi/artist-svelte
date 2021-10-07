@@ -18,7 +18,7 @@
 	<svelte:fragment slot="on">ON</svelte:fragment>
 	<svelte:fragment slot="off">OFF</svelte:fragment>
 </Switch>
-<Switch color="danger" disabled>
+<Switch color="danger">
 	<svelte:fragment slot="on">ON</svelte:fragment>
 	<svelte:fragment slot="off">OFF</svelte:fragment>
 </Switch>
