@@ -12,9 +12,6 @@
 // slightly differently than when set to false
 $var-legacy-support-for-ie: false !default; // Used also in Compass
 
-// Set the default font family here so you don't have to override it later
-$var-normalized-font-family: $fontFamily !default;
-
 $var-normalize-headings: true !default;
 
 $var-h1-font-size: 2em !default;
@@ -98,7 +95,6 @@ html {
 		font-size: 100%; // 1
 	}
 
-	background: $var-background;
 	color: $var-color;
 	-webkit-text-size-adjust: 100%;
 	text-size-adjust: 100%; // 2
@@ -111,7 +107,7 @@ button,
 input,
 select,
 textarea {
-	font-family: $var-normalized-font-family;
+	font-family: inherit;
 }
 
 // Addresses margins handled incorrectly in IE6/7

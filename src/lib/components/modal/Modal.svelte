@@ -1,7 +1,7 @@
 <script context="module" lang="ts">
 	// for passing focus on to the next Modal in the queue.
 	// A module context level object is shared among all its component instances. [Read More Here](https://svelte.dev/tutorial/sharing-code)
-	const modalList: HTMLElement[] = [];
+	const modalNodeList: HTMLElement[] = [];
 </script>
 
 <script lang="ts">
@@ -23,7 +23,7 @@
 
 	const { isEnabled: isOpen, enable: open, disable: close } = booleanStore(false);
 	const store = { isOpen, open, close };
-	const modalAction = useAction(modalList, close);
+	const modalAction = useAction(modalNodeList, close);
 </script>
 
 <slot name="trigger" {open} />

@@ -3,6 +3,7 @@ import { SVGIcon } from '../../lib/utilities';
 import SVG from '../mocks/svg';
 import { render, fireEvent } from '@testing-library/svelte';
 import fragment from 'svelte-fragment-component';
+import { tick } from 'svelte';
 
 describe('Button component test suite', () => {
 	it('it works', async () => {
@@ -54,6 +55,51 @@ describe('Button component test suite', () => {
 		component.$$set({ circle: false });
 		await tick();
 		expect(getByTestId('Button')).not.toHaveClass('circle');
+	});
+	it('testing interactive class prop change', async () => {
+		const { getByTestId, component } = render(Button);
+		expect(getByTestId('Button')).toHaveClass('outline', 'default');
+		expect(getByTestId('Button')).not.toHaveClass('testClass');
+		component.$$set({ class: 'testClass' });
+		await tick();
+		expect(getByTestId('Button')).toHaveClass('outline', 'default');
+		expect(getByTestId('Button')).toHaveClass('testClass');
+		component.$$set({ class: 'testClass1 testClass2' });
+		await tick();
+		expect(getByTestId('Button')).toHaveClass('outline', 'default');
+		expect(getByTestId('Button')).not.toHaveClass('testClass');
+		expect(getByTestId('Button')).toHaveClass('testClass1', 'testClass2');
+	});
+	it('testing useAction functionality', async () => {
+		const onMountFunc = Jest.fn();
+		const onUpdateFunc = Jest.fn();
+		const onDestroyFunc = Jest.fn();
+		expect(onMountFunc).not.toHaveBeenCalled();
+		expect(onUpdateFunc).not.toHaveBeenCalled();
+		expect(onDestroyFunc).not.toHaveBeenCalled();
+		const useAction = () => {
+			onMountFunc();
+			return {
+				destroy: onDestroyFunc,
+				update: onUpdateFunc
+			};
+		};
+		const { component, unmount } = render(Button, { props: { useAction } });
+
+		expect(onMountFunc).toHaveBeenCalledTimes(1);
+		expect(onUpdateFunc).not.toHaveBeenCalled();
+		expect(onDestroyFunc).not.toHaveBeenCalled();
+		component.$$set({ class: 'test' });
+		await tick();
+		expect(onMountFunc).toHaveBeenCalledTimes(1);
+		expect(onUpdateFunc).not.toHaveBeenCalled();
+		expect(onDestroyFunc).not.toHaveBeenCalled();
+
+		unmount();
+
+		expect(onMountFunc).toHaveBeenCalledTimes(1);
+		expect(onUpdateFunc).not.toHaveBeenCalled();
+		expect(onDestroyFunc).toHaveBeenCalledTimes(1);
 	});
 	it('testing interactive rtl prop change', async () => {
 		const { getByTestId, component } = render(Button);

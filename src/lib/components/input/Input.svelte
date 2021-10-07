@@ -2,7 +2,7 @@
 	import type { ColorProp, InputTypeProp, VariantProp } from '../../types/components';
 	import clsx from 'clsx';
 	import { nanoid } from 'nanoid';
-	import SvgIcon from '../../utilities/svg-icon.svelte';
+	import SVGIcon from '../../utilities/svg-icon.svelte';
 	const testID = process.env.NODE_ENV === 'test' ? 'Input' : /* istanbul ignore next */ undefined;
 
 	export let color: ColorProp = 'default';
@@ -39,7 +39,7 @@
 		<label for={id} bind:this={label}>
 			{#if icon}
 				<div class="icon">
-					<SvgIcon data={icon} />
+					<SVGIcon data={icon} />
 				</div>
 			{/if}
 			<div class="label">

@@ -61,6 +61,7 @@ $icon-borderRadius: $borderRadius * 1;
 				transition: inherit;
 				transition: padding 0.3s ease, border 0.3s ease, opacity 0.3s ease, color 0.3s ease,
 					box-shadow 0.3s ease;
+				box-sizing: content-box;
 			}
 			.label {
 				box-sizing: border-box;

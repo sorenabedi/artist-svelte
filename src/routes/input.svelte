@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Input } from '$lib';
-	import close from '$lib/svg/icons/close';
-	import more from '$lib/svg/icons/more';
+	import close from '../lib/svg/icons/close';
+	import more from '../lib/svg/icons/more';
 </script>
 
 <div dir="rtl">

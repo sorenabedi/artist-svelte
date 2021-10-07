@@ -8,7 +8,7 @@ export const keydown =
 		}
 	};
 export const useAction =
-	(modalList: HTMLElement[], close: () => void) =>
+	(modalNodeList: HTMLElement[], close: () => void) =>
 	(
 		node: HTMLElement
 	): {
@@ -24,7 +24,7 @@ export const useAction =
 			});
 		}
 		document.body.addEventListener('keydown', keydown(close));
-		modalList.push(node);
+		modalNodeList.push(node);
 		returnFn.push(() => {
 			node.removeEventListener('keydown', keydown(close));
 		});
