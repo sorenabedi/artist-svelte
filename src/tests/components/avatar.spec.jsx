@@ -40,6 +40,11 @@ describe('Avatar component test suite', () => {
 		await tick();
 		expect(getByTestId('Avatar').querySelectorAll('.indicator')).toHaveLength(1);
 	});
+
+	it('testing custom classes', async () => {
+		const { getByTestId } = render(Avatar, { props: { class: 'testClass23 testing58' } });
+		expect(getByTestId('Avatar')).toHaveClass('avatarContainer', 'testClass23', 'testing58');
+	});
 	it('testing image', async () => {
 		const { getByTestId, component } = render(Avatar, { props: { image: '/some/url' } });
 		expect(getByTestId('Avatar').querySelectorAll('img')).toHaveLength(1);
@@ -71,7 +76,7 @@ describe('AvatarStack component test suite', () => {
 		expect(getByTestId('AvatarStack')).toHaveClass('avatarStack');
 	});
 	it('testing custom classes', async () => {
-		const { getByTestId } = render(AvatarStack, { props: { className: 'testClass23 testing58' } });
+		const { getByTestId } = render(AvatarStack, { props: { class: 'testClass23 testing58' } });
 		expect(getByTestId('AvatarStack')).toHaveClass('avatarStack', 'testClass23', 'testing58');
 	});
 	it('testing slot', async () => {

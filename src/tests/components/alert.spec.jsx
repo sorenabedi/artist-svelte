@@ -55,6 +55,11 @@ describe('Alert component test suite', () => {
 		await tick();
 		expect(getByTestId('Alert')).not.toHaveClass('rtl');
 	});
+
+	it('testing custom classes', async () => {
+		const { getByTestId } = render(Alert, { props: { class: 'testClass23 testing58' } });
+		expect(getByTestId('Alert')).toHaveClass('alertContainer', 'testClass23', 'testing58');
+	});
 	it('testing interactive title slot change', async () => {
 		const { getByTestId } = render(
 			<Alert>

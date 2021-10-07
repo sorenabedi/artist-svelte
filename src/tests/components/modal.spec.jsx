@@ -24,6 +24,15 @@ describe('Modal component test suite', () => {
 		await tick();
 		expect(container.querySelectorAll('.modal .close button').length).toBe(0);
 	});
+	it('testing custom classes', async () => {
+		const { getByTestId, getByText, container } = render(Modal, {
+			props: { class: 'testClass23 testing58' }
+		});
+		const openBtn = getByText('Open Modal');
+		await fireEvent.click(openBtn);
+		expect(container.querySelectorAll('.modal').length).toBe(1);
+		expect(getByTestId('Modal')).toHaveClass('modal', 'testClass23', 'testing58');
+	});
 	it('modal interactive overlayBlur prop change', async () => {
 		const { component, container, getByText } = render(Modal);
 		const openBtn = getByText('Open Modal');

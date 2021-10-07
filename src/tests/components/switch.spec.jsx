@@ -21,6 +21,10 @@ describe('Switch component test suite', () => {
 		await tick();
 		expect(getByTestId('Switch')).toHaveClass('danger');
 	});
+	it('testing custom classes', async () => {
+		const { getByTestId } = render(Switch, { props: { class: 'testClass23 testing58' } });
+		expect(getByTestId('Switch')).toHaveClass('switch', 'testClass23', 'testing58');
+	});
 	it('testing on/off slots', async () => {
 		const { getByTestId } = render(
 			<Switch>

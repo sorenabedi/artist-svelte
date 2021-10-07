@@ -1,5 +1,6 @@
 <script lang="ts">
 	import clsx from 'clsx';
+	import type { useAction } from '../../types/global';
 	import type { ColorProp } from '../../types/components/props';
 	const testID = process.env.NODE_ENV === 'test' ? 'Avatar' : /* istanbul ignore next */ undefined;
 
@@ -12,16 +13,20 @@
 	// export let variant: VariantProp = 'fill';
 	export let image: string | undefined = undefined;
 	export let alt: string | undefined = undefined;
+	export let useAction: useAction = () => ({});
+	let className: string | undefined = undefined;
+	export { className as class };
 </script>
 
 <div
 	data-testid={testID}
-	class={clsx('avatarContainer', color)}
+	class={clsx('avatarContainer', color, className)}
 	class:rtl
 	class:bordered
 	on:change
 	on:click
 	on:dblclick
+	use:useAction
 >
 	<div class="avatar">
 		{#if image}

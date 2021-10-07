@@ -5,14 +5,15 @@
 </script>
 
 <script lang="ts">
+	import type { ColorProp } from '../../types/components';
+	import type { useAction } from '../../types/global';
 	import clsx from 'clsx';
 	import { fly, fade, scale } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
 	import booleanStore from '../../store/boolean';
-	import { useAction } from './functions';
+	import { modalInit } from './functions';
 	import SVGIcon from '../../utilities/svg-icon.svelte';
 	import CloseSVG from '../../svg/icons/close';
-	import type { ColorProp } from '$lib/types/components';
 	const testID = process.env.NODE_ENV === 'test' ? 'Modal' : /* istanbul ignore next */ undefined;
 
 	export let overlayClose = true;
@@ -20,17 +21,21 @@
 	export let fullScreen = false;
 	export let noCloseBtn = false;
 	export let color: ColorProp = 'default';
+	export let useAction: useAction = () => ({});
+	let className: string | undefined = undefined;
+	export { className as class };
 
 	const { isEnabled: isOpen, enable: open, disable: close } = booleanStore(false);
 	const store = { isOpen, open, close };
-	const modalAction = useAction(modalNodeList, close);
+	const initAction = modalInit(modalNodeList, close);
 </script>
 
 <slot name="trigger" {open} />
 {#if $isOpen}
 	<div
-		class={clsx('modal', color)}
-		use:modalAction
+		class={clsx('modal', color, className)}
+		use:initAction
+		use:useAction
 		tabindex="0"
 		data-testid={testID}
 		{...$$restProps}

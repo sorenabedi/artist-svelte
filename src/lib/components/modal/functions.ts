@@ -1,3 +1,5 @@
+import type { useAction } from '$lib/types/global';
+
 export const keydown =
 	(close: () => void) =>
 	(e: KeyboardEvent): void => {
@@ -7,13 +9,9 @@ export const keydown =
 			close();
 		}
 	};
-export const useAction =
-	(modalNodeList: HTMLElement[], close: () => void) =>
-	(
-		node: HTMLElement
-	): {
-		destroy: () => void;
-	} => {
+export const modalInit =
+	(modalNodeList: HTMLElement[], close: () => void): useAction =>
+	(node: HTMLElement) => {
 		const returnFn = [];
 		/* istanbul ignore else */
 		if (document.body.style.overflow !== 'hidden') {

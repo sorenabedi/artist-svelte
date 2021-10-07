@@ -1,12 +1,15 @@
 <script lang="ts">
+	import type { useAction } from '../../types/global';
 	import clsx from 'clsx';
-
-	export let className = '';
 	const testID =
 		process.env.NODE_ENV === 'test' ? 'AvatarStack' : /* istanbul ignore next */ undefined;
+
+	export let useAction: useAction = () => ({});
+	let className: string | undefined = undefined;
+	export { className as class };
 </script>
 
-<div data-testid={testID} class={clsx('avatarStack', className)}>
+<div data-testid={testID} class={clsx('avatarStack', className)} use:useAction>
 	<slot />
 </div>
 
