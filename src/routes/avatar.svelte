@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Avatar, AvatarStack } from '$lib';
+	import Avatar, { AvatarStack } from '$lib/components/avatar';
 </script>
 
 <AvatarStack>

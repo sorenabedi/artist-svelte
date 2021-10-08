@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button } from '$lib';
+	import Button from '$lib/components/button';
 </script>
 
 <Button variant="outline-gradient" color="primary">some text</Button>

@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { Card, Button } from '$lib';
+	import Button from '$lib/components/button';
+	import Card from '$lib/components/card';
 </script>
 
 <div style="display: flex;flex-flow: wrap;">

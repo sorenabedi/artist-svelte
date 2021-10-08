@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Radio } from '$lib';
+	import Radio from '$lib/components/radio';
 </script>
 
 <Radio name="test2" color="primary">some text</Radio>

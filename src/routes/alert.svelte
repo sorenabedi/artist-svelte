@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Alert } from '$lib';
+	import Alert from '$lib/components/alert';
 </script>
 
 <Alert shadow variant="fill">
