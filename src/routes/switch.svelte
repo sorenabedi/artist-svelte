@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Switch } from '$lib';
+	import Switch from '$lib/components/switch';
 </script>
 
 <Switch color="default" checked={true}>

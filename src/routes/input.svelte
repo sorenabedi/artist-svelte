@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Input } from '$lib';
+	import Input from '$lib/components/input';
 	import close from '../lib/svg/icons/close';
 	import more from '../lib/svg/icons/more';
 </script>

@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { Accordion, AccordionItem, SVGIcon } from '$lib';
-	import Card from '$lib/components/card/Card.svelte';
+	import Accordion, { AccordionItem } from '$lib/components/accordion';
+	import Card from '$lib/components/card';
 	import more from '$lib/svg/icons/more';
+	import SVGIcon from '$lib/utilities/svg-icon.svelte';
 </script>
 
 <Card>
