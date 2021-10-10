@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { useAction } from '../../types/global';
-	import type { ColorProp, VariantProp } from '../../types/components/props';
+	import type { ColorProp } from '../../types/components/props';
 	import clsx from 'clsx';
 
 	const testID = process.env.NODE_ENV === 'test' ? 'Paper' : /* istanbul ignore next */ undefined;
