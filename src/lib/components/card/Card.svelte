@@ -4,6 +4,7 @@
 	import type { ColorProp, VariantProp } from '../../types/components/props';
 	import Badge from '../badge';
 	import Title from '../title';
+	import Paper from '../paper';
 
 	const testID = process.env.NODE_ENV === 'test' ? 'Card' : /* istanbul ignore next */ undefined;
 
@@ -24,17 +25,17 @@
 			{/if}
 		</div>
 	{/if}
-	<div class="card">
+	<Paper class="card" {color} shadow>
 		<div class="cardContent">
 			<slot />
 		</div>
 
 		{#if $$slots.actions}
-			<div class={clsx('cardActions', ' unBalanced')}>
+			<div class={clsx('cardActions', ' balanced')}>
 				<slot name="actions" />
 			</div>
 		{/if}
-	</div>
+	</Paper>
 </div>
 
 <style lang="scss">

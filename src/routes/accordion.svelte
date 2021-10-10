@@ -1,11 +1,11 @@
 <script lang="ts">
 	import Accordion, { AccordionItem } from '$lib/components/accordion';
-	import Card from '$lib/components/card';
+	import Paper from '$lib/components/paper';
 	import more from '$lib/svg/icons/more';
 	import SVGIcon from '$lib/utilities/svg-icon.svelte';
 </script>
 
-<Card>
+<Paper shadow>
 	<Accordion>
 		<AccordionItem color="default" title="Default">
 			<svelte:fragment slot="icon">
@@ -162,4 +162,4 @@
 			Content success
 		</AccordionItem>
 	</Accordion>
-</Card>
+</Paper>
