@@ -1,0 +1,22 @@
+@use 'sass:math';
+$base-borderRadius: $borderRadius * 1.5;
+$base-borderWidth: $borderWidth;
+$base-marginX: $marginX * 5;
+$base-marginY: $marginY * 2;
+$base-paddingX: $paddingX * 2;
+$base-paddingY: $paddingY * 2;
+$base-fontSize: 0.9rem;
+$text-marginX: 0.25rem;
+$icon-size: 0.8rem;
+$icon-marginX: 0.125rem;
+
+& {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: hsl(var(--darker) / 50%);
+	&.overlayBlur {
+		background-color: hsl(var(--dark) / 30%);
+		backdrop-filter: blur(10px);
+	}
+}

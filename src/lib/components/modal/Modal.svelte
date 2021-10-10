@@ -14,6 +14,7 @@
 	import { modalInit } from './functions';
 	import SVGIcon from '../../utilities/svg-icon.svelte';
 	import CloseSVG from '../../svg/icons/close';
+	import Backdrop from '../backdrop';
 	const testID = process.env.NODE_ENV === 'test' ? 'Modal' : /* istanbul ignore next */ undefined;
 
 	export let overlayClose = true;
@@ -21,6 +22,7 @@
 	export let fullScreen = false;
 	export let noCloseBtn = false;
 	export let color: ColorProp = 'default';
+	export let overlayColor: ColorProp = color;
 	export let useAction: useAction = () => ({});
 	let className: string | undefined = undefined;
 	export { className as class };
@@ -40,12 +42,7 @@
 		data-testid={testID}
 		{...$$restProps}
 	>
-		<div
-			class="backdrop"
-			class:overlayBlur
-			on:click={() => overlayClose && close()}
-			transition:fade={{ duration: 300 }}
-		/>
+		<Backdrop color={overlayColor} {overlayBlur} on:click={() => overlayClose && close()} />
 		<div
 			class="modalContainer"
 			class:fullScreen
