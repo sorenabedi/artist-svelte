@@ -8,7 +8,7 @@
 	import type { ColorProp } from '../../types/components';
 	import type { useAction } from '../../types/global';
 	import clsx from 'clsx';
-	import { fly, fade, scale } from 'svelte/transition';
+	import { fly, scale } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
 	import booleanStore from '../../store/boolean';
 	import { modalInit } from './functions';
