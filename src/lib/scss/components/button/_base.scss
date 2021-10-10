@@ -25,6 +25,7 @@ $icon-marginX: 0.125rem;
 	cursor: pointer;
 	transition: background 0.25s, color 0.25s, border 0.25s, border-radius 0.25s;
 	font-family: inherit;
+	text-decoration: none;
 	// @include truncate(100%);
 
 	span {

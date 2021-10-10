@@ -9,6 +9,7 @@
 	component={Button}
 	argTypes={{
 		slot: { control: 'text', defaultValue: 'custom button' },
+		href: { control: 'text' },
 		SvgIcon: { control: 'text' },
 		color: {
 			control: {
