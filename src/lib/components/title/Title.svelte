@@ -15,6 +15,12 @@
 	class={clsx(color, variant, 'title', className)}
 	use:useAction
 	data-testid={testID}
+	on:click
+	on:dblclick
+	on:mouseenter
+	on:mouseleave
+	on:mouseover
+	on:focus
 	{...$$restProps}
 >
 	<slot />

@@ -19,6 +19,12 @@
 	class:rtl
 	class:shadow
 	use:useAction
+	on:click
+	on:dblclick
+	on:mouseenter
+	on:mouseleave
+	on:mouseover
+	on:focus
 >
 	{#if $$slots.SvgIcon}
 		<span class="icon">
