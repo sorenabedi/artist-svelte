@@ -1,4 +1,4 @@
-import type { useAction } from '$lib/types/global';
+import type { useAction } from '../../types/global';
 
 export const keydown =
 	(close: () => void) =>
@@ -13,14 +13,6 @@ export const modalInit =
 	(modalNodeList: HTMLElement[], close: () => void): useAction =>
 	(node: HTMLElement) => {
 		const returnFn = [];
-		/* istanbul ignore else */
-		if (document.body.style.overflow !== 'hidden') {
-			const original = document.body.style.overflow;
-			document.body.style.overflow = 'hidden';
-			returnFn.push(() => {
-				document.body.style.overflow = original;
-			});
-		}
 		document.body.addEventListener('keydown', keydown(close));
 		modalNodeList.push(node);
 		returnFn.push(() => {
