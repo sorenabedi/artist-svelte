@@ -33,6 +33,17 @@
 </script>
 
 <slot name="trigger" {open} />
+
+<svelte:head>
+	{#if $isOpen}
+		<style>
+			body {
+				overflow: hidden;
+			}
+		</style>
+	{/if}
+</svelte:head>
+
 {#if $isOpen}
 	<div
 		class={clsx('modal', color, className)}

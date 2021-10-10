@@ -61,7 +61,7 @@
 <style lang="scss">
 	.input {
 		@import 'components/input';
-		@include button-fill;
-		@include button-outline;
+		@include input-fill;
+		@include input-outline;
 	}
 </style>
