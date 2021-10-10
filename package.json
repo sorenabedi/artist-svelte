@@ -9,9 +9,16 @@
 	},
 	"license": "GPL-3.0",
 	"keywords": [
+		"artist-ui",
+		"artist",
 		"svelte",
 		"sveltekit",
-		"UI framework"
+		"svelte-components",
+		"ui",
+		"ui-framework",
+		"ui-components",
+		"design-system",
+		"artist-design-system"
 	],
 	"repository": {
 		"type": "git",
