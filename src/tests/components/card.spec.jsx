@@ -13,7 +13,7 @@ describe('Card component test suite', () => {
 		expect(getByTestId('Card')).toHaveClass('cardContainer');
 	});
 	it('testing interactive color prop change', async () => {
-		const { getByTestId, component, container } = render(
+		const { getByTestId } = render(
 			<Card color="primary">
 				<Fragment slot="title">some title</Fragment>
 				<Fragment slot="notification">All rights reserved</Fragment>
@@ -28,11 +28,11 @@ describe('Card component test suite', () => {
 				</Fragment>
 			</Card>
 		);
-		expect(getByTestId('Card').querySelectorAll('.primary').length).toBe(4);
+		expect(getByTestId('Card').querySelectorAll('.primary').length).toBe(5);
 		expect(getByTestId('Card').querySelectorAll('.default').length).toBe(0);
 	});
 	it('testing interactive variant prop change', async () => {
-		const { getByTestId, component, container } = render(
+		const { getByTestId } = render(
 			<Card variant="outline" color="warning">
 				<Fragment slot="title">some title</Fragment>
 				<Fragment slot="notification">All rights reserved</Fragment>
@@ -50,7 +50,7 @@ describe('Card component test suite', () => {
 		expect(getByTestId('Badge')).toHaveClass('outline', 'warning');
 	});
 	it('testing interactive rtl prop change', async () => {
-		const { getByTestId, component } = render(
+		const { getByTestId } = render(
 			<Card rtl>
 				<Fragment slot="title">some title</Fragment>
 			</Card>

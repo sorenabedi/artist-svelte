@@ -15,6 +15,7 @@ $icon-marginX: 0.125rem;
 	margin: math.div($base-marginY, 5) $base-marginX $base-marginY;
 	display: flex;
 	flex-direction: column;
+	font-size: $base-fontSize;
 	.cardHeader {
 		padding: 0 math.div($base-paddingX, 2);
 		display: flex;
@@ -24,51 +25,41 @@ $icon-marginX: 0.125rem;
 		white-space: nowrap;
 	}
 	.card {
-		padding: $base-paddingY $base-paddingX;
-
 		line-height: 1.5;
-		background-color: white;
-		border-color: transparent;
-		border-radius: $base-borderRadius;
-		border-width: $base-borderWidth;
-		border-style: solid;
-		font-size: $base-fontSize;
-		transition: background 0.25s, color 0.25s;
-		box-shadow: 4px 8px 8px hsl(var(--white)), 0px 0px 8px hsl(var(--white));
-	}
-	.cardContent {
-		padding: math.div($base-paddingY, 4) $base-paddingX * 0.6;
-	}
-	.cardActions {
-		display: flex;
-		justify-content: space-around;
-		flex-wrap: wrap;
-		overflow: hidden;
-		padding-top: 10px;
-		box-sizing: border-box;
-		:global {
-			> * {
-				margin: math.div($base-marginY, 5) math.div($base-marginX, 2);
-				flex-shrink: 1;
-				flex-basis: auto;
-				flex-grow: 1;
-			}
+		.cardContent {
+			padding: math.div($base-paddingY, 4) $base-paddingX * 0.6;
 		}
-		&.balanced {
+		.cardActions {
+			display: flex;
+			justify-content: space-around;
+			flex-wrap: wrap;
+			overflow: hidden;
+			padding-top: 10px;
+			box-sizing: border-box;
 			:global {
 				> * {
-					width: 40%;
+					margin: math.div($base-marginY, 5) math.div($base-marginX, 2);
+					flex-shrink: 1;
+					flex-basis: auto;
+					flex-grow: 1;
 				}
 			}
-		}
-		&.unBalanced {
-			:global {
-				> * {
-					&:first-of-type {
-						width: 60%;
+			&.balanced {
+				:global {
+					> * {
+						width: 40%;
 					}
-					&:last-of-type {
-						width: 28%;
+				}
+			}
+			&.unBalanced {
+				:global {
+					> * {
+						&:first-of-type {
+							width: 60%;
+						}
+						&:last-of-type {
+							width: 28%;
+						}
 					}
 				}
 			}

@@ -1,0 +1,34 @@
+@use 'sass:math';
+$base-borderRadius: $borderRadius * 1.5;
+$base-borderWidth: $borderWidth;
+$base-marginX: $marginX * 5;
+$base-marginY: $marginY * 2;
+$base-paddingX: $paddingX * 2;
+$base-paddingY: $paddingY * 2;
+$base-fontSize: 0.9rem;
+$text-marginX: 0.25rem;
+$icon-size: 0.8rem;
+$icon-marginX: 0.125rem;
+
+& {
+	padding: $base-paddingY $base-paddingX;
+	margin: $base-marginY * 0.2 $base-marginX $base-marginY;
+	background-color: white;
+	border-radius: $base-borderRadius;
+	border-width: $base-borderWidth;
+	border-style: solid;
+	transition: background 0.25s, color 0.25s, box-shadow 0.25s, border 0.25s;
+	border-color: hsl(var(--natural) / 30%);
+	box-sizing: border-box;
+	@include action-hover {
+		border-color: hsl(var(--natural) / 50%);
+	}
+	&.shadow {
+		border-color: hsl(var(--natural) / 15%);
+		box-shadow: 4px 8px 8px hsl(var(--natural) / 20%), 0px 0px 8px hsl(var(--natural) / 20%);
+		@include action-hover {
+			border-color: hsl(var(--natural) / 20%);
+			box-shadow: 4px 8px 8px hsl(var(--natural) / 30%), 0px 0px 8px hsl(var(--natural) / 30%);
+		}
+	}
+}
