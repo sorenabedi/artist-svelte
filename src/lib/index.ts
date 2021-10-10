@@ -9,6 +9,7 @@ export { default as Radio } from './components/radio';
 export { default as Switch } from './components/switch';
 export { default as Input } from './components/input';
 export { default as Modal } from './components/modal';
+export { default as Backdrop } from './components/backdrop';
 export { default as Paper } from './components/paper';
 export { default as Accordion, AccordionItem } from './components/accordion';
 export { SVGIcon } from './utilities';
