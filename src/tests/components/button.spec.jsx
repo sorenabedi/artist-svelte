@@ -7,8 +7,8 @@ import { tick } from 'svelte';
 
 describe('Button component (button tag) test suite', () => {
 	it('it works', async () => {
-		const component = render(Button);
-		expect(() => component.getAllByTestId('Button')).not.toThrow();
+		const { getAllByTestId, getByTestId } = render(Button);
+		expect(() => getAllByTestId('Button')).not.toThrow();
 		expect(getByTestId('Button').tagName.toLocaleLowerCase()).toBe('button');
 	});
 	it('testing default classes', async () => {
@@ -156,9 +156,9 @@ describe('Button component (button tag) test suite', () => {
 
 describe('Button component (anchor tag) test suite', () => {
 	it('it works', async () => {
-		const { getByTestId } = render(Button, { props: { href: '/test' } });
+		const { getByTestId, getAllByTestId } = render(Button, { props: { href: '/test' } });
 		expect(getByTestId('Button').tagName.toLocaleLowerCase()).toBe('a');
-		expect(() => component.getAllByTestId('Button')).not.toThrow();
+		expect(() => getAllByTestId('Button')).not.toThrow();
 	});
 	it('testing default classes', async () => {
 		const { getByTestId } = render(Button, { props: { href: '/test' } });
