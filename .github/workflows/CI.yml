@@ -55,14 +55,22 @@ jobs:
       - name: Run tests
         run: pnpm run test:coverage
 
-      - name: Upload test coverage reports
+      - name: Upload test coverage reports (CODECOV)
         uses: codecov/codecov-action@v2
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           directory: ./coverage
-          flags: UITest,UnitTest # optional
+          flags: UnitTest # optional
           fail_ci_if_error: true # optional (default = false)
           verbose: true # optional (default = false)
+
+      - name: Upload test coverage reports (CodeClimate)
+        uses: paambaati/codeclimate-action@v3.0.0
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CODECLIMATE_TOKEN }}
+        with:
+          coverageLocations: |
+            ${{github.workspace}}/coverage/clover.xml:clover
 
       - name: run Build
         run: pnpm run svelte:build
