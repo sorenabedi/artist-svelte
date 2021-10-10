@@ -23,6 +23,10 @@
 		on:change
 		on:click
 		on:dblclick
+		on:mouseenter
+		on:mouseleave
+		on:mouseover
+		on:focus
 		on:input
 		use:useAction
 		{...$$restProps}

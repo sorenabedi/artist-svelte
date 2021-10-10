@@ -12,7 +12,18 @@
 	export { className as class };
 </script>
 
-<span class={clsx(color, variant, className)} class:fullWidth data-testid={testID} use:useAction>
+<span
+	class={clsx(color, variant, className)}
+	class:fullWidth
+	data-testid={testID}
+	use:useAction
+	on:click
+	on:dblclick
+	on:mouseenter
+	on:mouseleave
+	on:mouseover
+	on:focus
+>
 	<slot />
 </span>
 

@@ -26,6 +26,10 @@
 	on:change
 	on:click
 	on:dblclick
+	on:mouseenter
+	on:mouseleave
+	on:mouseover
+	on:focus
 	use:useAction
 >
 	<div class="avatar">

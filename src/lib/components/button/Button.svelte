@@ -21,6 +21,10 @@
 	class:circle
 	on:click
 	on:dblclick
+	on:mouseenter
+	on:mouseleave
+	on:mouseover
+	on:focus
 	use:useAction
 	data-testid={testID}
 	{...$$restProps}

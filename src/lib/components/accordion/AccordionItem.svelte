@@ -27,6 +27,12 @@
 	use:accordionItemAction={accordionContext}
 	data-accordion-item
 	data-testid={testID}
+	on:click
+	on:dblclick
+	on:mouseenter
+	on:mouseleave
+	on:mouseover
+	on:focus
 	{...$$restProps}
 >
 	<button
