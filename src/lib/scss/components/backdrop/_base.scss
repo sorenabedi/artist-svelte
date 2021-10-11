@@ -16,7 +16,9 @@ $icon-marginX: 0.125rem;
 	height: 100%;
 	top: 0;
 	right: 0;
-	background-color: hsl(var(--darker) / 50%);
+	&:not(.transparent) {
+		background-color: hsl(var(--darker) / 50%);
+	}
 	&.overlayBlur {
 		background-color: hsl(var(--dark) / 30%);
 		backdrop-filter: blur(10px);

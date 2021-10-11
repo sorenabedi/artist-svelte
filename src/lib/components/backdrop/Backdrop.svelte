@@ -7,7 +7,7 @@
 	const testID =
 		process.env.NODE_ENV === 'test' ? 'Backdrop' : /* istanbul ignore next */ undefined;
 
-	export let color: ColorProp = 'default';
+	export let color: ColorProp | 'transparent' = 'transparent';
 	export let overlayBlur = false;
 	export let transition: transitionAction = fade;
 	export let transitionConfig: transitionConfig = { duration: 300 };
