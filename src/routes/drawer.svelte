@@ -6,7 +6,7 @@
 	import more from '$lib/svg/icons/more';
 </script>
 
-<Drawer from="right" let:toggle variant="outline">
+<Drawer from="right" let:toggle variant="outline" color="inherit" overlayBlur shadow>
 	<div slot="trigger">
 		<Button on:click={toggle}>Open drawer</Button>
 	</div>

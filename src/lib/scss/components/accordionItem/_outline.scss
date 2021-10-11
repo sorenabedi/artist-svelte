@@ -35,6 +35,9 @@ $description-fontSize: 0.8rem;
 					color: hsl(var(--base) / 100%);
 				}
 				.label {
+					.title {
+						color: hsl(var(--fg-color) / 100%);
+					}
 					.description {
 						color: hsl(var(--base) / 100%);
 					}

@@ -18,34 +18,38 @@
 				<SVGIcon data={more} />
 			</svelte:fragment>
 
-			<Accordion multiSelectable>
-				<AccordionItem variant="fill" color="danger" title="Danger">
-					<svelte:fragment slot="icon">
-						<SVGIcon data={more} />
-					</svelte:fragment>
-					Content danger
-				</AccordionItem>
-				<AccordionItem variant="fill" color="success" title="Success">
-					<svelte:fragment slot="icon">
-						<SVGIcon data={more} />
-					</svelte:fragment>
-					Content success
-					<Accordion multiSelectable>
-						<AccordionItem variant="fill" color="danger" title="Danger">
-							<svelte:fragment slot="icon">
-								<SVGIcon data={more} />
-							</svelte:fragment>
-							Content danger
-						</AccordionItem>
-						<AccordionItem variant="fill" color="success" title="Success">
-							<svelte:fragment slot="icon">
-								<SVGIcon data={more} />
-							</svelte:fragment>
-							Content success
-						</AccordionItem>
-					</Accordion>
-				</AccordionItem>
-			</Accordion>
+			<Paper>
+				<Accordion multiSelectable>
+					<AccordionItem variant="fill" color="danger" title="Danger">
+						<svelte:fragment slot="icon">
+							<SVGIcon data={more} />
+						</svelte:fragment>
+						Content danger
+					</AccordionItem>
+					<AccordionItem variant="fill" color="success" title="Success">
+						<svelte:fragment slot="icon">
+							<SVGIcon data={more} />
+						</svelte:fragment>
+						Content success
+						<Paper>
+							<Accordion multiSelectable>
+								<AccordionItem variant="fill" color="danger" title="Danger">
+									<svelte:fragment slot="icon">
+										<SVGIcon data={more} />
+									</svelte:fragment>
+									Content danger
+								</AccordionItem>
+								<AccordionItem variant="fill" color="success" title="Success">
+									<svelte:fragment slot="icon">
+										<SVGIcon data={more} />
+									</svelte:fragment>
+									Content success
+								</AccordionItem>
+							</Accordion>
+						</Paper>
+					</AccordionItem>
+				</Accordion>
+			</Paper>
 		</AccordionItem>
 		<AccordionItem color="secondary" title="Secondary">
 			<svelte:fragment slot="icon">

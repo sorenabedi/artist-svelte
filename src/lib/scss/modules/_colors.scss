@@ -1,6 +1,4 @@
 // Globals
-$white-bg: hsl(195, 22%, 96%);
-$black-bg: hsl(225, 8%, 10%);
 $white: #e8e8e8;
 $black: #181818;
 
@@ -19,96 +17,182 @@ $color-success: #00d09f;
 $color-text-default: a11y-color($black, $white, 'AA');
 $color-text-default-dark: a11y-color($white, $black, 'AA');
 
+// $theme-variants: (
+// 	'primary': (
+// 		'light': hsl(218, 80%, 72%),
+// 		'light-font': #{a11y-color($white, hsl(218, 80%, 72%), 'AA')},
+// 		'base': hsl(218, 61%, 52%),
+// 		'base-font': #{a11y-color($white, hsl(218, 61%, 52%), 'AA')},
+// 		'dark': hsl(218, 90%, 30%),
+// 		'dark-font': #{a11y-color($white, hsl(218, 90%, 30%), 'AA')},
+// 		'darker': hsl(218, 90%, 20%),
+// 		'darker-font': #{a11y-color($white, hsl(218, 90%, 20%), 'AA')},
+// 		'natural': hsl(218, 100%, 93%),
+// 		'natural-font': #{a11y-color($white, hsl(228, 39%, 87%), 'AA')},
+// 		'font': $white
+// 	),
+// 	'secondary': (
+// 		'light': hsl(208, 98%, 62%),
+// 		'light-font': #{a11y-color($white, hsl(208, 98%, 62%), 'AA')},
+// 		'base': hsl(208, 98%, 25%),
+// 		'base-font': #{a11y-color($white, hsl(208, 98%, 25%), 'AA')},
+// 		'dark': hsl(208, 98%, 15%),
+// 		'dark-font': #{a11y-color($white, hsl(208, 98%, 15%), 'AA')},
+// 		'darker': hsl(223, 14%, 30%),
+// 		'darker-font': #{a11y-color($white, hsl(223, 14%, 30%), 'AA')},
+// 		'natural': hsl(213, 39%, 87%),
+// 		'natural-font': #{a11y-color($white, hsl(213, 39%, 87%), 'AA')},
+// 		'font': $white
+// 	),
+// 	'default': (
+// 		'light': hsl(0, 0%, 67%),
+// 		'light-font': #{a11y-color($white, hsl(235, 6%, 38%), 'AA')},
+// 		'base': hsl(223, 4%, 31%),
+// 		'base-font': #{a11y-color($white, hsl(223, 4%, 31%), 'AA')},
+// 		'dark': hsl(223, 0%, 25%),
+// 		'dark-font': #{a11y-color($white, hsl(223, 0%, 25%), 'AA')},
+// 		'darker': hsl(225, 4%, 19%),
+// 		'darker-font': #{a11y-color($white, hsl(225, 4%, 19%), 'AA')},
+// 		'natural': hsl(213, 4%, 80%),
+// 		'natural-font': #{a11y-color($white, hsl(213, 39%, 87%), 'AA')},
+// 		'font': $white
+// 	),
+// 	'success': (
+// 		'light': hsl(134, 61%, 41%),
+// 		'light-font': #{a11y-color($white, hsl(134, 61%, 41%), 'AA')},
+// 		'base': hsl(137, 100%, 26%),
+// 		'base-font': #{a11y-color($white, hsl(137, 100%, 26%), 'AA')},
+// 		'dark': hsl(126, 100%, 21%),
+// 		'dark-font': #{a11y-color($white, hsl(126, 100%, 21%), 'AA')},
+// 		'darker': hsl(120, 100%, 17%),
+// 		'darker-font': #{a11y-color($white, hsl(120, 100%, 17%), 'AA')},
+// 		'natural': hsl(122, 39%, 87%),
+// 		'natural-font': #{a11y-color($white, hsl(122, 39%, 87%), 'AA')},
+// 		'font': $white
+// 	),
+// 	'warning': (
+// 		'light': hsl(27, 100%, 76%),
+// 		'light-font': #{a11y-color($white, hsl(27, 100%, 76%), 'AA')},
+// 		'base': hsl(45, 100%, 51%),
+// 		'base-font': #{a11y-color($white, hsl(45, 100%, 51%), 'AA')},
+// 		'dark': hsl(44, 100%, 40%),
+// 		'dark-font': #{a11y-color($white, hsl(44, 100%, 40%), 'AA')},
+// 		'darker': hsl(42, 100%, 30%),
+// 		'darker-font': #{a11y-color($white, hsl(42, 100%, 30%), 'AA')},
+// 		'natural': hsl(43, 39%, 87%),
+// 		'natural-font': #{a11y-color($white, hsl(43, 39%, 87%), 'AA')},
+// 		'font': $white
+// 	),
+// 	'danger': (
+// 		'light': hsl(349, 37%, 63%),
+// 		'light-font': #{a11y-color($white, hsl(349, 37%, 63%), 'AA')},
+// 		'base': hsl(354, 70%, 54%),
+// 		'base-font': #{a11y-color($white, hsl(354, 70%, 54%), 'AA')},
+// 		'dark': hsl(350, 100%, 31%),
+// 		'dark-font': #{a11y-color($white, hsl(350, 100%, 31%), 'AA')},
+// 		'darker': hsl(350, 100%, 21%),
+// 		'darker-font': #{a11y-color($white, hsl(350, 100%, 21%), 'AA')},
+// 		'natural': hsl(350, 39%, 87%),
+// 		'natural-font': #{a11y-color($white, hsl(350, 39%, 87%), 'AA')},
+// 		'font': $white
+// 	),
+// 	'info': (
+// 		'light': hsl(180, 82%, 66%),
+// 		'light-font': #{a11y-color($white, hsl(180, 82%, 66%), 'AA')},
+// 		'base': hsl(180, 100%, 36%),
+// 		'base-font': #{a11y-color($white, hsl(180, 100%, 36%), 'AA')},
+// 		'dark': hsl(180, 100%, 29%),
+// 		'dark-font': #{a11y-color($white, hsl(180, 100%, 29%), 'AA')},
+// 		'darker': hsl(185, 100%, 20%),
+// 		'darker-font': #{a11y-color($white, hsl(185, 100%, 20%), 'AA')},
+// 		'natural': hsl(185, 39%, 87%),
+// 		'natural-font': #{a11y-color($white, hsl(185, 39%, 87%), 'AA')},
+// 		'font': $white
+// 	)
+// );
 $theme-variants: (
 	'primary': (
 		'light': hsl(218, 80%, 72%),
-		'light-font': #{a11y-color($white, hsl(218, 80%, 72%), 'AA')},
-		'base': hsl(218, 61%, 52%),
-		'base-font': #{a11y-color($white, hsl(218, 61%, 52%), 'AA')},
-		'dark': hsl(218, 90%, 30%),
-		'dark-font': #{a11y-color($white, hsl(218, 90%, 30%), 'AA')},
-		'darker': hsl(218, 90%, 20%),
-		'darker-font': #{a11y-color($white, hsl(218, 90%, 20%), 'AA')},
+		'light-font': hsl(218, 81%, 12%),
+		'base': #3a71cf,
+		'base-font': #fdfeff,
+		'dark': #083a91,
+		'dark-font': #f5f9fe,
+		'darker': #052761,
+		'darker-font': hsl(218, 91%, 91%),
 		'natural': hsl(218, 100%, 93%),
-		'natural-font': #{a11y-color($white, hsl(228, 39%, 87%), 'AA')},
-		'font': $white
+		'natural-font': hsl(218, 100%, 34%)
 	),
 	'secondary': (
 		'light': hsl(208, 98%, 62%),
-		'light-font': #{a11y-color($white, hsl(208, 98%, 62%), 'AA')},
-		'base': hsl(208, 98%, 25%),
-		'base-font': #{a11y-color($white, hsl(208, 98%, 25%), 'AA')},
-		'dark': hsl(208, 98%, 15%),
-		'dark-font': #{a11y-color($white, hsl(208, 98%, 15%), 'AA')},
-		'darker': hsl(223, 14%, 30%),
-		'darker-font': #{a11y-color($white, hsl(223, 14%, 30%), 'AA')},
-		'natural': hsl(213, 39%, 87%),
-		'natural-font': #{a11y-color($white, hsl(213, 39%, 87%), 'AA')},
-		'font': $white
+		'light-font': hsl(208, 100%, 8%),
+		'base': #01447e,
+		'base-font': #d1eaff,
+		'dark': #01294b,
+		'dark-font': #d5ecff,
+		'darker': #00164d,
+		'darker-font': hsl(223, 100%, 88%),
+		'natural': hsl(212, 39%, 87%),
+		'natural-font': hsl(213, 40%, 28%)
 	),
 	'default': (
 		'light': hsl(0, 0%, 67%),
-		'light-font': #{a11y-color($white, hsl(235, 6%, 38%), 'AA')},
-		'base': hsl(223, 4%, 31%),
-		'base-font': #{a11y-color($white, hsl(223, 4%, 31%), 'AA')},
-		'dark': hsl(223, 0%, 25%),
-		'dark-font': #{a11y-color($white, hsl(223, 0%, 25%), 'AA')},
-		'darker': hsl(225, 4%, 19%),
-		'darker-font': #{a11y-color($white, hsl(225, 4%, 19%), 'AA')},
-		'natural': hsl(213, 4%, 80%),
-		'natural-font': #{a11y-color($white, hsl(213, 39%, 87%), 'AA')},
-		'font': $white
+		'light-font': hsl(0, 0%, 12%),
+		'base': hsl(220, 4%, 31%),
+		'base-font': hsl(240, 3%, 94%),
+		'dark': hsl(0, 0%, 25%),
+		'dark-font': hsl(0, 0%, 86%),
+		'darker': hsl(240, 3%, 19%),
+		'darker-font': hsl(240, 3%, 77%),
+		'natural': hsl(210, 4%, 80%),
+		'natural-font': hsl(204, 4%, 22%)
 	),
 	'success': (
 		'light': hsl(134, 61%, 41%),
-		'light-font': #{a11y-color($white, hsl(134, 61%, 41%), 'AA')},
+		'light-font': hsl(180, 100%, 0%),
 		'base': hsl(137, 100%, 26%),
-		'base-font': #{a11y-color($white, hsl(137, 100%, 26%), 'AA')},
+		'base-font': hsl(0, 0%, 100%),
 		'dark': hsl(126, 100%, 21%),
-		'dark-font': #{a11y-color($white, hsl(126, 100%, 21%), 'AA')},
+		'dark-font': hsl(129, 100%, 97%),
 		'darker': hsl(120, 100%, 17%),
-		'darker-font': #{a11y-color($white, hsl(120, 100%, 17%), 'AA')},
+		'darker-font': hsl(120, 100%, 76%),
 		'natural': hsl(122, 39%, 87%),
-		'natural-font': #{a11y-color($white, hsl(122, 39%, 87%), 'AA')},
-		'font': $white
+		'natural-font': hsl(121, 39%, 23%)
 	),
 	'warning': (
 		'light': hsl(27, 100%, 76%),
-		'light-font': #{a11y-color($white, hsl(27, 100%, 76%), 'AA')},
+		'light-font': hsl(27, 100%, 17%),
 		'base': hsl(45, 100%, 51%),
-		'base-font': #{a11y-color($white, hsl(45, 100%, 51%), 'AA')},
+		'base-font': hsl(45, 100%, 7%),
 		'dark': hsl(44, 100%, 40%),
-		'dark-font': #{a11y-color($white, hsl(44, 100%, 40%), 'AA')},
+		'dark-font': hsl(60, 100%, 0%),
 		'darker': hsl(42, 100%, 30%),
-		'darker-font': #{a11y-color($white, hsl(42, 100%, 30%), 'AA')},
-		'natural': hsl(43, 39%, 87%),
-		'natural-font': #{a11y-color($white, hsl(43, 39%, 87%), 'AA')},
-		'font': $white
+		'darker-font': hsl(0, 0%, 100%),
+		'natural': hsl(42, 39%, 87%),
+		'natural-font': hsl(41, 39%, 23%)
 	),
 	'danger': (
 		'light': hsl(349, 37%, 63%),
-		'light-font': #{a11y-color($white, hsl(349, 37%, 63%), 'AA')},
-		'base': hsl(354, 70%, 54%),
-		'base-font': #{a11y-color($white, hsl(354, 70%, 54%), 'AA')},
+		'light-font': hsl(350, 37%, 12%),
+		'base': hsl(354, 70%, 48%),
+		'base-font': hsl(355, 65%, 97%),
 		'dark': hsl(350, 100%, 31%),
-		'dark-font': #{a11y-color($white, hsl(350, 100%, 31%), 'AA')},
+		'dark-font': hsl(351, 100%, 97%),
 		'darker': hsl(350, 100%, 21%),
-		'darker-font': #{a11y-color($white, hsl(350, 100%, 21%), 'AA')},
-		'natural': hsl(350, 39%, 87%),
-		'natural-font': #{a11y-color($white, hsl(350, 39%, 87%), 'AA')},
-		'font': $white
+		'darker-font': hsl(350, 100%, 89%),
+		'natural': hsl(351, 39%, 87%),
+		'natural-font': hsl(351, 39%, 28%)
 	),
 	'info': (
 		'light': hsl(180, 82%, 66%),
-		'light-font': #{a11y-color($white, hsl(180, 82%, 66%), 'AA')},
+		'light-font': hsl(180, 82%, 15%),
 		'base': hsl(180, 100%, 36%),
-		'base-font': #{a11y-color($white, hsl(180, 100%, 36%), 'AA')},
-		'dark': hsl(180, 100%, 29%),
-		'dark-font': #{a11y-color($white, hsl(180, 100%, 29%), 'AA')},
+		'base-font': hsl(180, 100%, 6%),
+		'dark': hsl(180, 100%, 25%),
+		'dark-font': hsl(180, 100%, 100%),
 		'darker': hsl(185, 100%, 20%),
-		'darker-font': #{a11y-color($white, hsl(185, 100%, 20%), 'AA')},
+		'darker-font': hsl(180, 100%, 100%),
 		'natural': hsl(185, 39%, 87%),
-		'natural-font': #{a11y-color($white, hsl(185, 39%, 87%), 'AA')},
-		'font': $white
+		'natural-font': hsl(184, 40%, 22%)
 	)
 );

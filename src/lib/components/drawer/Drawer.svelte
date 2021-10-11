@@ -7,7 +7,7 @@
 
 	const testID = process.env.NODE_ENV === 'test' ? 'Drawer' : /* istanbul ignore next */ undefined;
 
-	export let color: ColorProp = 'default';
+	export let color: ColorProp | 'inherit' = 'default';
 	export let variant: Exclude<VariantProp, 'outline-gradient'> = 'outline';
 	export let shadow = false;
 	export let overlayBlur = false;
@@ -40,7 +40,11 @@
 	data-testid={testID}
 >
 	{#if $isOpen}
-		<Backdrop {overlayBlur} color={!overlay ? 'transparent' : color} on:click={() => close()} />
+		<Backdrop
+			{overlayBlur}
+			color={overlay && color !== 'inherit' ? color : 'transparent'}
+			on:click={() => close()}
+		/>
 	{/if}
 	<div
 		class={clsx('drawer', from)}

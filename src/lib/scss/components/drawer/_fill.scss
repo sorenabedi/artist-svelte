@@ -1,13 +1,14 @@
 @mixin drawer-fill {
 	&.fill {
 		.drawer {
-			background-color: hsl(var(--dark) / 100%);
-			color: hsl(var(--dark-font) / 100%);
+			background-color: hsl(var(--darker) / 100%);
+			color: hsl(var(--darker-font) / 100%);
+			border-color: transparent;
 		}
 		:global {
 			.accordionItem {
 				.title {
-					color: hsl(var(--darker-font) / 100%);
+					color: hsl(var(--darker-font) / 100%) !important;
 				}
 				&.outline,
 				&:not(.expanded) {

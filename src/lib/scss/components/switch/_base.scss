@@ -9,9 +9,6 @@ $base-paddingX: $paddingX * 2;
 $base-fontSize: 0.7rem;
 $mask-margin: 4px;
 $mask-borderRadius: $borderRadius * 50;
-$base-backgroundColor: 0deg 0% 91%;
-$thumb-backgroundColor: 0deg 0% 95%;
-$thumb-disabled-backgroundColor: 0deg 0% 85%;
 $thumb-width: $base-height * 1.4;
 $thumb-height: $base-height * 1.2;
 
@@ -25,7 +22,7 @@ $thumb-height: $base-height * 1.2;
 	.inputMask {
 		position: relative;
 		margin: auto;
-		background-color: hsl($base-backgroundColor);
+		background-color: hsl(var(--natural) / 95%);
 		border-radius: $base-borderRadius;
 		transition: all 0.3s ease;
 		overflow: hidden;
@@ -52,6 +49,7 @@ $thumb-height: $base-height * 1.2;
 			transform: translate(100%);
 			position: absolute;
 			opacity: 0;
+			color: hsl(var(--natural-font));
 		}
 		.on {
 			-webkit-transform: translate(0%);
@@ -62,7 +60,8 @@ $thumb-height: $base-height * 1.2;
 			color: hsl(var(--base-font));
 		}
 		.thumb {
-			background-color: hsl($thumb-backgroundColor);
+			background-color: hsl(var(--white) / 100%);
+			background-image: linear-gradient(hsl(var(--black) / 5%), hsl(var(--black) / 5%));
 			margin: $mask-margin $mask-margin;
 			position: absolute;
 			top: 0%;
@@ -108,8 +107,12 @@ $thumb-height: $base-height * 1.2;
 
 		&:disabled ~ .inputMask {
 			border-color: hsl(var(--light));
+			.text {
+				background-color: hsl(var(--natural) / 70%);
+			}
 			.thumb {
-				background-color: hsl($thumb-disabled-backgroundColor);
+				background-color: hsl(var(--white) / 100%);
+				background-image: linear-gradient(hsl(var(--black) / 30%), hsl(var(--black) / 30%));
 			}
 		}
 		@include action-hover {
@@ -124,6 +127,7 @@ $thumb-height: $base-height * 1.2;
 			}
 			&:checked ~ .inputMask {
 				border-color: hsl(var(--natural));
+
 				.thumb {
 					width: $thumb-width * 1.1;
 					right: 0;

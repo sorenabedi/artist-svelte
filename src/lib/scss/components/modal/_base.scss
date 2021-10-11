@@ -21,12 +21,13 @@ $base-paddingY: $paddingY;
 		max-width: 90vw;
 		max-height: 90vh;
 		border-radius: 0.3rem;
-		background-color: hsl(var(--white));
+		background-color: hsl(var(--bg-color));
 		padding: $base-paddingY $base-paddingX * 2;
 		border-radius: $base-borderRadius;
 		background-clip: padding-box;
 		border: 0;
-		box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d;
+		box-shadow: 0 3px 6px -4px hsl(var(--fg-color) / 10%), 0 6px 16px hsl(var(--fg-color) / 10%),
+			0 9px 28px 8px hsl(var(--fg-color) / 10%);
 		pointer-events: auto;
 		> .close {
 			position: absolute;
@@ -40,7 +41,7 @@ $base-paddingY: $paddingY;
 					border: 1px solid hsl(var(--black) / 10%);
 					border-radius: $base-borderRadius;
 					outline: 0;
-					background-color: hsl(var(--white));
+					background-color: hsl(var(--bg-color));
 					cursor: pointer;
 					color: hsl(var(--base));
 					font-size: 1rem;
@@ -49,12 +50,6 @@ $base-paddingY: $paddingY;
 						background-color 0.3s cubic-bezier(0.39, 0.575, 0.565, 1),
 						box-shadow 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
 					position: relative;
-					@include action-hover {
-						// transform: translate($base-paddingY , $base-paddingX);
-						border: 1px solid hsl(var(--base) / 100%);
-						background-color: hsl(var(--natural));
-						box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d;
-					}
 				}
 			}
 			& ~ .contentWrapper .header {
@@ -62,6 +57,7 @@ $base-paddingY: $paddingY;
 			}
 		}
 		> .contentWrapper {
+			color: hsl(var(--fg-color));
 			> .header {
 				max-height: 20vh;
 				overflow: auto;

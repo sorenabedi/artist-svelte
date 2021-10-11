@@ -1,14 +1,3 @@
-//temp variables
-// $color: list.nth($theme-variants2, 1);
-$color: map.get($theme-variants, 'primary');
-$paletteName: 'primary';
-$light: map.get($color, 'light');
-$base: map.get($color, 'base');
-$dark: map.get($color, 'dark');
-$darker: map.get($color, 'darker');
-$natural: map.get($color, 'natural');
-$font: map.get($color, 'font');
-
 // global
 $scrollbarWidth: 0.35rem;
 

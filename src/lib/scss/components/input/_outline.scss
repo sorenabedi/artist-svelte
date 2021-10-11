@@ -1,6 +1,7 @@
 @mixin input-outline {
 	&.outline {
 		.inputContainer {
+			background-color: hsl(var(--bg-color) / 5%);
 			label {
 				color: hsl(var(--natural-font));
 				.icon {
@@ -15,7 +16,13 @@
 			}
 			input {
 				border-color: transparent;
-				color: hsl(var(--base));
+				color: hsl(var(--light));
+				background-color: hsl(var(--fg-color) / 5%);
+				&:not(:placeholder-shown) {
+					color: hsl(var(--base));
+					background-color: hsl(var(--base) / 1%);
+					border-color: hsla(var(--light) / 15%);
+				}
 			}
 		}
 		&.rtl {
@@ -30,12 +37,13 @@
 		}
 		@include action-hover {
 			.inputContainer {
-				label {
-					color: hsla(var(--darker) / 35%);
-				}
+				// label {
+				// color: hsla(var(--base) / 35%);
+				// }
 				input {
 					&:not(:disabled) {
-						border-color: hsla(var(--light) / 15%);
+						border-color: hsl(var(--light) / 50%);
+						border-bottom-color: hsl(var(--light)) !important;
 					}
 				}
 			}
@@ -50,7 +58,7 @@
 					}
 				}
 				input {
-					border-color: hsl(var(--natural) / 50%);
+					border-color: hsla(var(--light) / 20%) !important;
 					border-bottom-color: hsl(var(--base)) !important;
 				}
 			}

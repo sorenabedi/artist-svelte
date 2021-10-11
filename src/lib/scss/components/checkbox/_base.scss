@@ -114,6 +114,9 @@ $mask-borderRadius: $borderRadius * 0.45;
 			}
 		}
 	}
+	label {
+		color: hsl(var(--fg-color));
+	}
 	&.shadow {
 		@include action-hover {
 			input:not(:disabled) ~ .inputMask {

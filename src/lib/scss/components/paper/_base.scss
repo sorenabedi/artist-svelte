@@ -13,12 +13,13 @@ $icon-marginX: 0.125rem;
 & {
 	padding: $base-paddingY $base-paddingX;
 	margin: $base-marginY * 0.2 $base-marginX $base-marginY;
-	background-color: white;
+	background-color: hsl(var(--bg-color) / 100%);
+	color: hsl(var(--fg-color) / 100%);
 	border-radius: $base-borderRadius;
 	border-width: $base-borderWidth;
 	border-style: solid;
 	transition: background 0.25s, color 0.25s, box-shadow 0.25s, border 0.25s;
-	border-color: hsl(var(--natural) / 30%);
+	border-color: hsl(var(--natural) / 50%);
 	box-sizing: border-box;
 	@include action-hover {
 		border-color: hsl(var(--natural) / 50%);

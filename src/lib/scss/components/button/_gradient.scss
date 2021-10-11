@@ -14,7 +14,7 @@
 }
 // background: linear-gradient(-90deg, #24d2fe, #4facfe);
 @mixin button-gradient {
-	$gradient: linear-gradient(-90deg, hsl(var(--light)), hsl(var(--dark)), hsl(var(--light)));
+	$gradient: linear-gradient(-90deg, hsl(var(--base)), hsl(var(--darker)), hsl(var(--base)));
 	$gradient-focus: linear-gradient(
 		-90deg,
 		hsl(var(--darker)),
@@ -58,7 +58,7 @@
 
 			:global {
 				path {
-					fill: var(--font);
+					fill: var(--fg-color);
 				}
 			}
 		}
@@ -82,7 +82,7 @@
 		}
 		@include action-active {
 			background: $gradient;
-			-webkit-text-fill-color: hsl(var(--font));
+			-webkit-text-fill-color: #fff;
 			animation: backgroundGradient 5s ease infinite;
 			&:before {
 				background: $gradient;
@@ -95,7 +95,7 @@
 
 			:global {
 				path {
-					fill: hsl(var(--font));
+					fill: hsl(var(--fg-color));
 				}
 			}
 		}
