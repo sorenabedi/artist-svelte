@@ -1,0 +1,121 @@
+@use 'sass:math';
+$base-borderRadius: $borderRadius * 3;
+$base-borderWidth: $borderWidth;
+$base-marginX: $marginX;
+$base-marginY: $marginY * 2;
+$base-paddingX: $paddingX;
+$base-paddingY: $paddingY * 2;
+
+& {
+	box-sizing: border-box;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	height: 100%;
+	width: 0;
+	overflow: hidden;
+	visibility: hidden;
+	transition: visibility 0s 0.3s;
+	z-index: 100;
+	position: fixed;
+
+	&.expanded {
+		width: 100%;
+		visibility: visible;
+		overflow-y: auto;
+		transition: visibility 0s 0s;
+	}
+	.drawer {
+		box-sizing: border-box;
+		position: fixed;
+		transform: scale(0.9);
+		transition: all 0.3s, transform 0.3s;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		border-width: $base-borderWidth;
+		border-style: solid;
+		&.expanded {
+			transform: scale(1);
+		}
+		&.shadow {
+			box-shadow: 4px 8px 8px hsl(var(--natural) / 30%), 0px 0px 8px hsl(var(--base) / 30%);
+		}
+
+		&.bottom {
+			border-top-right-radius: $base-borderRadius;
+			border-top-left-radius: $base-borderRadius;
+			left: 0;
+			bottom: calc(var(--size, 17rem) * -1);
+			&.expanded {
+				bottom: 0;
+			}
+		}
+
+		&.right {
+			border-top-left-radius: $base-borderRadius;
+			border-bottom-left-radius: $base-borderRadius;
+			right: calc(var(--size, 17rem) * -1);
+			top: 0;
+			&.expanded {
+				right: 0;
+			}
+		}
+		&.left {
+			border-top-right-radius: $base-borderRadius;
+			border-bottom-right-radius: $base-borderRadius;
+			left: calc(var(--size, 17rem) * -1);
+			top: 0;
+			&.expanded {
+				left: 0;
+			}
+		}
+		&.right,
+		&.left {
+			height: 100%;
+			max-width: var(--size, 17rem);
+		}
+		&.top,
+		&.bottom {
+			width: 100%;
+			max-height: var(--size, 17rem);
+			height: 100%;
+		}
+		&.top {
+			border-bottom-right-radius: $base-borderRadius;
+			border-bottom-left-radius: $base-borderRadius;
+			left: 0;
+			top: calc(var(--size, 17rem) * -1);
+
+			&.expanded {
+				top: 0;
+			}
+		}
+
+		.header {
+			padding: $base-paddingY $base-paddingX;
+			max-height: 100%;
+			overflow: auto;
+			box-sizing: border-box;
+			display: inline-table;
+			position: sticky;
+		}
+
+		.content {
+			padding: $base-paddingY $base-paddingX;
+			padding-bottom: $base-paddingY * 2;
+			max-height: 100%;
+			overflow: auto;
+			box-sizing: border-box;
+
+			&::-webkit-scrollbar {
+				width: 5px;
+				height: 5px;
+				display: block;
+			}
+			&::-webkit-scrollbar-thumb {
+				border-radius: 5px;
+			}
+		}
+	}
+}

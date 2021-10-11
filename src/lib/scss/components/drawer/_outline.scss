@@ -1,0 +1,31 @@
+@mixin drawer-outline {
+	&.outline {
+		.drawer {
+			background-color: hsl(var(--white) / 100%);
+			background-image: linear-gradient(hsl(var(--natural) / 20%), hsl(var(--natural) / 20%));
+			color: hsl(var(--natural-font) / 100%);
+			border-color: hsl(var(--natural) / 20%);
+			> .content {
+				&::-webkit-scrollbar {
+					background-color: hsl(var(--base-font) / 100%);
+				}
+				&::-webkit-scrollbar-thumb {
+					background-color: hsl(var(--base) / 100%);
+				}
+			}
+		}
+		:global {
+			.accordionItem {
+				.title {
+					color: hsl(var(--natural-font) / 100%);
+				}
+				&.outline,
+				&:not(.expanded) {
+					.description {
+						color: hsl(var(--dark) / 100%) !important;
+					}
+				}
+			}
+		}
+	}
+}
