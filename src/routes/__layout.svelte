@@ -11,6 +11,7 @@
 	<a href="/input">input</a>
 	<a href="/modal">modal</a>
 	<a href="/accordion">accordion</a>
+	<a href="/drawer">drawer</a>
 </nav>
 <slot />
 
@@ -27,5 +28,15 @@
 			Arial, 'Noto Sans', 'Liberation Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
 			'Segoe UI Symbol', 'Noto Color Emoji', Vazir;
 		// direction: rtl;
+	}
+	::-webkit-scrollbar {
+		width: 5px;
+		height: 5px;
+		display: block;
+		background: white;
+	}
+	::-webkit-scrollbar-thumb {
+		background: black;
+		border-radius: 5px;
 	}
 </style>

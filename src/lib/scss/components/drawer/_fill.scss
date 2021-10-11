@@ -1,0 +1,21 @@
+@mixin drawer-fill {
+	&.fill {
+		.drawer {
+			background-color: hsl(var(--dark) / 100%);
+			color: hsl(var(--dark-font) / 100%);
+		}
+		:global {
+			.accordionItem {
+				.title {
+					color: hsl(var(--darker-font) / 100%);
+				}
+				&.outline,
+				&:not(.expanded) {
+					.description {
+						color: hsl(var(--light) / 100%) !important;
+					}
+				}
+			}
+		}
+	}
+}
