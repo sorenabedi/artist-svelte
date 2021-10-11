@@ -12,7 +12,8 @@ $description-fontSize: 0.8rem;
 @mixin accordion-fill {
 	&.fill {
 		border-color: transparent;
-		// background-color: hsl(var(--natural) / 20%);
+		// background-color: hsl(var(--natural) / 50%);
+		// background-image: linear-gradient(0deg, hsl(var(--natural) / 50%), hsl(var(--natural) / 50%));
 		@include action-hover {
 			background-color: hsl(var(--natural) / 40%);
 		}
@@ -68,6 +69,22 @@ $description-fontSize: 0.8rem;
 
 			> .content {
 				color: hsl(var(--base-font) / 100%);
+				:global {
+					.accordionItem {
+						.title {
+							color: hsl(var(--darker-font) / 100%);
+						}
+						&.outline,
+						&:not(.expanded) {
+							.description {
+								color: hsl(var(--darker) / 100%) !important;
+							}
+						}
+						&.expanded {
+							border-color: hsl(var(--natural) / 40%);
+						}
+					}
+				}
 			}
 		}
 	}
