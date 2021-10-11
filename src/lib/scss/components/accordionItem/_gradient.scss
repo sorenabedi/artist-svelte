@@ -13,7 +13,9 @@ $description-fontSize: 0.8rem;
 	&.outline-gradient {
 		border-color: transparent;
 		background-color: transparent;
-		// background-image: linear-gradient(-30deg, hsl(var(--base) / 5%) 33%, hsl(var(--darker) / 15%));
+		// background-color: hsl(var(--natural) / 50%);
+		// background-image: linear-gradient(0deg, hsl(var(--natural) / 20%), hsl(var(--natural) / 20%));
+		// background-image: linear-gradient(-30deg, hsl(var(--base) / 5%) 33%, hsl(var(--darker) / 35%));
 		border-width: 0;
 		@include action-hover {
 			background-color: hsl(var(--natural) / 40%);

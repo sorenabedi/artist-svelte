@@ -13,7 +13,7 @@ describe('Backdrop component test suite', () => {
 	});
 	it('testing interactive color prop change', async () => {
 		const { getByTestId, component } = render(Backdrop);
-		expect(getByTestId('Backdrop')).toHaveClass('default');
+		expect(getByTestId('Backdrop')).toHaveClass('transparent');
 		component.$$set({ color: 'primary' });
 		await tick();
 		expect(getByTestId('Backdrop')).toHaveClass('primary');
