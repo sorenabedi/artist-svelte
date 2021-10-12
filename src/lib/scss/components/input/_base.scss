@@ -41,8 +41,6 @@ $icon-borderRadius: $borderRadius * 1;
 			height: 100%;
 			font-size: $base-fontSize;
 			@include truncate(100%);
-			transition: padding 0.3s ease, top 0.3s ease, right 0.3s ease, left 0.3s ease,
-				opacity 0.3s ease, color 0.3s ease;
 
 			.icon {
 				display: flex;
@@ -57,10 +55,9 @@ $icon-borderRadius: $borderRadius * 1;
 				margin: $base-paddingY * 0.5;
 				font-size: $base-fontSize;
 				font-family: inherit;
-				// background-color: hsl(var(--font));
 				transition: inherit;
 				transition: padding 0.3s ease, border 0.3s ease, opacity 0.3s ease, color 0.3s ease,
-					box-shadow 0.3s ease;
+					background-color 0.3s ease, box-shadow 0.3s ease;
 				box-sizing: content-box;
 			}
 			.label {
@@ -84,7 +81,6 @@ $icon-borderRadius: $borderRadius * 1;
 			min-width: 100px;
 			font-size: $base-fontSize;
 			font-family: inherit;
-			background-color: hsl(var(--font));
 			transition: padding 0.3s ease, color 0.3s ease, background-color 0.3s ease,
 				border-color 0.3s ease, box-shadow 0.3s ease;
 			box-sizing: border-box;

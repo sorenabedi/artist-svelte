@@ -93,7 +93,7 @@ $txt-borderRadius: calc(var(--size, $base-size) * 0.22);
 
 			border-width: calc(var(--size, $base-size) * 0.04);
 			border-style: solid;
-			border-color: hsl(var(--background, 195 22% 96%));
+			border-color: hsl(var(--bg-color));
 			z-index: 1;
 		}
 	}

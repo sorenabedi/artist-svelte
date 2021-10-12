@@ -1,8 +1,9 @@
 @mixin input-fill {
 	&.fill {
 		.inputContainer {
+			background-color: hsl(var(--fg-color) / 5%);
 			label {
-				color: hsl(var(--natural-font));
+				color: hsl(var(--base));
 				.icon {
 					background-color: hsla(var(--base) / 15%);
 					border-color: transparent;
@@ -11,37 +12,44 @@
 			input {
 				border-color: transparent;
 				color: hsl(var(--base));
+				background-color: hsl(var(--base) / 8%);
+				&:not(:placeholder-shown) {
+					color: hsl(var(--fg-color));
+				}
 			}
 		}
 		@include action-hover {
 			.inputContainer {
-				// background-color: hsl(var(--font) / 80%);
+				background-color: hsl(var(--fg-color) / 5%);
 				label {
-					color: hsla(var(--darker) / 35%);
+					color: hsla(var(--dark) / 100%);
 					.icon {
 						color: hsla(var(--dark-font) / 100%);
-					}
-				}
-				// input {
-				// 	&:not(:disabled) {
-				// 		background-color: hsla(var(--natural) / 5%);
-				// 	}
-				// }
-			}
-		}
-		&:focus-within {
-			.inputContainer {
-				background-color: hsl(var(--font) / 100%);
-				label {
-					color: hsl(var(--natural-font));
-					.icon {
-						background-color: hsla(var(--dark) / 35%);
-						color: hsla(var(--dark-font) / 85%);
+						background-color: hsla(var(--base) / 45%);
 					}
 				}
 				input {
-					background-color: hsl(var(--natural) / 50%);
-					border-color: hsl(var(--dark));
+					&:not(:disabled),
+					&:not(:focus) {
+						background-color: hsl(var(--natural) / 30%);
+					}
+				}
+			}
+		}
+
+		&:focus-within {
+			.inputContainer {
+				background-color: hsl(var(--fg-color) / 50%);
+				label {
+					color: hsl(var(--natural-font));
+					.icon {
+						background-color: hsla(var(--base) / 70%);
+						color: hsla(var(--base-font) / 85%);
+					}
+				}
+				input {
+					background-color: hsl(var(--natural) / 100%) !important;
+					border-color: hsl(var(--base));
 					color: hsl(var(--natural-font));
 				}
 			}

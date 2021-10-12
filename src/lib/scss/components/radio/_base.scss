@@ -20,6 +20,7 @@ $mask-marginY: $marginY * 0.8;
 	margin: $base-marginY $base-marginX;
 	font-size: $base-fontSize;
 	border-radius: $base-borderRadius;
+	color: hsl(var(--fg-color));
 	@include truncate(calc(100% - 1rem));
 	.inputMask {
 		position: relative;
@@ -44,7 +45,7 @@ $mask-marginY: $marginY * 0.8;
 			transform: scale(0);
 			&::before {
 				content: '';
-				background-color: hsla(var(--base-font) / 0%);
+				background-color: hsla(var(--fg-color) / 0%);
 				border-radius: $base-borderRadius;
 				position: absolute;
 				width: 70%;
@@ -71,7 +72,7 @@ $mask-marginY: $marginY * 0.8;
 				transform: scale(0.93);
 				background-color: hsl(var(--base));
 				&::before {
-					background-color: hsla(var(--base-font) / 100%);
+					background-color: hsla(var(--fg-color) / 100%);
 					width: 30%;
 					height: 30%;
 					top: 35%;

@@ -23,11 +23,14 @@
 	body {
 		margin: 0;
 		padding: 0;
-		// background: $white-bg;
 		font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
 			Arial, 'Noto Sans', 'Liberation Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
 			'Segoe UI Symbol', 'Noto Color Emoji', Vazir;
 		// direction: rtl;
+	}
+	html {
+		background-color: hsl(var(--bg-color));
+		color: hsl(var(--bg-color));
 	}
 	::-webkit-scrollbar {
 		width: 5px;

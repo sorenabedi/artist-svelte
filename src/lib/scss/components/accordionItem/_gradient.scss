@@ -26,11 +26,14 @@ $description-fontSize: 0.8rem;
 			background: transparent;
 			.labelContainer {
 				.icon {
-					color: hsl(var(--dark) / 100%);
+					color: hsl(var(--base) / 100%);
 				}
 				.label {
+					.title {
+						color: hsl(var(--fg-color) / 100%);
+					}
 					.description {
-						color: hsl(var(--dark) / 100%);
+						color: hsl(var(--base) / 100%);
 					}
 				}
 			}
