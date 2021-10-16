@@ -29,13 +29,6 @@
 			"$routes/*": ["src/routes/*"]
 		}
 	},
-	"include": [
-		"./node_modules/@sveltejs/kit/types/ambient-modules.d.ts",
-		"src/**/*.d.ts",
-		"src/**/*.js",
-		"src/**/*.jsx",
-		"src/**/*.ts",
-		"src/**/*.svelte"
-	],
+	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.svelte"],
 	"exclude": ["src/**/*.spec.ts", "src/**/*.jsx"]
 }
