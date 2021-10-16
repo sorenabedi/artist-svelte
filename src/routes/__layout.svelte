@@ -1,17 +1,3 @@
-<script lang="ts">
-	import { browser } from '$app/env';
-	let darkMode = false;
-	$: if (browser) document.documentElement.classList.toggle('dark', darkMode);
-</script>
-
-<button
-	on:click={() => {
-		darkMode = !darkMode;
-	}}
->
-	dark mode toggle
-</button>
-
 <nav>
 	<a href="/">Home</a>
 	<a href="/button">button</a>
