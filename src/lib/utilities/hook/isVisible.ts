@@ -1,4 +1,7 @@
+import { browser } from '$app/env';
+
 export default (element: HTMLElement): boolean => {
+	if (!browser) /* istanbul ignore next */ return false;
 	const rect = element.getBoundingClientRect();
 	return (
 		rect.top >= 0 &&
