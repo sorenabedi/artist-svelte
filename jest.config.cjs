@@ -24,6 +24,7 @@ module.exports = {
 		'^\\$assets(.*)$': '<rootDir>/src/assets$1',
 		'^\\$scss(.*)$': '<rootDir>/src/lib/scss$1',
 		'^\\$routes(.*)$': '<rootDir>/src/routes$1',
+		'^\\$app/env$': '<rootDir>/src/tests/app/env',
 		'^\\$app(.*)$': [
 			'<rootDir>/.svelte-kit/dev/runtime/app$1',
 			'<rootDir>/.svelte-kit/build/runtime/app$1'
