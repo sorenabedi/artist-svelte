@@ -25,6 +25,26 @@
 			<svelte:fragment slot="icon">
 				<SVGIcon data={more} />
 			</svelte:fragment>
+			<Accordion multiSelectable>
+				<AccordionItem color="secondary" title="Secondary">
+					<svelte:fragment slot="icon">
+						<SVGIcon data={more} />
+					</svelte:fragment>
+					Content secondary
+				</AccordionItem>
+				<AccordionItem color="warning" title="Warning">
+					<svelte:fragment slot="icon">
+						<SVGIcon data={more} />
+					</svelte:fragment>
+					Content warning
+				</AccordionItem>
+				<AccordionItem color="danger" title="Danger">
+					<svelte:fragment slot="icon">
+						<SVGIcon data={more} />
+					</svelte:fragment>
+					Content danger
+				</AccordionItem>
+			</Accordion>
 		</AccordionItem>
 		<AccordionItem color="secondary" title="Secondary">
 			<svelte:fragment slot="icon">
