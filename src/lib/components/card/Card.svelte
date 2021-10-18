@@ -1,7 +1,8 @@
 <script lang="ts">
 	import type { useAction } from '../../types/global';
+	import type { ColorProp, RtlProp, VariantProp } from '../../types/components/props';
 	import clsx from 'clsx';
-	import type { ColorProp, VariantProp } from '../../types/components/props';
+	import globalVars from '../../env';
 	import Badge from '../badge';
 	import Title from '../title';
 	import Paper from '../paper';
@@ -10,7 +11,7 @@
 
 	export let color: ColorProp = 'primary';
 	export let variant: VariantProp = 'fill';
-	export let rtl = false;
+	export let rtl: RtlProp = undefined;
 	export let useAction: useAction = () => ({});
 	let className: string | undefined = undefined;
 	export { className as class };
@@ -18,7 +19,7 @@
 
 <div class={clsx('cardContainer', className)} data-testid={testID} use:useAction>
 	{#if $$slots.title}
-		<div class:rtl class={clsx('cardHeader')}>
+		<div class:rtl={rtl !== undefined ? rtl : globalVars.RTL} class={clsx('cardHeader')}>
 			<Title {color} {variant}><slot name="title" /></Title>
 			{#if $$slots.notification}
 				<Badge {color} {variant}><slot name="notification" /></Badge>

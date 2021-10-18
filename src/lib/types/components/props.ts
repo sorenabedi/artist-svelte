@@ -8,6 +8,7 @@ export type ColorProp =
 	| 'default';
 
 export type VariantProp = 'outline-gradient' | 'outline' | 'fill';
+export type RtlProp = boolean | undefined;
 
 export type InputTypeProp =
 	| 'color'

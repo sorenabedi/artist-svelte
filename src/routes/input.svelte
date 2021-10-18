@@ -4,7 +4,7 @@
 	import more from '../lib/svg/icons/more';
 </script>
 
-<div dir="rtl">
+<div>
 	<Input rtl color="default" type="text">ایمیل خود را وارد کنید</Input>
 	<Input rtl color="primary" type="text">ایمیل خود را وارد کنید</Input>
 	<Input rtl color="secondary" type="text">ایمیل خود را وارد کنید</Input>
@@ -14,7 +14,7 @@
 	<Input rtl color="info" type="text">ایمیل خود را وارد کنید</Input>
 </div>
 
-<div dir="ltr">
+<div>
 	<Input shadow color="default" type="text">some text</Input>
 	<Input shadow color="primary" type="text">some text</Input>
 	<Input shadow color="secondary" type="text">some text</Input>
@@ -24,7 +24,7 @@
 	<Input shadow color="info" type="text">some text</Input>
 </div>
 
-<div dir="rtl">
+<div>
 	<Input variant="outline" rtl color="default" type="text">ایمیل خود را وارد کنید</Input>
 	<Input variant="outline" rtl color="primary" type="text">ایمیل خود را وارد کنید</Input>
 	<Input variant="outline" rtl color="secondary" type="text">ایمیل خود را وارد کنید</Input>
@@ -36,7 +36,7 @@
 	<Input variant="outline" rtl color="info" type="text">ایمیل خود را وارد کنید</Input>
 </div>
 
-<div dir="ltr">
+<div>
 	<Input shadow variant="outline" color="default" type="text">some text</Input>
 	<Input shadow variant="outline" color="primary" type="text">some text</Input>
 	<Input shadow variant="outline" color="secondary" type="text">some text</Input>

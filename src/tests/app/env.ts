@@ -1,6 +1,6 @@
-const browser: boolean = true;
-const dev: boolean = true;
-const mode: string = 'test';
-const amp: boolean = false;
+const browser = true;
+const dev = true;
+const mode = 'test';
+const amp = false;
 
 export { amp, browser, dev, mode };

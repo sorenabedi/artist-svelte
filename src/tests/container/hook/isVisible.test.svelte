@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { isVisible } from '$lib/utilities/hook';
-	import { onMount } from 'svelte';
 	let visibleStatus: boolean | undefined = undefined;
 	let hiddenStatus: boolean | undefined = undefined;
 	const check = () => {

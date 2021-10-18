@@ -2,13 +2,14 @@ import type { useAction } from '$lib/types/global';
 import type { Subscriber, Writable } from 'svelte/store';
 import { getContext, setContext } from 'svelte';
 import { writable } from 'svelte/store';
+import { isVisible } from '$lib/utilities';
 
 interface accordionStates {
 	[key: string]: boolean;
 }
 
 export const accordionStates = writable<accordionStates>({});
-export const setupAccordionContext = (multiSelectable: boolean) =>
+export const setupAccordionContext = (multiSelectable: boolean): void =>
 	setContext('Accordion', {
 		accordionStates,
 		add: (newItemState: { id: string; expanded?: boolean }) => {
@@ -41,8 +42,8 @@ export const scrollIntoView: useAction = (HtmlElement) => {
 	return {
 		update: () => {
 			/* istanbul ignore next */
-			if (HtmlElement.getBoundingClientRect().top < 0) {
-				HtmlElement.scrollIntoView();
+			if (HtmlElement.ariaExpanded === 'true' && !isVisible(HtmlElement)) {
+				HtmlElement.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
 			}
 		}
 	};
