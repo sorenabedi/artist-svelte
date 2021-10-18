@@ -1,8 +1,9 @@
 <script lang="ts">
 	import type { useAction } from '../../types/global';
-	import type { ColorProp, InputTypeProp, VariantProp } from '../../types/components';
+	import type { ColorProp, InputTypeProp, RtlProp, VariantProp } from '../../types/components';
 	import clsx from 'clsx';
 	import { nanoid } from 'nanoid';
+	import globalVars from '../../env';
 	import SVGIcon from '../../utilities/svg-icon.svelte';
 	const testID = process.env.NODE_ENV === 'test' ? 'Input' : /* istanbul ignore next */ undefined;
 
@@ -12,7 +13,7 @@
 	export let icon: string | undefined = undefined;
 	export let id: string = `i-${nanoid(5)}`;
 	export let type: InputTypeProp = 'text';
-	export let rtl = false;
+	export let rtl: RtlProp = undefined;
 	export let fullWidth = false;
 	let label: HTMLSpanElement;
 	export let useAction: useAction = () => ({});
@@ -26,7 +27,7 @@
 	class:shadow
 	class:icon
 	class:fullWidth
-	class:rtl
+	class:rtl={rtl !== undefined ? rtl : globalVars.RTL}
 >
 	<div class="inputContainer">
 		<input
