@@ -35,11 +35,19 @@
 	}
 }
 @mixin dir {
-	.ltr {
-		direction: ltr;
+	@if not global-variable-exists(rtl-bundle) or $rtl-bundle != 'false' {
+		.ltr {
+			direction: ltr;
+		}
+		.rtl {
+			direction: rtl;
+		}
 	}
-	.rtl {
-		direction: rtl;
+}
+
+@mixin rtl-bundle {
+	@if not global-variable-exists(rtl-bundle) or $rtl-bundle != 'false' {
+		@content;
 	}
 }
 @mixin palette-generator-variables {

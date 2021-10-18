@@ -24,15 +24,17 @@ $base-padding-right: calc(var(--size, $base-size) * 0.6);
 		}
 	}
 
-	:global(.avatarContainer.rtl) {
-		&:not(:only-child) {
-			margin-left: unset;
-			margin-right: calc(var(--size, $base-size) * -0.6);
-			transform: translate(calc(var(--size, $base-size) * -0.25));
-		}
-		&:not(:last-of-type) {
-			@include action-hover {
-				transform: translate(0);
+	@include rtl-bundle {
+		:global(.avatarContainer.rtl) {
+			&:not(:only-child) {
+				margin-left: unset;
+				margin-right: calc(var(--size, $base-size) * -0.6);
+				transform: translate(calc(var(--size, $base-size) * -0.25));
+			}
+			&:not(:last-of-type) {
+				@include action-hover {
+					transform: translate(0);
+				}
 			}
 		}
 	}

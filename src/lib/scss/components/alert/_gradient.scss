@@ -6,10 +6,12 @@
 		color: hsl(var(--dark-font));
 		border-color: hsl(var(--light));
 
-		&.rtl {
-			background: linear-gradient(30deg, hsl(var(--base)) 33%, hsl(var(--darker)));
-			border-left-width: 0;
-			border-right-width: $base-verticalLineWidth;
+		@include rtl-bundle {
+			&.rtl {
+				background: linear-gradient(30deg, hsl(var(--base)) 33%, hsl(var(--darker)));
+				border-left-width: 0;
+				border-right-width: $base-verticalLineWidth;
+			}
 		}
 	}
 }

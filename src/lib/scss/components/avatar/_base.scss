@@ -97,10 +97,12 @@ $txt-borderRadius: calc(var(--size, $base-size) * 0.22);
 			z-index: 1;
 		}
 	}
-	&.rtl {
-		.indicator {
-			left: unset;
-			right: calc(var(--size, $base-size) * 0.2 * -0.1);
+	@include rtl-bundle {
+		&.rtl {
+			.indicator {
+				left: unset;
+				right: calc(var(--size, $base-size) * 0.2 * -0.1);
+			}
 		}
 	}
 

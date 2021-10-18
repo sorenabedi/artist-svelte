@@ -14,11 +14,13 @@
 				fill: hsl(var(--base));
 			}
 		}
-		&.rtl {
-			border-top-width: $base-borderWidth;
-			border-left-width: $base-borderWidth;
-			border-bottom-width: $base-borderWidth;
-			border-right-width: $base-verticalLineWidth;
+		@include rtl-bundle {
+			&.rtl {
+				border-top-width: $base-borderWidth;
+				border-left-width: $base-borderWidth;
+				border-bottom-width: $base-borderWidth;
+				border-right-width: $base-verticalLineWidth;
+			}
 		}
 	}
 }

@@ -25,12 +25,14 @@
 				}
 			}
 		}
-		&.rtl {
-			.inputContainer {
-				label {
-					.icon {
-						border-right-width: 0;
-						border-left-width: 1px;
+		@include rtl-bundle {
+			&.rtl {
+				.inputContainer {
+					label {
+						.icon {
+							border-right-width: 0;
+							border-left-width: 1px;
+						}
 					}
 				}
 			}
