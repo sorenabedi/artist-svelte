@@ -5,6 +5,7 @@
 	const testID = process.env.NODE_ENV === 'test' ? 'Switch' : /* istanbul ignore next */ undefined;
 
 	export let color: ColorProp = 'default';
+	export let checked = false;
 	export let useAction: useAction = () => ({});
 	let className: string | undefined = undefined;
 	export { className as class };
@@ -15,7 +16,7 @@
 	<input
 		type="checkbox"
 		aria-label={label && label.textContent}
-		{...$$restProps}
+		on:change={() => (checked = !checked)}
 		on:change
 		on:click
 		on:dblclick
@@ -25,6 +26,8 @@
 		on:focus
 		on:input
 		use:useAction
+		{checked}
+		{...$$restProps}
 	/>
 	<div class="inputMask">
 		<span bind:this={label} class="text off">
