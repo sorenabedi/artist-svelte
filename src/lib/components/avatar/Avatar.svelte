@@ -17,7 +17,6 @@
 	export let rtl: RtlProp = undefined;
 	let className: string | undefined = undefined;
 	export { className as class };
-	console.log(import.meta.env);
 </script>
 
 <div
