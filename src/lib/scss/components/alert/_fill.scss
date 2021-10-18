@@ -8,9 +8,11 @@
 				fill: hsl(var(--dark));
 			}
 		}
-		&.rtl {
-			border-left-color: transparent;
-			border-right-color: hsl(var(--light));
+		@include rtl-bundle {
+			&.rtl {
+				border-left-color: transparent;
+				border-right-color: hsl(var(--light));
+			}
 		}
 	}
 }

@@ -34,10 +34,12 @@ $icon-marginX: 0.125rem;
 	&.shadow {
 		box-shadow: 0 4px 15px 0 hsla(var(--base) / 30%);
 	}
-	&.rtl {
-		border-radius: $base-borderRadius-leftSide;
-		border-right-width: $base-verticalLineWidth;
-		border-left-width: $base-borderWidth;
+	@include rtl-bundle {
+		&.rtl {
+			border-radius: $base-borderRadius-leftSide;
+			border-right-width: $base-verticalLineWidth;
+			border-left-width: $base-borderWidth;
+		}
 	}
 	.title {
 		// display: flex;

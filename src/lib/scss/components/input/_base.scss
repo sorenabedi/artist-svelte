@@ -135,38 +135,40 @@ $icon-borderRadius: $borderRadius * 1;
 			}
 		}
 	}
-	&.rtl {
-		.inputContainer {
-			label {
-				top: 0;
-				left: unset;
-				right: 0;
-			}
-			&:focus-within {
-				.label {
-					padding-left: $base-paddingX;
-					padding-right: $base-paddingX * 2.5;
-					visibility: hidden;
-				}
-				input {
-					padding-left: $base-paddingX;
-					padding-right: $base-paddingX * 1.7;
-				}
-			}
-		}
-		&.icon {
+	@include rtl-bundle {
+		&.rtl {
 			.inputContainer {
-				input {
-					padding-right: calc($base-paddingX + 1.8rem);
-					padding-left: 0;
+				label {
+					top: 0;
+					left: unset;
+					right: 0;
+				}
+				&:focus-within {
+					.label {
+						padding-left: $base-paddingX;
+						padding-right: $base-paddingX * 2.5;
+						visibility: hidden;
+					}
+					input {
+						padding-left: $base-paddingX;
+						padding-right: $base-paddingX * 1.7;
+					}
 				}
 			}
-			&:focus-within {
-				.label {
-					padding-right: $base-paddingX * 2.5;
+			&.icon {
+				.inputContainer {
+					input {
+						padding-right: calc($base-paddingX + 1.8rem);
+						padding-left: 0;
+					}
 				}
-				input {
-					padding-right: calc($base-paddingX + 2.2rem);
+				&:focus-within {
+					.label {
+						padding-right: $base-paddingX * 2.5;
+					}
+					input {
+						padding-right: calc($base-paddingX + 2.2rem);
+					}
 				}
 			}
 		}

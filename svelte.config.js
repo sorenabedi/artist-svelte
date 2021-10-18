@@ -27,7 +27,7 @@ const config = {
 	preprocess: preprocess({
 		scss: {
 			includePaths: ['./src/lib/scss'],
-			prependData: "@import 'modules/default';"
+			prependData: "$rtl-bundle: 'true';@import 'modules/default';"
 		},
 		replace: [['process.env.NODE_ENV', JSON.stringify(process.env.NODE_ENV)]]
 	}),

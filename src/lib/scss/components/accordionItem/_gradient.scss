@@ -103,13 +103,16 @@ $description-fontSize: 0.8rem;
 				color: hsl(var(--dark-font) / 100%);
 			}
 		}
-		&.rtl {
-			&.expanded {
-				background-image: linear-gradient(
-					30deg,
-					hsl(var(--base) / 90%) 33%,
-					hsl(var(--darker) / 90%)
-				);
+
+		@include rtl-bundle {
+			&.rtl {
+				&.expanded {
+					background-image: linear-gradient(
+						30deg,
+						hsl(var(--base) / 90%) 33%,
+						hsl(var(--darker) / 90%)
+					);
+				}
 			}
 		}
 	}
