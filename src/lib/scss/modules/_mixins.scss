@@ -70,7 +70,9 @@
 }
 @mixin palette-class-generator-loop {
 	@each $localPaletteName, $paletteValue in $theme-variants {
-		@include palette-class-variables($localPaletteName);
+		@if $localPaletteName != 'black' and $localPaletteName != 'white' {
+			@include palette-class-variables($localPaletteName);
+		}
 	}
 }
 @mixin palette-generator-polyfill {
