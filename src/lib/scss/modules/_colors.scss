@@ -1,22 +1,3 @@
-// Globals
-$white: #e8e8e8;
-$black: #181818;
-
-$color-primary: #3a71cf;
-$color-secondary: #01447f;
-
-$color-gradient1: #58ddfe;
-$color-gradient2: #3178f3;
-
-$color-danger: #dc3545;
-$color-warning: #ffc107;
-$color-info: #545454;
-$color-success: #006637;
-$color-success: #00d09f;
-
-$color-text-default: a11y-color($black, $white, 'AA');
-$color-text-default-dark: a11y-color($white, $black, 'AA');
-
 // $theme-variants: (
 // 	'primary': (
 // 		'light': hsl(218, 80%, 72%),
@@ -110,15 +91,18 @@ $color-text-default-dark: a11y-color($white, $black, 'AA');
 // 		'font': $white
 // 	)
 // );
+$theme-palette: () !default;
 $theme-variants: (
+	'black': hsl(0, 0%, 9%),
+	'white': hsl(0, 0%, 91%),
 	'primary': (
 		'light': hsl(218, 80%, 72%),
 		'light-font': hsl(218, 81%, 12%),
-		'base': #3a71cf,
-		'base-font': #fdfeff,
-		'dark': #083a91,
-		'dark-font': #f5f9fe,
-		'darker': #052761,
+		'base': hsl(218, 61%, 52%),
+		'base-font': hsl(210, 100%, 100%),
+		'dark': hsl(218, 90%, 30%),
+		'dark-font': hsl(213, 82%, 98%),
+		'darker': hsl(218, 90%, 20%),
 		'darker-font': hsl(218, 91%, 91%),
 		'natural': hsl(218, 100%, 93%),
 		'natural-font': hsl(218, 100%, 34%)
@@ -126,11 +110,11 @@ $theme-variants: (
 	'secondary': (
 		'light': hsl(208, 98%, 62%),
 		'light-font': hsl(208, 100%, 8%),
-		'base': #01447e,
-		'base-font': #d1eaff,
-		'dark': #01294b,
-		'dark-font': #d5ecff,
-		'darker': #00164d,
+		'base': hsl(208, 98%, 25%),
+		'base-font': hsl(207, 100%, 91%),
+		'dark': hsl(208, 97%, 15%),
+		'dark-font': hsl(207, 100%, 92%),
+		'darker': hsl(223, 100%, 15%),
 		'darker-font': hsl(223, 100%, 88%),
 		'natural': hsl(212, 39%, 87%),
 		'natural-font': hsl(213, 40%, 28%)
@@ -196,3 +180,8 @@ $theme-variants: (
 		'natural-font': hsl(184, 40%, 22%)
 	)
 );
+
+// Globals
+$theme-variants: map.deep-merge($theme-variants, $theme-palette);
+$white: map.get($theme-variants, 'white');
+$black: map.get($theme-variants, 'black');

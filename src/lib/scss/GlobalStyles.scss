@@ -1,5 +1,4 @@
 @import 'modules/default.scss';
-
 :global {
 	@include palette-generator-variables;
 	@include palette-class-generator-loop;

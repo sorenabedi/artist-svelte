@@ -36,9 +36,11 @@
 <slot />
 
 <style lang="scss" global>
+	$theme-palette: ();
 	@import 'GlobalStyles.scss';
 	@import 'modules/normalize';
 	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
 	html,
 	body {
 		margin: 0;
@@ -56,10 +58,10 @@
 		width: 5px;
 		height: 5px;
 		display: block;
-		background: white;
+		background: hsl(var(--bg-color));
 	}
 	::-webkit-scrollbar-thumb {
-		background: black;
+		background: hsl(var(--fg-color));
 		border-radius: 5px;
 	}
 </style>
