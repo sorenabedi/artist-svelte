@@ -1,5 +1,5 @@
 import { browser } from '$app/env';
-import booleanStore from '../../../store/boolean';
+import booleanStore from '../../store/boolean';
 
 const rtlCheck = (): boolean => browser && document.body.getAttribute('dir') === 'rtl';
 const { isEnabled, disable, enable } = browser && booleanStore(rtlCheck());

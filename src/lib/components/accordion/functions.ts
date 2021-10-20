@@ -1,8 +1,8 @@
-import type { useAction } from '../../types/global';
+import type { useAction } from '$lib/types/global';
 import type { Subscriber, Writable } from 'svelte/store';
 import { getContext, setContext } from 'svelte';
 import { writable } from 'svelte/store';
-import isVisible from '../../utilities/hook/isVisible';
+import { isVisible } from '$lib/utilities';
 
 interface accordionStates {
 	[key: string]: boolean;
