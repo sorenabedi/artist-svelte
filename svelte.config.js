@@ -22,6 +22,23 @@ const packageFilesFilter = (filename) => {
 	}
 };
 
+const handleEnvVariables = () => {
+	switch (true) {
+		case ['test', 'development'].includes(process.env['NODE_ENV']):
+			return [["process.env['NODE_ENV']", JSON.stringify(process.env['NODE_ENV'])]];
+		case ['pkg'].includes(process.env['NODE_ENV']):
+			return [];
+
+		default:
+			return [
+				["process.env['NODE_ENV']", JSON.stringify(process.env['NODE_ENV'])],
+				[/process\.env\.(\w+)/g, (_, prop) => JSON.stringify(process.env[prop])],
+				[/data-testid={testID}/g, ''],
+				[/const testID.*/g, '']
+			];
+	}
+};
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	preprocess: preprocess({
@@ -29,7 +46,7 @@ const config = {
 			includePaths: ['./src/lib/scss'],
 			prependData: "$rtl-bundle: 'true';@import 'modules/default';"
 		},
-		replace: [['process.env.NODE_ENV', JSON.stringify(process.env.NODE_ENV)]]
+		replace: [...handleEnvVariables()]
 	}),
 	kit: {
 		...(process.env.NODE_ENV === 'static' ? { adapter: staticAdapter() } : {}),

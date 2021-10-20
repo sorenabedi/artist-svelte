@@ -11,6 +11,7 @@
 		"paambaati",
 		"pinterest",
 		"poppanator",
+		"testid",
 		"zindex"
 	],
 	"conventionalCommits.scopes": ["pre-release", "beta", "alpha", "patch", "BREAKING CHANGE", "dev"]
