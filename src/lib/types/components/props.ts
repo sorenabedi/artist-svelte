@@ -25,3 +25,5 @@ export type InputTypeProp =
 	| 'time'
 	| 'url'
 	| 'week';
+
+export type PositionProp = 'left' | 'right' | 'top' | 'bottom';

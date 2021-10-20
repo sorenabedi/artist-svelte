@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { useAction } from '../../types/global';
-	import type { ColorProp, VariantProp } from '../../types/components/props';
+	import type { ColorProp, PositionProp, VariantProp } from '../../types/components/props';
 	import booleanStore from '../../store/boolean';
 	import clsx from 'clsx';
 	import Backdrop from '../backdrop';
@@ -12,7 +12,7 @@
 	export let shadow = false;
 	export let overlayBlur = false;
 	export let overlay = false;
-	export let from: 'left' | 'right' | 'top' | 'bottom' = 'left';
+	export let from: PositionProp = 'left';
 	export let fullWidth = true;
 	export let expanded = false;
 
