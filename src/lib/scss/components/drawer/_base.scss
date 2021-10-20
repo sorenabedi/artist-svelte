@@ -29,7 +29,8 @@ $base-paddingY: $paddingY * 2;
 		box-sizing: border-box;
 		position: fixed;
 		transform: scale(0.9);
-		transition: all 0.3s, transform 0.3s;
+		transition: top 0.3s, bottom 0.3s, right 0.3s, left 0.3s, border-radius 0.3s, box-shadow 0.3s,
+			transform 0.3s;
 		overflow: hidden;
 		display: flex;
 		flex-direction: column;

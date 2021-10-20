@@ -26,7 +26,8 @@ $thumb-height: $base-height * 1.2;
 		outline-width: 0.11rem;
 		outline-style: solid;
 		outline-color: transparent;
-		transition: all 0.3s ease;
+		transition: border-color 0.3s ease, background-color 0.3s ease, outline-color 0.3s ease,
+			transform 0.3s ease;
 		overflow: hidden;
 		display: inline-flex;
 		justify-content: center;
@@ -84,7 +85,6 @@ $thumb-height: $base-height * 1.2;
 		height: 100%;
 		position: absolute;
 		z-index: 1;
-		transition: all 0.3s ease;
 		&:not(:checked) ~ .inputMask {
 			.text {
 				padding-right: $base-paddingX;
