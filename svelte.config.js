@@ -1,6 +1,9 @@
 import { resolve, basename } from 'path';
 import preprocess from 'svelte-preprocess';
 import staticAdapter from '@sveltejs/adapter-static';
+import dotEnv from 'dotenv';
+
+dotEnv.config();
 
 /**
  *  @type {boolean}
