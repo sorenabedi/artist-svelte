@@ -10,7 +10,7 @@ describe('Throttle helper test suite ', () => {
 	});
 	it('testing throttle function', () => {
 		const func = jest.fn();
-		const throttledFunction = Throttle(func, 100);
+		const throttledFunction = Throttle(func);
 		throttledFunction();
 		setInterval(() => throttledFunction(), 10);
 		jest.advanceTimersByTime(10);
@@ -22,5 +22,20 @@ describe('Throttle helper test suite ', () => {
 
 		jest.advanceTimersByTime(1100);
 		expect(func).toHaveBeenCalledTimes(12);
+	});
+	it('testing throttle function by 300ms', () => {
+		const func = jest.fn();
+		const throttledFunction = Throttle(func, 300);
+		throttledFunction();
+		setInterval(() => throttledFunction(), 10);
+		jest.advanceTimersByTime(10);
+		expect(func).toBeCalled();
+		expect(func).toHaveBeenCalledTimes(1);
+
+		jest.advanceTimersByTime(300);
+		expect(func).toHaveBeenCalledTimes(2);
+
+		jest.advanceTimersByTime(1100);
+		expect(func).toHaveBeenCalledTimes(5);
 	});
 });

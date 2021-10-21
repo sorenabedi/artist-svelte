@@ -10,6 +10,33 @@ describe('Debounce helper test suite', () => {
 	});
 	it('it properly debounces function', () => {
 		const func = jest.fn();
+		const debouncedFunction = Debounce(func);
+
+		const interval = setInterval(() => debouncedFunction(), 10);
+		setTimeout(() => clearInterval(interval), 200);
+		expect(func).not.toBeCalled();
+
+		jest.advanceTimersByTime(200);
+		expect(func).not.toBeCalled();
+
+		jest.advanceTimersByTime(300);
+		expect(func).toBeCalled();
+		expect(func).toBeCalledTimes(1);
+
+		const secondInterval = setInterval(() => debouncedFunction(), 110);
+		expect(func).toBeCalledTimes(1);
+
+		jest.advanceTimersByTime(100);
+		expect(func).toBeCalledTimes(1);
+
+		jest.advanceTimersByTime(110);
+		expect(func).toBeCalledTimes(2);
+
+		jest.advanceTimersByTime(250);
+		expect(func).toBeCalledTimes(4);
+	});
+	it('it properly debounces function by 100ms', () => {
+		const func = jest.fn();
 		const debouncedFunction = Debounce(func, 100);
 
 		debouncedFunction();
