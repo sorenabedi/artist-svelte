@@ -1,0 +1,22 @@
+@mixin navbar-outline {
+	&.outline {
+		border-color: hsl(var(--base) / 70%);
+		border-width: $base-borderWidth;
+		border-style: solid;
+		background-color: hsl(var(--bg-color) / 40%);
+		backdrop-filter: blur(20px);
+		color: hsl(var(--base));
+		&.mergeToTop {
+			border-top-color: transparent;
+		}
+		&.shadow {
+			box-shadow: 0 0px 16px 0px hsl(var(--base) / 20%);
+		}
+		&.inherit {
+			color: hsl(var(--fg-color));
+			&.shadow {
+				box-shadow: 0 0px 16px 0px hsl(var(--fg-color) / 20%);
+			}
+		}
+	}
+}
