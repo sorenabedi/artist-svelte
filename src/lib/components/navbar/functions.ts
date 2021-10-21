@@ -32,7 +32,6 @@ export const compactEffectAction = (
 			rootMargin: `0px 0px  -${window.innerHeight - element.clientHeight - 10}px 0px`
 		}
 	);
-	observer.observe(element);
 	return {
 		initCompactEffect: () => observer.observe(element),
 		updateCompactEffect: (scrollPosition: scrollHook) => {
