@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { browser } from '$app/env';
-	import { rtl } from '$lib/utilities/hook';
+	import { rtlHook } from '$lib/utilities/hook';
 	import Switch from '$lib/components/switch';
 	let darkMode = false;
-	const { isEnabled, toggle } = rtl;
+	const { isEnabled, toggle } = rtlHook;
 	$: if (browser) document.documentElement.classList.toggle('dark', darkMode);
 </script>
 

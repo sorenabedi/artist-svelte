@@ -1,5 +1,5 @@
-import EnvBooleanParser from './utilities/helper/envBoolean';
+import Booleanify from './utilities/helper/booleanify';
 
 export default {
-	RTL: EnvBooleanParser(import.meta.env?.VITE_RTL)
+	RTL: Booleanify(import.meta.env?.VITE_RTL)
 };

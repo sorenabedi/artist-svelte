@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { rtl } from '$lib/utilities/hook';
-	const { isEnabled, set, toggle } = rtl;
+	import { rtlHook } from '$lib/utilities/hook';
+	const { isEnabled, set, toggle } = rtlHook;
 </script>
 
 <span data-testid="Status">

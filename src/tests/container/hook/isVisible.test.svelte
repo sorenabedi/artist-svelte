@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { isVisible } from '$lib/utilities/hook';
+	import { isVisibleHook } from '$lib/utilities/hook';
 	let visibleStatus: boolean | undefined = undefined;
 	let hiddenStatus: boolean | undefined = undefined;
 	const check = () => {
 		const visibleElement = document.querySelector('[data-testid="Visible"]') as HTMLElement;
 		const hiddenElement = document.querySelector('[data-testid="Hidden"]') as HTMLElement;
-		visibleStatus = isVisible(visibleElement);
-		hiddenStatus = isVisible(hiddenElement);
+		visibleStatus = isVisibleHook(visibleElement);
+		hiddenStatus = isVisibleHook(hiddenElement);
 	};
 </script>
 

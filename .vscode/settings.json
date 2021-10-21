@@ -4,6 +4,7 @@
 		"editor.defaultFormatter": "svelte.svelte-vscode"
 	},
 	"cSpell.words": [
+		"booleanify",
 		"CODECLIMATE",
 		"Crossfade",
 		"GITHUBTOKEN",

@@ -1,2 +1,2 @@
-export { default as isVisible } from './isVisible';
-export { default as rtl } from './rtl';
+export { default as isVisibleHook } from './isVisible';
+export { default as rtlHook } from './rtl';
