@@ -1,0 +1,15 @@
+@mixin navbar-fill {
+	&.fill {
+		background-color: hsl(var(--base) / 100%);
+		color: hsl(var(--base-font));
+		&.shadow {
+			box-shadow: 0 0px 16px 0px hsl(var(--fg-color) / 20%);
+		}
+		&.inherit {
+			background-color: hsl(var(--bg-color) / 50%);
+
+			backdrop-filter: blur(20px);
+			color: hsl(var(--fg-color));
+		}
+	}
+}

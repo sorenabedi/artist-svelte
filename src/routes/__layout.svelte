@@ -32,6 +32,7 @@
 	<a href="/modal">modal</a>
 	<a href="/accordion">accordion</a>
 	<a href="/drawer">drawer</a>
+	<a href="/navbar">navbar</a>
 </nav>
 <slot />
 

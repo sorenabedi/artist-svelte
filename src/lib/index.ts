@@ -13,4 +13,5 @@ export { default as Backdrop } from './components/backdrop';
 export { default as Paper } from './components/paper';
 export { default as Drawer } from './components/drawer';
 export { default as Accordion, AccordionItem } from './components/accordion';
+export { default as Navbar } from './components/navbar';
 export { SVGIcon } from './utilities';

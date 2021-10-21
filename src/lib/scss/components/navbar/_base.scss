@@ -1,0 +1,49 @@
+@use 'sass:math';
+$base-borderRadius: $borderRadius * 1.5;
+$base-borderWidth: $borderWidth;
+$base-marginX: $marginX * 5;
+$base-marginY: $marginY * 2;
+$base-margin: var(--margin, $base-marginY $base-marginX);
+$base-paddingX: $paddingX * 2;
+$base-paddingY: $paddingY * 2;
+$base-padding: var(--padding, $base-paddingY $base-paddingX);
+
+& {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	box-sizing: border-box;
+	margin: $base-margin;
+	padding: $base-padding;
+	transition: border-radius 0.2s, background-color 0.3s ease-in, color 0.3s ease-in,
+		border 0.3s ease-in, box-shadow 0.3s ease-in, top 0.3s ease-in, padding 0.1s ease-out;
+	&.rounded {
+		border-radius: $base-borderRadius;
+		&.mergeToTop {
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
+		}
+	}
+	&.fullWidth {
+		width: 100%;
+		margin: auto;
+	}
+	&.compact {
+		padding-top: 0.1rem;
+		padding-bottom: 0.1rem;
+		border-radius: $base-borderRadius * 0.6;
+	}
+	&.sticky {
+		position: sticky;
+		top: 0;
+		z-index: 90;
+		margin-top: 0;
+	}
+	&.fixed {
+		right: 0;
+		position: fixed;
+		width: 100%;
+		margin: auto;
+		margin-top: 0;
+	}
+}

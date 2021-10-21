@@ -2,7 +2,7 @@ import type { useAction } from '../../types/global';
 import type { Subscriber, Writable } from 'svelte/store';
 import { getContext, setContext } from 'svelte';
 import { writable } from 'svelte/store';
-import isVisible from '../../utilities/hook/isVisible';
+import isVisibleHook from '../../utilities/hook/isVisible';
 
 interface accordionStates {
 	[key: string]: boolean;
@@ -42,7 +42,7 @@ export const scrollIntoView: useAction = (HtmlElement) => {
 	return {
 		update: () => {
 			/* istanbul ignore next */
-			if (HtmlElement.ariaExpanded === 'true' && !isVisible(HtmlElement)) {
+			if (HtmlElement.ariaExpanded === 'true' && !isVisibleHook(HtmlElement)) {
 				HtmlElement.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
 			}
 		}
