@@ -104,6 +104,7 @@
 		"prettier": "^2.4.1",
 		"prettier-plugin-svelte": "^2.4.0",
 		"sass-loader": "^10",
+		"string-replace-loader": "^3.0.3",
 		"style-loader": "^2",
 		"svelte-check": "^2.2.7",
 		"svelte-fragment-component": "^1.2.0",
