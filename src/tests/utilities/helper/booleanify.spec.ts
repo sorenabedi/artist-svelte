@@ -2,7 +2,7 @@ import { Booleanify } from '../../../lib/utilities/helper';
 
 describe('Booleanify helper test suite', () => {
 	it('it works', async () => {
-		expect(Booleanify('some')).toEqual(undefined);
+		expect(Booleanify('some')).toEqual(false);
 	});
 	it('testing falsy inputs', async () => {
 		expect(Booleanify('false')).toEqual(false);
