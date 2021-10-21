@@ -36,6 +36,7 @@ specifiers:
   prettier-plugin-svelte: ^2.4.0
   sass: ^1.43.2
   sass-loader: ^10
+  string-replace-loader: ^3.0.3
   style-loader: ^2
   svelte: ^3.44.0
   svelte-check: ^2.2.7
@@ -88,6 +89,7 @@ devDependencies:
   prettier: 2.4.1
   prettier-plugin-svelte: 2.4.0_prettier@2.4.1+svelte@3.44.0
   sass-loader: 10.2.0_sass@1.43.2
+  string-replace-loader: 3.0.3
   style-loader: 2.0.0
   svelte-check: 2.2.7_f633869c1efecf5a8e87360110032854
   svelte-fragment-component: 1.2.0_svelte@3.44.0
@@ -16041,6 +16043,18 @@ packages:
     dependencies:
       char-regex: 1.0.2
       strip-ansi: 6.0.1
+    dev: true
+
+  /string-replace-loader/3.0.3:
+    resolution:
+      {
+        integrity: sha512-8c26Dl6H9XmKNj3mFBvaUYR7ImOxQ4YRBFuUju78wXpa1cDpyDYvKmqGg8mfkxdYexQ/BBogB7PELlLnmR08nw==
+      }
+    peerDependencies:
+      webpack: ^5
+    dependencies:
+      loader-utils: 2.0.0
+      schema-utils: 3.1.1
     dev: true
 
   /string-width/1.0.2:
