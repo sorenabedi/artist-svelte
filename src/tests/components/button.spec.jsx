@@ -1,3 +1,4 @@
+import { jest } from '@jest/globals';
 import Button from '../../lib/components/button';
 import { SVGIcon } from '../../lib/utilities';
 import SVG from '../mocks/svg';
@@ -78,9 +79,9 @@ describe('Button component (button tag) test suite', () => {
 		expect(getByTestId('Button')).toHaveClass('testClass1', 'testClass2');
 	});
 	it('testing useAction functionality', async () => {
-		const onMountFunc = Jest.fn();
-		const onUpdateFunc = Jest.fn();
-		const onDestroyFunc = Jest.fn();
+		const onMountFunc = jest.fn();
+		const onUpdateFunc = jest.fn();
+		const onDestroyFunc = jest.fn();
 		expect(onMountFunc).not.toHaveBeenCalled();
 		expect(onUpdateFunc).not.toHaveBeenCalled();
 		expect(onDestroyFunc).not.toHaveBeenCalled();
@@ -144,7 +145,7 @@ describe('Button component (button tag) test suite', () => {
 	it('testing interactive click prop change', async () => {
 		const { getByTestId, component } = render(Button);
 		expect(getByTestId('Button').tagName.toLocaleLowerCase()).toBe('button');
-		const mock = Jest.fn();
+		const mock = jest.fn();
 		component.$on('click', mock);
 		await tick();
 		expect(mock).not.toHaveBeenCalled();
@@ -235,9 +236,9 @@ describe('Button component (anchor tag) test suite', () => {
 		expect(getByTestId('Button')).toHaveClass('testClass1', 'testClass2');
 	});
 	it('testing useAction functionality', async () => {
-		const onMountFunc = Jest.fn();
-		const onUpdateFunc = Jest.fn();
-		const onDestroyFunc = Jest.fn();
+		const onMountFunc = jest.fn();
+		const onUpdateFunc = jest.fn();
+		const onDestroyFunc = jest.fn();
 		expect(onMountFunc).not.toHaveBeenCalled();
 		expect(onUpdateFunc).not.toHaveBeenCalled();
 		expect(onDestroyFunc).not.toHaveBeenCalled();
@@ -306,7 +307,7 @@ describe('Button component (anchor tag) test suite', () => {
 	it('testing interactive click prop change', async () => {
 		const { getByTestId, component } = render(Button, { props: { href: '/test' } });
 		expect(getByTestId('Button').tagName.toLocaleLowerCase()).toBe('a');
-		const mock = Jest.fn();
+		const mock = jest.fn();
 		component.$on('click', mock);
 		await tick();
 		expect(mock).not.toHaveBeenCalled();

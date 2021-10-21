@@ -1,1 +1,1 @@
-export { default as EnvBooleanParser } from './envBoolean';
+export { default as Booleanify } from './booleanify';
