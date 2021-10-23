@@ -14,6 +14,14 @@ interface accordionContext {
 }
 
 export const scrollIntoView: useAction = (HtmlElement) => {
+	/* istanbul ignore next */
+	if (HtmlElement.ariaExpanded === 'true' && !isVisibleHook(HtmlElement)) {
+		HtmlElement.scrollIntoView({
+			behavior: 'smooth',
+			block: 'center',
+			inline: 'center'
+		});
+	}
 	return {
 		update: () => {
 			/* istanbul ignore next */

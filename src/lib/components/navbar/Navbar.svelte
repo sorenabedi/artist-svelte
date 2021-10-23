@@ -25,17 +25,19 @@
 		typeof slideEffect === 'boolean' ? ScrollHook() : ScrollHook(slideEffect);
 
 	const stickyAction: useAction = (navbar) => {
-		if (!sticky) return;
+		if (!sticky) return; /* istanbul ignore next */
 		const { destroyCompactEffect, initCompactEffect, updateCompactEffect } =
 			compactEffect && compactEffectAction(navbar);
+		/* istanbul ignore next */
 		if (typeof initCompactEffect === 'function') initCompactEffect();
 		return {
-			update: (scrollPosition: scrollHook) => {
+			update: /* istanbul ignore next */ (scrollPosition: scrollHook) => {
 				if (typeof updateCompactEffect === 'function') updateCompactEffect(scrollPosition);
 				if (slideEffect) slideEffectAction(navbar, scrollPosition);
 				if (mergeEffect === true) mergeEffectAction(navbar);
 			},
-			destroy: () => (typeof destroyCompactEffect === 'function' ? destroyCompactEffect() : null)
+			destroy: /* istanbul ignore next */ () =>
+				typeof destroyCompactEffect === 'function' ? destroyCompactEffect() : null
 		};
 	};
 </script>

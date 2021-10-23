@@ -9,7 +9,7 @@ export const currentBodyPosition = (): { scrollX: number; scrollY: number } =>
 let scrollThreshold = 50;
 export const store = readable<scrollHook>(currentBodyPosition(), (set) => {
 	let position = currentBodyPosition().scrollY;
-
+	/* istanbul ignore next */
 	const setScrollHeight = () => {
 		const currentScrollPosition = currentBodyPosition();
 		const direction = position > currentScrollPosition.scrollY ? 'up' : 'down';
@@ -33,11 +33,11 @@ export default (
 } => {
 	scrollThreshold = threshold;
 	const setScroll = (ScrollToOptions: ScrollToOptions) => {
-		if (!browser) return;
+		if (!browser) /* istanbul ignore next */ return;
 		window.scrollTo({ behavior: 'smooth', ...ScrollToOptions });
 	};
 	const scrollToTop = () => {
-		if (!browser) return;
+		if (!browser) /* istanbul ignore next */ return;
 		window.scrollTo({ behavior: 'smooth', top: 0 });
 	};
 	return {

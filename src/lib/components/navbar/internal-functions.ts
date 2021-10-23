@@ -16,7 +16,7 @@ export const compactEffectAction = (
 	destroyCompactEffect: voidFunction<never>;
 } => {
 	const observer = new IntersectionObserver(
-		(entries) => {
+		/* istanbul ignore next */ (entries) => {
 			entries.forEach((entryElement) => {
 				entryElement.target.classList.toggle(
 					'compact',
