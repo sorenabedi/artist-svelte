@@ -14,13 +14,19 @@ interface accordionContext {
 }
 
 export const scrollIntoView: useAction = (HtmlElement) => {
-	return {
-		update: () => {
-			/* istanbul ignore next */
-			if (HtmlElement.ariaExpanded === 'true' && !isVisibleHook(HtmlElement)) {
-				HtmlElement.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
-			}
+	const scrollElementIntoView = () => {
+		/* istanbul ignore next */
+		if (HtmlElement.ariaExpanded === 'true' && !isVisibleHook(HtmlElement)) {
+			HtmlElement.scrollIntoView({
+				behavior: 'smooth',
+				block: 'center',
+				inline: 'center'
+			});
 		}
+	};
+	scrollElementIntoView();
+	return {
+		update: () => scrollElementIntoView()
 	};
 };
 
