@@ -109,17 +109,6 @@ describe('Button component (button tag) test suite', () => {
 		expect(onUpdateFunc).not.toHaveBeenCalled();
 		expect(onDestroyFunc).toHaveBeenCalledTimes(1);
 	});
-	it('testing interactive rtl prop change', async () => {
-		const { getByTestId, component } = render(Button);
-		expect(getByTestId('Button').tagName.toLocaleLowerCase()).toBe('button');
-		expect(getByTestId('Button')).not.toHaveClass('rtl');
-		component.$$set({ rtl: true });
-		await tick();
-		expect(getByTestId('Button')).toHaveClass('rtl');
-		component.$$set({ rtl: false });
-		await tick();
-		expect(getByTestId('Button')).not.toHaveClass('rtl');
-	});
 	it('testing custom classes', async () => {
 		const { getByTestId } = render(Button, { props: { class: 'testClass23 testing58' } });
 		expect(getByTestId('Button').tagName.toLocaleLowerCase()).toBe('button');
@@ -267,17 +256,6 @@ describe('Button component (anchor tag) test suite', () => {
 		expect(onMountFunc).toHaveBeenCalledTimes(1);
 		expect(onUpdateFunc).not.toHaveBeenCalled();
 		expect(onDestroyFunc).toHaveBeenCalledTimes(1);
-	});
-	it('testing interactive rtl prop change', async () => {
-		const { getByTestId, component } = render(Button, { props: { href: '/test' } });
-		expect(getByTestId('Button').tagName.toLocaleLowerCase()).toBe('a');
-		expect(getByTestId('Button')).not.toHaveClass('rtl');
-		component.$$set({ rtl: true });
-		await tick();
-		expect(getByTestId('Button')).toHaveClass('rtl');
-		component.$$set({ rtl: false });
-		await tick();
-		expect(getByTestId('Button')).not.toHaveClass('rtl');
 	});
 	it('testing custom classes', async () => {
 		const { getByTestId } = render(Button, {
