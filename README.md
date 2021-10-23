@@ -1,5 +1,6 @@
-<h1> Artist for Svelte</h1>
-<h2> An SSR optimized UI framework for <strong>SvelteKit</strong></h2>
+# Artist for Svelte
+
+## An SSR optimized UI framework for **SvelteKit**
 
 ### ⚠️🚧👷‍♂️⛑️ please note that this package is still in early development stages and APIs might or even will change in the future
 
@@ -47,7 +48,11 @@ npm install @sorens/artist-svelte clsx sass nanoid --save-dev
      	// Consult https://github.com/sveltejs/svelte-preprocess
      	// for more information about preprocessors
      	preprocess: preprocess({
-     		scss: {}
+     		scss: {},
+     		replace: [
+     			// this line is essential for Artist-svelte to work properly
+     			[/process\.env\.(\w+)/g, (_, prop) => JSON.stringify(process.env[prop])]
+     		]
      	})
      	// Other config params
      };
