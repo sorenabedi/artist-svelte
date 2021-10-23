@@ -1,6 +1,5 @@
-# Artist for Svelte
-
-## An SSR optimized UI framework for **SvelteKit**
+<h1> Artist for Svelte</h1>
+<h2> An SSR optimized UI framework for <strong>SvelteKit</strong></h2>
 
 ### ⚠️🚧👷‍♂️⛑️ please note that this package is still in early development stages and APIs might or even will change in the future
 
@@ -26,13 +25,13 @@
 
 ```bash
 // PNPM
-pnpm i -D @sorens/artist-svelte
+pnpm i -D @sorens/artist-svelte clsx sass nanoid
 
 // YARN
-yarn add -D @sorens/artist-svelte
+yarn add -D @sorens/artist-svelte clsx sass nanoid
 
 // NPM
-npm install @sorens/artist-svelte --save-dev
+npm install @sorens/artist-svelte clsx sass nanoid --save-dev
 ```
 
 2. **SASS/SCSS** preprocessor setup<br/>
@@ -66,7 +65,7 @@ npm install @sorens/artist-svelte --save-dev
      	body {
      		margin: 0;
      		padding: 0;
-     		background: $white-bg;
+     		background: var(--bg-color);
      		font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
      			Arial;
      		* {
