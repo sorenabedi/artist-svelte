@@ -4,13 +4,13 @@
 	import type { scrollHook } from '../../types/hook';
 	import clsx from 'clsx';
 	import ScrollHook from '../../utilities/hook/scroll';
-	import { compactEffectAction, mergeEffectAction, slideEffectAction } from './functions';
+	import { compactEffectAction, mergeEffectAction, slideEffectAction } from './internal-functions';
 
 	const testID =
 		process.env['NODE_ENV'] === 'test' ? 'Navbar' : /* istanbul ignore next */ undefined;
 
 	export let color: ColorProp | 'inherit' = 'inherit';
-	export let variant: Exclude<VariantProp, 'outline-gradient'> = 'fill';
+	export let variant: Exclude<VariantProp, 'gradient'> = 'fill';
 	export let shadow = false;
 	export let sticky: boolean | 'fixed' = false;
 	export let compactEffect = false;
@@ -75,8 +75,6 @@
 
 <style lang="scss">
 	.navbar {
-		@import 'components/navbar';
-		@include navbar-fill;
-		@include navbar-outline;
+		@import '../../scss/components/navbar';
 	}
 </style>

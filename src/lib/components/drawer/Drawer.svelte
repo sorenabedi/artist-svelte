@@ -8,7 +8,7 @@
 	const testID = process.env.NODE_ENV === 'test' ? 'Drawer' : /* istanbul ignore next */ undefined;
 
 	export let color: ColorProp | 'inherit' = 'default';
-	export let variant: Exclude<VariantProp, 'outline-gradient'> = 'outline';
+	export let variant: Exclude<VariantProp, 'gradient'> = 'outline';
 	export let shadow = false;
 	export let overlayBlur = false;
 	export let overlay = false;
@@ -70,8 +70,6 @@
 
 <style lang="scss">
 	.drawerContainer {
-		@import 'components/drawer';
-		@include drawer-fill;
-		@include drawer-outline;
+		@import '../../scss/components/drawer';
 	}
 </style>

@@ -3,7 +3,11 @@
 	import clsx from 'clsx';
 	import { nanoid } from 'nanoid';
 	import { slide } from 'svelte/transition';
-	import { accordionContextInit, accordionItemLifeCycle, scrollIntoView } from './functions';
+	import {
+		accordionContextInit,
+		accordionItemLifeCycle,
+		scrollIntoView
+	} from './internal-functions';
 	const testID =
 		process.env.NODE_ENV === 'test' ? 'AccordionItem' : /* istanbul ignore next */ undefined;
 
@@ -81,9 +85,6 @@
 
 <style lang="scss">
 	.accordionItem {
-		@import 'components/accordionItem';
-		@include accordion-fill;
-		@include accordion-outline;
-		@include accordion-outline-gradient;
+		@import '../../scss/components/accordionItem';
 	}
 </style>

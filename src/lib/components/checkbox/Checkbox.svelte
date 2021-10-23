@@ -41,6 +41,6 @@
 
 <style lang="scss">
 	.checkbox {
-		@import 'components/checkbox';
+		@import '../../scss/components/checkbox';
 	}
 </style>

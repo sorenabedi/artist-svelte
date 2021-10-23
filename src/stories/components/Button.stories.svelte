@@ -1,7 +1,7 @@
 <script>
 	import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
 	import Button from '$lib/components/button';
-	import { SVGIcon } from '$lib/utilities';
+	import { SvgParser } from '$lib/utilities';
 </script>
 
 <Meta
@@ -19,7 +19,7 @@
 			defaultValue: 'default'
 		},
 		variant: {
-			control: { type: 'select', options: ['fill', 'outline', 'outline-gradient'] }
+			control: { type: 'select', options: ['fill', 'outline', 'gradient'] }
 		},
 		rtl: {
 			control: { type: 'boolean' },
@@ -40,7 +40,7 @@
 <Template let:args>
 	{#if args.SvgIcon}
 		<Button variant={'fill'} {...args} on:click={args.onClick}>
-			<svelte:fragment slot="SvgIcon"><SVGIcon data={args.SvgIcon} /></svelte:fragment>
+			<svelte:fragment slot="SvgIcon"><SvgParser data={args.SvgIcon} /></svelte:fragment>
 			{args.slot}
 		</Button>
 	{:else}
@@ -50,7 +50,7 @@
 	{/if}
 	{#if args.SvgIcon}
 		<Button variant={'outline'} {...args} on:click={args.onClick}>
-			<svelte:fragment slot="SvgIcon"><SVGIcon data={args.SvgIcon} /></svelte:fragment>
+			<svelte:fragment slot="SvgIcon"><SvgParser data={args.SvgIcon} /></svelte:fragment>
 			{args.slot}
 		</Button>
 	{:else}
@@ -59,12 +59,12 @@
 		</Button>
 	{/if}
 	{#if args.SvgIcon}
-		<Button variant={'outline-gradient'} {...args} on:click={args.onClick}>
-			<svelte:fragment slot="SvgIcon"><SVGIcon data={args.SvgIcon} /></svelte:fragment>
+		<Button variant={'gradient'} {...args} on:click={args.onClick}>
+			<svelte:fragment slot="SvgIcon"><SvgParser data={args.SvgIcon} /></svelte:fragment>
 			{args.slot}
 		</Button>
 	{:else}
-		<Button variant={'outline-gradient'} {...args} on:click={args.onClick}>
+		<Button variant={'gradient'} {...args} on:click={args.onClick}>
 			{args.slot}
 		</Button>
 	{/if}

@@ -9,7 +9,7 @@ $content-borderWidth: $borderWidth * 2;
 $base-fontSize: 1rem;
 $description-fontSize: 0.8rem;
 
-@mixin accordion-outline {
+@mixin AccordionItem-outline {
 	&.outline {
 		border-color: transparent;
 		@include action-hover {

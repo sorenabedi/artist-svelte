@@ -28,6 +28,6 @@
 
 <style lang="scss">
 	.title {
-		@import 'components/title';
+		@import '../../scss/components/title';
 	}
 </style>

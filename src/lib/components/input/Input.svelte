@@ -3,12 +3,13 @@
 	import type { ColorProp, InputTypeProp, RtlProp, VariantProp } from '../../types/components';
 	import clsx from 'clsx';
 	import { nanoid } from 'nanoid';
-	import globalVars from '../../env';
-	import SVGIcon from '../../utilities/svg-icon.svelte';
+	import rtlHook from '../../utilities/hook/rtl';
+	import componentRtlSetup from '../../utilities/hook/rtl/internal-component-rtl';
+	import SVGIcon from '../../utilities/svgParser/svg-parser.svelte';
 	const testID = process.env.NODE_ENV === 'test' ? 'Input' : /* istanbul ignore next */ undefined;
 
 	export let color: ColorProp = 'default';
-	export let variant: Exclude<VariantProp, 'outline-gradient'> = 'fill';
+	export let variant: Exclude<VariantProp, 'gradient'> = 'fill';
 	export let shadow = false;
 	export let icon: string | undefined = undefined;
 	export let id: string = `i-${nanoid(5)}`;
@@ -19,6 +20,7 @@
 	export let useAction: useAction = () => ({});
 	let className: string | undefined = undefined;
 	export { className as class };
+	const { isEnabled } = rtlHook;
 </script>
 
 <div
@@ -27,7 +29,7 @@
 	class:shadow
 	class:icon
 	class:fullWidth
-	class:rtl={rtl !== undefined ? rtl : globalVars.RTL}
+	class:rtl={componentRtlSetup(rtl, $isEnabled)}
 >
 	<div class="inputContainer">
 		<input
@@ -61,8 +63,6 @@
 
 <style lang="scss">
 	.input {
-		@import 'components/input';
-		@include input-fill;
-		@include input-outline;
+		@import '../../scss/components/input';
 	}
 </style>

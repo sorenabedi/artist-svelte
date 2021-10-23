@@ -1,5 +1,6 @@
 <script lang="ts">
-	const testID = process.env.NODE_ENV === 'test' ? 'SVGIcon' : /* istanbul ignore next */ undefined;
+	const testID =
+		process.env.NODE_ENV === 'test' ? 'SvgParser' : /* istanbul ignore next */ undefined;
 	export let data = '';
 	export let size: string | undefined = undefined;
 	export let width = '1em';

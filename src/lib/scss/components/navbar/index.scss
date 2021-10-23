@@ -1,3 +1,14 @@
+@import '../../modules/default';
 @import './base';
 @import './fill';
 @import './outline';
+
+@include bundle-partial('Navbar') {
+	@include Navbar-base;
+	@include bundle-partial('Navbar', 'outline') {
+		@include Navbar-outline;
+	}
+	@include bundle-partial('Navbar', 'fill') {
+		@include Navbar-fill;
+	}
+}

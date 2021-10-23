@@ -35,7 +35,7 @@
 	}
 }
 @mixin dir {
-	@if not global-variable-exists(rtl-bundle) or $rtl-bundle != 'false' {
+	@if not global-variable-exists(exclude-rtl-from-bundle) or not $exclude-rtl-from-bundle {
 		.ltr {
 			direction: ltr;
 		}
@@ -45,9 +45,44 @@
 	}
 }
 
-@mixin rtl-bundle {
-	@if not global-variable-exists(rtl-bundle) or $rtl-bundle != 'false' {
+@mixin bundle-partial($component-name, $component-variant: null) {
+	@if not global-variable-exists(exclude-from-bundle) {
 		@content;
+	} @else {
+		@if $component-variant == null {
+			$bundleStatus: map.get($exclude-from-bundle, $component-name, 'base');
+			@if $bundleStatus {
+				// @debug 'excluding styles for component "#{$component-name}" from css bundle';
+			} @else {
+				@content;
+			}
+		} @else {
+			$bundleStatus: map.get($exclude-from-bundle, $component-name, $component-variant);
+			@if $bundleStatus {
+				// @debug 'excluding styles for component "#{$component-name}" (#{$component-variant}) from css bundle';
+			} @else {
+				@content;
+			}
+		}
+	}
+}
+
+@mixin rtl-bundle($component-name: null) {
+	@if not global-variable-exists(exclude-rtl-from-bundle) or not $exclude-rtl-from-bundle {
+		@content;
+	} @else if global-variable-exists(exclude-rtl-from-bundle) and $exclude-rtl-from-bundle {
+		// @debug 'excluding RTL styles for all components from css bundle';
+	} @else if $component-name {
+		@if not global-variable-exists(exclude-from-bundle) {
+			@content;
+		} @else {
+			$rtlBundleStatus: map.get($exclude-from-bundle, $component-name, 'rtl');
+			@if $rtlBundleStatus {
+				// @debug 'excluding styles for component "#{$component-name}" (RTL) from css bundle';
+			} @else {
+				@content;
+			}
+		}
 	}
 }
 @mixin palette-generator-variables {

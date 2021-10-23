@@ -1,4 +1,18 @@
+@import '../../modules/default';
 @import './base';
 @import './fill';
 @import './outline';
 @import './gradient';
+
+@include bundle-partial('Badge') {
+	@include Badge-base;
+	@include bundle-partial('Badge', 'outline') {
+		@include Badge-outline;
+	}
+	@include bundle-partial('Badge', 'fill') {
+		@include Badge-fill;
+	}
+	@include bundle-partial('Badge', 'gradient') {
+		@include Badge-gradient;
+	}
+}

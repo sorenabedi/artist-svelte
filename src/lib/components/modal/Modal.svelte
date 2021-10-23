@@ -11,8 +11,8 @@
 	import { fly, scale } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
 	import booleanStore from '../../store/boolean';
-	import { modalInit } from './functions';
-	import SVGIcon from '../../utilities/svg-icon.svelte';
+	import { modalInit } from './internal-functions';
+	import SvgParser from '../../utilities/svgParser';
 	import CloseSVG from '../../svg/icons/close';
 	import Backdrop from '../backdrop';
 	const testID = process.env.NODE_ENV === 'test' ? 'Modal' : /* istanbul ignore next */ undefined;
@@ -63,7 +63,7 @@
 			{#if !noCloseBtn}
 				<div class="danger close">
 					<button on:click={close}>
-						<SVGIcon data={CloseSVG} />
+						<SvgParser data={CloseSVG} />
 					</button>
 				</div>
 			{/if}
@@ -85,6 +85,6 @@
 
 <style lang="scss">
 	.modal {
-		@import 'components/modal';
+		@import '../../scss/components/modal';
 	}
 </style>

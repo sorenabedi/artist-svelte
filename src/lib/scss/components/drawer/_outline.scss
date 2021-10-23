@@ -1,4 +1,4 @@
-@mixin drawer-outline {
+@mixin Drawer-outline {
 	&.outline:not(.inherit) {
 		.drawer {
 			background-color: hsl(var(--bg-color) / 100%);

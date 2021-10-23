@@ -1,3 +1,14 @@
+@import '../../modules/default';
 @import './base';
 @import './fill';
 @import './outline';
+
+@include bundle-partial('Input') {
+	@include Input-base;
+	@include bundle-partial('Input', 'outline') {
+		@include Input-outline;
+	}
+	@include bundle-partial('Input', 'fill') {
+		@include Input-fill;
+	}
+}

@@ -1,8 +1,9 @@
 <script lang="ts">
 	import Drawer from '$lib/components/drawer';
 	import Button from '$lib/components/button';
-	import Accordion, { AccordionItem } from '$lib/components/accordion';
-	import SVGIcon from '$lib/utilities/svg-icon.svelte';
+	import Accordion from '$lib/components/accordion';
+	import AccordionItem from '$lib/components/accordionItem';
+	import SVGIcon from '$lib/utilities/svgParser/svg-parser.svelte';
 	import more from '$lib/svg/icons/more';
 </script>
 
@@ -119,42 +120,42 @@
 			Content info
 		</AccordionItem>
 
-		<AccordionItem variant="outline-gradient" color="default" title="Default">
+		<AccordionItem variant="gradient" color="default" title="Default">
 			<svelte:fragment slot="icon">
 				<SVGIcon data={more} />
 			</svelte:fragment>
 			Content default
 		</AccordionItem>
 
-		<AccordionItem variant="outline-gradient" color="primary" title="Primary">
+		<AccordionItem variant="gradient" color="primary" title="Primary">
 			<svelte:fragment slot="icon">
 				<SVGIcon data={more} />
 			</svelte:fragment>
 			Content primary
 		</AccordionItem>
 
-		<AccordionItem variant="outline-gradient" color="secondary" title="Secondary">
+		<AccordionItem variant="gradient" color="secondary" title="Secondary">
 			<svelte:fragment slot="icon">
 				<SVGIcon data={more} />
 			</svelte:fragment>
 			Content secondary
 		</AccordionItem>
 
-		<AccordionItem variant="outline-gradient" color="warning" title="Warning">
+		<AccordionItem variant="gradient" color="warning" title="Warning">
 			<svelte:fragment slot="icon">
 				<SVGIcon data={more} />
 			</svelte:fragment>
 			Content warning
 		</AccordionItem>
 
-		<AccordionItem variant="outline-gradient" color="danger" title="Danger">
+		<AccordionItem variant="gradient" color="danger" title="Danger">
 			<svelte:fragment slot="icon">
 				<SVGIcon data={more} />
 			</svelte:fragment>
 			Content danger
 		</AccordionItem>
 
-		<AccordionItem variant="outline-gradient" color="success" title="Success">
+		<AccordionItem variant="gradient" color="success" title="Success">
 			<svelte:fragment slot="icon">
 				<SVGIcon data={more} />
 			</svelte:fragment>

@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { SVGIcon } from '$lib';
-	import Accordion, { AccordionItem } from '$lib/components/accordion';
+	import { SvgParser } from '$lib/utilities';
+	import Accordion from '$lib/components/accordion';
+	import AccordionItem from '$lib/components/accordionItem';
 	import more from '$lib/svg/icons/more';
 	export let multiSelectable = false;
 </script>
@@ -8,13 +9,13 @@
 <Accordion {multiSelectable} {...$$restProps}>
 	<AccordionItem {...$$restProps} title="acc-first">
 		<svelte:fragment slot="icon">
-			<SVGIcon data={more} />
+			<SvgParser data={more} />
 		</svelte:fragment>
 		Content success
 	</AccordionItem>
 	<AccordionItem {...$$restProps} title="acc-last">
 		<svelte:fragment slot="icon">
-			<SVGIcon data={more} />
+			<SvgParser data={more} />
 		</svelte:fragment>
 		Content success
 	</AccordionItem>

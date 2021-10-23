@@ -1,17 +1,1 @@
-export { default as Alert } from './components/alert';
-export { default as Avatar, AvatarStack } from './components/avatar';
-export { default as Badge } from './components/badge';
-export { default as Button } from './components/button';
-export { default as Card } from './components/card';
-export { default as Title } from './components/title';
-export { default as Checkbox } from './components/checkbox';
-export { default as Radio } from './components/radio';
-export { default as Switch } from './components/switch';
-export { default as Input } from './components/input';
-export { default as Modal } from './components/modal';
-export { default as Backdrop } from './components/backdrop';
-export { default as Paper } from './components/paper';
-export { default as Drawer } from './components/drawer';
-export { default as Accordion, AccordionItem } from './components/accordion';
-export { default as Navbar } from './components/navbar';
-export { SVGIcon } from './utilities';
+export * from './components';

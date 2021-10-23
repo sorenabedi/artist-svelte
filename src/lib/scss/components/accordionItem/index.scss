@@ -1,4 +1,18 @@
+@import '../../modules/default';
 @import './base';
 @import './fill';
 @import './outline';
 @import './gradient';
+
+@include bundle-partial('AccordionItem') {
+	@include AccordionItem-base;
+	@include bundle-partial('AccordionItem', 'outline') {
+		@include AccordionItem-outline;
+	}
+	@include bundle-partial('AccordionItem', 'fill') {
+		@include AccordionItem-fill;
+	}
+	@include bundle-partial('AccordionItem', 'gradient') {
+		@include AccordionItem-gradient;
+	}
+}

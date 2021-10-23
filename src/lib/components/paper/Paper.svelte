@@ -31,6 +31,6 @@
 
 <style lang="scss">
 	.paper {
-		@import 'components/paper';
+		@import '../../scss/components/paper';
 	}
 </style>

@@ -1,5 +1,6 @@
 <script lang="ts">
-	import Accordion, { AccordionItem } from '$lib/components/accordion';
+	import Accordion from '$lib/components/accordion';
+	import AccordionItem from '$lib/components/accordionItem';
 	import Drawer from '$lib/components/drawer';
 	import Button from '$lib/components/button';
 </script>

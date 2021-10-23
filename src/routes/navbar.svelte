@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Button from '$lib/components/button';
 	import Navbar from '$lib/components/navbar';
 </script>
 

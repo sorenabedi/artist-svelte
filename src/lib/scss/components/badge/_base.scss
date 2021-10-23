@@ -9,19 +9,21 @@ $text-marginX: 0.25rem;
 $icon-size: 0.8rem;
 $icon-marginX: 0.125rem;
 
-& {
-	padding: $base-paddingY $base-paddingX;
-	background-color: transparent;
-	margin: $base-marginY $base-marginX;
-	border-color: transparent;
-	border-radius: $base-borderRadius;
-	border-width: $base-borderWidth;
-	display: inline-flex;
-	align-items: center;
-	border-style: solid;
-	font-size: $base-fontSize;
-	justify-content: center;
-	transition: background 0.25s, color 0.25s;
-	white-space: nowrap;
-	line-height: 1;
+@mixin Badge-base {
+	& {
+		padding: $base-paddingY $base-paddingX;
+		background-color: transparent;
+		margin: $base-marginY $base-marginX;
+		border-color: transparent;
+		border-radius: $base-borderRadius;
+		border-width: $base-borderWidth;
+		display: inline-flex;
+		align-items: center;
+		border-style: solid;
+		font-size: $base-fontSize;
+		justify-content: center;
+		transition: background 0.25s, color 0.25s;
+		white-space: nowrap;
+		line-height: 1;
+	}
 }

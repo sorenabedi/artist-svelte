@@ -32,6 +32,6 @@
 
 <style lang="scss">
 	.backdrop {
-		@import 'components/backdrop';
+		@import '../../scss/components/backdrop';
 	}
 </style>

@@ -1,7 +1,8 @@
 <script>
 	import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
-	import Accordion, { AccordionItem } from '$lib/components/accordion';
-	import { SVGIcon } from '$lib/utilities';
+	import Accordion from '$lib/components/accordion';
+	import AccordionItem from '$lib/components/accordionItem';
+	import { SvgParser } from '$lib/utilities';
 </script>
 
 <Meta
@@ -28,7 +29,7 @@
 			defaultValue: 'default'
 		},
 		variant: {
-			control: { type: 'select', options: ['fill', 'outline', 'outline-gradient'] }
+			control: { type: 'select', options: ['fill', 'outline', 'gradient'] }
 		},
 		multiSelectable: {
 			control: { type: 'boolean' },
@@ -42,19 +43,19 @@
 		{#if args.SvgIcon}
 			<AccordionItem variant="fill" color="success" title="Success" {...args}>
 				<svelte:fragment slot="icon">
-					<SVGIcon data={args.SvgIcon} />
+					<SvgParser data={args.SvgIcon} />
 				</svelte:fragment>
 				{args.slot}
 			</AccordionItem>
 			<AccordionItem variant="outline" color="success" title="Success" {...args}>
 				<svelte:fragment slot="icon">
-					<SVGIcon data={args.SvgIcon} />
+					<SvgParser data={args.SvgIcon} />
 				</svelte:fragment>
 				{args.slot}
 			</AccordionItem>
-			<AccordionItem variant="outline-gradient" color="success" title="Success" {...args}>
+			<AccordionItem variant="gradient" color="success" title="Success" {...args}>
 				<svelte:fragment slot="icon">
-					<SVGIcon data={args.SvgIcon} />
+					<SvgParser data={args.SvgIcon} />
 				</svelte:fragment>
 				{args.slot}
 			</AccordionItem>
@@ -65,7 +66,7 @@
 			<AccordionItem variant="outline" color="success" title="Success" {...args}>
 				{args.slot}
 			</AccordionItem>
-			<AccordionItem variant="outline-gradient" color="success" title="Success" {...args}>
+			<AccordionItem variant="gradient" color="success" title="Success" {...args}>
 				{args.slot}
 			</AccordionItem>
 		{/if}

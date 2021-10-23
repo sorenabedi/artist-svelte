@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { accordionWrapperInit } from './functions';
+	import { accordionWrapperInit } from './internal-functions';
 	const testID =
 		process.env.NODE_ENV === 'test' ? 'Accordion' : /* istanbul ignore next */ undefined;
 
@@ -13,6 +13,6 @@
 
 <style lang="scss">
 	.accordion {
-		@import 'components/accordion';
+		@import '../../scss/components/accordion';
 	}
 </style>

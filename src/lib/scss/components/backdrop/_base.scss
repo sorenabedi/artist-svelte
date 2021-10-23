@@ -10,17 +10,19 @@ $text-marginX: 0.25rem;
 $icon-size: 0.8rem;
 $icon-marginX: 0.125rem;
 
-& {
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	right: 0;
-	&:not(.transparent) {
-		background-color: hsl(var(--darker) / 50%);
-	}
-	&.overlayBlur {
-		background-color: hsl(var(--dark) / 30%);
-		backdrop-filter: blur(10px);
+@mixin Backdrop-base {
+	& {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		right: 0;
+		&:not(.transparent) {
+			background-color: hsl(var(--darker) / 50%);
+		}
+		&.overlayBlur {
+			background-color: hsl(var(--dark) / 30%);
+			backdrop-filter: blur(10px);
+		}
 	}
 }

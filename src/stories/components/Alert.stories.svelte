@@ -1,7 +1,7 @@
 <script>
 	import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
 	import Alert from '$lib/components/alert';
-	import { SVGIcon } from '$lib/utilities';
+	import { SvgParser } from '$lib/utilities';
 </script>
 
 <Meta
@@ -28,7 +28,7 @@
 			defaultValue: 'default'
 		},
 		variant: {
-			control: { type: 'select', options: ['fill', 'outline', 'outline-gradient'] }
+			control: { type: 'select', options: ['fill', 'outline', 'gradient'] }
 		},
 		rtl: {
 			control: { type: 'boolean' },
@@ -45,7 +45,7 @@
 	{#if args.SvgIcon}
 		<Alert variant={'fill'} {...args}>
 			<svelte:fragment slot="title">{args.title}</svelte:fragment>{args.slot}
-			<svelte:fragment slot="SvgIcon"><SVGIcon data={args.SvgIcon} /></svelte:fragment>
+			<svelte:fragment slot="SvgIcon"><SvgParser data={args.SvgIcon} /></svelte:fragment>
 		</Alert>
 	{:else}
 		<Alert variant={'fill'} {...args}>
@@ -56,7 +56,7 @@
 	{#if args.SvgIcon}
 		<Alert variant={'outline'} {...args}>
 			<svelte:fragment slot="title">{args.title}</svelte:fragment>{args.slot}
-			<svelte:fragment slot="SvgIcon"><SVGIcon data={args.SvgIcon} /></svelte:fragment>
+			<svelte:fragment slot="SvgIcon"><SvgParser data={args.SvgIcon} /></svelte:fragment>
 		</Alert>
 	{:else}
 		<Alert variant={'outline'} {...args}>
@@ -65,12 +65,12 @@
 	{/if}
 	<br />
 	{#if args.SvgIcon}
-		<Alert variant={'outline-gradient'} {...args}>
+		<Alert variant={'gradient'} {...args}>
 			<svelte:fragment slot="title">{args.title}</svelte:fragment>{args.slot}
-			<svelte:fragment slot="SvgIcon"><SVGIcon data={args.SvgIcon} /></svelte:fragment>
+			<svelte:fragment slot="SvgIcon"><SvgParser data={args.SvgIcon} /></svelte:fragment>
 		</Alert>
 	{:else}
-		<Alert variant={'outline-gradient'} {...args}>
+		<Alert variant={'gradient'} {...args}>
 			<svelte:fragment slot="title">{args.title}</svelte:fragment>{args.slot}
 		</Alert>
 	{/if}

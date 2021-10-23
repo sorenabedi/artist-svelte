@@ -1,4 +1,4 @@
-@mixin input-outline {
+@mixin Input-outline {
 	&.outline {
 		.inputContainer {
 			background-color: hsl(var(--bg-color) / 5%);
@@ -25,7 +25,7 @@
 				}
 			}
 		}
-		@include rtl-bundle {
+		@include rtl-bundle('Input') {
 			&.rtl {
 				.inputContainer {
 					label {

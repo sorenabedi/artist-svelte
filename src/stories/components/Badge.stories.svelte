@@ -16,7 +16,7 @@
 			defaultValue: 'default'
 		},
 		variant: {
-			control: { type: 'select', options: ['fill', 'outline', 'outline-gradient'] }
+			control: { type: 'select', options: ['fill', 'outline', 'gradient'] }
 		},
 		dir: {
 			control: { type: 'select', options: ['ltr', 'rtl'] },
@@ -32,7 +32,7 @@
 <Template let:args>
 	<Badge variant={'fill'} {...args}>{args.slot}</Badge>
 	<Badge variant={'outline'} {...args}>{args.slot}</Badge>
-	<Badge variant={'outline-gradient'} {...args}>{args.slot}</Badge>
+	<Badge variant={'gradient'} {...args}>{args.slot}</Badge>
 </Template>
 
 <Story

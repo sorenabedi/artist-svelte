@@ -1,11 +1,9 @@
 <script lang="ts">
-	import type { ColorProp, RtlProp, VariantProp } from '../../types/components/props';
+	import type { ColorProp, VariantProp } from '../../types/components/props';
 	import type { useAction } from '../../types/global';
 	import clsx from 'clsx';
-	import globalVars from '../../env';
 	const testID = process.env.NODE_ENV === 'test' ? 'Button' : /* istanbul ignore next */ undefined;
 
-	export let rtl: RtlProp = undefined;
 	export let circle = false;
 	export let fullWidth = false;
 	export let color: ColorProp = 'default';
@@ -21,7 +19,6 @@
 		{href}
 		class={clsx(color, variant, 'button', className)}
 		class:fullWidth
-		class:rtl={rtl !== undefined ? rtl : globalVars.RTL}
 		class:circle
 		on:click
 		on:dblclick
@@ -48,7 +45,6 @@
 	<button
 		class={clsx(color, variant, 'button', className)}
 		class:fullWidth
-		class:rtl={rtl !== undefined ? rtl : globalVars.RTL}
 		class:circle
 		on:click
 		on:dblclick
@@ -75,9 +71,6 @@
 
 <style lang="scss">
 	.button {
-		@import 'components/button';
-		@include button-outline;
-		@include button-fill;
-		@include button-gradient;
+		@import '../../scss/components/button';
 	}
 </style>

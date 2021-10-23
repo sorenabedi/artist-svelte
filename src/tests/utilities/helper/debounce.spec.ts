@@ -23,7 +23,7 @@ describe('Debounce helper test suite', () => {
 		expect(func).toBeCalled();
 		expect(func).toBeCalledTimes(1);
 
-		const secondInterval = setInterval(() => debouncedFunction(), 110);
+		setInterval(() => debouncedFunction(), 110);
 		expect(func).toBeCalledTimes(1);
 
 		jest.advanceTimersByTime(100);

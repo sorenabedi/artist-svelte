@@ -7,7 +7,7 @@ export type ColorProp =
 	| 'info'
 	| 'default';
 
-export type VariantProp = 'outline-gradient' | 'outline' | 'fill';
+export type VariantProp = 'gradient' | 'outline' | 'fill';
 export type RtlProp = boolean | undefined;
 
 export type InputTypeProp =

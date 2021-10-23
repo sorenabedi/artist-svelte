@@ -40,6 +40,6 @@
 
 <style lang="scss">
 	.radio {
-		@import 'components/radio';
+		@import '../../scss/components/radio';
 	}
 </style>

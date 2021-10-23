@@ -10,55 +10,57 @@ $text-marginX: 0.25rem;
 $icon-size: 0.8rem;
 $icon-marginX: 0.125rem;
 
-& {
-	padding: $base-paddingY $base-paddingX;
-	margin: math.div($base-marginY, 5) $base-marginX $base-marginY;
-	display: flex;
-	flex-direction: column;
-	font-size: $base-fontSize;
-	.cardHeader {
-		padding: 0 math.div($base-paddingX, 2);
+@mixin Card-base {
+	& {
+		padding: $base-paddingY $base-paddingX;
+		margin: math.div($base-marginY, 5) $base-marginX $base-marginY;
 		display: flex;
-		align-items: center;
-		justify-content: space-between;
-
-		white-space: nowrap;
-	}
-	.card {
-		line-height: 1.5;
-		.cardContent {
-			padding: math.div($base-paddingY, 4) $base-paddingX * 0.6;
-		}
-		.cardActions {
+		flex-direction: column;
+		font-size: $base-fontSize;
+		.cardHeader {
+			padding: 0 math.div($base-paddingX, 2);
 			display: flex;
-			justify-content: space-around;
-			flex-wrap: wrap;
-			overflow: hidden;
-			padding-top: 10px;
-			box-sizing: border-box;
-			:global {
-				> * {
-					margin: math.div($base-marginY, 5) math.div($base-marginX, 2);
-					flex-shrink: 1;
-					flex-basis: auto;
-					flex-grow: 1;
-				}
+			align-items: center;
+			justify-content: space-between;
+
+			white-space: nowrap;
+		}
+		.card {
+			line-height: 1.5;
+			.cardContent {
+				padding: math.div($base-paddingY, 4) $base-paddingX * 0.6;
 			}
-			&.balanced {
+			.cardActions {
+				display: flex;
+				justify-content: space-around;
+				flex-wrap: wrap;
+				overflow: hidden;
+				padding-top: 10px;
+				box-sizing: border-box;
 				:global {
 					> * {
-						width: 40%;
+						margin: math.div($base-marginY, 5) math.div($base-marginX, 2);
+						flex-shrink: 1;
+						flex-basis: auto;
+						flex-grow: 1;
 					}
 				}
-			}
-			&.unBalanced {
-				:global {
-					> * {
-						&:first-of-type {
-							width: 60%;
+				&.balanced {
+					:global {
+						> * {
+							width: 40%;
 						}
-						&:last-of-type {
-							width: 28%;
+					}
+				}
+				&.unBalanced {
+					:global {
+						> * {
+							&:first-of-type {
+								width: 60%;
+							}
+							&:last-of-type {
+								width: 28%;
+							}
 						}
 					}
 				}

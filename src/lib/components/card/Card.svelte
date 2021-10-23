@@ -2,7 +2,8 @@
 	import type { useAction } from '../../types/global';
 	import type { ColorProp, RtlProp, VariantProp } from '../../types/components/props';
 	import clsx from 'clsx';
-	import globalVars from '../../env';
+	import rtlHook from '../../utilities/hook/rtl';
+	import componentRtlSetup from '../../utilities/hook/rtl/internal-component-rtl';
 	import Badge from '../badge';
 	import Title from '../title';
 	import Paper from '../paper';
@@ -15,11 +16,12 @@
 	export let useAction: useAction = () => ({});
 	let className: string | undefined = undefined;
 	export { className as class };
+	const { isEnabled } = rtlHook;
 </script>
 
 <div class={clsx('cardContainer', className)} data-testid={testID} use:useAction>
 	{#if $$slots.title}
-		<div class:rtl={rtl !== undefined ? rtl : globalVars.RTL} class={clsx('cardHeader')}>
+		<div class:rtl={componentRtlSetup(rtl, $isEnabled)} class={clsx('cardHeader')}>
 			<Title {color} {variant}><slot name="title" /></Title>
 			{#if $$slots.notification}
 				<Badge {color} {variant}><slot name="notification" /></Badge>
@@ -41,6 +43,6 @@
 
 <style lang="scss">
 	.cardContainer {
-		@import 'components/card';
+		@import '../../scss/components/card';
 	}
 </style>
