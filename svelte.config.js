@@ -41,27 +41,34 @@ const packageFiles = (filename) => {
 
 const handleEnvVariables = () => {
 	switch (true) {
-		case ['test', 'development'].includes(process.env['NODE_ENV']):
-			return [["process.env['NODE_ENV']", JSON.stringify(process.env['NODE_ENV'])]];
 		case ['pkg'].includes(process.env['NODE_ENV']):
 			return [
-				//
-				[/lang="scss"/g, 'SCSSSTYLEBLOCK']
+				[/lang="scss"/g, 'SCSSSTYLEBLOCK'],
+				[/process\.env\['NODE_ENV'\]/g, (_, match) => `import.meta.env.mode`],
+				[/process\.env\.NODE_ENV/g, (_, match) => `import.meta.env.mode`],
+				[/process\.env\['(\w+)'\]/g, (_, match) => `import.meta.env.${match}`],
+				[/process\.env\.(\w+)/g, (_, match) => `import.meta.env.${match}`],
+				[/\/\* istanbul.* \*\//g, '']
+			];
+		case ['test'].includes(process.env['NODE_ENV']):
+			return [
+				[/process\.env\['(\w+)'\]/g, (_, match) => JSON.stringify(process.env[match])],
+				[/process\.env\.(\w+)/g, (_, match) => JSON.stringify(process.env[match])]
 			];
 
 		default:
 			return [
-				["process.env['NODE_ENV']", JSON.stringify(process.env['NODE_ENV'])],
-				[/process\.env\.(\w+)/g, (_, prop) => JSON.stringify(process.env[prop])],
-				[/data-testid={testID}/g, ''],
-				[/const testID.*/g, '']
+				[/process\.env\['(\w+)'\]/g, (_, match) => JSON.stringify(process.env[match])],
+				[/process\.env\.(\w+)/g, (_, match) => JSON.stringify(process.env[match])],
+				[/const testID.*\/\* istanbul ignore next \*\/ undefined;/gs, ''],
+				[/data-testid={testID}/g, '']
 			];
 	}
 };
 const SassOptions = () => {
 	switch (true) {
-		// case ['pkg'].includes(process.env['NODE_ENV']):
-		// 	return true;
+		case ['pkg'].includes(process.env['NODE_ENV']):
+			return true;
 
 		default:
 			return {

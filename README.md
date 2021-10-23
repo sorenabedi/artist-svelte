@@ -48,11 +48,7 @@ npm install @sorens/artist-svelte clsx sass nanoid --save-dev
      	// Consult https://github.com/sveltejs/svelte-preprocess
      	// for more information about preprocessors
      	preprocess: preprocess({
-     		scss: {},
-     		replace: [
-     			// this line is essential for Artist-svelte to work properly
-     			[/process\.env\.(\w+)/g, (_, prop) => JSON.stringify(process.env[prop])]
-     		]
+     		scss: {}
      	})
      	// Other config params
      };
@@ -130,7 +126,7 @@ npm install @sorens/artist-svelte clsx sass nanoid --save-dev
 	import { Checkbox, Button } from '@sorens/artist-svelte';
 </script>
 
-<button rtl variant="fill" color="primary">Accept</button>
+<button variant="fill" color="primary">Accept</button>
 <Checkbox color="danger" on:change="()=>console.log('changed')">some text</Checkbox>
 ```
 
