@@ -1,4 +1,18 @@
+@import '../../modules/default';
 @import './base';
 @import './fill';
 @import './outline';
 @import './gradient';
+
+@include bundle-partial('Alert') {
+	@include Alert-base;
+	@include bundle-partial('Alert', 'outline') {
+		@include Alert-outline;
+	}
+	@include bundle-partial('Alert', 'fill') {
+		@include Alert-fill;
+	}
+	@include bundle-partial('Alert', 'gradient') {
+		@include Alert-gradient;
+	}
+}

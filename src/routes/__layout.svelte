@@ -37,9 +37,8 @@
 <slot />
 
 <style lang="scss" global>
-	$theme-palette: ();
-	@import 'GlobalStyles.scss';
-	@import 'modules/normalize';
+	@import './../lib/scss/GlobalStyles';
+	@import './../lib/scss/modules/normalize';
 	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
 	html,

@@ -3,7 +3,7 @@ import {
 	mergeEffectAction,
 	compactEffectAction,
 	slideEffectAction
-} from '../../lib/components/navbar/functions';
+} from '../../lib/components/navbar/internal-functions';
 import { render, fireEvent } from '@testing-library/svelte';
 import { tick } from 'svelte';
 import { jest } from '@jest/globals';

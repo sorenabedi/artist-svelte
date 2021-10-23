@@ -1,4 +1,4 @@
-@mixin navbar-outline {
+@mixin Navbar-outline {
 	&.outline {
 		border-color: hsl(var(--base) / 70%);
 		border-width: $base-borderWidth;

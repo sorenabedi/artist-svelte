@@ -1,9 +1,8 @@
 import { jest } from '@jest/globals';
 import Button from '../../lib/components/button';
-import { SVGIcon } from '../../lib/utilities';
+import { SvgParser } from '../../lib/utilities';
 import SVG from '../mocks/svg';
 import { render, fireEvent } from '@testing-library/svelte';
-import fragment from 'svelte-fragment-component';
 import { tick } from 'svelte';
 
 describe('Button component (button tag) test suite', () => {
@@ -37,9 +36,9 @@ describe('Button component (button tag) test suite', () => {
 		component.$$set({ variant: 'fill' });
 		await tick();
 		expect(getByTestId('Button')).toHaveClass('fill');
-		component.$$set({ variant: 'outline-gradient' });
+		component.$$set({ variant: 'gradient' });
 		await tick();
-		expect(getByTestId('Button')).toHaveClass('outline-gradient');
+		expect(getByTestId('Button')).toHaveClass('gradient');
 	});
 	it('testing interactive width prop change', async () => {
 		const { getByTestId, component } = render(Button);
@@ -130,7 +129,7 @@ describe('Button component (button tag) test suite', () => {
 		const { getByTestId } = render(
 			<Button>
 				<fragment slot="SvgIcon">
-					<SVGIcon data={SVG} />
+					<SvgParser data={SVG} />
 				</fragment>
 			</Button>
 		);
@@ -194,9 +193,9 @@ describe('Button component (anchor tag) test suite', () => {
 		component.$$set({ variant: 'fill' });
 		await tick();
 		expect(getByTestId('Button')).toHaveClass('fill');
-		component.$$set({ variant: 'outline-gradient' });
+		component.$$set({ variant: 'gradient' });
 		await tick();
-		expect(getByTestId('Button')).toHaveClass('outline-gradient');
+		expect(getByTestId('Button')).toHaveClass('gradient');
 	});
 	it('testing interactive width prop change', async () => {
 		const { getByTestId, component } = render(Button, { props: { href: '/test' } });
@@ -290,7 +289,7 @@ describe('Button component (anchor tag) test suite', () => {
 		const { getByTestId } = render(
 			<Button href="/test">
 				<fragment slot="SvgIcon">
-					<SVGIcon data={SVG} />
+					<SvgParser data={SVG} />
 				</fragment>
 			</Button>
 		);

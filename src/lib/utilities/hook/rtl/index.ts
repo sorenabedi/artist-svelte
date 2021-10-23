@@ -1,7 +1,9 @@
 import { browser } from '$app/env';
+import globalVars from '../../../env';
 import booleanStore from '../../../store/boolean';
 
-const rtlCheck = (): boolean => browser && document.body.getAttribute('dir') === 'rtl';
+const rtlCheck = (): boolean =>
+	browser ? document.body.getAttribute('dir') === 'rtl' : globalVars.RTL;
 const { isEnabled, disable, enable } = browser && booleanStore(rtlCheck());
 const set = (dir: 'ltr' | 'rtl' = 'ltr'): void => {
 	if (!browser) /* istanbul ignore next */ return;

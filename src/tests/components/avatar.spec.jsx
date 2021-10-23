@@ -1,4 +1,5 @@
-import Avatar, { AvatarStack } from '../../lib/components/avatar';
+import Avatar from '../../lib/components/avatar';
+import AvatarStack from '../../lib/components/avatarStack';
 import { render } from '@testing-library/svelte';
 
 describe('Avatar component test suite', () => {

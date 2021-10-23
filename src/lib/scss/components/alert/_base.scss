@@ -1,4 +1,4 @@
-@use 'sass:math';
+@import '../../modules/default';
 $base-borderRadius: $borderRadius * 1.2;
 $base-borderRadius-rightSide: 0 $base-borderRadius $base-borderRadius 0;
 $base-borderRadius-leftSide: $base-borderRadius 0 0 $base-borderRadius;
@@ -13,50 +13,52 @@ $text-marginX: 0.25rem;
 $icon-size: 0.8rem;
 $icon-marginX: 0.125rem;
 
-& {
-	padding: $base-paddingY $base-paddingX;
-	position: relative;
-	background-color: transparent;
-	margin: $base-marginY $base-marginX;
-	border-color: transparent;
-	border-radius: $base-borderRadius-rightSide;
-	border-width: 0;
-	border-left-width: $base-verticalLineWidth;
-	display: flex;
-	align-items: center;
-	border-style: solid;
-	font-size: $base-fontSize;
-	justify-content: flex-start;
-	transition: background 0.25s, color 0.25s;
-	line-height: 1;
-	overflow: hidden;
-	width: fit-content;
-	&.shadow {
-		box-shadow: 0 4px 15px 0 hsla(var(--base) / 30%);
-	}
-	@include rtl-bundle {
-		&.rtl {
-			border-radius: $base-borderRadius-leftSide;
-			border-right-width: $base-verticalLineWidth;
-			border-left-width: $base-borderWidth;
+@mixin Alert-base {
+	& {
+		padding: $base-paddingY $base-paddingX;
+		position: relative;
+		background-color: transparent;
+		margin: $base-marginY $base-marginX;
+		border-color: transparent;
+		border-radius: $base-borderRadius-rightSide;
+		border-width: 0;
+		border-left-width: $base-verticalLineWidth;
+		display: flex;
+		align-items: center;
+		border-style: solid;
+		font-size: $base-fontSize;
+		justify-content: flex-start;
+		transition: background 0.25s, color 0.25s;
+		line-height: 1;
+		overflow: hidden;
+		width: fit-content;
+		&.shadow {
+			box-shadow: 0 4px 15px 0 hsla(var(--base) / 30%);
 		}
-	}
-	.title {
-		// display: flex;
-		// align-items: center;
-		font-size: $base-fontSize * 1.2;
-		margin: $base-marginY * 3 auto;
-	}
-	span.icon {
-		display: inline-flex;
-		align-self: center;
-		margin: auto $icon-marginX * 3;
-		padding: 0 $icon-marginX * 3;
-		font-size: inherit;
-		:global {
-			svg {
-				path {
-					transition: fill 0.25s;
+		@include rtl-bundle('Alert') {
+			&.rtl {
+				border-radius: $base-borderRadius-leftSide;
+				border-right-width: $base-verticalLineWidth;
+				border-left-width: $base-borderWidth;
+			}
+		}
+		.title {
+			// display: flex;
+			// align-items: center;
+			font-size: $base-fontSize * 1.2;
+			margin: $base-marginY * 3 auto;
+		}
+		span.icon {
+			display: inline-flex;
+			align-self: center;
+			margin: auto $icon-marginX * 3;
+			padding: 0 $icon-marginX * 3;
+			font-size: inherit;
+			:global {
+				svg {
+					path {
+						transition: fill 0.25s;
+					}
 				}
 			}
 		}

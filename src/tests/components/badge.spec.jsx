@@ -28,9 +28,9 @@ describe('Badge component test suite', () => {
 		component.$$set({ variant: 'fill' });
 		await tick();
 		expect(getByTestId('Badge')).toHaveClass('fill');
-		component.$$set({ variant: 'outline-gradient' });
+		component.$$set({ variant: 'gradient' });
 		await tick();
-		expect(getByTestId('Badge')).toHaveClass('outline-gradient');
+		expect(getByTestId('Badge')).toHaveClass('gradient');
 	});
 
 	it('testing custom classes', async () => {

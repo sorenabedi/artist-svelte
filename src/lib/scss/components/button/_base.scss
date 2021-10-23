@@ -10,52 +10,54 @@ $text-marginX: 0.25rem;
 $icon-size: 0.8rem;
 $icon-marginX: 0.125rem;
 
-& {
-	padding: $base-paddingY $base-paddingX;
-	background-color: transparent;
-	margin: $base-marginY $base-marginX;
-	border-color: transparent;
-	border-radius: $base-borderRadius;
-	border-width: $base-borderWidth;
-	display: inline-flex;
-	align-items: center;
-	border-style: solid;
-	font-size: $base-fontSize;
-	justify-content: center;
-	cursor: pointer;
-	transition: background 0.25s, color 0.25s, border 0.25s, border-radius 0.25s;
-	font-family: inherit;
-	text-decoration: none;
-	// @include truncate(100%);
-
-	span {
+@mixin Button-base {
+	& {
+		padding: $base-paddingY $base-paddingX;
+		background-color: transparent;
+		margin: $base-marginY $base-marginX;
+		border-color: transparent;
+		border-radius: $base-borderRadius;
+		border-width: $base-borderWidth;
 		display: inline-flex;
-		margin: auto $text-marginX;
-	}
-	span.icon {
-		display: flex;
 		align-items: center;
-		width: $icon-size;
-		height: $icon-size;
-		margin: auto $icon-marginX;
-		:global {
-			path {
-				transition: fill 0.25s;
+		border-style: solid;
+		font-size: $base-fontSize;
+		justify-content: center;
+		cursor: pointer;
+		transition: background 0.25s, color 0.25s, border 0.25s, border-radius 0.25s;
+		font-family: inherit;
+		text-decoration: none;
+		// @include truncate(100%);
+
+		span {
+			display: inline-flex;
+			margin: auto $text-marginX;
+		}
+		span.icon {
+			display: flex;
+			align-items: center;
+			width: $icon-size;
+			height: $icon-size;
+			margin: auto $icon-marginX;
+			:global {
+				path {
+					transition: fill 0.25s;
+				}
 			}
 		}
-	}
-	&.circle {
-		border-radius: $base-borderRadius * 2;
-		padding: $paddingX;
-		&:before {
-			border-radius: $base-borderRadius * 2 !important;
+		&.circle {
+			border-radius: $base-borderRadius * 2;
+			padding: $paddingX;
+			&:before {
+				border-radius: $base-borderRadius * 2 !important;
+			}
 		}
-	}
 
-	@include action-focus {
-		outline-color: transparent;
-		outline-width: 0;
-		outline-style: auto;
-		outline-offset: 0;
+		@include action-focus {
+			outline-color: transparent;
+			outline-width: 0;
+			outline-style: auto;
+			outline-offset: 0;
+		}
 	}
 }

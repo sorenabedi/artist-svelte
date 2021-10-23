@@ -1,8 +1,6 @@
-&.outline {
-	position: relative;
-}
-@mixin button-outline {
+@mixin Button-outline {
 	&.outline {
+		position: relative;
 		border-color: hsl(var(--natural));
 		color: hsl(var(--base));
 		:global {

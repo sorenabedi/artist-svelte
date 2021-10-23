@@ -6,6 +6,8 @@ $base-size: 2.5rem;
 $base-padding-left: calc(var(--size, $base-size) * 0.6);
 $base-padding-right: calc(var(--size, $base-size) * 0.6);
 
+@mixin AvatarStack-base {
+}
 & {
 	display: inline-flex;
 	padding: 0.1rem $base-padding-left 0.1rem $base-padding-right;
@@ -24,7 +26,7 @@ $base-padding-right: calc(var(--size, $base-size) * 0.6);
 		}
 	}
 
-	@include rtl-bundle {
+	@include rtl-bundle('AvatarStack') {
 		:global(.avatarContainer.rtl) {
 			&:not(:only-child) {
 				margin-left: unset;

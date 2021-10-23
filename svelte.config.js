@@ -5,15 +5,29 @@ import dotEnv from 'dotenv';
 
 dotEnv.config();
 
-/**
- *  @type {boolean}
- *  @param {string} filename
- */
-const packageFilesFilter = (filename) => {
+const packageExports = (filename) => {
 	switch (true) {
 		case /\.(stories|test|spec)\./.test(filename):
 		case /scss\/components\//.test(filename):
+			return true;
+		case /scss\/modules\//.test(filename):
+			return true;
+		case /^internal-/.test(basename(filename)):
 			return false;
+		case /^_/.test(basename(filename)):
+			return false;
+		case /\.(s?css|ts|js|json)/.test(filename):
+			return true;
+		default:
+			return false;
+	}
+};
+
+const packageFiles = (filename) => {
+	switch (true) {
+		case /\.(stories|test|spec)\./.test(filename):
+		case /scss\/components\//.test(filename):
+			return true;
 		case /scss\/modules\//.test(filename):
 			return true;
 		case /^_/.test(basename(filename)):
@@ -30,7 +44,10 @@ const handleEnvVariables = () => {
 		case ['test', 'development'].includes(process.env['NODE_ENV']):
 			return [["process.env['NODE_ENV']", JSON.stringify(process.env['NODE_ENV'])]];
 		case ['pkg'].includes(process.env['NODE_ENV']):
-			return [];
+			return [
+				//
+				[/lang="scss"/g, 'SCSSSTYLEBLOCK']
+			];
 
 		default:
 			return [
@@ -41,14 +58,23 @@ const handleEnvVariables = () => {
 			];
 	}
 };
+const SassOptions = () => {
+	switch (true) {
+		// case ['pkg'].includes(process.env['NODE_ENV']):
+		// 	return true;
+
+		default:
+			return {
+				includePaths: ['./src/theme'],
+				prependData: `@import 'theme.scss';`
+			};
+	}
+};
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	preprocess: preprocess({
-		scss: {
-			includePaths: ['./src/lib/scss'],
-			prependData: "$rtl-bundle: 'true';@import 'modules/default';"
-		},
+		scss: SassOptions(),
 		replace: [...handleEnvVariables()]
 	}),
 	kit: {
@@ -58,8 +84,8 @@ const config = {
 		package: {
 			dir: 'package',
 			emitTypes: true,
-			exports: packageFilesFilter,
-			files: packageFilesFilter
+			exports: packageExports,
+			files: packageFiles
 		},
 		vite: {
 			resolve: {
@@ -69,6 +95,7 @@ const config = {
 					$assets: resolve('src/assets'),
 					'$scss/vars': resolve('src/lib/scss/variables.module.scss'),
 					$scss: resolve('src/lib/scss'),
+					$theme: resolve('src/theme.scss'),
 					$routes: resolve('src/routes')
 				}
 			},

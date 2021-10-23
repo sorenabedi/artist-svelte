@@ -1,4 +1,5 @@
-@mixin alert-fill {
+@import './base';
+@mixin Alert-fill {
 	&.fill {
 		background-color: hsl(var(--base));
 		border-left-color: hsl(var(--light));
@@ -8,7 +9,7 @@
 				fill: hsl(var(--dark));
 			}
 		}
-		@include rtl-bundle {
+		@include rtl-bundle('Alert') {
 			&.rtl {
 				border-left-color: transparent;
 				border-right-color: hsl(var(--light));

@@ -29,9 +29,6 @@
 
 <style lang="scss">
 	span {
-		@import 'components/badge';
-		@include badge-outline;
-		@include badge-fill;
-		@include badge-gradient;
+		@import '../../scss/components/badge';
 	}
 </style>

@@ -1,8 +1,10 @@
 <script lang="ts">
-	import clsx from 'clsx';
-	import globalVars from '../../env';
 	import type { useAction } from '../../types/global';
 	import type { ColorProp, RtlProp } from '../../types/components/props';
+	import clsx from 'clsx';
+
+	import rtlHook from '../../utilities/hook/rtl';
+	import componentRtlSetup from '../../utilities/hook/rtl/internal-component-rtl';
 	const testID = process.env.NODE_ENV === 'test' ? 'Avatar' : /* istanbul ignore next */ undefined;
 
 	export let color: ColorProp = 'default';
@@ -17,12 +19,13 @@
 	export let rtl: RtlProp = undefined;
 	let className: string | undefined = undefined;
 	export { className as class };
+	const { isEnabled } = rtlHook;
 </script>
 
 <div
 	data-testid={testID}
 	class={clsx('avatarContainer', color, className)}
-	class:rtl={rtl !== undefined ? rtl : globalVars.RTL}
+	class:rtl={componentRtlSetup(rtl, $isEnabled)}
 	class:bordered
 	on:change
 	on:click
@@ -52,6 +55,6 @@
 
 <style lang="scss">
 	.avatarContainer {
-		@import 'components/avatar';
+		@import '../../scss/components/avatar';
 	}
 </style>

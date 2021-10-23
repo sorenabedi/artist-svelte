@@ -1,5 +1,5 @@
 import Alert from '../../lib/components/alert';
-import { SVGIcon } from '../../lib/utilities';
+import { SvgParser } from '../../lib/utilities';
 import { render } from '@testing-library/svelte';
 import SVG from '../mocks/svg';
 
@@ -31,9 +31,9 @@ describe('Alert component test suite', () => {
 		component.$$set({ variant: 'outline' });
 		await tick();
 		expect(getByTestId('Alert')).toHaveClass('outline');
-		component.$$set({ variant: 'outline-gradient' });
+		component.$$set({ variant: 'gradient' });
 		await tick();
-		expect(getByTestId('Alert')).toHaveClass('outline-gradient');
+		expect(getByTestId('Alert')).toHaveClass('gradient');
 	});
 	it('testing interactive shadow prop change', async () => {
 		const { getByTestId, component } = render(Alert);
@@ -72,7 +72,7 @@ describe('Alert component test suite', () => {
 		const { getByTestId } = render(
 			<Alert>
 				<Fragment slot="SvgIcon">
-					<SVGIcon data={SVG} />
+					<SvgParser data={SVG} />
 				</Fragment>
 			</Alert>
 		);

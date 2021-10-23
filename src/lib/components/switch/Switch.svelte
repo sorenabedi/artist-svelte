@@ -50,6 +50,6 @@
 
 <style lang="scss">
 	.switch {
-		@import 'components/switch';
+		@import '../../scss/components/switch';
 	}
 </style>

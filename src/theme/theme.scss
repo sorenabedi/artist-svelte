@@ -1,0 +1,24 @@
+$exclude-rtl-from-bundle: false;
+$exclude-from-bundle: (
+	'Input': (
+		'base': false,
+		'outline': false,
+		'gradient': false,
+		'rtl': false
+	)
+);
+
+$theme-palette: (
+	'customThemeClass': (
+		'light': hsl(180, 82%, 66%),
+		'light-font': hsl(180, 82%, 15%),
+		'base': hsl(180, 100%, 36%),
+		'base-font': hsl(180, 100%, 6%),
+		'dark': hsl(180, 100%, 25%),
+		'dark-font': hsl(180, 100%, 100%),
+		'darker': hsl(185, 100%, 20%),
+		'darker-font': hsl(180, 100%, 100%),
+		'natural': hsl(185, 39%, 87%),
+		'natural-font': hsl(184, 40%, 22%)
+	)
+);

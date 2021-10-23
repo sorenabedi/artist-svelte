@@ -1,1 +1,6 @@
+@import '../../modules/default';
 @import './base';
+
+@include bundle-partial('Avatar') {
+	@include Avatar-base;
+}

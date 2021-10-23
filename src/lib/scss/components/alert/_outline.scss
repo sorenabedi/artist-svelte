@@ -1,8 +1,7 @@
-&.outline {
-	position: relative;
-}
-@mixin alert-outline {
+@import './base';
+@mixin Alert-outline {
 	&.outline {
+		position: relative;
 		border-top-width: $base-borderWidth;
 		border-right-width: $base-borderWidth;
 		border-bottom-width: $base-borderWidth;
@@ -14,7 +13,7 @@
 				fill: hsl(var(--base));
 			}
 		}
-		@include rtl-bundle {
+		@include rtl-bundle('Alert') {
 			&.rtl {
 				border-top-width: $base-borderWidth;
 				border-left-width: $base-borderWidth;

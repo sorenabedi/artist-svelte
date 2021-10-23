@@ -15,6 +15,6 @@
 
 <style lang="scss">
 	.avatarStack {
-		@import 'components/avatarStack';
+		@import '../../scss/components/avatarStack';
 	}
 </style>

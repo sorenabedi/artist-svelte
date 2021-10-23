@@ -4,10 +4,13 @@ $base-paddingX: $paddingX * 1.2;
 $base-paddingY: $paddingY * 1.2;
 $base-marginX: $marginX * 2;
 $base-marginY: $marginY;
-& {
-	box-sizing: border-box;
-	position: relative;
-	background-clip: padding-box;
-	border: 0;
-	pointer-events: auto;
+
+@mixin Accordion-base {
+	& {
+		box-sizing: border-box;
+		position: relative;
+		background-clip: padding-box;
+		border: 0;
+		pointer-events: auto;
+	}
 }

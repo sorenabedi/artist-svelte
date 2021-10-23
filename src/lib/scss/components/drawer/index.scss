@@ -1,3 +1,14 @@
+@import '../../modules/default';
 @import './base';
 @import './fill';
 @import './outline';
+
+@include bundle-partial('Drawer') {
+	@include Drawer-base;
+	@include bundle-partial('Drawer', 'outline') {
+		@include Drawer-outline;
+	}
+	@include bundle-partial('Drawer', 'fill') {
+		@include Drawer-fill;
+	}
+}

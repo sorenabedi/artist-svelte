@@ -1,8 +1,9 @@
 <script lang="ts">
-	import clsx from 'clsx';
-	import globalVars from '../../env';
 	import type { useAction } from '../../types/global';
 	import type { ColorProp, RtlProp, VariantProp } from '../../types/components/props';
+	import clsx from 'clsx';
+	import rtlHook from '../../utilities/hook/rtl';
+	import componentRtlSetup from '../../utilities/hook/rtl/internal-component-rtl';
 	const testID = process.env.NODE_ENV === 'test' ? 'Alert' : /* istanbul ignore next */ undefined;
 
 	export let color: ColorProp = 'default';
@@ -13,12 +14,13 @@
 	export let useAction: useAction = () => ({});
 	let className: string | undefined = undefined;
 	export { className as class };
+	const { isEnabled } = rtlHook;
 </script>
 
 <div
 	data-testid={testID}
 	class={clsx('alertContainer', color, variant, className)}
-	class:rtl={rtl !== undefined ? rtl : globalVars.RTL}
+	class:rtl={componentRtlSetup(rtl, $isEnabled)}
 	class:shadow
 	use:useAction
 	on:click
@@ -45,9 +47,6 @@
 
 <style lang="scss">
 	.alertContainer {
-		@import 'components/alert';
-		@include alert-outline;
-		@include alert-fill;
-		@include alert-gradient;
+		@import '../../scss/components/alert/index.scss';
 	}
 </style>

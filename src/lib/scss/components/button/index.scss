@@ -1,4 +1,18 @@
+@import '../../modules/default';
 @import './base';
 @import './fill';
 @import './outline';
 @import './gradient';
+
+@include bundle-partial('Button') {
+	@include Button-base;
+	@include bundle-partial('Button', 'outline') {
+		@include Button-outline;
+	}
+	@include bundle-partial('Button', 'fill') {
+		@include Button-fill;
+	}
+	@include bundle-partial('Button', 'gradient') {
+		@include Button-gradient;
+	}
+}

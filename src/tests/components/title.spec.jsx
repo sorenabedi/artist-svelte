@@ -28,9 +28,9 @@ describe('Title component test suite', () => {
 		component.$$set({ variant: 'fill' });
 		await tick();
 		expect(getByTestId('Title')).toHaveClass('fill');
-		component.$$set({ variant: 'outline-gradient' });
+		component.$$set({ variant: 'gradient' });
 		await tick();
-		expect(getByTestId('Title')).toHaveClass('outline-gradient');
+		expect(getByTestId('Title')).toHaveClass('gradient');
 	});
 
 	it('testing custom classes', async () => {
@@ -44,8 +44,8 @@ describe('Title component test suite', () => {
 		component.$$set({ variant: 'fill' });
 		await tick();
 		expect(getByTestId('Title')).toHaveClass('fill');
-		component.$$set({ variant: 'outline-gradient' });
+		component.$$set({ variant: 'gradient' });
 		await tick();
-		expect(getByTestId('Title')).toHaveClass('outline-gradient');
+		expect(getByTestId('Title')).toHaveClass('gradient');
 	});
 });

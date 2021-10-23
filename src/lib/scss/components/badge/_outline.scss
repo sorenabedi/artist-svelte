@@ -1,8 +1,6 @@
-&.outline {
-	position: relative;
-}
-@mixin badge-outline {
+@mixin Badge-outline {
 	&.outline {
+		position: relative;
 		border-color: hsl(var(--base));
 		color: hsl(var(--base));
 		:global {

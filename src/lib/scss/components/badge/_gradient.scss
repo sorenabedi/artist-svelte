@@ -1,19 +1,4 @@
-&.outline-gradient {
-	position: relative;
-	&:before {
-		content: '';
-		position: absolute;
-		z-index: -1;
-		top: -$base-borderWidth;
-		left: -$base-borderWidth;
-		right: -$base-borderWidth;
-		bottom: -$base-borderWidth;
-		padding: $base-borderWidth;
-		border-radius: $base-borderRadius;
-	}
-}
-// background: linear-gradient(-90deg, #24d2fe, #4facfe);
-@mixin badge-gradient {
+@mixin Badge-gradient {
 	$gradient: linear-gradient(-90deg, hsl(var(--light)), hsl(var(--dark)), hsl(var(--light)));
 	$gradient-focus: linear-gradient(
 		-90deg,
@@ -21,15 +6,25 @@
 		hsl(var(--base)),
 		hsl(var(--darker))
 	);
-	&.outline-gradient {
+	&.gradient {
 		background: $gradient;
 		background-size: 100% 100%;
 		-webkit-background-clip: text;
 		-moz-background-clip: text;
 		background-clip: text;
 		-webkit-text-fill-color: transparent;
+		position: relative;
 
 		&:before {
+			content: '';
+			position: absolute;
+			z-index: -1;
+			top: -$base-borderWidth;
+			left: -$base-borderWidth;
+			right: -$base-borderWidth;
+			bottom: -$base-borderWidth;
+			padding: $base-borderWidth;
+			border-radius: $base-borderRadius;
 			background: $gradient;
 			background-size: 100% 100%;
 			-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -56,16 +51,15 @@
 			}
 		}
 	}
-}
-
-@keyframes backgroundGradient {
-	0% {
-		background-position: 0;
-	}
-	50% {
-		background-position: 100px;
-	}
-	100% {
-		background-position: 0%;
+	@keyframes backgroundGradient {
+		0% {
+			background-position: 0;
+		}
+		50% {
+			background-position: 100px;
+		}
+		100% {
+			background-position: 0%;
+		}
 	}
 }
