@@ -6,8 +6,7 @@
 	import ScrollHook from '../../utilities/hook/scroll';
 	import { compactEffectAction, mergeEffectAction, slideEffectAction } from './internal-functions';
 
-	const testID =
-		process.env['NODE_ENV'] === 'test' ? 'Navbar' : /* istanbul ignore next */ undefined;
+	const testID = process.env.NODE_ENV === 'test' ? 'Navbar' : /* istanbul ignore next */ undefined;
 
 	export let color: ColorProp | 'inherit' = 'inherit';
 	export let variant: Exclude<VariantProp, 'gradient'> = 'fill';

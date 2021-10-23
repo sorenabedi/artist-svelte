@@ -7,6 +7,8 @@
 		"name": "Soren Abedi",
 		"url": "https://sorenabedi.ir"
 	},
+	"types": "index.d.ts",
+	"main": "index.js",
 	"description": "an opinionated UI framework for SvelteKit with theme support built-in",
 	"license": "GPL-3.0",
 	"keywords": [
