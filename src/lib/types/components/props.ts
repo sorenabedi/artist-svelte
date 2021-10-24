@@ -26,4 +26,6 @@ export type InputTypeProp =
 	| 'url'
 	| 'week';
 
+export type AnchorRelProp = 'external' | 'nofollow' | 'noopener' | 'noreferrer' | 'opener';
+export type AnchorTargetProp = '_self' | '_blank' | '_parent' | '_top';
 export type PositionProp = 'left' | 'right' | 'top' | 'bottom';
