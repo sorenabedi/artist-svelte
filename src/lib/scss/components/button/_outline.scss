@@ -8,6 +8,16 @@
 				fill: hsl(var(--base));
 			}
 		}
+		&.active {
+			// border-color: hsl(var(--light));
+			background-color: hsl(var(--natural));
+			color: hsl(var(--natural-font));
+			:global {
+				path {
+					fill: hsl(var(--natural-font));
+				}
+			}
+		}
 		@include action-focus {
 			border-color: hsl(var(--base));
 			background-color: hsl(var(--natural));

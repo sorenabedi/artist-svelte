@@ -1,5 +1,11 @@
 @mixin Button-gradient {
 	$gradient: linear-gradient(-90deg, hsl(var(--base)), hsl(var(--darker)), hsl(var(--base)));
+	$gradient-active: linear-gradient(
+		-90deg,
+		hsl(var(--light) / 70%),
+		hsl(var(--base) / 70%),
+		hsl(var(--light) / 70%)
+	);
 	$gradient-focus: linear-gradient(
 		-90deg,
 		hsl(var(--darker)),
@@ -33,6 +39,22 @@
 			mask-composite: exclude;
 			-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
 			mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+		}
+		&.active {
+			background: $gradient;
+			-webkit-background-clip: text;
+			-moz-background-clip: text;
+			background-clip: text;
+			-webkit-text-fill-color: transparent;
+			animation: backgroundGradient 5s ease infinite;
+			&:before {
+				background: $gradient-active;
+				-webkit-mask-composite: destination-out;
+				mask-composite: exclude;
+				animation: backgroundGradient 5s ease infinite;
+				-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+				mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+			}
 		}
 
 		@include action-focus {
