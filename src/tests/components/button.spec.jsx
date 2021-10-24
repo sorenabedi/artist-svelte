@@ -62,6 +62,17 @@ describe('Button component (button tag) test suite', () => {
 		await tick();
 		expect(getByTestId('Button')).not.toHaveClass('circle');
 	});
+	it('testing interactive active prop change', async () => {
+		const { getByTestId, component } = render(Button);
+		expect(getByTestId('Button').tagName.toLocaleLowerCase()).toBe('button');
+		expect(getByTestId('Button')).not.toHaveClass('active');
+		component.$$set({ active: true });
+		await tick();
+		expect(getByTestId('Button')).toHaveClass('active');
+		component.$$set({ active: false });
+		await tick();
+		expect(getByTestId('Button')).not.toHaveClass('active');
+	});
 	it('testing interactive class prop change', async () => {
 		const { getByTestId, component } = render(Button);
 		expect(getByTestId('Button').tagName.toLocaleLowerCase()).toBe('button');
@@ -207,6 +218,17 @@ describe('Button component (anchor tag) test suite', () => {
 		component.$$set({ circle: false });
 		await tick();
 		expect(getByTestId('Button')).not.toHaveClass('circle');
+	});
+	it('testing interactive active prop change', async () => {
+		const { getByTestId, component } = render(Button, { props: { href: '/test' } });
+		expect(getByTestId('Button').tagName.toLocaleLowerCase()).toBe('a');
+		expect(getByTestId('Button')).not.toHaveClass('active');
+		component.$$set({ active: true });
+		await tick();
+		expect(getByTestId('Button')).toHaveClass('active');
+		component.$$set({ active: false });
+		await tick();
+		expect(getByTestId('Button')).not.toHaveClass('active');
 	});
 	it('testing interactive class prop change', async () => {
 		const { getByTestId, component } = render(Button, { props: { href: '/test' } });

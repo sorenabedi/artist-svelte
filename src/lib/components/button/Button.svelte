@@ -6,6 +6,7 @@
 
 	export let circle = false;
 	export let fullWidth = false;
+	export let active = false;
 	export let color: ColorProp = 'default';
 	export let variant: VariantProp = 'outline';
 	export let useAction: useAction = () => ({});
@@ -20,6 +21,7 @@
 		class={clsx(color, variant, 'button', className)}
 		class:fullWidth
 		class:circle
+		class:active
 		on:click
 		on:dblclick
 		on:mouseenter
@@ -46,6 +48,7 @@
 		class={clsx(color, variant, 'button', className)}
 		class:fullWidth
 		class:circle
+		class:active
 		on:click
 		on:dblclick
 		on:mouseenter

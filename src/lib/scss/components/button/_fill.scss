@@ -7,6 +7,16 @@
 				fill: hsl(var(--base-font));
 			}
 		}
+		&.active {
+			border-color: hsl(var(--dark));
+			background-color: hsl(var(--dark));
+			color: hsl(var(--dark-font));
+			:global {
+				path {
+					fill: hsl(var(--dark-font));
+				}
+			}
+		}
 		@include action-focus {
 			background-color: hsl(var(--natural));
 			color: hsl(var(--natural-font));

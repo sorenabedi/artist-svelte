@@ -25,6 +25,10 @@
 			control: { type: 'boolean' },
 			defaultValue: false
 		},
+		active: {
+			control: { type: 'boolean' },
+			defaultValue: false
+		},
 		circle: {
 			control: { type: 'boolean' },
 			defaultValue: false
