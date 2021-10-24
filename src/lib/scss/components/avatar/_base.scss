@@ -95,6 +95,7 @@ $txt-borderRadius: calc(var(--size, $base-size) * 0.22);
 				border-style: solid;
 				border-color: hsl(var(--bg-color));
 				z-index: 1;
+				transition: border-color 0.3s;
 			}
 		}
 		@include rtl-bundle('Avatar') {
