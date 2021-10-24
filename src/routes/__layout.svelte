@@ -33,6 +33,7 @@
 	<a href="/accordion">accordion</a>
 	<a href="/drawer">drawer</a>
 	<a href="/navbar">navbar</a>
+	<a href="/link">link</a>
 </nav>
 <slot />
 
