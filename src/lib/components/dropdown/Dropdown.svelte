@@ -5,7 +5,6 @@
 	import { slide } from 'svelte/transition';
 	import { quintInOut } from 'svelte/easing';
 	import booleanStore from '../../store/boolean';
-	import { DropdownInit } from './internal-functions';
 	const testID =
 		process.env.NODE_ENV === 'test' ? 'Dropdown' : /* istanbul ignore next */ undefined;
 
@@ -21,7 +20,20 @@
 	export { className as class };
 
 	const { isEnabled: isOpen, enable: open, disable: close, toggle } = booleanStore(expanded);
-	const dropdownAction = DropdownInit(close, disableAutoClose, $isOpen);
+
+	const dropdownAction: useAction = (dropDownElement) => {
+		const detectOutSideClick = (event: MouseEvent) => {
+			if (!$isOpen || disableAutoClose) return;
+			const isClickInside = dropDownElement.contains(event.target as Node);
+			if (!isClickInside) {
+				close();
+			}
+		};
+		document.addEventListener('click', detectOutSideClick);
+		return {
+			destroy: () => document.removeEventListener('click', detectOutSideClick)
+		};
+	};
 </script>
 
 <div class="dropdown">
