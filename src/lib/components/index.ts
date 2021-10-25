@@ -17,3 +17,4 @@ export { default as Accordion } from './accordion';
 export { default as AccordionItem } from './accordionItem';
 export { default as Navbar } from './navbar';
 export { default as Link } from './link';
+export { default as Dropdown } from './dropdown';

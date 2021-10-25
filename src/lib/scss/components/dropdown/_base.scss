@@ -1,0 +1,106 @@
+@use 'sass:math';
+$base-borderRadius: $borderRadius;
+$base-borderWidth: $borderWidth;
+$base-paddingX: $paddingX * 2;
+$base-paddingY: $paddingY * 3;
+
+@mixin Dropdown-base {
+	& {
+		width: 100%;
+		box-sizing: border-box;
+		display: inline-block;
+		> .dropdownContainer {
+			position: relative;
+			box-sizing: border-box;
+			padding: $base-paddingY $base-paddingX;
+			display: flex;
+
+			> .triggerContainer {
+				box-sizing: border-box;
+				transition: z-index 0.7s step-end, margin 0.3s step-end;
+			}
+			> .contentContainer {
+				box-sizing: border-box;
+				padding-top: $base-paddingY;
+				padding-bottom: $base-paddingY;
+				border-radius: $base-borderRadius;
+				width: 100%;
+				background-color: hsl(var(--base));
+				color: hsl(var(--base-font));
+				transition: z-index 0.7s step-end, margin 0.3s step-end, padding 0.3s;
+				&.inherit {
+					border-color: hsl(var(--fg-color) / 5%);
+					background-color: hsl(var(--bg-color) / 100%);
+					background-image: linear-gradient(hsl(var(--fg-color) / 5%), hsl(var(--fg-color) / 5%));
+					&.shadow {
+						box-shadow: 0 3px 8px 0px hsl(var(--fg-color) / 10%);
+					}
+				}
+				&.shadow {
+					box-shadow: 0 3px 8px 0 hsla(var(--light) / 35%);
+				}
+			}
+
+			&.overlap {
+				> .triggerContainer {
+					z-index: 1;
+				}
+				> .contentContainer {
+					z-index: 0;
+					right: 0;
+				}
+				&.top {
+					> .contentContainer {
+						position: absolute;
+						bottom: $base-paddingY * 2;
+					}
+				}
+				&.bottom {
+					> .contentContainer {
+						position: absolute;
+						top: $base-paddingY * 2;
+					}
+				}
+			}
+			&.noOverlap {
+				flex-direction: column;
+				> .triggerContainer {
+					z-index: 1;
+					display: inline-flex;
+				}
+				> .contentContainer {
+					margin: 0;
+					flex-direction: column;
+				}
+
+				&.bottom {
+					> .triggerContainer {
+						margin-bottom: $base-paddingY * -1;
+					}
+				}
+				&.top {
+					> .triggerContainer {
+						margin-top: $base-paddingY * -1;
+					}
+				}
+			}
+			&.active.overlap {
+				z-index: 2;
+				> .triggerContainer {
+					z-index: 5;
+					transition: z-index 0.5s step-start;
+				}
+				> .contentContainer {
+					z-index: 4;
+					transition: z-index 0.5s step-start;
+				}
+			}
+			&.center {
+				justify-content: center;
+				> .triggerContainer {
+					margin: auto;
+				}
+			}
+		}
+	}
+}
