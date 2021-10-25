@@ -1,0 +1,6 @@
+@import '../../modules/default';
+@import './base';
+
+@include bundle-partial('Dropdown') {
+	@include Dropdown-base;
+}
