@@ -13,10 +13,11 @@ export const modalInit =
 	(modalNodeList: HTMLElement[], close: () => void): useAction =>
 	(node: HTMLElement) => {
 		const returnFn = [];
-		document.body.addEventListener('keydown', keydown(close));
+		const closeOnEsc = (event: KeyboardEvent) => keydown(close)(event);
+		document.body.addEventListener('keydown', closeOnEsc);
 		modalNodeList.push(node);
 		returnFn.push(() => {
-			node.removeEventListener('keydown', keydown(close));
+			document.body.removeEventListener('keydown', closeOnEsc);
 		});
 		return {
 			destroy: () => returnFn.forEach((fn) => fn())

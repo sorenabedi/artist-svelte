@@ -10,14 +10,14 @@ let scrollThreshold = 50;
 export const store = readable<scrollHook>(currentBodyPosition(), (set) => {
 	let position = currentBodyPosition().scrollY;
 	/* istanbul ignore next */
-	const setScrollHeight = () => {
+	const setScrollHeight = Throttle(() => {
 		const currentScrollPosition = currentBodyPosition();
 		const direction = position > currentScrollPosition.scrollY ? 'up' : 'down';
 		if (Math.abs(position - currentScrollPosition.scrollY) > scrollThreshold)
 			position = currentScrollPosition.scrollY;
 		set({ ...currentScrollPosition, direction });
-	};
-	browser && window.addEventListener('scroll', Throttle(setScrollHeight));
+	});
+	browser && window.addEventListener('scroll', setScrollHeight);
 
 	return () => {
 		if (browser) window.removeEventListener('scroll', setScrollHeight);
