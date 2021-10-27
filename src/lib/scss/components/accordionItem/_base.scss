@@ -3,7 +3,7 @@ $base-borderRadius: $borderRadius * 0.7;
 $base-paddingX: $paddingX;
 $base-paddingY: $paddingY;
 $base-marginX: $marginX * 2;
-$base-marginY: $marginY * 0.5;
+$base-marginY: $marginY * 20;
 $base-borderWidth: $borderWidth * 1.5;
 $content-borderWidth: $borderWidth * 2;
 $base-fontSize: 1rem;
@@ -47,6 +47,9 @@ $description-fontSize: 0.8rem;
 				justify-content: center;
 				padding: 0 $base-paddingX;
 				.icon {
+					display: flex;
+					align-items: center;
+					justify-content: center;
 					margin: $base-marginY $base-marginX * 2;
 					transition: color 0.3s;
 				}
@@ -54,6 +57,7 @@ $description-fontSize: 0.8rem;
 					display: flex;
 					flex-direction: column;
 					text-align: start;
+					transition: transform 0.3s;
 					.title {
 						font-size: $base-fontSize;
 						transition: color 0.3s;
@@ -73,13 +77,7 @@ $description-fontSize: 0.8rem;
 				width: 1rem;
 				height: 1rem;
 				position: relative;
-				transition: transform 0.3s, background-color 0.3s;
-				-webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 184l144 144l144-144"></path></svg>');
-				mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 184l144 144l144-144"></path></svg>');
-				-webkit-mask-position: center;
-				mask-position: center;
-				-webkit-mask-size: contain;
-				mask-size: contain;
+				transition: transform 0.3s, color 0.3s;
 			}
 		}
 		> .content {

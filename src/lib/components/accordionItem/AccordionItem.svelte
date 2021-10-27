@@ -8,14 +8,15 @@
 		accordionItemLifeCycle,
 		scrollIntoView
 	} from './internal-functions';
+	import SvgParser from '../../utilities/svgParser';
+	import chevronDown from '../../svg/icons/chevron-down';
 	const testID =
 		process.env.NODE_ENV === 'test' ? 'AccordionItem' : /* istanbul ignore next */ undefined;
 
 	export let id = `a-${nanoid(5)}`;
-	export let title = 'Title';
 	export let expanded = false;
 	export let disabled = false;
-	export let color: ColorProp = 'default';
+	export let color: ColorProp | 'inherit' = 'inherit';
 	export let variant: VariantProp = 'outline';
 	const accordionContext = accordionContextInit();
 	const accordionItemAction = accordionItemLifeCycle(id, expanded, (value) => {
@@ -59,14 +60,16 @@
 			{/if}
 			<span class="label">
 				<span class="title">
-					<slot name="title">{title}</slot>
+					<slot name="title" />
 				</span>
 				<span class="description">
-					<slot name="description">{title}</slot>
+					<slot name="description" />
 				</span>
 			</span>
 		</span>
-		<span class="chevron" />
+		<span class="chevron">
+			<SvgParser data={chevronDown} />
+		</span>
 	</button>
 	{#key expanded}
 		<div

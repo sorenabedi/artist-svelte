@@ -39,7 +39,7 @@ $description-fontSize: 0.8rem;
 				}
 			}
 			.chevron {
-				background-color: hsl(var(--base) / 100%);
+				color: hsl(var(--base) / 100%);
 			}
 		}
 
@@ -66,7 +66,7 @@ $description-fontSize: 0.8rem;
 					}
 				}
 				.chevron {
-					background-color: hsl(var(--base-font) / 100%);
+					color: hsl(var(--base-font) / 100%);
 				}
 			}
 
@@ -85,6 +85,85 @@ $description-fontSize: 0.8rem;
 						}
 						&.expanded {
 							border-color: hsl(var(--natural) / 40%);
+						}
+					}
+				}
+			}
+		}
+		&.inherit {
+			border-color: transparent;
+			@include action-hover {
+				background-color: hsl(var(--fg-color) / 5%);
+			}
+			&:focus-within {
+				background-color: hsl(var(--fg-color) / 7%);
+				// border-color: hsl(var(--base) / 10%);
+			}
+			> .toggler {
+				border: none;
+				background-color: transparent;
+				background: transparent;
+				.labelContainer {
+					.icon {
+						color: hsl(var(--fg-color) / 50%);
+					}
+					.label {
+						.title {
+							color: hsl(var(--fg-color) / 100%);
+						}
+						.description {
+							color: hsl(var(--fg-color) / 75%);
+						}
+					}
+				}
+				.chevron {
+					color: hsl(var(--fg-color) / 100%);
+				}
+			}
+
+			&.expanded {
+				background-color: hsl(var(--fg-color) / 5%);
+				@include action-hover {
+					background-color: hsl(var(--fg-color) / 10%);
+				}
+				> .toggler {
+					border: none;
+					background-color: transparent;
+					background: transparent;
+					.labelContainer {
+						.icon {
+							color: hsl(var(--fg-color) / 100%);
+						}
+						.label {
+							.title {
+								color: hsl(var(--fg-color) / 100%);
+							}
+							.description {
+								color: hsl(var(--fg-color) / 100%);
+							}
+						}
+					}
+					.chevron {
+						color: hsl(var(--fg-color) / 100%);
+					}
+				}
+
+				> .content {
+					color: hsl(var(--fg-color) / 100%);
+					:global {
+						.accordionItem {
+							.title {
+								color: hsl(var(--fg-color) / 100%);
+							}
+							&.outline,
+							&:not(.expanded) {
+								.description {
+									color: hsl(var(--fg-color) / 100%) !important;
+								}
+							}
+							&.expanded {
+								border-color: hsl(var(--fg-color) / 40%);
+							}
 						}
 					}
 				}

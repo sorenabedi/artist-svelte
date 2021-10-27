@@ -19,6 +19,20 @@ $description-fontSize: 0.8rem;
 		&:focus-within {
 			border-color: hsl(var(--base) / 25%);
 		}
+		&.simple {
+			border-radius: 0;
+			border-top-width: 0;
+			border-bottom-width: 0;
+			border-inline-end-width: 0;
+			> .content {
+				padding: 0;
+				// 	border-width: $base-borderWidth;
+				// 	border-style: solid;
+				// 	border-color: transparent;
+				// 	padding-inline-start: $base-paddingX;
+				// 	border-inline-start-color: hsl(var(--base) / 100%);
+			}
+		}
 		&.expanded {
 			border-color: hsl(var(--base) / 40%);
 			@include action-hover {
@@ -44,7 +58,45 @@ $description-fontSize: 0.8rem;
 				}
 			}
 			.chevron {
-				background-color: hsl(var(--base) / 100%);
+				color: hsl(var(--base) / 100%);
+			}
+		}
+		&.inherit {
+			@include action-hover {
+				border-color: hsl(var(--fg-color) / 10%);
+			}
+			&:focus-within {
+				border-color: hsl(var(--fg-color) / 25%);
+			}
+			&.expanded {
+				border-color: hsl(var(--fg-color) / 40%);
+				@include action-hover {
+					border-color: hsl(var(--fg-color) / 60%);
+				}
+			}
+
+			// &.simple {
+			// > .content {
+			// border-inline-start-color: hsl(var(--fg-color) / 100%);
+			// }
+			// }
+			> .toggler {
+				.labelContainer {
+					.icon {
+						color: hsl(var(--fg-color) / 100%);
+					}
+					.label {
+						.title {
+							color: hsl(var(--fg-color) / 100%);
+						}
+						.description {
+							color: hsl(var(--fg-color) / 100%);
+						}
+					}
+				}
+				.chevron {
+					color: hsl(var(--fg-color) / 100%);
+				}
 			}
 		}
 	}

@@ -38,7 +38,7 @@ $description-fontSize: 0.8rem;
 				}
 			}
 			.chevron {
-				background-color: hsl(var(--base) / 100%);
+				color: hsl(var(--base) / 100%);
 			}
 		}
 		&:focus-within {
@@ -58,7 +58,7 @@ $description-fontSize: 0.8rem;
 					}
 				}
 				.chevron {
-					background-color: hsl(var(--base) / 100%);
+					color: hsl(var(--base) / 100%);
 				}
 			}
 		}
@@ -95,7 +95,7 @@ $description-fontSize: 0.8rem;
 					}
 				}
 				.chevron {
-					background-color: hsl(var(--dark-font) / 100%);
+					color: hsl(var(--dark-font) / 100%);
 				}
 			}
 
@@ -112,6 +112,99 @@ $description-fontSize: 0.8rem;
 						hsl(var(--base) / 90%) 33%,
 						hsl(var(--darker) / 90%)
 					);
+				}
+			}
+		}
+		&.inherit {
+			border-color: transparent;
+			background-color: transparent;
+			// background-color: hsl(var(--natural) / 50%);
+			// background-image: linear-gradient(0deg, hsl(var(--natural) / 20%), hsl(var(--natural) / 20%));
+			// background-image: linear-gradient(-30deg, hsl(var(--base) / 5%) 33%, hsl(var(--darker) / 35%));
+			border-width: 0;
+			@include action-hover {
+				background-color: hsl(var(--fg-color) / 5%);
+			}
+			> .toggler {
+				border: none;
+				background-color: transparent;
+				background: transparent;
+				.labelContainer {
+					.icon {
+						color: hsl(var(--fg-color) / 50%);
+					}
+					.label {
+						.title {
+							color: hsl(var(--fg-color) / 100%);
+						}
+						.description {
+							color: hsl(var(--fg-color) / 75%);
+						}
+					}
+				}
+				.chevron {
+					color: hsl(var(--fg-color) / 80%);
+				}
+			}
+			&:focus-within {
+				background-color: hsl(var(--fg-color) / 7%);
+				> .toggler {
+					.labelContainer {
+						.icon {
+							color: hsl(var(--fg-color) / 100%);
+						}
+						.label {
+							.title {
+								color: hsl(var(--fg-color) / 100%);
+							}
+							.description {
+								color: hsl(var(--fg-color) / 100%);
+							}
+						}
+					}
+					.chevron {
+						color: hsl(var(--fg-color) / 100%);
+					}
+				}
+			}
+			&.expanded {
+				background-color: hsl(var(--fg-color) / 80%);
+				background-image: linear-gradient(
+					-30deg,
+					hsl(var(--fg-color) / 100%) 33%,
+					hsl(var(--bg-color) / 30%)
+				);
+				@include action-hover {
+					background-image: linear-gradient(
+						-30deg,
+						hsl(var(--fg-color) / 80%) 33%,
+						hsl(var(--bg-color) / 20%)
+					);
+					background-color: hsl(var(--fg-color) / 60%);
+				}
+				> .toggler {
+					background-color: transparent;
+					background: transparent;
+					.labelContainer {
+						.icon {
+							color: hsl(var(--bg-color) / 100%);
+						}
+						.label {
+							.title {
+								color: hsl(var(--bg-color) / 100%);
+							}
+							.description {
+								color: hsl(var(--bg-color) / 100%);
+							}
+						}
+					}
+					.chevron {
+						color: hsl(var(--bg-color) / 100%);
+					}
+				}
+
+				> .content {
+					color: hsl(var(--bg-color) / 100%);
 				}
 			}
 		}
