@@ -65,20 +65,20 @@ describe('AccordionItem component test suite', () => {
 	it('testing interactive color prop change', async () => {
 		const { getByTestId, getAllByTestId, component } = render(Accordion);
 		expect(getByTestId('Accordion')).toBeTruthy();
-		expect(getAllByTestId('AccordionItem')[0]).toHaveClass('default');
-		expect(getAllByTestId('AccordionItem')[1]).toHaveClass('default');
+		expect(getAllByTestId('AccordionItem')[0]).toHaveClass('inherit');
+		expect(getAllByTestId('AccordionItem')[1]).toHaveClass('inherit');
 		expect(getAllByTestId('AccordionItem')[0]).not.toHaveClass('primary');
 		expect(getAllByTestId('AccordionItem')[1]).not.toHaveClass('primary');
 		component.$$set({ color: 'primary' });
 		await tick();
-		expect(getAllByTestId('AccordionItem')[0]).not.toHaveClass('default');
-		expect(getAllByTestId('AccordionItem')[1]).not.toHaveClass('default');
+		expect(getAllByTestId('AccordionItem')[0]).not.toHaveClass('inherit');
+		expect(getAllByTestId('AccordionItem')[1]).not.toHaveClass('inherit');
 		expect(getAllByTestId('AccordionItem')[0]).toHaveClass('primary');
 		expect(getAllByTestId('AccordionItem')[1]).toHaveClass('primary');
 		component.$$set({ color: 'danger' });
 		await tick();
-		expect(getAllByTestId('AccordionItem')[0]).not.toHaveClass('default');
-		expect(getAllByTestId('AccordionItem')[1]).not.toHaveClass('default');
+		expect(getAllByTestId('AccordionItem')[0]).not.toHaveClass('inherit');
+		expect(getAllByTestId('AccordionItem')[1]).not.toHaveClass('inherit');
 		expect(getAllByTestId('AccordionItem')[0]).not.toHaveClass('primary');
 		expect(getAllByTestId('AccordionItem')[1]).not.toHaveClass('primary');
 		expect(getAllByTestId('AccordionItem')[0]).toHaveClass('danger');

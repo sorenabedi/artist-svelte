@@ -24,7 +24,16 @@
 		color: {
 			control: {
 				type: 'select',
-				options: ['primary', 'secondary', 'warning', 'danger', 'success', 'default', 'info']
+				options: [
+					'inherit',
+					'primary',
+					'secondary',
+					'warning',
+					'danger',
+					'success',
+					'default',
+					'info'
+				]
 			},
 			defaultValue: 'default'
 		},

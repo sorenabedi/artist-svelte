@@ -8,9 +8,14 @@
 
 <Paper shadow>
 	<Accordion>
-		<AccordionItem color="default" title="Default">
+		<AccordionItem color="default">
 			<svelte:fragment slot="icon">
 				<SVGIcon data={more} />
+			</svelte:fragment>
+			<svelte:fragment slot="title">Default</svelte:fragment>
+			<svelte:fragment slot="description">
+				Default desc Default desc Default desc Default desc Default desc Default desc Default desc
+				Default desc
 			</svelte:fragment>
 			Content default
 		</AccordionItem>
