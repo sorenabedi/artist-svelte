@@ -5,7 +5,7 @@
 	const testID = process.env.NODE_ENV === 'test' ? 'Link' : /* istanbul ignore next */ undefined;
 
 	export let active = false;
-	export let rel: AnchorRelProp | undefined = undefined;
+	export let rel: AnchorRelProp | string | undefined = undefined;
 	export let target: AnchorTargetProp = '_parent';
 	export let color: ColorProp = 'default';
 	export let useAction: useAction = () => ({});
