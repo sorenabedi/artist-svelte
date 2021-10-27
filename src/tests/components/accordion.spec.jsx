@@ -99,4 +99,33 @@ describe('AccordionItem component test suite', () => {
 		expect(getAllByTestId('AccordionItem')[0].querySelector('button')).toHaveAttribute('disabled');
 		expect(getAllByTestId('AccordionItem')[1].querySelector('button')).toHaveAttribute('disabled');
 	});
+
+	it('testing interactive compact prop change', async () => {
+		const { getByTestId, getAllByTestId, component } = render(Accordion);
+		expect(getByTestId('Accordion')).toBeTruthy();
+		expect(getAllByTestId('AccordionItem')[0]).not.toHaveClass('compact');
+		expect(getAllByTestId('AccordionItem')[1]).not.toHaveClass('compact');
+		component.$$set({ compact: true });
+		await tick();
+		expect(getAllByTestId('AccordionItem')[0]).toHaveClass('compact');
+		expect(getAllByTestId('AccordionItem')[1]).toHaveClass('compact');
+		component.$$set({ compact: false });
+		await tick();
+		expect(getAllByTestId('AccordionItem')[0]).not.toHaveClass('compact');
+		expect(getAllByTestId('AccordionItem')[1]).not.toHaveClass('compact');
+	});
+	it('testing interactive simple prop change', async () => {
+		const { getByTestId, getAllByTestId, component } = render(Accordion);
+		expect(getByTestId('Accordion')).toBeTruthy();
+		expect(getAllByTestId('AccordionItem')[0]).not.toHaveClass('simple');
+		expect(getAllByTestId('AccordionItem')[1]).not.toHaveClass('simple');
+		component.$$set({ simple: true });
+		await tick();
+		expect(getAllByTestId('AccordionItem')[0]).toHaveClass('simple');
+		expect(getAllByTestId('AccordionItem')[1]).toHaveClass('simple');
+		component.$$set({ simple: false });
+		await tick();
+		expect(getAllByTestId('AccordionItem')[0]).not.toHaveClass('simple');
+		expect(getAllByTestId('AccordionItem')[1]).not.toHaveClass('simple');
+	});
 });

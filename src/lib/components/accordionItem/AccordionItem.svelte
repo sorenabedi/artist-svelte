@@ -15,6 +15,8 @@
 
 	export let id = `a-${nanoid(5)}`;
 	export let expanded = false;
+	export let compact = false;
+	export let simple = false;
 	export let disabled = false;
 	export let color: ColorProp | 'inherit' = 'inherit';
 	export let variant: VariantProp = 'outline';
@@ -29,6 +31,8 @@
 <div
 	class={clsx(color, variant, 'accordionItem')}
 	class:expanded
+	class:compact
+	class:simple
 	use:accordionItemAction={accordionContext}
 	data-accordion-item
 	data-testid={testID}

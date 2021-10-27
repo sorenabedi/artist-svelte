@@ -80,12 +80,51 @@ $description-fontSize: 0.8rem;
 				transition: transform 0.3s, color 0.3s;
 			}
 		}
+
 		> .content {
 			box-sizing: border-box;
 			padding: $base-paddingY $base-paddingX;
 			position: relative;
 			margin: $base-marginY $base-marginX;
 			transition: color 0.3s;
+		}
+		&.compact {
+			border-width: $base-borderWidth * 0.5;
+			> .toggler {
+				padding: 0;
+				.labelContainer {
+					padding: 0;
+					.label {
+						transform: scale(0);
+						display: none;
+						transition: transform 0.3s, display 0.3s;
+					}
+					.icon {
+						margin: $base-marginY 0;
+						margin-inline-start: $base-marginY;
+						font-size: $base-fontSize * 0.8;
+					}
+				}
+				> .chevron {
+					margin: 0;
+					transform: scale(0.8);
+				}
+			}
+			&.expanded {
+				> .toggler {
+					> .chevron {
+						transform: scale(0.8) rotate(180deg);
+					}
+				}
+			}
+
+			> .content {
+				box-sizing: border-box;
+				padding: 0;
+				position: relative;
+				margin: $base-marginY 0;
+				transition: color 0.3s;
+			}
 		}
 	}
 }
