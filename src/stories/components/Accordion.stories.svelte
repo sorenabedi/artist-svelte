@@ -40,6 +40,14 @@
 		variant: {
 			control: { type: 'select', options: ['fill', 'outline', 'gradient'] }
 		},
+		simple: {
+			control: { type: 'boolean' },
+			defaultValue: false
+		},
+		compact: {
+			control: { type: 'boolean' },
+			defaultValue: false
+		},
 		multiSelectable: {
 			control: { type: 'boolean' },
 			defaultValue: false
