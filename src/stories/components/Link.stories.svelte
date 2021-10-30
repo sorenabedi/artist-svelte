@@ -32,6 +32,10 @@
 			control: { type: 'boolean' },
 			defaultValue: false
 		},
+		truncate: {
+			control: { type: 'boolean' },
+			defaultValue: false
+		},
 		onClick: { action: 'clicked' },
 		onChange: { action: 'changed' },
 		onDblClick: { action: 'dblclicked' },

@@ -46,6 +46,16 @@ describe('Link component test suite', () => {
 		await tick();
 		expect(getByTestId('Link')).toHaveAttribute('target', '_blank');
 	});
+	it('testing interactive truncate prop change', async () => {
+		const { getByTestId, component } = render(Link, { href: '#unitTest' });
+		expect(getByTestId('Link')).not.toHaveClass('truncate');
+		component.$$set({ truncate: true });
+		await tick();
+		expect(getByTestId('Link')).toHaveClass('truncate');
+		component.$$set({ truncate: false });
+		await tick();
+		expect(getByTestId('Link')).not.toHaveClass('truncate');
+	});
 	it('testing interactive href prop change', async () => {
 		const { getByTestId, component } = render(Link, { href: '#unitTest' });
 		expect(getByTestId('Link')).toHaveAttribute('href', '#unitTest');

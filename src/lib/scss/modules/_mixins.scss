@@ -179,8 +179,10 @@
 	}
 }
 
-@mixin truncate($truncation-boundary) {
-	max-width: $truncation-boundary;
+@mixin truncate($truncation-boundary: null) {
+	@if variable-exists(truncation-boundary) {
+		max-width: $truncation-boundary;
+	}
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;

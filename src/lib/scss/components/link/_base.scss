@@ -101,5 +101,11 @@ $base-paddingY: 0;
 				transform: translate3d(0, -2px, 0);
 			}
 		}
+		&.truncate {
+			@include truncate(100%);
+			& > span {
+				@include truncate;
+			}
+		}
 	}
 }
