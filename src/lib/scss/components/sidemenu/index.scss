@@ -1,0 +1,14 @@
+@import '../../modules/default';
+@import './base';
+@import './fill';
+// @import './outline';
+
+@include bundle-partial('Sidemenu') {
+	@include Sidemenu-base;
+	// @include bundle-partial('Sidemenu', 'outline') {
+	// 	@include Sidemenu-outline;
+	// }
+	@include bundle-partial('Sidemenu', 'fill') {
+		@include Sidemenu-fill;
+	}
+}

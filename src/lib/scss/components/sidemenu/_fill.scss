@@ -1,0 +1,40 @@
+@mixin Sidemenu-fill {
+	&.fill {
+		background-color: hsl(var(--base) / 100%);
+		color: hsl(var(--base-font) / 100%);
+
+		:global {
+			> .accordion {
+				.accordionItem {
+					> .toggler {
+						.title {
+							color: hsl(var(--base-font) / 100%) !important;
+						}
+					}
+				}
+			}
+		}
+		&.inherit {
+			background-color: hsl(var(--bg-color) / 100%);
+			color: hsl(var(--fg-color) / 100%);
+			:global {
+				.accordionItem:not(.expanded) {
+					> .toggler {
+						.title {
+							color: hsl(var(--fg-color) / 100%) !important;
+						}
+					}
+				}
+				> .accordion {
+					.accordionItem.outline {
+						> .toggler {
+							.title {
+								color: hsl(var(--fg-color) / 100%) !important;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
