@@ -35,6 +35,7 @@
 	<a href="/navbar">navbar</a>
 	<a href="/link">link</a>
 	<a href="/dropdown">dropdown</a>
+	<a href="/sidemenu">sidemenu</a>
 </nav>
 <slot />
 
