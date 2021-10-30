@@ -8,6 +8,94 @@
 
 <Paper shadow>
 	<Accordion>
+		<AccordionItem color="inherit" simple>
+			<svelte:fragment slot="icon">
+				<SVGIcon data={more} />
+			</svelte:fragment>
+			<svelte:fragment slot="title">Default</svelte:fragment>
+			<svelte:fragment slot="description">
+				Default desc Default desc Default desc Default desc Default desc Default desc Default desc
+				Default desc
+			</svelte:fragment>
+			Content default
+		</AccordionItem>
+		<AccordionItem color="default" simple>
+			<svelte:fragment slot="icon">
+				<SVGIcon data={more} />
+			</svelte:fragment>
+			<svelte:fragment slot="title">Default</svelte:fragment>
+			<svelte:fragment slot="description">
+				Default desc Default desc Default desc Default desc Default desc Default desc Default desc
+				Default desc
+			</svelte:fragment>
+			Content default
+		</AccordionItem>
+		<AccordionItem color="primary" simple>
+			<svelte:fragment slot="icon">
+				<SVGIcon data={more} />
+			</svelte:fragment>
+			<svelte:fragment slot="title">Default</svelte:fragment>
+			<svelte:fragment slot="description">
+				Default desc Default desc Default desc Default desc Default desc Default desc Default desc
+				Default desc
+			</svelte:fragment>
+			Content default
+		</AccordionItem>
+		<AccordionItem color="secondary" simple>
+			<svelte:fragment slot="icon">
+				<SVGIcon data={more} />
+			</svelte:fragment>
+			<svelte:fragment slot="title">Default</svelte:fragment>
+			<svelte:fragment slot="description">
+				Default desc Default desc Default desc Default desc Default desc Default desc Default desc
+				Default desc
+			</svelte:fragment>
+			Content default
+		</AccordionItem>
+		<AccordionItem color="success" simple>
+			<svelte:fragment slot="icon">
+				<SVGIcon data={more} />
+			</svelte:fragment>
+			<svelte:fragment slot="title">Default</svelte:fragment>
+			<svelte:fragment slot="description">
+				Default desc Default desc Default desc Default desc Default desc Default desc Default desc
+				Default desc
+			</svelte:fragment>
+			Content default
+		</AccordionItem>
+		<AccordionItem color="warning" simple>
+			<svelte:fragment slot="icon">
+				<SVGIcon data={more} />
+			</svelte:fragment>
+			<svelte:fragment slot="title">Default</svelte:fragment>
+			<svelte:fragment slot="description">
+				Default desc Default desc Default desc Default desc Default desc Default desc Default desc
+				Default desc
+			</svelte:fragment>
+			Content default
+		</AccordionItem>
+		<AccordionItem color="danger" simple>
+			<svelte:fragment slot="icon">
+				<SVGIcon data={more} />
+			</svelte:fragment>
+			<svelte:fragment slot="title">Default</svelte:fragment>
+			<svelte:fragment slot="description">
+				Default desc Default desc Default desc Default desc Default desc Default desc Default desc
+				Default desc
+			</svelte:fragment>
+			Content default
+		</AccordionItem>
+		<AccordionItem color="info" simple>
+			<svelte:fragment slot="icon">
+				<SVGIcon data={more} />
+			</svelte:fragment>
+			<svelte:fragment slot="title">Default</svelte:fragment>
+			<svelte:fragment slot="description">
+				Default desc Default desc Default desc Default desc Default desc Default desc Default desc
+				Default desc
+			</svelte:fragment>
+			Content default
+		</AccordionItem>
 		<AccordionItem color="default">
 			<svelte:fragment slot="icon">
 				<SVGIcon data={more} />

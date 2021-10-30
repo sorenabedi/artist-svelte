@@ -24,14 +24,14 @@ $description-fontSize: 0.8rem;
 			border-top-width: 0;
 			border-bottom-width: 0;
 			border-inline-end-width: 0;
-			> .content {
-				padding: 0;
-				// 	border-width: $base-borderWidth;
-				// 	border-style: solid;
-				// 	border-color: transparent;
-				// 	padding-inline-start: $base-paddingX;
-				// 	border-inline-start-color: hsl(var(--base) / 100%);
-			}
+			// > .content {
+			//  padding: 0;
+			// 	border-width: $base-borderWidth;
+			// 	border-style: solid;
+			// 	border-color: transparent;
+			// 	padding-inline-start: $base-paddingX;
+			// 	border-inline-start-color: hsl(var(--base) / 100%);
+			// }
 		}
 		&.expanded {
 			border-color: hsl(var(--base) / 40%);
