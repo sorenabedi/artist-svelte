@@ -5,6 +5,7 @@
 	const testID = process.env.NODE_ENV === 'test' ? 'Link' : /* istanbul ignore next */ undefined;
 
 	export let active = false;
+	export let truncate = false;
 	export let rel: AnchorRelProp | string | undefined = undefined;
 	export let target: AnchorTargetProp = '_parent';
 	export let color: ColorProp = 'default';
@@ -20,6 +21,7 @@
 	{target}
 	class={clsx(color, 'link', className)}
 	class:active
+	class:truncate
 	on:click
 	on:dblclick
 	on:mouseenter
