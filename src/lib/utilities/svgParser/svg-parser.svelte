@@ -24,7 +24,7 @@
 	}
 
 	function extractViewBox(svg: string) {
-		const regex = /viewBox="([\d ]+)"/;
+		const regex = /viewBox="([-?\d ]+)"/;
 		const res = regex.exec(svg);
 		if (!res) return '0 0 20 20'; // default value
 		return res[1];
