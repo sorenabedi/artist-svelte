@@ -7,7 +7,7 @@
 	export let active = false;
 	export let truncate = false;
 	export let rel: AnchorRelProp | string | undefined = undefined;
-	export let target: AnchorTargetProp = '_parent';
+	export let target: AnchorTargetProp | undefined = undefined;
 	export let color: ColorProp = 'default';
 	export let useAction: useAction = () => ({});
 	export let href: string;

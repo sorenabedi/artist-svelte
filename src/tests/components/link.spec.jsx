@@ -38,7 +38,7 @@ describe('Link component test suite', () => {
 	});
 	it('testing interactive target prop change', async () => {
 		const { getByTestId, component } = render(Link, { href: '#unitTest' });
-		expect(getByTestId('Link')).toHaveAttribute('target', '_parent');
+		expect(getByTestId('Link')).not.toHaveAttribute('target');
 		component.$$set({ target: '_top' });
 		await tick();
 		expect(getByTestId('Link')).toHaveAttribute('target', '_top');
