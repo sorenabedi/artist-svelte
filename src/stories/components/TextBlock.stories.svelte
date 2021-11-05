@@ -1,13 +1,13 @@
 <script>
 	import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
-	import Title from '$lib/components/title';
+	import TextBlock from '$lib/components/textBlock';
 </script>
 
 <Meta
-	title="Components/Title"
-	component={Title}
+	title="Components/TextBlock"
+	component={TextBlock}
 	argTypes={{
-		slot: { control: 'text', defaultValue: 'custom Title' },
+		slot: { control: 'text', defaultValue: 'custom TextBlock' },
 		color: {
 			control: {
 				type: 'select',
@@ -15,14 +15,24 @@
 			},
 			defaultValue: 'default'
 		},
-		headingType: {
+		elementType: {
 			control: {
 				type: 'radio',
-				options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span', 'i', 'em', 'strong']
+				options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span', 'i', 'em', 'strong', 'p']
+			}
+		},
+		textStyle: {
+			control: {
+				type: 'radio',
+				options: ['uppercase', 'lowercase', 'capitalize', undefined]
 			}
 		},
 
 		muted: {
+			control: { type: 'boolean' },
+			defaultValue: false
+		},
+		truncate: {
 			control: { type: 'boolean' },
 			defaultValue: false
 		},
@@ -34,7 +44,7 @@
 />
 
 <Template let:args>
-	<Title
+	<TextBlock
 		{...args}
 		on:click={args.onClick}
 		on:change={args.onChange}
@@ -42,7 +52,7 @@
 		on:input={args.onInput}
 	>
 		{args.slot}
-	</Title>
+	</TextBlock>
 </Template>
 
 <Story

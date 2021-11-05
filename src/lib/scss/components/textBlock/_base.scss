@@ -5,17 +5,26 @@ $base-paddingX: $paddingX;
 $base-paddingY: $paddingY;
 $base-fontSize: 0.9rem;
 
-@mixin Title-base {
+@mixin TextBlock-base {
 	& {
 		padding: $base-paddingY $base-paddingX;
 		color: hsl(var(--base));
-		text-transform: uppercase;
 		margin: $base-marginY $base-marginX;
 		margin-bottom: math.div($base-marginY, 3);
-		font-size: $base-fontSize;
-		@include truncate(calc(100% - 2rem));
+		&.truncate {
+			@include truncate(calc(100% - 2rem));
+		}
 		&.muted {
 			color: hsl(var(--base) / 50%);
+		}
+		&.uppercase {
+			text-transform: uppercase;
+		}
+		&.capitalize {
+			text-transform: capitalize;
+		}
+		&.lowercase {
+			text-transform: lowercase;
 		}
 	}
 }

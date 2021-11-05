@@ -5,7 +5,7 @@
 	import rtlHook from '../../utilities/hook/rtl';
 	import componentRtlSetup from '../../utilities/hook/rtl/internal-component-rtl';
 	import Badge from '../badge';
-	import Title from '../title';
+	import TextBlock from '../textBlock';
 	import Paper from '../paper';
 
 	const testID = process.env.NODE_ENV === 'test' ? 'Card' : /* istanbul ignore next */ undefined;
@@ -22,7 +22,7 @@
 <div class={clsx('cardContainer', className)} data-testid={testID} use:useAction>
 	{#if $$slots.title}
 		<div class:rtl={componentRtlSetup(rtl, $isEnabled)} class={clsx('cardHeader')}>
-			<Title {color} {variant}><slot name="title" /></Title>
+			<TextBlock {color} {variant}><slot name="title" /></TextBlock>
 			{#if $$slots.notification}
 				<Badge {color} {variant}><slot name="notification" /></Badge>
 			{/if}
