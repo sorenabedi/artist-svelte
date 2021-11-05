@@ -69,9 +69,7 @@
 	use:useAction
 	use:stickyAction={$scrollPosition}
 >
-	<div class="content">
-		<slot />
-	</div>
+	<slot />
 </div>
 
 <style lang="scss">
