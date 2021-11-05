@@ -8,7 +8,7 @@ describe('Title component test suite', () => {
 	});
 	it('testing default classes', async () => {
 		const { getByTestId } = render(Title);
-		expect(getByTestId('Title')).toHaveClass('outline', 'default', 'title');
+		expect(getByTestId('Title')).toHaveClass('default', 'title');
 	});
 	it('testing interactive color change', async () => {
 		const { getByTestId, component } = render(Title);
@@ -21,18 +21,6 @@ describe('Title component test suite', () => {
 		await tick();
 		expect(getByTestId('Title')).toHaveClass('danger');
 	});
-	it('testing interactive variant change', async () => {
-		const { getByTestId, component } = render(Title);
-		expect(getByTestId('Title')).toHaveClass('outline');
-		expect(getByTestId('Title')).not.toHaveClass('fill');
-		component.$$set({ variant: 'fill' });
-		await tick();
-		expect(getByTestId('Title')).toHaveClass('fill');
-		component.$$set({ variant: 'gradient' });
-		await tick();
-		expect(getByTestId('Title')).toHaveClass('gradient');
-	});
-
 	it('testing custom classes', async () => {
 		const { getByTestId } = render(Title, { props: { class: 'testClass23 testing58' } });
 		expect(getByTestId('Title')).toHaveClass('title', 'testClass23', 'testing58');
