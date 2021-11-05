@@ -5,7 +5,7 @@
 	import AccordionItem from '$lib/components/accordionItem';
 	import Button from '$lib/components/button';
 	import { SvgParser } from '$lib/utilities';
-	import more from '$lib/svg/icons/more';
+	import moreIcon from '$lib/svg/more-icon';
 </script>
 
 <Meta
@@ -79,42 +79,42 @@
 		<Accordion>
 			<AccordionItem color="default" title="Default">
 				<svelte:fragment slot="icon">
-					<SvgParser data={more} />
+					<SvgParser data={moreIcon} />
 				</svelte:fragment>
 				Content default
 			</AccordionItem>
 			<AccordionItem variant="outline" color="primary" title="Primary">
 				<svelte:fragment slot="icon">
-					<SvgParser data={more} />
+					<SvgParser data={moreIcon} />
 				</svelte:fragment>
 			</AccordionItem>
 			<AccordionItem color="secondary" title="Secondary">
 				<svelte:fragment slot="icon">
-					<SvgParser data={more} />
+					<SvgParser data={moreIcon} />
 				</svelte:fragment>
 				Content secondary
 			</AccordionItem>
 			<AccordionItem color="warning" title="Warning">
 				<svelte:fragment slot="icon">
-					<SvgParser data={more} />
+					<SvgParser data={moreIcon} />
 				</svelte:fragment>
 				Content warning
 			</AccordionItem>
 			<AccordionItem color="danger" title="Danger">
 				<svelte:fragment slot="icon">
-					<SvgParser data={more} />
+					<SvgParser data={moreIcon} />
 				</svelte:fragment>
 				Content danger
 			</AccordionItem>
 			<AccordionItem color="success" title="Success">
 				<svelte:fragment slot="icon">
-					<SvgParser data={more} />
+					<SvgParser data={moreIcon} />
 				</svelte:fragment>
 				Content success
 			</AccordionItem>
 			<AccordionItem color="info" title="Info">
 				<svelte:fragment slot="icon">
-					<SvgParser data={more} />
+					<SvgParser data={moreIcon} />
 				</svelte:fragment>
 				Content info
 			</AccordionItem>

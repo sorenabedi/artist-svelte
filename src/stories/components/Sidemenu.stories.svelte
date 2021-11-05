@@ -4,10 +4,10 @@
 	import Accordion from '$lib/components/accordion';
 	import AccordionItem from '$lib/components/accordionItem';
 	import booleanify from '$lib/utilities/helper/booleanify';
-	import more from '$lib/svg/icons/more';
+	import moreIcon from '$lib/svg/more-icon';
+	import closeIcon from '$lib/svg/close-icon';
 	import SvgParser from '$lib/utilities/svgParser/svg-parser.svelte';
 	import Link from '$lib/components/link/Link.svelte';
-	import close from '$lib/svg/icons/close';
 </script>
 
 <Meta
@@ -85,7 +85,7 @@
 			<Accordion>
 				<AccordionItem simple compact={booleanify(args.compact)} color="inherit" title="Danger">
 					<svelte:fragment slot="icon">
-						<SvgParser data={more} />
+						<SvgParser data={moreIcon} />
 					</svelte:fragment>
 					Content danger
 				</AccordionItem>
@@ -97,13 +97,13 @@
 					title="Success"
 				>
 					<svelte:fragment slot="icon">
-						<SvgParser data={close} />
+						<SvgParser data={closeIcon} />
 					</svelte:fragment>
 					<svelte:fragment slot="title">some item</svelte:fragment>
 					<Accordion multiSelectable>
 						<AccordionItem simple compact={booleanify(args.compact)} color="danger" title="Danger">
 							<svelte:fragment slot="icon">
-								<SvgParser data={more} />
+								<SvgParser data={moreIcon} />
 							</svelte:fragment>
 							<Link color="primary" href="#!">some link</Link>
 						</AccordionItem>
@@ -115,7 +115,7 @@
 							title="Success"
 						>
 							<svelte:fragment slot="icon">
-								<SvgParser data={close} />
+								<SvgParser data={closeIcon} />
 							</svelte:fragment>
 							Content success
 						</AccordionItem>
@@ -127,7 +127,7 @@
 							title="Success"
 						>
 							<svelte:fragment slot="icon">
-								<SvgParser data={close} />
+								<SvgParser data={closeIcon} />
 							</svelte:fragment>
 							Content success
 						</AccordionItem>
@@ -141,7 +141,7 @@
 					title="Success"
 				>
 					<svelte:fragment slot="icon">
-						<SvgParser data={close} />
+						<SvgParser data={closeIcon} />
 					</svelte:fragment>
 					Content success
 				</AccordionItem>
