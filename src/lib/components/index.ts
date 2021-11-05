@@ -4,7 +4,7 @@ export { default as AvatarStack } from './avatarStack';
 export { default as Badge } from './badge';
 export { default as Button } from './button';
 export { default as Card } from './card';
-export { default as Title } from './title';
+export { default as TextBlock } from './textBlock';
 export { default as Checkbox } from './checkbox';
 export { default as Radio } from './radio';
 export { default as Switch } from './switch';
