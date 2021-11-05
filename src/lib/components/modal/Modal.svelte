@@ -13,7 +13,7 @@
 	import booleanStore from '../../store/boolean';
 	import { modalInit } from './internal-functions';
 	import SvgParser from '../../utilities/svgParser';
-	import CloseSVG from '../../svg/icons/close';
+	import closeIcon from '../../svg/close-icon';
 	import Backdrop from '../backdrop';
 	const testID = process.env.NODE_ENV === 'test' ? 'Modal' : /* istanbul ignore next */ undefined;
 
@@ -63,7 +63,7 @@
 			{#if !noCloseBtn}
 				<div class="danger close">
 					<button on:click={close}>
-						<SvgParser data={CloseSVG} />
+						<SvgParser data={closeIcon} />
 					</button>
 				</div>
 			{/if}

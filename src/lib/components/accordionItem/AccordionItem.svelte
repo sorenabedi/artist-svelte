@@ -9,7 +9,7 @@
 		scrollIntoView
 	} from './internal-functions';
 	import SvgParser from '../../utilities/svgParser';
-	import chevronDown from '../../svg/icons/chevron-down';
+	import chevronDownIcon from '../../svg/chevron-down-icon';
 	const testID =
 		process.env.NODE_ENV === 'test' ? 'AccordionItem' : /* istanbul ignore next */ undefined;
 
@@ -72,7 +72,7 @@
 			</span>
 		</span>
 		<span class="chevron">
-			<SvgParser data={chevronDown} />
+			<SvgParser data={chevronDownIcon} />
 		</span>
 	</button>
 	{#key expanded}
