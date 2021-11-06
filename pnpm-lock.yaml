@@ -18,6 +18,7 @@ specifiers:
   '@testing-library/jest-dom': ^5.14.1
   '@testing-library/svelte': ^3.0.3
   '@types/jest': ^27.0.2
+  '@types/prismjs': ^1.16.6
   '@typescript-eslint/eslint-plugin': ^4.33.0
   '@typescript-eslint/parser': ^4.33.0
   clsx: ^1.1.1
@@ -34,6 +35,8 @@ specifiers:
   nanoid: ^3.1.30
   prettier: ^2.4.1
   prettier-plugin-svelte: ^2.4.0
+  prism-themes: ^1.9.0
+  prismjs: ^1.25.0
   replace-in-file: ^6.3.2
   sass: ^1.43.3
   sass-loader: ^10
@@ -53,6 +56,7 @@ specifiers:
 
 dependencies:
   clsx: 1.1.1
+  prismjs: 1.25.0
   sass: 1.43.3
 
 devDependencies:
@@ -73,6 +77,7 @@ devDependencies:
   '@testing-library/jest-dom': 5.14.1
   '@testing-library/svelte': 3.0.3_svelte@3.44.0
   '@types/jest': 27.0.2
+  '@types/prismjs': 1.16.6
   '@typescript-eslint/eslint-plugin': 4.33.0_cc617358c89d3f38c52462f6d809db4c
   '@typescript-eslint/parser': 4.33.0_eslint@7.32.0+typescript@4.4.4
   css-loader: 5.2.7
@@ -88,6 +93,7 @@ devDependencies:
   nanoid: 3.1.30
   prettier: 2.4.1
   prettier-plugin-svelte: 2.4.0_prettier@2.4.1+svelte@3.44.0
+  prism-themes: 1.9.0
   replace-in-file: 6.3.2
   sass-loader: 10.2.0_sass@1.43.3
   string-replace-loader: 3.0.3
@@ -5072,6 +5078,13 @@ packages:
     resolution:
       {
         integrity: sha512-VjID5MJb1eGKthz2qUerWT8+R4b9N+CHvGCzg9fn4kWZgaF9AhdYikQio3R7wV8YY1NsQKPaCwKz1Yff+aHNUQ==
+      }
+    dev: true
+
+  /@types/prismjs/1.16.6:
+    resolution:
+      {
+        integrity: sha512-dTvnamRITNqNkqhlBd235kZl3KfVJQQoT5jkXeiWSBK7i4/TLKBNLV0S1wOt8gy4E2TY722KLtdmv2xc6+Wevg==
       }
     dev: true
 
@@ -14109,12 +14122,18 @@ packages:
     engines: { node: '>= 0.8' }
     dev: true
 
+  /prism-themes/1.9.0:
+    resolution:
+      {
+        integrity: sha512-tX2AYsehKDw1EORwBps+WhBFKc2kxfoFpQAjxBndbZKr4fRmMkv47XN0BghC/K1qwodB1otbe4oF23vUTFDokw==
+      }
+    dev: true
+
   /prismjs/1.25.0:
     resolution:
       {
         integrity: sha512-WCjJHl1KEWbnkQom1+SzftbtXMKQoezOCYs5rECqMN+jP+apI7ftoflyqigqzopSO3hMhTEb0mFClA8lkolgEg==
       }
-    dev: true
 
   /process-nextick-args/2.0.1:
     resolution:
