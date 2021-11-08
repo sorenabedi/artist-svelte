@@ -9,7 +9,7 @@
 	},
 	"types": "index.d.ts",
 	"main": "index.js",
-	"description": "an opinionated UI framework for SvelteKit with theme support built-in",
+	"description": "an opinionated and clean UI framework for SvelteKit with theme support built-in",
 	"license": "GPL-3.0",
 	"keywords": [
 		"artist-ui",
@@ -99,7 +99,6 @@
 		"jest": "^27.3.1",
 		"jest-css-modules-transform": "^4.3.0",
 		"lint-staged": "^11.2.3",
-		"nanoid": "^3.1.30",
 		"prettier": "^2.4.1",
 		"prettier-plugin-svelte": "^2.4.0",
 		"prism-themes": "^1.9.0",
@@ -121,6 +120,7 @@
 	},
 	"dependencies": {
 		"clsx": "^1.1.1",
+		"nanoid": "^3.1.30",
 		"prismjs": "^1.25.0",
 		"sass": "^1.43.3"
 	}

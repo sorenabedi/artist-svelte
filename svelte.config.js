@@ -44,11 +44,13 @@ const handleEnvVariables = () => {
 		case ['pkg'].includes(process.env['NODE_ENV']):
 			return [
 				[/lang="scss"/g, 'SCSSSTYLEBLOCK'],
-				[/process\.env\['NODE_ENV'\]/g, (_, match) => `import.meta.env.mode`],
-				[/process\.env\.NODE_ENV/g, (_, match) => `import.meta.env.mode`],
-				[/process\.env\['(\w+)'\]/g, (_, match) => `import.meta.env.${match}`],
-				[/process\.env\.(\w+)/g, (_, match) => `import.meta.env.${match}`],
-				[/\/\* istanbul.* \*\//g, '']
+				// [/process\.env\['NODE_ENV'\]/g, (_, match) => `import.meta.env.mode`],
+				// [/process\.env\.NODE_ENV/g, (_, match) => `import.meta.env.mode`],
+				// [/process\.env\['(\w+)'\]/g, (_, match) => `import.meta.env.${match}`],
+				// [/process\.env\.(\w+)/g, (_, match) => `import.meta.env.${match}`],,
+				[/const testID.*\/\* istanbul ignore next \*\/ undefined;/gs, ''],
+				[/data-testid={testID}/g, ''],
+				[(/\/\* istanbul.* \*\//g, '')]
 			];
 		case ['test'].includes(process.env['NODE_ENV']):
 			return [

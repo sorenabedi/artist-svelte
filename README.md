@@ -1,8 +1,8 @@
 # Artist for Svelte
 
-## An SSR optimized UI framework for **SvelteKit**
+## An opinionated and clean UI framework for **SvelteKit** with theme support built-in
 
-### ⚠️🚧👷‍♂️⛑️ please note that this package is still in early development stages and APIs might or even will change in the future
+### ⚠️🚧👷‍♂️⛑️ please note that this package is still in early development stages and APIs might change in the future
 
 ---
 
@@ -49,7 +49,14 @@ npm install @sorens/artist-svelte clsx sass nanoid --save-dev
      	// Consult https://github.com/sveltejs/svelte-preprocess
      	// for more information about preprocessors
      	preprocess: preprocess({
-     		scss: {}
+     		scss: {},
+     		// required if using default sveltekit bundler (viteJs)
+     		replace: [
+     			[/process\.env\['NODE_ENV'\]/g, () => `import.meta.env.MODE`],
+     			[/process\.env\.NODE_ENV/g, () => `import.meta.env.MODE`],
+     			[/process\.env\['(\w+)'\]/g, (_, match) => `import.meta.env.${match}`],
+     			[/process\.env\.(\w+)/g, (_, match) => `import.meta.env.${match}`]
+     		]
      	})
      	// Other config params
      };
