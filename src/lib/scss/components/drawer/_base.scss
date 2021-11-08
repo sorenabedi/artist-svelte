@@ -38,6 +38,7 @@ $base-paddingY: $paddingY * 2;
 			border-width: $base-borderWidth;
 			border-style: solid;
 			border-color: transparent;
+			z-index: 10;
 			&.expanded {
 				transform: scale(1);
 			}
