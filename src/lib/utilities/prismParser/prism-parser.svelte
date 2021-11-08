@@ -4,8 +4,9 @@
 
 <script lang="ts">
 	import clsx from 'clsx';
-
 	import type { useAction } from '../../types/global';
+	import { browser } from '$app/env';
+	import { onMount } from 'svelte';
 
 	const testID =
 		process.env.NODE_ENV === 'test' ? 'PrismParser' : /* istanbul ignore next */ undefined;
@@ -19,6 +20,9 @@
 	$: {
 		parsedData = Prism?.highlight(data, Prism.languages[language], language);
 	}
+	onMount(() => {
+		if (browser && Prism) Prism.highlightAll();
+	});
 </script>
 
 {#if inline}
@@ -32,6 +36,7 @@
 		on:mouseover
 		on:focus
 		data-testid={testID}
+		{...$$restProps}
 	>
 		{@html parsedData}
 	</code>
@@ -45,7 +50,8 @@
 		on:mouseleave
 		on:mouseover
 		on:focus
-		data-testid={testID}>
+		data-testid={testID}
+		{...$$restProps}>
 	<code class={clsx(`language-${language}`)}>
 		{@html parsedData}
 	</code>
