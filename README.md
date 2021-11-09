@@ -54,8 +54,8 @@ npm install @sorens/artist-svelte clsx sass nanoid --save-dev
      		replace: [
      			[/process\.env\['NODE_ENV'\]/g, () => `import.meta.env.MODE`],
      			[/process\.env\.NODE_ENV/g, () => `import.meta.env.MODE`],
-     			[/process\.env\['(\w+)'\]/g, (_, match) => `import.meta.env.${match}`],
-     			[/process\.env\.(\w+)/g, (_, match) => `import.meta.env.${match}`]
+     			[/process\.env\['(\w+)'\]/g, (_, match) => JSON.stringify(process.env[match])],
+     			[/process\.env\.(\w+)/g, (_, match) => JSON.stringify(process.env[match])]
      		]
      	})
      	// Other config params
