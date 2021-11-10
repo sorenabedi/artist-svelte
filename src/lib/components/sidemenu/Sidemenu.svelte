@@ -3,7 +3,6 @@
 	import type { useAction } from '../../types/global';
 	import Backdrop from '../backdrop';
 	import clsx from 'clsx';
-	import { fly } from 'svelte/transition';
 	import rtlHook from '../../utilities/hook/rtl';
 	import componentRtlSetup from '../../utilities/hook/rtl/internal-component-rtl';
 
@@ -24,28 +23,27 @@
 	const { isEnabled } = rtlHook;
 </script>
 
-{#key expanded}
-	{#if overlay && fixed && expanded}
-		<Backdrop
-			{overlayBlur}
-			color={overlay && color !== 'inherit' ? color : 'transparent'}
-			on:click={() => (expanded = false)}
-		/>
-	{/if}
-	<div
-		class={clsx(color, variant, 'sidemenu', className)}
-		class:fixed
-		class:expanded
-		class:expandOnFocus={compact === 'expandOnFocus'}
-		class:compact
-		class:rtl={componentRtlSetup(rtl, $isEnabled)}
-		transition:fly|local={{ x: componentRtlSetup(rtl, $isEnabled) ? 100 : -100 }}
-		data-testid={testID}
-		use:useAction
-	>
+{#if overlay && fixed && expanded}
+	<Backdrop
+		{overlayBlur}
+		color={overlay && color !== 'inherit' ? color : 'transparent'}
+		on:click={() => (expanded = false)}
+	/>
+{/if}
+<div
+	class={clsx(color, variant, 'sidemenu', className)}
+	class:fixed
+	class:expanded
+	class:expandOnFocus={compact === 'expandOnFocus'}
+	class:compact
+	class:rtl={componentRtlSetup(rtl, $isEnabled)}
+	data-testid={testID}
+	use:useAction
+>
+	<div class="sidemenuContainer">
 		<slot isCompact={compact} />
 	</div>
-{/key}
+</div>
 
 <style lang="scss">
 	.sidemenu {

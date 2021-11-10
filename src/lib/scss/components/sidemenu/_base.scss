@@ -10,35 +10,40 @@ $base-paddingY: $paddingY * 2;
 	& {
 		position: sticky;
 		top: 0;
-		height: var(--height, 100vh);
 		width: 0;
 		max-height: 100vh;
 		box-sizing: border-box;
-		background-color: hsl(var(--bg-color) / 70%);
+		padding: none;
 		// backdrop-filter: blur(5px);
-		padding: $base-paddingY $base-paddingX;
-		border-radius: $base-borderRadius;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		flex-shrink: 0;
 		overflow-y: auto;
 		// transition: width 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-		transition: width 0.3s ease-out, background-color 0.3s, color 0.3s;
-		visibility: hidden;
+		transition: transform 0.3s ease-out, width 0.3s ease-out, background-color 0.3s, color 0.3s;
+		// visibility: hidden;
 		overflow-y: auto;
-		// overflow-x: hidden;
+		overflow-x: hidden;
+		flex-shrink: 0;
+		height: var(--height, 100%);
+		border-radius: $base-borderRadius;
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
-		margin-right: $base-marginX;
+		transform: translate(-10%, 0px) scale(0.9);
 		@include rtl-bundle('Sidemenu') {
 			&.rtl {
 				border-radius: $base-borderRadius;
-				margin-right: unset;
 				border-top-right-radius: 0;
 				border-bottom-right-radius: 0;
-				margin-left: $base-marginX;
+				transform: translate(10%, 0px) scale(0.9);
 			}
+		}
+
+		> .sidemenuContainer {
+			width: var(--width-expanded, 260px);
+			padding: $base-paddingY $base-paddingX;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			flex-shrink: 0;
+			box-sizing: border-box;
 		}
 		&.fixed {
 			position: fixed;
@@ -53,9 +58,21 @@ $base-paddingY: $paddingY * 2;
 		}
 		&.expanded {
 			width: var(--width-expanded, 260px);
-			visibility: initial;
+			// visibility: initial;
+			margin-right: $base-marginX;
+			transform: scale(1);
+			@include rtl-bundle('Sidemenu') {
+				&.rtl {
+					margin-right: unset;
+					margin-left: $base-marginX;
+				}
+			}
 			&.compact {
 				width: var(--width, 70px);
+				transform: scale(1);
+				> .sidemenuContainer {
+					width: var(--width, 70px);
+				}
 				&.expandOnFocus {
 					:global {
 						.accordionItem {
