@@ -1,0 +1,87 @@
+@use 'sass:math';
+$base-borderRadius: $borderRadius;
+$base-paddingX: $paddingX;
+// $base-paddingX: 0.1px;
+$base-paddingY: math.div($paddingY, 2);
+$base-paddingY: 0;
+$offset: 187;
+$duration: 1.4s;
+
+@mixin CircularProgress-base {
+	& {
+		border-radius: 100%;
+		outline-width: 1px;
+		outline-style: solid;
+		outline-color: transparent;
+		transition: outline 0.3s;
+		&.percentage {
+			stroke-dasharray: 0 999;
+			color: hsl(var(--base));
+			transform: rotate(-85deg);
+			> circle {
+				animation: colors ($duration * 1.7) ease-in-out infinite;
+			}
+			> text {
+				transform: rotate(85deg);
+				transform-origin: center;
+				font-weight: bold;
+				animation: colors ($duration * 1.7) ease-in-out infinite;
+				font-family: inherit;
+			}
+		}
+		&.spin {
+			animation: rotator $duration linear infinite;
+			> text {
+				animation: rotator $duration linear reverse infinite;
+				transform-origin: center;
+			}
+		}
+		&.loading {
+			> circle {
+				stroke-dasharray: $offset;
+				stroke-dashoffset: 0;
+				transform-origin: center;
+				animation: dash $duration ease-in-out infinite,
+					colors ($duration * 1.7) ease-in-out infinite;
+			}
+		}
+
+		@keyframes rotator {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+		@keyframes colors {
+			0% {
+				color: hsl(var(--base));
+			}
+			50% {
+				color: hsl(var(--dark));
+			}
+			100% {
+				color: hsl(var(--base));
+			}
+		}
+
+		@keyframes dash {
+			0% {
+				stroke-dashoffset: $offset;
+			}
+			50% {
+				stroke-dashoffset: $offset * 0.25;
+				transform: rotate(135deg);
+			}
+			100% {
+				stroke-dashoffset: $offset;
+				transform: rotate(360deg);
+			}
+		}
+
+		@include action-focus {
+			outline-color: hsl(var(--light) / 20%);
+		}
+	}
+}

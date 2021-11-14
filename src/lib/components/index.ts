@@ -19,3 +19,4 @@ export { default as Navbar } from './navbar';
 export { default as Link } from './link';
 export { default as Dropdown } from './dropdown';
 export { default as Sidemenu } from './sidemenu';
+export { default as CircularProgress } from './circularProgress';

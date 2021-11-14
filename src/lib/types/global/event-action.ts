@@ -1,5 +1,5 @@
-export type useAction = (
-	node?: HTMLElement,
+export type useAction<T = HTMLElement> = (
+	node?: T,
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	parameters?: any
 ) => {

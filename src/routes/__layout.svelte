@@ -36,6 +36,7 @@
 	<a href="/link">link</a>
 	<a href="/dropdown">dropdown</a>
 	<a href="/sidemenu">sidemenu</a>
+	<a href="/circularProgress">circularProgress</a>
 </nav>
 <slot />
 
