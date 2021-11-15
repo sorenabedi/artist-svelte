@@ -5,12 +5,12 @@ $base-borderRadius-leftSide: $base-borderRadius 0 0 $base-borderRadius;
 $base-borderWidth: $borderWidth;
 $base-verticalLineWidth: $borderWidth * 1.9;
 $base-marginX: $marginX * 5;
-$base-marginY: $marginY * 0.5;
+$base-marginY: $marginY * 2;
 $base-paddingX: $paddingX * 3.5;
 $base-paddingY: $paddingY * 2.5;
 $base-fontSize: 0.9rem;
 $text-marginX: 0.25rem;
-$icon-size: 0.8rem;
+$icon-size: 0.8em;
 $icon-marginX: 0.125rem;
 
 @mixin Alert-base {
@@ -26,12 +26,12 @@ $icon-marginX: 0.125rem;
 		display: flex;
 		align-items: center;
 		border-style: solid;
-		font-size: $base-fontSize;
+		// font-size: $base-fontSize;
 		justify-content: flex-start;
 		transition: background 0.25s, color 0.25s;
-		line-height: 1;
+		line-height: inherit;
 		overflow: hidden;
-		width: fit-content;
+		// width: fit-content;
 		&.shadow {
 			box-shadow: 0 4px 15px 0 hsla(var(--base) / 30%);
 		}
@@ -43,10 +43,9 @@ $icon-marginX: 0.125rem;
 			}
 		}
 		.title {
-			// display: flex;
-			// align-items: center;
 			font-size: $base-fontSize * 1.2;
-			margin: $base-marginY * 3 auto;
+			margin-block-start: $base-marginY;
+			margin-block-end: $base-marginY * 2;
 		}
 		span.icon {
 			display: inline-flex;
