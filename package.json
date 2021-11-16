@@ -50,7 +50,7 @@
 		"test:coverage": "npm run test -- --coverage",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-		"lint": "eslint --ignore-path .gitignore . --fix",
+		"lint": "eslint --ignore-path .eslintignore . --fix",
 		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
 		"storybook:dev": "start-storybook -s ./static -p 6006",
 		"storybook:build": "build-storybook -s ./static",
