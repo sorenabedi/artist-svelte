@@ -12,7 +12,7 @@ $base-paddingY: 0;
 		box-sizing: border-box;
 		cursor: pointer;
 		position: relative;
-		white-space: nowrap;
+		// white-space: nowrap;
 		color: hsl(var(--base));
 		border-radius: $base-borderRadius;
 		display: inline-flex;

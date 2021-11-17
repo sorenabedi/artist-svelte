@@ -1,10 +1,8 @@
 # Artist for Svelte
 
-## An opinionated and clean UI framework for **SvelteKit** with theme support built-in
+## An opinionated and clean UI framework for **SvelteKit**
 
 ### ⚠️🚧👷‍♂️⛑️ please note that this package is still in early development stages and APIs might change in the future
-
----
 
 [![license](https://img.shields.io/badge/license-GPLv3-blue)](https://github.com/sorenabedi/artist-svelte/blob/master/LICENSE)
 [![npm latest package](https://img.shields.io/npm/v/@sorens/artist-svelte.svg)](https://www.npmjs.com/package/@sorens/artist-svelte)
@@ -18,116 +16,154 @@
 [![publishing to NPM](https://github.com/sorenabedi/artist-svelte/actions/workflows/publish.yml/badge.svg)](https://github.com/sorenabedi/artist-svelte/actions/workflows/publish.yml)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsorenabedi%2Fartist-svelte.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsorenabedi%2Fartist-svelte?ref=badge_shield)
 
+<div align="center">
+
+[Website](https://artist-ui.sorenart.net) | [Documentation](https://artist-ui.sorenart.net/docs)
+
+</div>
+
+## Installation
+
 ---
 
-### Installation
-
-1. install package
-   - using [PNPM package manager](https://pnpm.io/installation) is **recommended**
+The easiest way to start with Artist UI is cloning our getting-started template via
+[degit](https://www.npmjs.com/package/degit) utility
 
 ```bash
-// PNPM
-pnpm i -D @sorens/artist-svelte clsx sass nanoid
+# create a new project in the current directory
+npx degit sorenabedi/artist-svelte/examples/getting-started
 
-// YARN
-yarn add -D @sorens/artist-svelte clsx sass nanoid
-
-// NPM
-npm install @sorens/artist-svelte clsx sass nanoid --save-dev
+# create a new project in my-app
+npx degit sorenabedi/artist-svelte/examples/getting-started my-app
 ```
 
-2. **SASS/SCSS** preprocessor setup<br/>
-   artist framework leverages the power of `scss` for building lightweight and robust styles, auto generating font colors from theme colors with sufficient contrast and lightness for better a11y-accessability.
+Once you've created a project and installed dependencies with `pnpm install` ( or `yarn install` or `npm` ), start a development server:
 
-   - create [svelte.config.js](https://kit.svelte.dev/docs#configuration) file in root directory of your project, if not already exists.
-   - make sure svelte-preprocess is configured e.g:
+```bash
+pnpm run dev
 
-     ```js
-     import preprocess from 'svelte-preprocess';
+# or start the server and open the app in a new browser tab
+pnpm run dev -- --open
+```
 
-     const config = {
-     	// Consult https://github.com/sveltejs/svelte-preprocess
-     	// for more information about preprocessors
-     	preprocess: preprocess({
-     		scss: {},
-     		// required if using default sveltekit bundler (viteJs)
-     		replace: [
-     			[/process\.env\['NODE_ENV'\]/g, () => `import.meta.env.MODE`],
-     			[/process\.env\.NODE_ENV/g, () => `import.meta.env.MODE`],
-     			[/process\.env\['(\w+)'\]/g, (_, match) => JSON.stringify(process.env[match])],
-     			[/process\.env\.(\w+)/g, (_, match) => JSON.stringify(process.env[match])]
-     		]
-     	})
-     	// Other config params
-     };
-     ```
+and rou are all set!
 
-   - for using default artist theme palette, you have to import `@sorens/artist-svelte/scss/GlobalStyles.scss` in layouts of your project. e.g:
+## Bootstrapping From Scratch
 
-     ```html
-     // example with default layout along with other global styles in `src/routes/__layout.svelte`
+---
 
-     <style lang="scss" global>
-     	@import '@sorens/artist-svelte/scss/GlobalStyles.scss';
-     	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
-     	html,
-     	body {
-     		margin: 0;
-     		padding: 0;
-     		background: var(--bg-color);
-     		font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
-     			Arial;
-     		* {
-     			box-sizing: border-box;
-     		}
-     	}
-     </style>
-     <slot />
-     ```
+Bootstrapping a project with Artist UI and svelteKit can be done in Four simple steps:
 
-3. **Static Build**
-   for having a static build (for deploying to serverless, gh-pages, etc.) setup.
+- **Step 1** - Installing SvelteKit
 
-   ⚠️ using **Artist-svelte** with regular svelteJs (not svelteKit) is **heavily discouraged**
+  > If you already have a SvelteKit project, then skip to **Step 2**. For more information about this step, please refer to the official SvelteKit [Documentation](https://kit.svelte.dev/docs#introduction-getting-started)
 
-   - install [@sveltejs/adapter-static](https://www.npmjs.com/package/@sveltejs/adapter-static/v/next) package
+  Initializing a fresh SvelteKit project :
 
-     ```bash
-     // Make sure to install version @^1.0.0-next.19
+  ```bash
+  npm init svelte@next aui-svelte
+  cd aui-svelte
+  pnpm install
+  pnpm run dev -- --open
+  ```
 
-     // PNPM
-     pnpm i -D @sveltejs/adapter-static@next
+- **Step 2** - Installing Artist UI
 
-     // YARN
-     yarn add -D @sveltejs/adapter-static@next
+  Installing the Artist UI package with the required dependencies:
 
-     // NPM
-     npm install  @sveltejs/adapter-static@next --save-dev
-     ```
+  ```bash
+  # PNPM (recommended)
+  pnpm add -D @sorens/artist-svelte clsx dotenv sass nanoid prismjs
 
-   - add the install adaptor to `svelte.config.js`
+  # YARN
+  yarn add -D @sorens/artist-svelte clsx dotenv sass nanoid prismjs
 
-     ```js
-     import preprocess from 'svelte-preprocess';
-     import staticAdapter from '@sveltejs/adapter-static';
+  # NPM
+  npm install @sorens/artist-svelte clsx dotenv sass nanoid prismjs --save-dev
+  ```
 
-     const config = {
-     	// Consult https://github.com/sveltejs/svelte-preprocess
-     	// for more information about preprocessors
-     	preprocess: preprocess({
-     		scss: {}
-     	}),
-     	kit: {
-     		adapter: staticAdapter()
-     		// Other kit config params
-     	}
-     	// Other config params
-     };
-     ```
+- **Step 3** - SvelteKit Configuration
 
-### Component Usage
+  > Since Artist UI intends to be compatible with Webpack, [dotenv](https://kit.svelte.dev/docs#introduction-getting-started) package is required for svelteKit's default bundler (ViteJs), as well as configuring the [svelte-preprocess](https://github.com/sveltejs/svelte-preprocess) to replace `process.env.*` and `process.env[*]` to prevent ViteJs from throwing errors.
 
-**artist** is fully typed and natively supports `typescript` so, simply add components
+  Create svelte.config.js file in root directory of your project (if not already exists) with the following structures.
+
+  ```javascript
+  / project_root/svelte.config.js
+  import preprocess from 'svelte-preprocess';
+  import dotEnv from 'dotenv';
+
+  dotEnv.config();
+
+  /** @type {import('@sveltejs/kit').Config} */
+  const config = {
+  // Consult https://github.com/sveltejs/svelte-preprocess
+  // for more information about preprocessors
+  preprocess: preprocess({
+  	sass: {},
+  	replace: [
+  		 [/process.env['NODE_ENV']/g, () => `"production"`],
+  		 [/"production"/g, () => `"production"`],
+  		 [/process.env['(w+)']/g, (_, match) => JSON.stringify(process.env[match])],
+  		 [/process.env.(w+)/g, (_, match) => JSON.stringify(process.env[match])]
+  	]
+  }),
+
+  kit: {
+  	// hydrate the <div id="svelte"> element in src/app.html
+  	target: '#svelte'
+  }
+  };
+
+  export default config;
+  ```
+
+- **Step 4** - Importing Styles
+
+  Create a `__layout.svelte` in `src/routes` folder (if not already exists) with a global style tag with **lang** attribute set to **scss**.
+
+  ```html
+  <!-- project_root/src/routes/__layout.svelte -->
+  <slot />
+
+  <style lang="scss" global>
+  	/* Artist UI global styles (required) */
+  	/* Normalize css styles in SCSS (optional) */
+  	@import '../../node_modules/@sorens/artist-svelte/scss/GlobalStyles.scss';
+  	@import '../../node_modules/@sorens/artist-svelte/scss/modules/normalize';
+
+  	/* Any other global styles that you might need, goes here. e.g: */
+  	html,
+  	body {
+  		margin: 0;
+  		padding: 0;
+  		font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+  			Arial, 'Noto Sans', 'Liberation Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+  			'Noto Color Emoji', Vazir;
+  	}
+  	html {
+  		background-color: hsl(var(--bg-color));
+  		color: hsl(var(--fg-color));
+  		transition: color 0.3s, background-color 0.3s;
+  	}
+  	::-webkit-scrollbar {
+  		width: 5px;
+  		height: 5px;
+  		display: block;
+  		background: hsl(var(--bg-color));
+  	}
+  	::-webkit-scrollbar-thumb {
+  		background: hsl(var(--fg-color));
+  		border-radius: 5px;
+  	}
+  </style>
+  ```
+
+## Component Usage
+
+---
+
+All components are exported directly from package root scope, e.g:
 
 ```html
 <script lang="ts">
@@ -138,17 +174,45 @@ npm install @sorens/artist-svelte clsx sass nanoid --save-dev
 <Checkbox color="danger" on:change="()=>console.log('changed')">some text</Checkbox>
 ```
 
-### SCSS @mixins and @functions Usage
+<!-- 3. **Static Build**
+   for having a static build (for deploying to serverless, gh-pages, etc.) setup.
 
-still in early stages ...
+⚠️ using **Artist-svelte** with regular svelteJs (not svelteKit) is **heavily discouraged**
 
-### theming Usage
+ - install [@sveltejs/adapter-static](https://www.npmjs.com/package/@sveltejs/adapter-static/v/next) package
 
-still in early stages ...
+  ```bash
+  // Make sure to install version @^1.0.0-next.19
 
-### SVG Icons Usage
+  // PNPM
+  pnpm i -D @sveltejs/adapter-static@next
 
-still in early stages ...
+  // YARN
+  yarn add -D @sveltejs/adapter-static@next
+
+  // NPM
+  npm install  @sveltejs/adapter-static@next --save-dev
+  ```
+
+- add the install adaptor to `svelte.config.js`
+
+  ```js
+  import preprocess from 'svelte-preprocess';
+  import staticAdapter from '@sveltejs/adapter-static';
+
+  const config = {
+  	// Consult https://github.com/sveltejs/svelte-preprocess
+  	// for more information about preprocessors
+  	preprocess: preprocess({
+  		scss: {}
+  	}),
+  	kit: {
+  		adapter: staticAdapter()
+  		// Other kit config params
+  	}
+  	// Other config params
+  };
+  ``` -->
 
 ## License
 
