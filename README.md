@@ -102,8 +102,8 @@ Bootstrapping a project with Artist UI and svelteKit can be done in Four simple 
   preprocess: preprocess({
   	sass: {},
   	replace: [
-  		 [/process.env['NODE_ENV']/g, () => `"production"`],
-  		 [/"production"/g, () => `"production"`],
+  		 [/process.env['NODE_ENV']/g, () => `import.meta.env.MODE`],
+  		 [/"process.env.NODE_ENV"/g, () => `import.meta.env.MODE`],
   		 [/process.env['(w+)']/g, (_, match) => JSON.stringify(process.env[match])],
   		 [/process.env.(w+)/g, (_, match) => JSON.stringify(process.env[match])]
   	]
