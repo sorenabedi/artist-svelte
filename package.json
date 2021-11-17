@@ -27,7 +27,7 @@
 		"type": "git",
 		"url": "https://github.com/sorenabedi/artist-svelte"
 	},
-	"homepage": "",
+	"homepage": "https://artist-ui.sorenart.net",
 	"bugs": {
 		"url": "https://github.com/sorenabedi/artist-svelte/issues"
 	},
