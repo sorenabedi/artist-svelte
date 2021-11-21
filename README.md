@@ -73,13 +73,13 @@ Bootstrapping a project with Artist UI and svelteKit can be done in Four simple 
 
   ```bash
   # PNPM (recommended)
-  pnpm add -D @sorens/artist-svelte clsx dotenv sass nanoid prismjs
+  pnpm add -D @sorens/artist-svelte dotenv
 
   # YARN
-  yarn add -D @sorens/artist-svelte clsx dotenv sass nanoid prismjs
+  yarn add -D @sorens/artist-svelte dotenv
 
   # NPM
-  npm install @sorens/artist-svelte clsx dotenv sass nanoid prismjs --save-dev
+  npm install @sorens/artist-svelte dotenv --save-dev
   ```
 
 - **Step 3** - SvelteKit Configuration
@@ -100,7 +100,6 @@ Bootstrapping a project with Artist UI and svelteKit can be done in Four simple 
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
   preprocess: preprocess({
-  	sass: {},
   	replace: [
   		 [/process.env['NODE_ENV']/g, () => `import.meta.env.MODE`],
   		 [/"process.env.NODE_ENV"/g, () => `import.meta.env.MODE`],
@@ -126,11 +125,11 @@ Bootstrapping a project with Artist UI and svelteKit can be done in Four simple 
   <!-- project_root/src/routes/__layout.svelte -->
   <slot />
 
-  <style lang="scss" global>
+  <style global>
   	/* Artist UI global styles (required) */
-  	/* Normalize css styles in SCSS (optional) */
-  	@import '../../node_modules/@sorens/artist-svelte/scss/GlobalStyles.scss';
-  	@import '../../node_modules/@sorens/artist-svelte/scss/modules/normalize';
+  	/* Normalize css (optional) */
+  	@import '../../node_modules/@sorens/artist-svelte/css/GlobalStyles.css';
+  	@import '../../node_modules/@sorens/artist-svelte/css/Normalize.css';
 
   	/* Any other global styles that you might need, goes here. e.g: */
   	html,
