@@ -3,11 +3,11 @@
 
 <slot />
 
-<style lang="scss" global>
+<style global>
 	/* Artist UI global styles (required) */
 	/* Normalize css styles in SCSS (optional) */
-	@import '../../node_modules/@sorens/artist-svelte/scss/GlobalStyles';
-	@import '../../node_modules/@sorens/artist-svelte/scss/modules/normalize';
+	@import '../../node_modules/@sorens/artist-svelte/css/GlobalStyles.css';
+	@import '../../node_modules/@sorens/artist-svelte/css/Normalize.css';
 
 	/* Any other global styles that you might need, goes here. e.g: */
 	html,
@@ -16,7 +16,7 @@
 		padding: 0;
 		font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
 			Arial, 'Noto Sans', 'Liberation Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-			'Segoe UI Symbol', 'Noto Color Emoji', Vazir;
+			'Segoe UI Symbol', 'Noto Color Emoji';
 	}
 	html {
 		background-color: hsl(var(--bg-color));

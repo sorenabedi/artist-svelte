@@ -11,7 +11,7 @@
 		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
 	},
 	"devDependencies": {
-		"@sorens/artist-svelte": "stable",
+		"@sorens/artist-svelte": "latest",
 		"@sveltejs/kit": "next",
 		"@types/prismjs": "^1.16.6",
 		"@typescript-eslint/eslint-plugin": "^4.31.1",
@@ -24,7 +24,6 @@
 		"prettier": "^2.4.1",
 		"prettier-plugin-svelte": "^2.4.0",
 		"prismjs": "^1.25.0",
-		"sass": "^1.43.4",
 		"svelte": "^3.42.6",
 		"svelte-check": "^2.2.6",
 		"svelte-preprocess": "^4.9.4",
