@@ -61,7 +61,7 @@
 	</div>
 </section>
 
-<style lang="scss">
+<style>
 	section {
 		text-align: center;
 		margin-block: 3rem;
@@ -76,18 +76,15 @@
 	.techs {
 		text-align: center;
 		width: 100%;
-		:global {
-			> a {
-				margin-block: 1.5rem;
-				margin-inline: 1.5rem;
-				display: flex;
-				justify-content: space-around;
-				align-items: center;
-
-				strong {
-					display: block;
-				}
-			}
-		}
+	}
+	.techs > :global(a) {
+		margin-block: 1.5rem;
+		margin-inline: 1.5rem;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+	}
+	.techs > :global(a strong) {
+		display: block;
 	}
 </style>
