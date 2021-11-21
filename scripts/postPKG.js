@@ -26,11 +26,15 @@ if (!fs.existsSync('./package/css')) {
 	fs.mkdirSync('./package/css');
 }
 
+const sassCompilerOptions = {
+	sourceMap: false,
+	outputStyle: 'compressed'
+};
+
 sass.render(
 	{
+		...sassCompilerOptions,
 		file: GlobalStylesSCSSFile,
-		sourceMap: false,
-		outputStyle: 'compressed',
 		outFile: GlobalStylesCSSFile
 	},
 	(error, result) => {
@@ -49,9 +53,8 @@ sass.render(
 );
 sass.render(
 	{
+		...sassCompilerOptions,
 		file: NormalizeSCSSFile,
-		sourceMap: false,
-		outputStyle: 'compressed',
 		outFile: NormalizeCSSFile
 	},
 	(error, result) => {
