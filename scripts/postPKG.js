@@ -1,4 +1,4 @@
-// import replace from 'replace-in-file';
+import replace from 'replace-in-file';
 import * as path from 'path';
 import * as fs from 'fs';
 import sass from 'sass';
@@ -39,9 +39,13 @@ sass.render(
 	},
 	(error, result) => {
 		if (!error) {
-			fs.writeFileSync(GlobalStylesCSSFile, result.css, function (err) {
-				if (err) console.log(`Error appeared while writing file "css/GlobalStyles.css".`);
-			});
+			fs.writeFileSync(
+				GlobalStylesCSSFile,
+				result.css.toString().replace(/:global /g, ''),
+				function (err) {
+					if (err) console.log(`Error appeared while writing file "css/GlobalStyles.css".`);
+				}
+			);
 			console.log(`SASS Compiler: GlobalStyles.scss converted successfully.`);
 		} else {
 			console.log(error.formatted);
