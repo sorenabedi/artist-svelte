@@ -12,7 +12,7 @@
 			variant="fill"
 			target="_blank"
 			rel="noopener"
-			href="https://artist-ui.sorenart.net/getting-started/installation"
+			href="https://artist-ui.pages.dev/getting-started/installation"
 		>
 			Getting started
 		</Button>
@@ -20,7 +20,7 @@
 			color="primary"
 			target="_blank"
 			rel="noopener"
-			href="https://artist-ui.sorenart.net/components"
+			href="https://artist-ui.pages.dev/components"
 		>
 			Components
 		</Button>
