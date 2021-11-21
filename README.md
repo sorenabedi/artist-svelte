@@ -18,7 +18,7 @@
 
 <div align="center">
 
-[Website](https://artist-ui.sorenart.net) | [Documentation](https://artist-ui.sorenart.net/docs)
+[Website](https://artist-ui.pages.dev) | [Documentation](https://artist-ui.pages.dev/docs)
 
 </div>
 

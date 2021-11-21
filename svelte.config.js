@@ -9,7 +9,7 @@ const packageExports = (filename) => {
 	switch (true) {
 		case /\.(stories|test|spec)\./.test(filename):
 		case /scss\/components\//.test(filename):
-			return true;
+			return false;
 		case /scss\/modules\//.test(filename):
 			return true;
 		case /^internal-/.test(basename(filename)):
@@ -27,7 +27,7 @@ const packageFiles = (filename) => {
 	switch (true) {
 		case /\.(stories|test|spec)\./.test(filename):
 		case /scss\/components\//.test(filename):
-			return true;
+			return false;
 		case /scss\/modules\//.test(filename):
 			return true;
 		case /^_/.test(basename(filename)):
@@ -43,7 +43,7 @@ const handleEnvVariables = () => {
 	switch (true) {
 		case ['pkg'].includes(process.env['NODE_ENV']):
 			return [
-				[/lang="scss"/g, 'SCSSSTYLEBLOCK'],
+				// [/lang="scss"/g, 'SCSSSTYLEBLOCK'],
 				[/data-testid={testID}/g, ''],
 				[/const testID.*\/\* istanbul ignore next \*\/ undefined;/gs, '']
 				// [(/\/\* istanbul.* \*\//g, '')]
