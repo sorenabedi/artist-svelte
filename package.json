@@ -120,7 +120,7 @@
 	},
 	"dependencies": {
 		"clsx": "^1.1.1",
-		"nanoid": "^3.1.30",
+		"nanoid": "^3.3.11",
 		"prismjs": "^1.25.0",
 		"sass": "^1.43.4"
 	}
